@@ -1,0 +1,180 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AccountType {
+  SON
+  FATHER
+}
+
+enum QuestionType {
+  MCQ
+  TRUE_FALSE
+  ARRANGE
+  FILL_BLANK
+  WHO_SAID_IT
+}
+
+enum GoalStatus {
+  ACTIVE
+  COMPLETED
+  EXPIRED
+}
+
+enum LinkStatus {
+  PENDING
+  ACCEPTED
+  DECLINED
+}
+
+model User {
+  id              String    @id @default(uuid())
+  displayName     String
+  username        String    @unique
+  passwordHash    String
+  accountType     AccountType
+  age             Int?
+  xp              Int       @default(0)
+  streak          Int       @default(0)
+  lastActiveDate  DateTime?
+  heartsRemaining Int       @default(5)
+  heartsLastRefill DateTime @default(now())
+  fcmToken        String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  linkedTo        UserLink[] @relation("linkedFrom")
+  linkedFrom      UserLink[] @relation("linkedTo")
+  stageProgress   StageProgress[]
+  goalsAsFather   Goal[]    @relation("fatherGoals")
+  goalsAsSon      Goal[]    @relation("sonGoals")
+  dailyChallenges DailyChallengeLog[]
+
+  @@index([username])
+  @@index([accountType])
+}
+
+model UserLink {
+  id        String     @id @default(uuid())
+  fromId    String
+  toId      String
+  status    LinkStatus @default(PENDING)
+  createdAt DateTime   @default(now())
+
+  from User @relation("linkedFrom", fields: [fromId], references: [id])
+  to   User @relation("linkedTo", fields: [toId], references: [id])
+
+  @@unique([fromId, toId])
+}
+
+model StageGroup {
+  id         String  @id @default(uuid())
+  orderIndex Int
+  title      String
+  stages     Stage[]
+  goals      Goal[]
+
+  @@index([orderIndex])
+}
+
+model Stage {
+  id            String    @id @default(uuid())
+  groupId       String
+  orderIndex    Int
+  title         String
+  arabicTitle   String
+  description   String?
+  maxScore      Int
+  createdAt     DateTime  @default(now())
+
+  group         StageGroup     @relation(fields: [groupId], references: [id])
+  storyPanels   StoryPanel[]
+  quizQuestions QuizQuestion[]
+  stageProgress StageProgress[]
+
+  @@index([groupId, orderIndex])
+}
+
+model StoryPanel {
+  id            String @id @default(uuid())
+  stageId       String
+  orderIndex    Int
+  narrationText String
+  imageUrl      String?
+
+  stage Stage @relation(fields: [stageId], references: [id])
+
+  @@index([stageId, orderIndex])
+}
+
+model QuizQuestion {
+  id            String       @id @default(uuid())
+  stageId       String
+  type          QuestionType
+  questionText  String
+  options       Json
+  correctAnswer String
+  explanation   String?
+  xpValue       Int          @default(10)
+  isInline      Boolean      @default(false)
+  orderIndex    Int
+
+  stage Stage @relation(fields: [stageId], references: [id])
+
+  @@index([stageId, orderIndex])
+}
+
+model StageProgress {
+  id          String   @id @default(uuid())
+  userId      String
+  stageId     String
+  bestScore   Int
+  starsEarned Int
+  attempts    Int      @default(1)
+  completedAt DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id])
+  stage Stage @relation(fields: [stageId], references: [id])
+
+  @@unique([userId, stageId])
+  @@index([userId])
+}
+
+model Goal {
+  id                String     @id @default(uuid())
+  fatherId          String
+  sonId             String
+  description       String
+  stageGroupId      String
+  deadline          DateTime
+  rewardDescription String
+  status            GoalStatus @default(ACTIVE)
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  father     User       @relation("fatherGoals", fields: [fatherId], references: [id])
+  son        User       @relation("sonGoals", fields: [sonId], references: [id])
+  stageGroup StageGroup @relation(fields: [stageGroupId], references: [id])
+
+  @@index([fatherId])
+  @@index([sonId])
+  @@index([status])
+}
+
+model DailyChallengeLog {
+  id          String   @id @default(uuid())
+  userId      String
+  questionId  String
+  correct     Boolean
+  xpEarned    Int      @default(0)
+  completedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([userId, completedAt])
+}
