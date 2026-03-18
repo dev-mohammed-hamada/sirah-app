@@ -17,13 +17,6 @@ Monorepo: `mobile/` (Expo + React Native), `backend/` (NestJS), `shared/` (TS ty
 - WebSocket for father dashboard live updates
 - Prisma manages all migrations and schema
 
-## Language & RTL
-
-- V1 is **Arabic only**, full RTL
-- `I18nManager.forceRTL(true)` at entry
-- Use `start`/`end` — never `left`/`right`
-- All strings in centralized locale files
-
 ## Models
 
 - **User** — accountType `SON|FATHER`, xp, streak, linkedAccounts (m2m self)
@@ -59,41 +52,6 @@ Monorepo: `mobile/` (Expo + React Native), `backend/` (NestJS), `shared/` (TS ty
 - 4 states: Neutral, Excited, Encouraging, Celebrating
 - Reacts to quiz performance, sends streak reminders
 
-## Visual Guidelines
-
-- Content from Ibn Hisham & Ibn Kathir — reviewed by Islamic reviewer
-- **All human figures: faceless silhouettes — no exceptions**
-- Palette: warm golds, deep blues, sandy oranges, night purples
-- Settings: desert, tents, mountains, old Mecca, starry sky
-
-## Code Conventions
-
-- TypeScript strict mode everywhere
-- Functional components + hooks only
-- Zustand = client state, TanStack Query = server state
-- Files: `kebab-case.ts` | Components: `PascalCase.tsx`
-- Backend modules: `users`, `stages`, `goals`, `notifications`, `auth`
-- Thin controllers — logic in services
-- DTOs validated with `class-validator`
-- RESTful endpoints
-
-## Commands
-
-```bash
-npm run start               # Expo dev server
-npm run build               # Production build
-npx prisma migrate dev      # Run migrations
-npx prisma generate         # Regen Prisma client
-npm run lint                # ESLint
-npm run test                # Tests
-```
-
-## Testing
-
-- Unit tests for services, integration tests for endpoints
-- Test RTL on both platforms
-- Test hearts, streaks, stars edge cases
-
 ## Prohibitions
 
 - NEVER show faces on human figures
@@ -109,31 +67,25 @@ npm run test                # Tests
 
 **Out of scope:** English, audio narration, social features, leaderboards, IAP, streak freeze, short session mode, father reactions, weekly summary, widgets, badge logic
 
-## Git Conventions
+## Commands
 
-**Commits:** Conventional Commits — `<type>(<scope>): <summary>`
-- Types: `feat|fix|chore|refactor|test|docs|style|perf|ci`
-- Scopes: `mobile|backend|shared|auth|stages|goals|notifications|db`
-- Imperative mood, lowercase, max 72 chars, no period
-- No `Co-Authored-By` or AI attribution
-- One logical change per commit
+```bash
+npm run start               # Expo dev server
+npm run start:backend       # NestJS dev server
+npm run build               # Production build
+npm run prisma:migrate      # Run migrations
+npm run prisma:generate     # Regen Prisma client
+npm run lint                # ESLint (all workspaces)
+npm run test                # Tests (all workspaces)
+```
 
-**Branches:** `main` (protected, always deployable) → `<type>/<kebab-description>`
-- PR for every change, squash-merge, delete branch after merge
-- All CI must pass before merge
+## Skills
 
-## CI/CD (GitHub Actions)
+Project-specific Claude Code skills in `.claude/skills/`:
 
-- **ci.yml** (every PR): lint → type-check → test → build-check
-- **deploy-backend.yml** (merge to main): migrations → deploy
-- **deploy-mobile.yml** (release tag): EAS build iOS + Android
-- **security.yml** (weekly): npm audit + secret scan
-
-## Environment & Secrets
-
-- All secrets in `.env` files — never in code, never committed
-- `.env.example` in each package (keys only, no values) — committed
-- GitHub Actions secrets via `${{ secrets.NAME }}`
-- Never log env values
-- Backend: `DATABASE_URL`, `JWT_SECRET`, `FIREBASE_ADMIN_KEY`, `S3_*`
-- Mobile: `API_BASE_URL`
+- `/commit` — Git commit with Conventional Commits conventions
+- `/rtl-check` — Audit code for RTL compliance violations
+- `/new-screen` — Scaffold a new React Native screen
+- `/new-backend-module` — Scaffold a new NestJS module
+- `/seed-stage` — Add stage content to seed data
+- `/pr-review` — Review PR against project conventions
