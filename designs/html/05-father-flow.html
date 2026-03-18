@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سيرة النبي ﷺ — Father Flow</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--desert-gold:#D4A843;--deep-night-blue:#1A2744;--warm-sand:#F5E6C8;--sunset-orange:#E8734A;--royal-purple:#4A2D6B;--starlight-white:#FFF8F0;--soft-cream:#FAF3E8;--success-green:#4CAF6E;--error-red:#E05555;--muted-gray:#8A8A8A;--shadow-1:0 2px 8px rgba(26,39,68,.08);--shadow-2:0 4px 16px rgba(26,39,68,.12);--shadow-3:0 8px 32px rgba(26,39,68,.2);--glow:0 0 20px rgba(212,168,67,.4);--radius-sm:12px;--radius-md:16px;--radius-lg:24px;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Cairo',sans-serif;background:#1a1a2e;direction:rtl;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px;}
+
+  .page-nav{width:100%;max-width:1200px;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
+  .page-nav h1{color:var(--starlight-white);font-size:20px;font-weight:700;}
+  .nav-pills{display:flex;gap:6px;flex-wrap:wrap;}
+  .nav-pills a{color:var(--desert-gold);text-decoration:none;font-size:11px;font-weight:600;padding:4px 12px;border:1px solid rgba(212,168,67,.4);border-radius:20px;transition:all .2s;}
+  .nav-pills a:hover,.nav-pills a.active{background:var(--desert-gold);color:var(--deep-night-blue);}
+  .nav-pills a.ext{border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.6);}
+  .nav-pills a.ext:hover{background:rgba(255,255,255,.1);color:white;}
+
+  .screen-grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:center;width:100%;max-width:1400px;}
+  .phone-wrapper{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .phone-label{color:var(--starlight-white);font-size:13px;font-weight:700;text-align:center;}
+  .phone-sublabel{color:var(--muted-gray);font-size:10px;text-align:center;}
+  .phone{width:375px;height:812px;border-radius:44px;overflow:hidden;position:relative;box-shadow:0 0 0 3px #333,0 0 0 6px #1a1a1a,var(--shadow-3);flex-shrink:0;}
+  .phone-screen{width:100%;height:100%;position:relative;overflow-y:auto;overflow-x:hidden;}
+  .phone-screen::-webkit-scrollbar{display:none;}
+
+  .ios-status{position:sticky;top:0;height:54px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 28px 8px;z-index:10;font-size:14px;font-weight:600;color:var(--deep-night-blue);background:var(--soft-cream);}
+  .home-indicator{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;z-index:10;background:rgba(0,0,0,.12);}
+
+  .btn{font-family:'Cairo',sans-serif;font-size:16px;font-weight:700;height:48px;border:none;border-radius:var(--radius-sm);cursor:pointer;padding:0 24px;width:100%;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+  .btn-primary{background:var(--desert-gold);color:var(--deep-night-blue);}
+
+  .screen-title{font-size:24px;font-weight:700;color:var(--deep-night-blue);text-align:center;padding:8px 0 16px;}
+
+  /* Bottom Nav Father */
+  .father-nav{position:absolute;bottom:0;left:0;right:0;display:flex;background:var(--deep-night-blue);border-top:1px solid var(--desert-gold);padding:8px 0 28px;z-index:8;justify-content:center;}
+  .fn-item{width:120px;text-align:center;padding:4px 0;cursor:pointer;}
+  .fn-item .fn-icon{font-size:20px;margin-bottom:2px;}
+  .fn-item .fn-label{font-size:10px;font-weight:600;color:var(--muted-gray);}
+  .fn-item.active .fn-label{color:var(--desert-gold);}
+
+  /* Header with avatar */
+  .father-header{display:flex;align-items:center;justify-content:space-between;padding:0 20px 12px;}
+  .father-header h2{font-size:24px;font-weight:700;color:var(--deep-night-blue);}
+  .father-header .avatar{width:40px;height:40px;border-radius:50%;background:var(--desert-gold);border:2px solid var(--desert-gold);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--deep-night-blue);font-weight:700;}
+
+  /* ===== 22: FATHER HOME ===== */
+  .son-card{background:var(--warm-sand);border-radius:var(--radius-md);padding:16px;margin:0 20px 12px;box-shadow:var(--shadow-1);}
+  .sc-top{display:flex;gap:12px;align-items:flex-start;}
+  .sc-avatar{width:56px;height:56px;border-radius:50%;background:var(--desert-gold);border:2px solid var(--desert-gold);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--deep-night-blue);font-weight:700;flex-shrink:0;}
+  .sc-info{flex:1;}
+  .sc-name{font-size:16px;font-weight:700;color:var(--deep-night-blue);}
+  .sc-user{font-size:12px;color:var(--muted-gray);}
+  .sc-stats{display:flex;gap:14px;margin-top:6px;font-size:13px;color:var(--deep-night-blue);}
+  .sc-active{display:flex;align-items:center;gap:4px;font-size:11px;margin-top:8px;}
+  .sc-active .dot{width:8px;height:8px;border-radius:50%;}
+  .sc-progress{margin-top:10px;}
+  .sc-progress-bar{width:100%;height:4px;background:rgba(0,0,0,.06);border-radius:2px;overflow:hidden;}
+  .sc-progress-bar .fill{height:100%;background:var(--desert-gold);border-radius:2px;}
+  .sc-progress-label{font-size:11px;color:var(--muted-gray);margin-top:2px;}
+
+  .fab{position:absolute;bottom:80px;left:20px;width:56px;height:56px;border-radius:50%;background:var(--desert-gold);box-shadow:var(--shadow-2);display:flex;align-items:center;justify-content:center;font-size:28px;color:white;cursor:pointer;z-index:9;border:none;transition:transform .2s;}
+  .fab:hover{transform:scale(1.1);}
+
+  /* ===== 23: SON PROGRESS DETAIL ===== */
+  .back-arrow{position:absolute;right:20px;top:60px;font-size:22px;color:var(--deep-night-blue);text-decoration:none;z-index:5;}
+  .spd-hero{text-align:center;padding:16px 0;}
+  .spd-avatar{width:72px;height:72px;border-radius:50%;background:var(--desert-gold);border:2px solid var(--desert-gold);display:flex;align-items:center;justify-content:center;font-size:32px;color:var(--deep-night-blue);font-weight:700;margin:0 auto 8px;}
+  .spd-name{font-size:18px;font-weight:700;color:var(--deep-night-blue);}
+  .spd-circles{display:flex;justify-content:center;gap:14px;margin-top:16px;}
+  .spd-circle{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:var(--starlight-white);}
+  .spd-circle-label{font-size:10px;color:var(--muted-gray);text-align:center;margin-top:4px;}
+
+  .section-h{font-size:18px;font-weight:700;color:var(--deep-night-blue);padding:16px 20px 8px;}
+  .progress-bar-full{margin:0 20px 12px;height:8px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;}
+  .progress-bar-full .fill{height:100%;background:var(--desert-gold);border-radius:4px;}
+  .progress-label{font-size:12px;color:var(--muted-gray);padding:0 20px;margin-bottom:8px;}
+
+  .stage-row{display:flex;align-items:center;padding:10px 20px;border-bottom:1px solid rgba(0,0,0,.04);gap:10px;}
+  .sr-num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--starlight-white);flex-shrink:0;}
+  .sr-num.done{background:var(--desert-gold);}
+  .sr-num.notdone{background:var(--muted-gray);opacity:.3;}
+  .sr-info{flex:1;font-size:15px;color:var(--deep-night-blue);}
+  .sr-info.dim{opacity:.4;}
+  .sr-stars{font-size:11px;flex-shrink:0;}
+
+  /* Timeline */
+  .timeline{padding:8px 20px 20px;}
+  .tl-item{display:flex;gap:12px;padding-bottom:16px;position:relative;}
+  .tl-line{position:absolute;right:14px;top:24px;bottom:0;width:2px;background:rgba(212,168,67,.2);}
+  .tl-dot{width:10px;height:10px;border-radius:50%;background:var(--desert-gold);flex-shrink:0;margin-top:4px;z-index:1;}
+  .tl-content{flex:1;}
+  .tl-text{font-size:14px;color:var(--deep-night-blue);}
+  .tl-time{font-size:12px;color:var(--muted-gray);margin-top:2px;}
+
+  /* ===== 24: GOALS FATHER ===== */
+  .filter-tabs{display:flex;gap:8px;padding:0 20px;margin-bottom:16px;overflow-x:auto;}
+  .filter-tabs::-webkit-scrollbar{display:none;}
+  .filter-tab{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s;flex-shrink:0;}
+  .filter-tab.active{background:var(--desert-gold);color:var(--deep-night-blue);}
+  .filter-tab.inactive{background:transparent;border:1px solid var(--muted-gray);color:var(--muted-gray);}
+
+  .son-group-header{display:flex;align-items:center;gap:8px;padding:12px 20px 6px;}
+  .sgh-avatar{width:28px;height:28px;border-radius:50%;background:var(--desert-gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--deep-night-blue);font-weight:700;}
+  .sgh-name{font-size:16px;font-weight:700;color:var(--deep-night-blue);}
+
+  .f-goal-card{background:var(--warm-sand);border-radius:var(--radius-md);padding:14px;margin:0 20px 10px;box-shadow:var(--shadow-1);}
+  .fgc-status{font-size:11px;padding:2px 8px;border-radius:8px;font-weight:600;display:inline-block;margin-bottom:6px;}
+  .fgc-title{font-size:16px;font-weight:700;color:var(--deep-night-blue);margin-bottom:6px;}
+  .fgc-bar{width:100%;height:8px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;margin-bottom:4px;}
+  .fgc-bar .fill{height:100%;border-radius:4px;}
+  .fgc-meta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted-gray);}
+
+  /* ===== 25: CREATE GOAL ===== */
+  .cg-header{display:flex;align-items:center;justify-content:center;padding:8px 20px;position:relative;}
+  .cg-header h2{font-size:20px;font-weight:700;color:var(--deep-night-blue);}
+  .cg-header .back{position:absolute;right:20px;font-size:20px;color:var(--deep-night-blue);text-decoration:none;}
+  .cg-header .create{position:absolute;left:20px;font-size:16px;font-weight:700;color:var(--desert-gold);cursor:pointer;}
+
+  .cg-label{font-size:13px;font-weight:600;color:var(--muted-gray);margin:14px 20px 6px;}
+  .cg-chips{display:flex;gap:12px;padding:0 20px;}
+  .cg-chip{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;}
+  .cg-chip-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;}
+  .cg-chip-avatar.selected{border:3px solid var(--desert-gold);position:relative;}
+  .cg-chip-avatar.selected::after{content:'✓';position:absolute;top:-2px;right:-2px;width:16px;height:16px;background:var(--desert-gold);border-radius:50%;font-size:9px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;}
+  .cg-chip-name{font-size:12px;color:var(--deep-night-blue);}
+
+  .cg-input{margin:0 20px;height:52px;background:white;border:1.5px solid #E0D5C5;border-radius:var(--radius-sm);padding:0 14px;font-family:'Cairo',sans-serif;font-size:16px;color:var(--deep-night-blue);width:calc(100% - 40px);direction:rtl;outline:none;}
+  .cg-input:focus{border-color:var(--desert-gold);box-shadow:0 0 0 3px rgba(212,168,67,.15);}
+  .cg-textarea{margin:0 20px;height:80px;background:white;border:1.5px solid #E0D5C5;border-radius:var(--radius-sm);padding:12px 14px;font-family:'Cairo',sans-serif;font-size:16px;color:var(--deep-night-blue);width:calc(100% - 40px);resize:none;direction:rtl;outline:none;}
+  .cg-counter{font-size:11px;color:var(--muted-gray);text-align:left;padding:2px 20px;}
+
+  .cg-preview-label{font-size:13px;color:var(--muted-gray);padding:16px 20px 8px;}
+  .cg-preview{background:var(--warm-sand);border-right:3px solid var(--desert-gold);border-radius:var(--radius-md);padding:14px;margin:0 20px;box-shadow:var(--shadow-1);}
+  .cg-preview .title{font-size:16px;font-weight:700;color:var(--deep-night-blue);margin-bottom:6px;}
+  .cg-preview .bar{width:100%;height:6px;background:rgba(0,0,0,.06);border-radius:3px;overflow:hidden;margin-bottom:4px;}
+  .cg-preview .meta{font-size:12px;color:var(--muted-gray);display:flex;justify-content:space-between;}
+  .cg-preview .source{font-size:11px;color:var(--muted-gray);margin-top:4px;}
+
+  /* ===== 26: SETTINGS FATHER ===== */
+  .profile-card{background:var(--warm-sand);border-radius:var(--radius-md);padding:16px;margin:0 20px 16px;box-shadow:var(--shadow-1);display:flex;align-items:center;gap:14px;}
+  .profile-avatar{width:64px;height:64px;border-radius:50%;background:var(--desert-gold);border:2px solid var(--desert-gold);display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--deep-night-blue);font-weight:700;position:relative;flex-shrink:0;}
+  .profile-avatar .edit{position:absolute;bottom:-2px;right:-2px;width:22px;height:22px;background:var(--desert-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:2px solid var(--warm-sand);}
+  .profile-info .name{font-size:18px;font-weight:700;color:var(--deep-night-blue);}
+  .profile-info .username{font-size:14px;color:var(--muted-gray);}
+  .profile-info .edit-link{font-size:14px;color:var(--desert-gold);cursor:pointer;}
+
+  .sg-header{font-size:14px;font-weight:700;color:var(--muted-gray);margin:16px 20px 8px;}
+  .sg-rows{margin:0 20px;border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow-1);}
+  .sg-row{display:flex;align-items:center;height:52px;padding:0 14px;background:white;border-bottom:1px solid rgba(0,0,0,.04);}
+  .sg-row:last-child{border-bottom:none;}
+  .sg-row .icon{font-size:18px;margin-left:10px;}
+  .sg-row .label{flex:1;font-size:15px;color:var(--deep-night-blue);}
+  .sg-row .chevron{color:var(--muted-gray);font-size:14px;}
+  .toggle-track{width:44px;height:26px;border-radius:13px;position:relative;cursor:pointer;flex-shrink:0;}
+  .toggle-track.on{background:var(--desert-gold);}
+  .toggle-track.off{background:#ccc;}
+  .toggle-thumb{width:20px;height:20px;background:white;border-radius:50%;position:absolute;top:3px;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+  .toggle-track.on .toggle-thumb{left:3px;}
+  .toggle-track.off .toggle-thumb{right:3px;}
+
+  .logout-btn{margin:24px 20px;height:48px;display:flex;align-items:center;justify-content:center;border:none;background:transparent;border-radius:var(--radius-sm);font-family:'Cairo',sans-serif;font-size:16px;font-weight:700;color:var(--error-red);cursor:pointer;}
+</style>
+</head>
+<body>
+
+<div class="page-nav">
+  <h1>Father Flow — مسار الأب</h1>
+  <div class="nav-pills">
+    <a href="04-son-tabs.html" class="ext">← Son Tabs</a>
+    <a href="#father-home" class="active">Father Home</a>
+    <a href="#son-detail">Son Detail</a>
+    <a href="#father-goals">Goals</a>
+    <a href="#create-goal">Create Goal</a>
+    <a href="#father-settings">Settings</a>
+    <a href="00-design-system.html" class="ext">Design System</a>
+  </div>
+</div>
+
+<div class="screen-grid">
+
+<!-- ===== 22: FATHER HOME ===== -->
+<div class="phone-wrapper" id="father-home">
+  <div class="phone-label">22 — Father Home</div>
+  <div class="phone-sublabel">الرئيسية — أبنائي</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status"><span>٩:٤١</span><span>📶 📡 🔋</span></div>
+      <div style="background:var(--soft-cream);min-height:100%;padding-bottom:80px;">
+        <div class="father-header">
+          <h2>أبنائي</h2>
+          <div class="avatar">أ</div>
+        </div>
+
+        <!-- Son Card 1 -->
+        <div class="son-card">
+          <div class="sc-top">
+            <div class="sc-avatar">م</div>
+            <div class="sc-info">
+              <div class="sc-name">محمد أحمد</div>
+              <div class="sc-user">@mohammed_123</div>
+              <div class="sc-stats">
+                <span>🔥 ٧ أيام</span>
+                <span>⭐ ١٨</span>
+                <span>📊 ٣٤٠</span>
+              </div>
+            </div>
+          </div>
+          <div class="sc-active"><div class="dot" style="background:var(--success-green);"></div><span style="color:var(--success-green);">نشط اليوم</span></div>
+          <div class="sc-progress">
+            <div class="sc-progress-bar"><div class="fill" style="width:40%;"></div></div>
+            <div class="sc-progress-label">٤/١٠ مراحل</div>
+          </div>
+        </div>
+
+        <!-- Son Card 2 -->
+        <div class="son-card">
+          <div class="sc-top">
+            <div class="sc-avatar">ع</div>
+            <div class="sc-info">
+              <div class="sc-name">عبدالله أحمد</div>
+              <div class="sc-user">@abdullah_a</div>
+              <div class="sc-stats">
+                <span>🔥 ٢ أيام</span>
+                <span>⭐ ٦</span>
+                <span>📊 ١٢٠</span>
+              </div>
+            </div>
+          </div>
+          <div class="sc-active"><div class="dot" style="background:var(--muted-gray);"></div><span style="color:var(--muted-gray);">آخر نشاط: أمس</span></div>
+          <div class="sc-progress">
+            <div class="sc-progress-bar"><div class="fill" style="width:20%;"></div></div>
+            <div class="sc-progress-label">٢/١٠ مراحل</div>
+          </div>
+        </div>
+
+        <button class="fab">+</button>
+      </div>
+
+      <div class="father-nav">
+        <div class="fn-item active"><div class="fn-icon">👥</div><div class="fn-label" style="color:var(--desert-gold);">أبنائي</div></div>
+        <div class="fn-item"><div class="fn-icon">🎯</div><div class="fn-label">الأهداف</div></div>
+      </div>
+      <div class="home-indicator"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 23: SON PROGRESS DETAIL ===== -->
+<div class="phone-wrapper" id="son-detail">
+  <div class="phone-label">23 — Son Progress Detail</div>
+  <div class="phone-sublabel">تفاصيل تقدم الابن · Father View</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status"><span>٩:٤١</span><span>📶 📡 🔋</span></div>
+      <div style="background:var(--soft-cream);min-height:100%;padding-bottom:80px;">
+        <a href="#father-home" class="back-arrow" style="top:58px;">→</a>
+        <div style="text-align:center;padding-top:8px;font-size:20px;font-weight:700;color:var(--deep-night-blue);">محمد أحمد</div>
+
+        <div class="spd-hero">
+          <div class="spd-avatar">م</div>
+          <div class="spd-circles">
+            <div style="text-align:center;">
+              <div class="spd-circle" style="background:linear-gradient(135deg,#D4A843,#E8C36A);">٣٤٠</div>
+              <div class="spd-circle-label">نقاط الخبرة</div>
+            </div>
+            <div style="text-align:center;">
+              <div class="spd-circle" style="background:linear-gradient(135deg,#E8734A,#F09060);">٧</div>
+              <div class="spd-circle-label">أيام متواصلة</div>
+            </div>
+            <div style="text-align:center;">
+              <div class="spd-circle" style="background:linear-gradient(135deg,#4A2D6B,#6B4A8B);">١٨</div>
+              <div class="spd-circle-label">النجوم</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-h">تقدم المراحل</div>
+        <div class="progress-bar-full"><div class="fill" style="width:40%;"></div></div>
+        <div class="progress-label">٤ من ١٠ مراحل</div>
+
+        <div class="stage-row"><div class="sr-num done">١</div><div class="sr-info">ما قبل الميلاد</div><div class="sr-stars">⭐⭐☆ <span style="font-size:11px;color:var(--muted-gray);">82</span></div></div>
+        <div class="stage-row"><div class="sr-num done">٢</div><div class="sr-info">عام الفيل</div><div class="sr-stars">⭐⭐⭐ <span style="font-size:11px;color:var(--muted-gray);">95</span></div></div>
+        <div class="stage-row"><div class="sr-num done">٣</div><div class="sr-info">المولد</div><div class="sr-stars">⭐⭐☆ <span style="font-size:11px;color:var(--muted-gray);">78</span></div></div>
+        <div class="stage-row"><div class="sr-num done">٤</div><div class="sr-info">الطفولة</div><div class="sr-stars">⭐⭐⭐ <span style="font-size:11px;color:var(--muted-gray);">91</span></div></div>
+        <div class="stage-row" style="opacity:.4;"><div class="sr-num notdone">٥</div><div class="sr-info dim">الشباب</div><div class="sr-stars" style="color:var(--muted-gray);">لم يبدأ</div></div>
+
+        <div class="section-h">النشاط الأخير</div>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-line"></div><div class="tl-dot"></div><div class="tl-content"><div class="tl-text">⭐ أكمل المرحلة ٤ — ⭐⭐⭐</div><div class="tl-time">منذ ساعتين</div></div></div>
+          <div class="tl-item"><div class="tl-line"></div><div class="tl-dot" style="background:var(--sunset-orange);"></div><div class="tl-content"><div class="tl-text">⚡ أكمل تحدي اليوم — +15 XP</div><div class="tl-time">منذ ٥ ساعات</div></div></div>
+          <div class="tl-item"><div class="tl-line"></div><div class="tl-dot" style="background:var(--sunset-orange);"></div><div class="tl-content"><div class="tl-text">🔥 حقق سلسلة ٧ أيام</div><div class="tl-time">أمس</div></div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-content"><div class="tl-text">⭐ أكمل المرحلة ٣ — ⭐⭐</div><div class="tl-time">منذ يومين</div></div></div>
+        </div>
+
+        <div style="padding:0 20px 20px;">
+          <button class="btn btn-primary">🎯 إنشاء هدف لمحمد</button>
+        </div>
+      </div>
+      <div class="home-indicator"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 24: GOALS (FATHER) ===== -->
+<div class="phone-wrapper" id="father-goals">
+  <div class="phone-label">24 — Goals Tab (Father)</div>
+  <div class="phone-sublabel">الأهداف — عرض الأب</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status"><span>٩:٤١</span><span>📶 📡 🔋</span></div>
+      <div style="background:var(--soft-cream);min-height:100%;padding-bottom:80px;">
+        <div class="screen-title">الأهداف</div>
+
+        <div class="filter-tabs">
+          <div class="filter-tab active">الكل ③</div>
+          <div class="filter-tab inactive">نشطة ②</div>
+          <div class="filter-tab inactive">مكتملة ①</div>
+          <div class="filter-tab inactive">منتهية</div>
+        </div>
+
+        <div class="son-group-header">
+          <div class="sgh-avatar">م</div>
+          <div class="sgh-name">محمد أحمد</div>
+        </div>
+        <div style="border-bottom:1px solid rgba(0,0,0,.06);margin:0 20px 8px;"></div>
+
+        <div class="f-goal-card" style="border-right:3px solid var(--desert-gold);">
+          <div class="fgc-status" style="background:rgba(212,168,67,.15);color:var(--desert-gold);">نشط</div>
+          <div class="fgc-title">أكمل مراحل قصة الفيل</div>
+          <div class="fgc-bar"><div class="fill" style="width:60%;background:var(--desert-gold);"></div></div>
+          <div class="fgc-meta"><span>⏰ باقي ٣ أيام</span><span style="color:var(--desert-gold);">🏆 ٢٠ ريال</span></div>
+        </div>
+
+        <div class="f-goal-card" style="border-right:3px solid var(--success-green);">
+          <div class="fgc-status" style="background:rgba(76,175,110,.15);color:var(--success-green);">مكتمل ✓</div>
+          <div class="fgc-title">أكمل المرحلة الأولى</div>
+          <div class="fgc-bar"><div class="fill" style="width:100%;background:var(--success-green);"></div></div>
+          <div class="fgc-meta"><span>🏆 آيس كريم</span></div>
+        </div>
+
+        <div class="son-group-header" style="margin-top:8px;">
+          <div class="sgh-avatar">ع</div>
+          <div class="sgh-name">عبدالله أحمد</div>
+        </div>
+        <div style="border-bottom:1px solid rgba(0,0,0,.06);margin:0 20px 8px;"></div>
+
+        <div class="f-goal-card" style="border-right:3px solid var(--error-red);">
+          <div class="fgc-status" style="background:rgba(224,85,85,.15);color:var(--error-red);">منتهي</div>
+          <div class="fgc-title">أكمل ٣ مراحل</div>
+          <div class="fgc-bar"><div class="fill" style="width:40%;background:var(--error-red);"></div></div>
+          <div class="fgc-meta"><span>⏰ انتهى</span></div>
+        </div>
+
+        <div style="padding:16px 20px;">
+          <button class="btn btn-primary">إنشاء هدف جديد</button>
+        </div>
+      </div>
+
+      <div class="father-nav">
+        <div class="fn-item"><div class="fn-icon">👥</div><div class="fn-label">أبنائي</div></div>
+        <div class="fn-item active"><div class="fn-icon">🎯</div><div class="fn-label" style="color:var(--desert-gold);">الأهداف</div></div>
+      </div>
+      <div class="home-indicator"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 25: CREATE GOAL ===== -->
+<div class="phone-wrapper" id="create-goal">
+  <div class="phone-label">25 — Create Goal</div>
+  <div class="phone-sublabel">إنشاء هدف جديد · Live Preview</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status"><span>٩:٤١</span><span>📶 📡 🔋</span></div>
+      <div style="background:var(--soft-cream);min-height:100%;padding-bottom:20px;">
+        <div class="cg-header">
+          <a href="#father-goals" class="back">→</a>
+          <h2>هدف جديد</h2>
+          <span class="create">إنشاء</span>
+        </div>
+
+        <div class="cg-label">اختر ابنك</div>
+        <div class="cg-chips">
+          <div class="cg-chip">
+            <div class="cg-chip-avatar selected" style="background:rgba(212,168,67,.15);border-color:var(--desert-gold);">م</div>
+            <div class="cg-chip-name">محمد ✓</div>
+          </div>
+          <div class="cg-chip">
+            <div class="cg-chip-avatar" style="background:rgba(138,138,138,.1);border:1px solid #ddd;">ع</div>
+            <div class="cg-chip-name">عبدالله</div>
+          </div>
+        </div>
+
+        <div class="cg-label">وصف الهدف</div>
+        <textarea class="cg-textarea" placeholder="مثال: أكمل مراحل قصة الفيل">أكمل مراحل قصة الفيل</textarea>
+        <div class="cg-counter">24/200</div>
+
+        <div class="cg-label">المراحل المطلوبة</div>
+        <div style="margin:0 20px;background:white;border:1px solid var(--desert-gold);border-radius:var(--radius-sm);padding:12px;">
+          <div style="font-size:16px;font-weight:700;color:var(--deep-night-blue);">المجموعة الأولى</div>
+          <div style="font-size:13px;color:var(--muted-gray);">١٠ مراحل</div>
+        </div>
+
+        <div class="cg-label">الموعد النهائي</div>
+        <input class="cg-input" type="text" value="١٥ مارس ٢٠٢٦" style="padding-right:40px;" />
+        <div style="font-size:12px;color:var(--desert-gold);padding:4px 20px;">بعد ٧ أيام</div>
+
+        <div class="cg-label">المكافأة</div>
+        <input class="cg-input" type="text" value="🏆 ٢٠ ريال عند الإنهاء" />
+
+        <div class="cg-preview-label">كذا سيظهر الهدف لابنك:</div>
+        <div class="cg-preview">
+          <div class="title">أكمل مراحل قصة الفيل</div>
+          <div class="bar"><div class="fill" style="width:0%;background:var(--desert-gold);"></div></div>
+          <div class="meta"><span>⏰ ١٥ مارس</span><span style="color:var(--desert-gold);">🏆 ٢٠ ريال</span></div>
+          <div class="source">من: أبي</div>
+        </div>
+
+        <div style="padding:16px 20px;">
+          <button class="btn btn-primary">إنشاء الهدف</button>
+        </div>
+      </div>
+      <div class="home-indicator"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 26: SETTINGS FATHER ===== -->
+<div class="phone-wrapper" id="father-settings">
+  <div class="phone-label">26 — Settings (Father)</div>
+  <div class="phone-sublabel">إعدادات الأب</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status"><span>٩:٤١</span><span>📶 📡 🔋</span></div>
+      <div style="background:var(--soft-cream);min-height:100%;padding-bottom:20px;">
+        <div class="screen-title">الإعدادات</div>
+
+        <div class="profile-card">
+          <div class="profile-avatar">أ<div class="edit">✏️</div></div>
+          <div class="profile-info">
+            <div class="name">أحمد محمد</div>
+            <div class="username">@ahmed_father</div>
+            <div class="edit-link">تعديل</div>
+          </div>
+        </div>
+
+        <div class="sg-header">الحساب</div>
+        <div class="sg-rows">
+          <div class="sg-row"><span class="icon">🔒</span><span class="label">تغيير كلمة المرور</span><span class="chevron">‹</span></div>
+          <div class="sg-row"><span class="icon">👥</span><span class="label">الأبناء المرتبطين</span><span class="chevron">‹</span></div>
+        </div>
+
+        <div class="sg-header">الإشعارات</div>
+        <div class="sg-rows">
+          <div class="sg-row"><span class="icon">🔔</span><span class="label">تفعيل الإشعارات</span><div class="toggle-track on"><div class="toggle-thumb"></div></div></div>
+          <div class="sg-row"><span class="icon">⭐</span><span class="label">إشعار إكمال المرحلة</span><div class="toggle-track on"><div class="toggle-thumb"></div></div></div>
+          <div class="sg-row"><span class="icon">🎯</span><span class="label">إشعار إنجاز الهدف</span><div class="toggle-track on"><div class="toggle-thumb"></div></div></div>
+          <div class="sg-row"><span class="icon">🔥</span><span class="label">إشعار السلسلة</span><div class="toggle-track off"><div class="toggle-thumb"></div></div></div>
+        </div>
+
+        <div class="sg-header">التطبيق</div>
+        <div class="sg-rows">
+          <div class="sg-row"><span class="icon">ℹ️</span><span class="label">عن التطبيق</span><span class="chevron">‹</span></div>
+          <div class="sg-row"><span class="icon">📄</span><span class="label">شروط الاستخدام</span><span class="chevron">‹</span></div>
+          <div class="sg-row"><span class="icon">🛡️</span><span class="label">سياسة الخصوصية</span><span class="chevron">‹</span></div>
+        </div>
+
+        <button class="logout-btn">تسجيل الخروج</button>
+      </div>
+      <div class="home-indicator"></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

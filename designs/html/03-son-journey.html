@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سيرة النبي ﷺ — Son Journey</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --desert-gold: #D4A843;
+    --deep-night-blue: #1A2744;
+    --warm-sand: #F5E6C8;
+    --sunset-orange: #E8734A;
+    --royal-purple: #4A2D6B;
+    --starlight-white: #FFF8F0;
+    --soft-cream: #FAF3E8;
+    --success-green: #4CAF6E;
+    --error-red: #E05555;
+    --muted-gray: #8A8A8A;
+    --shadow-1: 0 2px 8px rgba(26,39,68,0.08);
+    --shadow-2: 0 4px 16px rgba(26,39,68,0.12);
+    --shadow-3: 0 8px 32px rgba(26,39,68,0.20);
+    --glow: 0 0 20px rgba(212,168,67,0.4);
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Cairo',sans-serif;background:#1a1a2e;direction:rtl;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px;}
+
+  .page-nav{width:100%;max-width:1200px;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
+  .page-nav h1{color:var(--starlight-white);font-size:20px;font-weight:700;}
+  .nav-pills{display:flex;gap:6px;flex-wrap:wrap;}
+  .nav-pills a{color:var(--desert-gold);text-decoration:none;font-size:11px;font-weight:600;padding:4px 12px;border:1px solid rgba(212,168,67,0.4);border-radius:20px;transition:all .2s;}
+  .nav-pills a:hover,.nav-pills a.active{background:var(--desert-gold);color:var(--deep-night-blue);}
+  .nav-pills a.ext{border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);}
+  .nav-pills a.ext:hover{background:rgba(255,255,255,0.1);color:white;}
+
+  .screen-grid{display:flex;flex-wrap:wrap;gap:32px;justify-content:center;width:100%;max-width:1400px;}
+
+  .phone-wrapper{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .phone-label{color:var(--starlight-white);font-size:13px;font-weight:700;text-align:center;}
+  .phone-sublabel{color:var(--muted-gray);font-size:10px;text-align:center;}
+  .phone{width:375px;height:812px;border-radius:44px;overflow:hidden;position:relative;box-shadow:0 0 0 3px #333,0 0 0 6px #1a1a1a,var(--shadow-3);flex-shrink:0;}
+  .phone-screen{width:100%;height:100%;position:relative;overflow:hidden;}
+
+  .ios-status{position:absolute;top:0;left:0;right:0;height:54px;display:flex;justify-content:space-between;align-items:flex-end;padding:0 28px 8px;z-index:10;font-size:14px;font-weight:600;}
+  .ios-status.light{color:var(--starlight-white);}
+  .ios-status.dark{color:var(--deep-night-blue);}
+  .home-indicator{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:134px;height:5px;border-radius:3px;z-index:10;}
+
+  /* Shared */
+  .btn{font-family:'Cairo',sans-serif;font-size:16px;font-weight:700;height:48px;border:none;border-radius:var(--radius-sm);cursor:pointer;padding:0 24px;width:calc(100% - 40px);margin:0 auto;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+  .btn-primary{background:var(--desert-gold);color:var(--deep-night-blue);}
+  .btn-secondary{background:transparent;color:var(--desert-gold);border:2px solid var(--desert-gold);}
+  .btn-primary:hover{filter:brightness(0.9);}
+
+  .stars-bg{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;}
+  .s{position:absolute;width:3px;height:3px;background:white;border-radius:50%;animation:tw var(--d,3s) ease-in-out infinite;animation-delay:var(--dl,0s);}
+  @keyframes tw{0%,100%{opacity:.3;transform:scale(1);}50%{opacity:1;transform:scale(1.5);}}
+
+  .flow-arrow{color:var(--desert-gold);font-size:24px;text-align:center;padding:4px 0;opacity:.4;}
+
+  /* ===== SCREEN 08: JOURNEY MAP ===== */
+  .journey-bg{width:100%;height:100%;background:linear-gradient(to bottom,#1A2744 0%,#2a3a5c 25%,#4A2D6B 45%,#3d2a50 55%,#6b4a30 75%,#D4A843 90%,#F5E6C8 100%);position:relative;}
+
+  .journey-status{position:absolute;top:54px;left:12px;right:12px;z-index:8;display:flex;align-items:center;justify-content:space-between;background:rgba(26,39,68,0.85);backdrop-filter:blur(10px);padding:8px 14px;border-radius:var(--radius-sm);}
+  .js-profile{display:flex;align-items:center;gap:8px;}
+  .js-avatar{width:32px;height:32px;border-radius:50%;background:var(--desert-gold);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--deep-night-blue);font-weight:700;border:2px solid var(--desert-gold);}
+  .js-name{color:var(--starlight-white);font-size:14px;font-weight:600;}
+  .js-stats{display:flex;gap:10px;align-items:center;}
+  .js-stat{display:flex;align-items:center;gap:3px;font-size:13px;font-weight:700;color:var(--starlight-white);}
+
+  .journey-banner{position:absolute;top:120px;left:16px;right:16px;z-index:7;background:var(--warm-sand);border:1.5px solid var(--desert-gold);border-radius:var(--radius-md);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow-2);animation:wobble 4s ease-in-out infinite;}
+  @keyframes wobble{0%,100%{transform:translateX(0);}25%{transform:translateX(3px);}75%{transform:translateX(-3px);}}
+  .jb-text{font-size:14px;font-weight:700;color:var(--deep-night-blue);}
+  .jb-btn{background:var(--desert-gold);color:var(--deep-night-blue);font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;border:none;padding:6px 16px;border-radius:8px;cursor:pointer;}
+
+  .journey-path{position:absolute;top:0;left:0;right:0;bottom:0;padding-top:170px;}
+  .node-row{display:flex;justify-content:center;margin-bottom:20px;position:relative;}
+  .node-row:nth-child(odd){padding-right:40px;}
+  .node-row:nth-child(even){padding-left:40px;}
+  .path-segment{position:absolute;width:3px;height:40px;background:rgba(212,168,67,0.3);left:50%;transform:translateX(-50%);bottom:-30px;}
+
+  .stage-node{width:64px;height:64px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:22px;position:relative;cursor:pointer;transition:transform .2s;}
+  .stage-node:hover{transform:scale(1.1);}
+  .stage-node.completed{background:var(--desert-gold);box-shadow:var(--glow);}
+  .stage-node.current{width:72px;height:72px;background:var(--desert-gold);box-shadow:var(--glow);animation:nodePulse 2s ease-in-out infinite;}
+  .stage-node.locked{background:rgba(138,138,138,0.3);border:2px solid rgba(138,138,138,0.4);}
+  @keyframes nodePulse{0%,100%{box-shadow:0 0 10px rgba(212,168,67,.3);}50%{box-shadow:0 0 25px rgba(212,168,67,.7);}}
+  .node-label{font-size:10px;font-weight:600;color:var(--starlight-white);text-align:center;margin-top:6px;text-shadow:0 1px 4px rgba(0,0,0,0.5);}
+  .node-stars{display:flex;gap:2px;margin-top:4px;}
+  .node-stars span{font-size:10px;}
+  .mini-narrator{position:absolute;right:-30px;top:-5px;font-size:20px;animation:bounce 3s ease-in-out infinite;}
+  @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+
+  .journey-nav{position:absolute;bottom:0;left:0;right:0;display:flex;background:var(--deep-night-blue);border-top:1px solid var(--desert-gold);padding:8px 0 28px;z-index:8;}
+  .jn-item{flex:1;text-align:center;padding:4px 0;cursor:pointer;}
+  .jn-item .jn-icon{font-size:20px;margin-bottom:2px;}
+  .jn-item .jn-label{font-size:9px;font-weight:600;color:var(--muted-gray);}
+  .jn-item.active .jn-icon{filter:none;}
+  .jn-item.active .jn-label{color:var(--desert-gold);}
+
+  /* ===== SCREEN 09: STAGE DETAIL ===== */
+  .stage-detail-bg{width:100%;height:100%;position:relative;}
+  .sd-overlay{position:absolute;top:0;left:0;right:0;height:30%;background:linear-gradient(to bottom,#1A2744,#4A2D6B);opacity:0.6;}
+  .sd-map-hint{position:absolute;top:0;left:0;right:0;height:30%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:14px;}
+  .sd-sheet{position:absolute;bottom:0;left:0;right:0;height:70%;background:var(--warm-sand);border-radius:var(--radius-lg) var(--radius-lg) 0 0;box-shadow:0 -4px 20px rgba(0,0,0,0.15);display:flex;flex-direction:column;overflow:hidden;}
+  .sd-handle{width:36px;height:4px;background:rgba(138,138,138,0.4);border-radius:2px;margin:10px auto;}
+  .sd-hero{width:100%;height:160px;background:linear-gradient(135deg,rgba(212,168,67,0.2),rgba(74,45,107,0.2));display:flex;align-items:center;justify-content:center;position:relative;}
+  .sd-hero-icon{font-size:64px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.2));}
+  .sd-hero-fade{position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(transparent,var(--warm-sand));}
+  .sd-content{flex:1;padding:16px 20px;text-align:center;display:flex;flex-direction:column;gap:12px;}
+  .sd-title{font-size:24px;font-weight:700;color:var(--deep-night-blue);}
+  .sd-subtitle{font-size:14px;color:var(--muted-gray);line-height:1.6;}
+  .sd-divider{width:60%;height:1px;background:var(--desert-gold);margin:4px auto;opacity:0.5;}
+  .sd-stats{display:flex;gap:12px;justify-content:center;}
+  .sd-pill{background:var(--starlight-white);border:1px solid var(--desert-gold);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--deep-night-blue);display:flex;align-items:center;gap:4px;}
+  .sd-hearts{font-size:14px;color:var(--success-green);text-align:center;margin-top:4px;}
+
+  /* ===== SCREEN 10: NARRATOR WELCOME ===== */
+  .narrator-bg{width:100%;height:100%;background:linear-gradient(to bottom,#1A2744,#4A2D6B);display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  .nw-stage{font-size:14px;font-weight:500;color:var(--desert-gold);text-align:center;margin-top:70px;}
+  .nw-bubble{background:var(--starlight-white);border:1px solid var(--desert-gold);border-radius:var(--radius-md);padding:20px 24px;margin:24px 24px 0;font-size:20px;font-weight:700;color:var(--deep-night-blue);line-height:1.7;text-align:center;position:relative;box-shadow:var(--shadow-2);}
+  .nw-bubble::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--starlight-white);}
+  .nw-scene{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:20px;position:relative;}
+  .nw-fire{position:relative;margin-bottom:-10px;}
+  .nw-flame{width:40px;height:60px;background:radial-gradient(ellipse at bottom,#ff6600,#ff9900 40%,#ffcc00 60%,transparent);border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;animation:flicker .5s ease-in-out infinite alternate;filter:blur(1px);}
+  @keyframes flicker{0%{transform:scaleY(1) scaleX(1);}50%{transform:scaleY(1.05) scaleX(.95);}100%{transform:scaleY(.98) scaleX(1.02);}}
+  .nw-glow{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);width:180px;height:80px;background:radial-gradient(ellipse,rgba(255,153,0,.3),transparent 70%);animation:gp 2s ease-in-out infinite;}
+  @keyframes gp{0%,100%{opacity:.6;}50%{opacity:1;}}
+  .nw-narrator{width:50px;height:65px;background:rgba(0,0,0,0.8);border-radius:25px 25px 12px 12px;position:relative;margin-right:30px;margin-bottom:20px;}
+  .nw-narrator::before{content:'';position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:26px;height:26px;background:rgba(0,0,0,0.8);border-radius:50%;}
+  .nw-sand{position:absolute;bottom:80px;left:0;right:0;height:60px;}
+  .nw-sand svg{width:100%;height:100%;}
+
+  /* ===== SCREEN 11: STORY PANEL ===== */
+  .story-bg{width:100%;height:100%;background:var(--soft-cream);display:flex;flex-direction:column;}
+  .story-top{padding:60px 16px 0;display:flex;flex-direction:column;gap:6px;}
+  .story-progress{width:100%;height:4px;background:#E0D5C5;border-radius:2px;overflow:hidden;}
+  .story-progress .fill{height:100%;background:var(--desert-gold);border-radius:2px;}
+  .story-topbar{display:flex;justify-content:space-between;align-items:center;}
+  .story-hearts{display:flex;gap:2px;font-size:14px;}
+  .story-stage{font-size:12px;font-weight:500;color:var(--muted-gray);}
+  .story-illust{width:100%;height:320px;background:linear-gradient(135deg,#2a3a5c,#4A2D6B,#3d2a50);position:relative;display:flex;align-items:center;justify-content:center;margin-top:8px;}
+  .story-illust-content{font-size:48px;text-align:center;}
+  .story-illust-fade{position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(transparent,var(--soft-cream));}
+  .story-text{padding:16px 20px;flex:1;}
+  .story-tag{display:inline-block;background:var(--desert-gold);color:var(--deep-night-blue);font-size:12px;font-weight:500;padding:2px 10px;border-radius:8px;margin-bottom:10px;}
+  .story-narration{font-size:18px;color:var(--deep-night-blue);line-height:1.7;text-align:right;}
+  .story-btn{padding:12px 20px 40px;}
+
+  /* ===== SCREEN 12: INLINE QUESTION ===== */
+  .question-bg{width:100%;height:100%;background:var(--soft-cream);display:flex;flex-direction:column;}
+  .q-card{background:var(--warm-sand);border-radius:var(--radius-md);padding:20px;margin:0 20px;text-align:center;box-shadow:var(--shadow-2);position:relative;}
+  .q-avatar{width:40px;height:40px;background:var(--deep-night-blue);border-radius:50%;margin:-30px auto 12px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--starlight-white);box-shadow:var(--shadow-1);}
+  .q-text{font-size:18px;font-weight:700;color:var(--deep-night-blue);line-height:1.6;}
+  .q-options{padding:16px 20px;display:flex;flex-direction:column;gap:12px;}
+  .q-option{width:100%;height:52px;background:var(--starlight-white);border:1.5px solid #E0D5C5;border-radius:var(--radius-sm);display:flex;align-items:center;padding:0 16px;gap:10px;cursor:pointer;transition:all .15s;}
+  .q-option:hover{border-color:var(--desert-gold);background:rgba(212,168,67,0.05);}
+  .q-option .letter{font-size:16px;font-weight:700;color:var(--desert-gold);}
+  .q-option .text{font-size:16px;color:var(--deep-night-blue);}
+  .q-option.correct{background:var(--success-green);border-color:var(--success-green);color:white;}
+  .q-option.correct .letter,.q-option.correct .text{color:white;}
+  .q-option.wrong{background:var(--error-red);border-color:var(--error-red);color:white;}
+  .q-option.wrong .letter,.q-option.wrong .text{color:white;}
+  .q-option.dimmed{opacity:.5;}
+
+  .q-feedback{padding:0 20px;text-align:center;margin-top:8px;}
+  .q-feedback.correct-fb{color:var(--success-green);font-size:16px;font-weight:700;}
+  .q-feedback.wrong-fb{color:var(--deep-night-blue);font-size:14px;}
+  .q-xp{font-size:16px;font-weight:700;color:var(--desert-gold);text-align:center;margin-top:4px;animation:floatUp 1s ease-out forwards;}
+  @keyframes floatUp{0%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-20px);}}
+
+  /* ===== SCREEN 13: FINAL QUIZ ===== */
+  .quiz-bg{width:100%;height:100%;background:linear-gradient(to bottom,#1A2744,#2a3a5c);display:flex;flex-direction:column;align-items:center;}
+  .quiz-top{padding:60px 20px 0;width:100%;text-align:center;}
+  .quiz-hearts{display:flex;gap:4px;justify-content:flex-end;padding:0 20px;font-size:16px;position:absolute;top:58px;left:20px;}
+  .quiz-counter{font-size:14px;font-weight:500;color:var(--starlight-white);margin-bottom:12px;}
+  .quiz-dots{display:flex;gap:8px;justify-content:center;margin-bottom:24px;}
+  .quiz-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);}
+  .quiz-dot.done{background:var(--desert-gold);}
+  .quiz-dot.current{background:transparent;border:2px solid var(--desert-gold);width:10px;height:10px;margin-top:-1px;animation:dotPulse 2s ease-in-out infinite;}
+  @keyframes dotPulse{0%,100%{box-shadow:0 0 4px rgba(212,168,67,.3);}50%{box-shadow:0 0 12px rgba(212,168,67,.7);}}
+
+  .quiz-card{background:var(--starlight-white);border:2px solid;border-image:linear-gradient(var(--royal-purple),var(--deep-night-blue)) 1;border-radius:var(--radius-md);padding:20px;margin:0 20px;width:calc(100% - 40px);text-align:center;position:relative;overflow:hidden;}
+  .quiz-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;border:2px solid transparent;border-radius:var(--radius-md);background:linear-gradient(white,white) padding-box,linear-gradient(var(--royal-purple),var(--deep-night-blue)) border-box;}
+  .quiz-card-inner{position:relative;z-index:1;}
+  .quiz-type{position:absolute;top:8px;left:8px;font-size:10px;color:var(--muted-gray);z-index:2;}
+
+  .quiz-options{padding:16px 20px;display:flex;flex-direction:column;gap:12px;width:100%;}
+  .quiz-option{width:100%;height:52px;background:rgba(26,39,68,0.8);border:1.5px solid var(--desert-gold);border-radius:var(--radius-sm);display:flex;align-items:center;padding:0 16px;gap:10px;cursor:pointer;transition:all .15s;}
+  .quiz-option .letter{font-size:16px;font-weight:700;color:var(--desert-gold);}
+  .quiz-option .text{font-size:16px;color:var(--starlight-white);}
+  .quiz-option:hover{background:rgba(212,168,67,0.15);}
+  .quiz-option.selected{background:var(--desert-gold);border-color:var(--desert-gold);}
+  .quiz-option.selected .letter,.quiz-option.selected .text{color:var(--deep-night-blue);}
+
+  /* ===== SCREEN 14: CELEBRATION ===== */
+  .celebration-bg{width:100%;height:100%;background:linear-gradient(to bottom,#E8734A,#D4A843 50%,#F5E6C8);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .cel-particles{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;}
+  .cel-particle{position:absolute;width:4px;height:4px;background:var(--desert-gold);border-radius:50%;animation:celFloat var(--cd,6s) ease-in-out infinite;opacity:0.4;}
+  @keyframes celFloat{0%{transform:translateY(0);opacity:0;}20%{opacity:0.6;}80%{opacity:0.4;}100%{transform:translateY(-400px);opacity:0;}}
+
+  .cel-banner{background:var(--desert-gold);padding:6px 24px;border-radius:4px;font-size:20px;font-weight:900;color:var(--deep-night-blue);margin-bottom:16px;box-shadow:var(--glow);position:relative;z-index:2;}
+  .cel-stars{display:flex;gap:12px;margin-bottom:20px;position:relative;z-index:2;}
+  .cel-star{font-size:64px;filter:drop-shadow(0 4px 12px rgba(212,168,67,0.5));}
+  .cel-star.earned{animation:starPop .3s ease-out both;}
+  .cel-star.unearned{filter:grayscale(1) opacity(0.3);}
+  @keyframes starPop{from{transform:scale(0) rotate(-20deg);opacity:0;}to{transform:scale(1) rotate(0);opacity:1;}}
+  .cel-star:nth-child(1){animation-delay:.2s;}
+  .cel-star:nth-child(2){animation-delay:.7s;}
+  .cel-star:nth-child(3){animation-delay:1.2s;}
+
+  .cel-score{font-size:48px;font-weight:900;color:var(--deep-night-blue);position:relative;z-index:2;}
+  .cel-score-label{font-size:14px;color:var(--muted-gray);margin-bottom:16px;position:relative;z-index:2;}
+  .cel-xp{background:var(--desert-gold);border-radius:var(--radius-sm);padding:8px 24px;font-size:20px;font-weight:700;color:var(--deep-night-blue);margin-bottom:4px;position:relative;z-index:2;box-shadow:var(--shadow-1);}
+  .cel-xp-breakdown{font-size:12px;color:var(--muted-gray);margin-bottom:12px;position:relative;z-index:2;}
+  .cel-streak{font-size:16px;font-weight:700;color:var(--sunset-orange);margin-bottom:16px;position:relative;z-index:2;}
+
+  .cel-narrator{display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;margin-bottom:16px;}
+  .cel-bubble{background:var(--starlight-white);border:1px solid var(--desert-gold);border-radius:var(--radius-md);padding:10px 20px;font-size:16px;font-weight:700;color:var(--deep-night-blue);max-width:280px;text-align:center;position:relative;box-shadow:var(--shadow-1);}
+  .cel-bubble::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid var(--starlight-white);}
+  .cel-figure{width:44px;height:55px;background:var(--deep-night-blue);border-radius:22px 22px 10px 10px;margin-top:12px;position:relative;}
+  .cel-figure::before{content:'';position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:24px;height:24px;background:var(--deep-night-blue);border-radius:50%;}
+
+  .cel-buttons{position:relative;z-index:2;width:100%;padding:0 20px;display:flex;flex-direction:column;gap:10px;align-items:center;}
+  .cel-link{font-size:14px;color:var(--muted-gray);text-decoration:none;margin-top:4px;}
+</style>
+</head>
+<body>
+
+<div class="page-nav">
+  <h1>Son Journey — رحلة الابن</h1>
+  <div class="nav-pills">
+    <a href="02-auth-flow.html" class="ext">← Auth</a>
+    <a href="#journey" class="active">Journey Map</a>
+    <a href="#stage-detail">Stage Detail</a>
+    <a href="#narrator">Narrator</a>
+    <a href="#story">Story Panel</a>
+    <a href="#question">Question</a>
+    <a href="#quiz">Final Quiz</a>
+    <a href="#celebration">Results</a>
+    <a href="04-son-tabs.html" class="ext">Son Tabs →</a>
+  </div>
+</div>
+
+<div class="screen-grid">
+
+<!-- ===== 08: JOURNEY MAP ===== -->
+<div class="phone-wrapper" id="journey">
+  <div class="phone-label">08 — Home / Journey Map</div>
+  <div class="phone-sublabel">الرئيسية — خريطة الرحلة</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status light"><span>٩:٤١</span><span class="icons">📶 📡 🔋</span></div>
+
+      <div class="journey-bg">
+        <div class="stars-bg">
+          <div class="s" style="top:4%;left:15%;--d:2.5s;--dl:0s;"></div>
+          <div class="s" style="top:8%;left:45%;--d:3.5s;--dl:.5s;width:4px;height:4px;"></div>
+          <div class="s" style="top:3%;left:70%;--d:2s;--dl:1s;"></div>
+          <div class="s" style="top:12%;left:85%;--d:4s;--dl:.3s;width:2px;height:2px;"></div>
+          <div class="s" style="top:6%;left:25%;--d:3s;--dl:.7s;"></div>
+          <div class="s" style="top:10%;left:60%;--d:2.8s;--dl:1.2s;width:2px;height:2px;"></div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="journey-status">
+          <div class="js-profile">
+            <div class="js-avatar">م</div>
+            <div class="js-name">محمد</div>
+          </div>
+          <div class="js-stats">
+            <div class="js-stat">🔥 <span style="color:var(--sunset-orange);">٧</span></div>
+            <div class="js-stat"><span style="font-size:12px;">❤️</span> <span style="color:var(--error-red);">٥</span></div>
+            <div class="js-stat">🛡️ <span style="color:var(--desert-gold);">٣٤٠</span></div>
+          </div>
+        </div>
+
+        <!-- Daily Challenge -->
+        <div class="journey-banner">
+          <div class="jb-text">⚡ تحدي اليوم جاهز!</div>
+          <button class="jb-btn">ابدأ</button>
+        </div>
+
+        <!-- Path with nodes -->
+        <div class="journey-path">
+          <div class="node-row" style="justify-content:flex-end;padding-right:80px;">
+            <div style="text-align:center;">
+              <div class="stage-node locked" style="font-size:16px;">🔒</div>
+              <div class="node-label">المدينة</div>
+            </div>
+          </div>
+          <div class="node-row" style="justify-content:flex-start;padding-left:80px;">
+            <div style="text-align:center;">
+              <div class="stage-node locked" style="font-size:16px;">🔒</div>
+              <div class="node-label">الهجرة</div>
+            </div>
+          </div>
+          <div class="node-row" style="justify-content:flex-end;padding-right:60px;">
+            <div style="text-align:center;">
+              <div class="stage-node locked" style="font-size:16px;">🔒</div>
+              <div class="node-label">الأتباع</div>
+            </div>
+          </div>
+          <div class="node-row" style="justify-content:flex-start;padding-left:60px;">
+            <div style="text-align:center;">
+              <div class="stage-node locked" style="font-size:16px;">🔒</div>
+              <div class="node-label">الوحي</div>
+            </div>
+          </div>
+          <div class="node-row" style="justify-content:flex-end;padding-right:70px;">
+            <div style="text-align:center;">
+              <div class="stage-node locked" style="font-size:16px;">🔒</div>
+              <div class="node-label">غار حراء</div>
+            </div>
+          </div>
+          <div class="node-row" style="justify-content:flex-start;padding-left:70px;">
+            <div style="text-align:center;position:relative;">
+              <div class="stage-node current" style="font-size:20px;">⛰️</div>
+              <div class="mini-narrator">👤</div>
+              <div class="node-label" style="color:var(--desert-gold);">الشباب ← الحالي</div>
+            </div>
+          </div>
+          <div class="node-row" style="justify-content:flex-end;padding-right:60px;">
+            <div style="text-align:center;">
+              <div class="stage-node completed" style="font-size:18px;">🏕️</div>
+              <div class="node-label">الطفولة</div>
+              <div class="node-stars"><span>⭐</span><span>⭐</span><span>⭐</span></div>
+            </div>
+          </div>
+          <div class="node-row" style="justify-content:flex-start;padding-left:60px;">
+            <div style="text-align:center;">
+              <div class="stage-node completed" style="font-size:18px;">✨</div>
+              <div class="node-label">المولد</div>
+              <div class="node-stars"><span>⭐</span><span>⭐</span><span style="opacity:.3;">☆</span></div>
+            </div>
+          </div>
+          <div class="node-row" style="justify-content:flex-end;padding-right:70px;">
+            <div style="text-align:center;">
+              <div class="stage-node completed" style="font-size:18px;">🐘</div>
+              <div class="node-label">عام الفيل</div>
+              <div class="node-stars"><span>⭐</span><span>⭐</span><span>⭐</span></div>
+            </div>
+          </div>
+          <div class="node-row" style="justify-content:flex-start;padding-left:70px;">
+            <div style="text-align:center;">
+              <div class="stage-node completed" style="font-size:18px;">🌙</div>
+              <div class="node-label">ما قبل الميلاد</div>
+              <div class="node-stars"><span>⭐</span><span>⭐</span><span style="opacity:.3;">☆</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Nav -->
+        <div class="journey-nav">
+          <div class="jn-item active"><div class="jn-icon">🏠</div><div class="jn-label" style="color:var(--desert-gold);">الرئيسية</div></div>
+          <div class="jn-item"><div class="jn-icon">📊</div><div class="jn-label">التقدم</div></div>
+          <div class="jn-item"><div class="jn-icon">🎯</div><div class="jn-label">الأهداف</div></div>
+          <div class="jn-item"><div class="jn-icon">🏆</div><div class="jn-label">الجوائز</div></div>
+          <div class="jn-item"><div class="jn-icon">⚙️</div><div class="jn-label">الإعدادات</div></div>
+        </div>
+      </div>
+      <div class="home-indicator" style="background:rgba(255,255,255,.2);"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 09: STAGE DETAIL ===== -->
+<div class="phone-wrapper" id="stage-detail">
+  <div class="phone-label">09 — Stage Detail</div>
+  <div class="phone-sublabel">تفاصيل المرحلة · Bottom Sheet</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status light"><span>٩:٤١</span><span class="icons">📶 📡 🔋</span></div>
+      <div class="stage-detail-bg">
+        <div class="sd-overlay"></div>
+        <div class="sd-map-hint">خريطة الرحلة (خلفية)</div>
+        <div class="sd-sheet">
+          <div class="sd-handle"></div>
+          <div class="sd-hero">
+            <div class="sd-hero-icon">🐘</div>
+            <div class="sd-hero-fade"></div>
+          </div>
+          <div class="sd-content">
+            <div class="sd-title">عام الفيل</div>
+            <div class="sd-subtitle">اكتشف قصة عام الفيل وما حدث قبل ميلاد النبي ﷺ</div>
+            <div class="sd-divider"></div>
+            <div class="sd-stats">
+              <div class="sd-pill">⭐ 2/3</div>
+              <div class="sd-pill">🏆 78/100</div>
+              <div class="sd-pill">🔄 2</div>
+            </div>
+            <div style="margin-top:12px;">
+              <button class="btn btn-primary" style="width:100%;">أعد المحاولة</button>
+              <div style="font-size:12px;color:var(--muted-gray);margin-top:6px;">أفضل نتيجتك: 78/100</div>
+            </div>
+            <div class="sd-hearts">❤️ ×5 جاهز</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">⬇</div>
+
+<!-- ===== 10: NARRATOR WELCOME ===== -->
+<div class="phone-wrapper" id="narrator">
+  <div class="phone-label">10 — Narrator Welcome</div>
+  <div class="phone-sublabel">شاشة ترحيب الراوي</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status light"><span>٩:٤١</span><span class="icons">📶 📡 🔋</span></div>
+      <div class="narrator-bg">
+        <div class="stars-bg">
+          <div class="s" style="top:5%;left:20%;--d:3s;--dl:0s;"></div>
+          <div class="s" style="top:10%;left:50%;--d:2.5s;--dl:.5s;width:4px;height:4px;"></div>
+          <div class="s" style="top:3%;left:75%;--d:3.5s;--dl:1s;"></div>
+          <div class="s" style="top:15%;left:35%;--d:2.8s;--dl:.3s;"></div>
+        </div>
+
+        <div class="nw-stage">المرحلة ٢: عام الفيل</div>
+        <div class="nw-bubble">هل تعلم أن جيشاً كاملاً بالفيلة أراد هدم الكعبة؟ تعال أحكي لك ماذا حدث!</div>
+
+        <div class="nw-scene">
+          <div class="nw-fire">
+            <div class="nw-flame"></div>
+            <div class="nw-glow"></div>
+          </div>
+          <div class="nw-narrator"></div>
+
+          <svg style="position:absolute;bottom:80px;left:0;right:0;width:100%;height:40px;" viewBox="0 0 400 40" preserveAspectRatio="none">
+            <path d="M0,40 Q60,15 130,28 Q220,40 300,22 Q370,10 400,25 L400,40 Z" fill="rgba(245,230,200,0.12)"/>
+          </svg>
+        </div>
+
+        <div style="padding:0 20px 40px;">
+          <button class="btn btn-primary" style="width:100%;">هيا بنا ←</button>
+        </div>
+      </div>
+      <div class="home-indicator" style="background:rgba(255,255,255,.2);"></div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">⬇</div>
+
+<!-- ===== 11: STORY PANEL ===== -->
+<div class="phone-wrapper" id="story">
+  <div class="phone-label">11 — Story Panel</div>
+  <div class="phone-sublabel">لوحة القصة · Illustration + Narration</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status dark"><span>٩:٤١</span><span class="icons">📶 📡 🔋</span></div>
+      <div class="story-bg">
+        <div class="story-top">
+          <div class="story-progress"><div class="fill" style="width:35%;"></div></div>
+          <div class="story-topbar">
+            <div class="story-hearts">❤️❤️❤️❤️❤️</div>
+            <div class="story-stage">عام الفيل</div>
+          </div>
+        </div>
+        <div class="story-illust">
+          <div class="story-illust-content">🐘🐘🐘<br>⚔️🏛️</div>
+          <div class="story-illust-fade"></div>
+        </div>
+        <div class="story-text">
+          <div class="story-tag">الراوي:</div>
+          <div class="story-narration">في ذلك العام، جاء أبرهة بجيش عظيم من الفيلة يريد هدم الكعبة المشرفة. كان الناس خائفين ولا يعرفون ماذا يفعلون.</div>
+        </div>
+        <div class="story-btn">
+          <button class="btn btn-primary" style="width:100%;">التالي</button>
+        </div>
+      </div>
+      <div class="home-indicator" style="background:rgba(0,0,0,.15);"></div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">⬇</div>
+
+<!-- ===== 12: INLINE QUESTION ===== -->
+<div class="phone-wrapper" id="question">
+  <div class="phone-label">12 — Inline Question</div>
+  <div class="phone-sublabel">سؤال أثناء القصة · Correct State</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status dark"><span>٩:٤١</span><span class="icons">📶 📡 🔋</span></div>
+      <div class="question-bg">
+        <div class="story-top">
+          <div class="story-progress"><div class="fill" style="width:50%;"></div></div>
+          <div class="story-topbar">
+            <div class="story-hearts">❤️❤️❤️❤️❤️</div>
+            <div class="story-stage">عام الفيل</div>
+          </div>
+        </div>
+
+        <div style="height:40px;"></div>
+
+        <div class="q-card">
+          <div class="q-avatar">👤</div>
+          <div class="q-text">ماذا كان اسم قائد جيش الفيلة؟</div>
+        </div>
+
+        <div class="q-options">
+          <div class="q-option correct">
+            <span class="letter">أ.</span>
+            <span class="text">أبرهة الحبشي</span>
+            <span style="margin-right:auto;font-size:16px;">✓</span>
+          </div>
+          <div class="q-option dimmed">
+            <span class="letter">ب.</span>
+            <span class="text">النجاشي</span>
+          </div>
+          <div class="q-option dimmed">
+            <span class="letter">ج.</span>
+            <span class="text">كسرى</span>
+          </div>
+          <div class="q-option dimmed">
+            <span class="letter">د.</span>
+            <span class="text">قيصر</span>
+          </div>
+        </div>
+
+        <div class="q-feedback correct-fb">ممتاز! 🎉</div>
+        <div class="q-xp">+10 XP ⭐</div>
+
+        <div style="padding:16px 20px;">
+          <button class="btn btn-primary" style="width:100%;">التالي</button>
+        </div>
+      </div>
+      <div class="home-indicator" style="background:rgba(0,0,0,.15);"></div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">⬇</div>
+
+<!-- ===== 13: FINAL QUIZ ===== -->
+<div class="phone-wrapper" id="quiz">
+  <div class="phone-label">13 — Final Quiz</div>
+  <div class="phone-sublabel">الاختبار النهائي · Dark Theme</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status light"><span>٩:٤١</span><span class="icons">📶 📡 🔋</span></div>
+      <div class="quiz-bg">
+        <div class="quiz-hearts">❤️❤️❤️❤️🤍</div>
+
+        <div class="quiz-top">
+          <div class="quiz-counter">السؤال ٣ من ٥</div>
+          <div class="quiz-dots">
+            <div class="quiz-dot done"></div>
+            <div class="quiz-dot done"></div>
+            <div class="quiz-dot current"></div>
+            <div class="quiz-dot"></div>
+            <div class="quiz-dot"></div>
+          </div>
+        </div>
+
+        <div style="margin:0 20px;background:var(--starlight-white);border-radius:var(--radius-md);padding:20px;text-align:center;border:2px solid var(--royal-purple);position:relative;">
+          <div style="position:absolute;top:8px;left:8px;font-size:10px;color:var(--muted-gray);">MCQ</div>
+          <div class="q-avatar" style="margin:-30px auto 12px;">👤</div>
+          <div style="font-size:18px;font-weight:700;color:var(--deep-night-blue);line-height:1.6;">من الذي قاد جيش الفيلة لهدم الكعبة؟</div>
+        </div>
+
+        <div class="quiz-options">
+          <div class="quiz-option"><span class="letter">أ.</span><span class="text">أبرهة الحبشي</span></div>
+          <div class="quiz-option"><span class="letter">ب.</span><span class="text">النجاشي</span></div>
+          <div class="quiz-option selected"><span class="letter">ج.</span><span class="text">كسرى</span></div>
+          <div class="quiz-option"><span class="letter">د.</span><span class="text">قيصر</span></div>
+        </div>
+
+        <div style="text-align:center;margin-top:16px;">
+          <div style="font-size:12px;color:var(--desert-gold);">⚡ مكافأة السرعة</div>
+        </div>
+      </div>
+      <div class="home-indicator" style="background:rgba(255,255,255,.2);"></div>
+    </div>
+  </div>
+</div>
+
+<div class="flow-arrow">⬇</div>
+
+<!-- ===== 14: CELEBRATION / RESULTS ===== -->
+<div class="phone-wrapper" id="celebration">
+  <div class="phone-label">14 — Celebration / Results</div>
+  <div class="phone-sublabel">شاشة الاحتفال · 3 Stars</div>
+  <div class="phone">
+    <div class="phone-screen">
+      <div class="ios-status dark"><span>٩:٤١</span><span class="icons">📶 📡 🔋</span></div>
+      <div class="celebration-bg">
+        <!-- Particles -->
+        <div class="cel-particles">
+          <div class="cel-particle" style="left:10%;bottom:10%;--cd:5s;"></div>
+          <div class="cel-particle" style="left:25%;bottom:5%;--cd:7s;width:3px;height:3px;"></div>
+          <div class="cel-particle" style="left:45%;bottom:15%;--cd:6s;"></div>
+          <div class="cel-particle" style="left:65%;bottom:8%;--cd:8s;width:5px;height:5px;"></div>
+          <div class="cel-particle" style="left:80%;bottom:12%;--cd:5.5s;"></div>
+          <div class="cel-particle" style="left:35%;bottom:20%;--cd:9s;width:3px;height:3px;"></div>
+          <div class="cel-particle" style="left:55%;bottom:3%;--cd:6.5s;"></div>
+          <div class="cel-particle" style="left:90%;bottom:18%;--cd:7.5s;"></div>
+        </div>
+
+        <!-- Banner -->
+        <div class="cel-banner">بدون أخطاء! 🏆</div>
+
+        <!-- Stars -->
+        <div class="cel-stars">
+          <div class="cel-star earned">⭐</div>
+          <div class="cel-star earned">⭐</div>
+          <div class="cel-star earned">⭐</div>
+        </div>
+
+        <!-- Score -->
+        <div class="cel-score">٩٥/١٠٠</div>
+        <div class="cel-score-label">نتيجتك</div>
+
+        <!-- XP -->
+        <div class="cel-xp">+45 XP</div>
+        <div class="cel-xp-breakdown">+10 أسئلة | +20 بلا أخطاء | +15 مكافأة السرعة</div>
+
+        <!-- Streak -->
+        <div class="cel-streak">🔥 سلسلتك: ٨ أيام!</div>
+
+        <!-- Narrator -->
+        <div class="cel-narrator">
+          <div class="cel-bubble">ما شاء الله! أداء مذهل يا بطلي!</div>
+          <div class="cel-figure"></div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="cel-buttons">
+          <button class="btn btn-primary" style="width:280px;background:var(--deep-night-blue);color:var(--starlight-white);">المرحلة التالية</button>
+          <button class="btn btn-secondary" style="width:280px;border-color:var(--deep-night-blue);color:var(--deep-night-blue);">أعد المحاولة</button>
+          <a href="#journey" class="cel-link">العودة للخريطة</a>
+        </div>
+      </div>
+      <div class="home-indicator" style="background:rgba(0,0,0,.15);"></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>
