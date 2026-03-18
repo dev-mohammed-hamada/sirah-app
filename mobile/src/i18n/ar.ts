@@ -1,0 +1,166 @@
+export const ar = {
+  // Common
+  appName: 'سيرة النبي ﷺ',
+  loading: 'جاري التحميل...',
+  retry: 'إعادة المحاولة',
+  cancel: 'إلغاء',
+  save: 'حفظ',
+  delete: 'حذف',
+  confirm: 'تأكيد',
+  back: 'رجوع',
+  next: 'التالي',
+  skip: 'تخطي',
+  done: 'تم',
+
+  // Auth
+  auth: {
+    signUp: 'إنشاء حساب',
+    login: 'تسجيل الدخول',
+    logout: 'تسجيل الخروج',
+    displayName: 'الاسم المعروض',
+    username: 'اسم المستخدم',
+    password: 'كلمة المرور',
+    age: 'العمر',
+    selectRole: 'اختر نوع الحساب',
+    son: 'ابن',
+    father: 'أب',
+    sonDesc: 'أتعلم السيرة النبوية بطريقة ممتعة',
+    fatherDesc: 'أتابع تقدم أبنائي في التعلم',
+    usernameAvailable: 'اسم المستخدم متاح',
+    usernameTaken: 'اسم المستخدم مستخدم بالفعل',
+    welcomeBack: 'أهلاً بعودتك!',
+    invalidCredentials: 'بيانات الدخول غير صحيحة',
+  },
+
+  // Onboarding
+  onboarding: {
+    slide1Title: 'رحلة عبر الزمن',
+    slide1Desc: 'اكتشف سيرة النبي محمد ﷺ في رحلة تعليمية ممتعة',
+    slide2Title: 'تعلم وتحدى',
+    slide2Desc: 'أجب على الأسئلة واجمع النجوم والنقاط',
+    slide3Title: 'شارك مع أبيك',
+    slide3Desc: 'يتابع أبوك تقدمك ويضع لك أهدافاً',
+    getStarted: 'ابدأ الرحلة',
+  },
+
+  // Home / Journey
+  home: {
+    title: 'الرحلة',
+    dailyChallenge: 'تحدي اليوم',
+    stageCompleted: 'مكتمل',
+    stageCurrent: 'المرحلة الحالية',
+    stageLocked: 'مقفل',
+    startStage: 'ابدأ المرحلة',
+    retryStage: 'أعد المحاولة',
+  },
+
+  // Quiz
+  quiz: {
+    question: 'السؤال',
+    correct: 'إجابة صحيحة! 🌟',
+    wrong: 'إجابة خاطئة',
+    heartsLeft: 'القلوب المتبقية',
+    noHearts: 'نفدت القلوب! حاول لاحقاً',
+    finalQuiz: 'الاختبار النهائي',
+    timeBonus: 'مكافأة السرعة!',
+  },
+
+  // Results
+  results: {
+    congratulations: 'مبروك! 🎉',
+    starsEarned: 'النجوم',
+    xpEarned: 'نقاط الخبرة',
+    score: 'النتيجة',
+    perfect: 'أداء مثالي! ✨',
+    nextStage: 'المرحلة التالية',
+    backToMap: 'العودة للخريطة',
+    newBest: 'رقم قياسي جديد!',
+  },
+
+  // Tabs
+  tabs: {
+    home: 'الرئيسية',
+    progress: 'التقدم',
+    goals: 'الأهداف',
+    awards: 'الجوائز',
+    settings: 'الإعدادات',
+    sons: 'أبنائي',
+  },
+
+  // Progress
+  progress: {
+    title: 'تقدمي',
+    totalXp: 'نقاط الخبرة',
+    currentStreak: 'أيام متتالية',
+    totalStars: 'مجموع النجوم',
+    stagesCompleted: 'مراحل مكتملة',
+    weeklyActivity: 'النشاط الأسبوعي',
+  },
+
+  // Goals
+  goals: {
+    title: 'الأهداف',
+    active: 'نشط',
+    completed: 'مكتمل',
+    expired: 'منتهي',
+    noGoals: 'لا توجد أهداف بعد',
+    createGoal: 'إنشاء هدف',
+    selectSon: 'اختر الابن',
+    description: 'وصف الهدف',
+    deadline: 'الموعد النهائي',
+    reward: 'المكافأة',
+  },
+
+  // Awards
+  awards: {
+    title: 'الجوائز',
+    level: 'المستوى',
+    badges: 'الشارات',
+    earned: 'مكتسبة',
+    locked: 'مقفلة',
+  },
+
+  // Settings
+  settings: {
+    title: 'الإعدادات',
+    account: 'الحساب',
+    editProfile: 'تعديل الملف الشخصي',
+    linkedAccounts: 'الحسابات المرتبطة',
+    notifications: 'الإشعارات',
+    stageNotifications: 'إشعارات المراحل',
+    goalNotifications: 'إشعارات الأهداف',
+    streakReminders: 'تذكير السلسلة',
+    about: 'حول التطبيق',
+    version: 'الإصدار',
+    privacy: 'سياسة الخصوصية',
+  },
+
+  // Linking
+  linking: {
+    linkRequest: 'طلب ربط',
+    accept: 'قبول',
+    decline: 'رفض',
+    wantsToLink: 'يريد متابعة تقدمك',
+    searchSon: 'ابحث عن الابن باسم المستخدم',
+    sendRequest: 'إرسال طلب ربط',
+    unlink: 'إلغاء الربط',
+  },
+
+  // Father
+  father: {
+    mySons: 'أبنائي',
+    sonProgress: 'تقدم الابن',
+    noSons: 'لم تربط أي ابن بعد',
+    linkSon: 'ربط ابن',
+    createGoalFor: 'إنشاء هدف لـ',
+  },
+
+  // Narrator
+  narrator: {
+    welcome: 'أهلاً بك يا بطل! هيا نبدأ رحلتنا',
+    encouragement: 'أحسنت! استمر',
+    tryAgain: 'لا بأس، حاول مرة أخرى',
+    celebration: 'ما شاء الله! أداء رائع',
+    stageTeaser: 'في المرحلة القادمة...',
+  },
+} as const;
