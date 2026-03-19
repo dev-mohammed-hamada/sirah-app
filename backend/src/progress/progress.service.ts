@@ -55,7 +55,9 @@ export class ProgressService {
       where: { id: { in: input.answers.map((a) => a.questionId) } },
     });
 
-    const questionMap = new Map(questions.map((q) => [q.id, q]));
+    const questionMap = new Map<string, { id: string; correctAnswer: string; xpValue: number }>(
+      questions.map((q: { id: string; correctAnswer: string; xpValue: number }) => [q.id, q]),
+    );
 
     let correctCount = 0;
     const answerResults = input.answers.map((answer) => {
@@ -138,7 +140,10 @@ export class ProgressService {
     });
 
     const totalStages = await this.prisma.stage.count();
-    const totalStars = stageProgress.reduce((sum, p) => sum + p.starsEarned, 0);
+    const totalStars = stageProgress.reduce(
+      (sum: number, p: { starsEarned: number }) => sum + p.starsEarned,
+      0,
+    );
     const hearts = await this.heartsService.getHearts(userId);
 
     return {

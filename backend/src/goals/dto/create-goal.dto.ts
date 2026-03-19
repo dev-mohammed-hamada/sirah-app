@@ -3,21 +3,21 @@ import { IsDateString, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 export class CreateGoalDto {
   @IsString()
   @IsNotEmpty()
-  sonId: string;
+  sonId!: string;
 
   @IsString()
   @IsNotEmpty()
   @MaxLength(200)
-  description: string;
+  description!: string;
 
   @IsString()
   @IsNotEmpty()
-  stageGroupId: string;
+  stageGroupId!: string;
 
   @IsDateString()
-  deadline: string;
+  deadline!: string;
 
   @IsString()
   @MaxLength(100)
-  rewardDescription: string;
+  rewardDescription!: string;
 }

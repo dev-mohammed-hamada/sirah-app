@@ -5,5 +5,5 @@ export class CheckUsernameDto {
   @IsNotEmpty()
   @MinLength(3)
   @MaxLength(30)
-  username: string;
+  username!: string;
 }

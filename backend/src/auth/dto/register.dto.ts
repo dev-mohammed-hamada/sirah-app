@@ -13,21 +13,21 @@ export class RegisterDto {
   @IsString()
   @IsNotEmpty()
   @MaxLength(50)
-  displayName: string;
+  displayName!: string;
 
   @IsString()
   @IsNotEmpty()
   @MinLength(3)
   @MaxLength(30)
-  username: string;
+  username!: string;
 
   @IsString()
   @MinLength(6)
   @MaxLength(100)
-  password: string;
+  password!: string;
 
   @IsEnum(['SON', 'FATHER'])
-  accountType: 'SON' | 'FATHER';
+  accountType!: 'SON' | 'FATHER';
 
   @IsOptional()
   @IsInt()
