@@ -52,6 +52,31 @@ Monorepo: `mobile/` (Expo + React Native), `backend/` (NestJS), `shared/` (TS ty
 - 4 states: Neutral, Excited, Encouraging, Celebrating
 - Reacts to quiz performance, sends streak reminders
 
+## Git Workflow
+
+- **Branches:** `main` (production) → `develop` (integration) → `feature/<name>` (work)
+- **Prefixes:** `feature/`, `fix/`, `chore/`, `refactor/`, `release/`
+- **Never push directly to `main` or `develop`** — always via PR
+- **PR merges:** squash-merge to `develop`, merge commit to `main`
+- **Delete branch after merge**
+- **Conventional Commits** enforced — see `/commit` skill
+
+## Environments
+
+- **Local dev:** docker-compose (PostgreSQL, Redis, backend)
+- **Secrets:** `.env` files only, never hardcode — use `.env.example` as templates
+- **Environments:** development → staging → production
+
+## Code Quality
+
+- TypeScript strict mode everywhere
+- Functional components + hooks only
+- Zustand = client state, TanStack Query = server state
+- Files: `kebab-case.ts` | Components: `PascalCase.tsx`
+- Backend: thin controllers, logic in services, DTOs with `class-validator`
+- Pre-commit hooks: Husky + lint-staged (auto-lint & format)
+- Minimum 70% test coverage for new code
+
 ## Prohibitions
 
 - NEVER show faces on human figures
@@ -84,6 +109,11 @@ npm run test                # Tests (all workspaces)
 Project-specific Claude Code skills in `.claude/skills/`:
 
 - `/commit` — Git commit with Conventional Commits conventions
+- `/new-feature` — Create feature branch from develop
+- `/release` — Create release branch, bump version, PR to main
+- `/ci-local` — Run lint, type-check, tests locally before pushing
+- `/docker-up` — Manage local dev environment (docker-compose)
+- `/db-migrate` — Create and apply Prisma migration with validation
 - `/rtl-check` — Audit code for RTL compliance violations
 - `/new-screen` — Scaffold a new React Native screen
 - `/new-backend-module` — Scaffold a new NestJS module
