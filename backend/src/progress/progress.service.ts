@@ -46,7 +46,7 @@ export class ProgressService {
   }
 
   async completeStage(userId: string, input: CompleteStageInput) {
-    const stage = await this.prisma.stage.findUniqueOrThrow({
+    const _stage = await this.prisma.stage.findUniqueOrThrow({
       where: { id: input.stageId },
       include: { quizQuestions: { where: { isInline: false } } },
     });
