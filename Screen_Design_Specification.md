@@ -1,4 +1,5 @@
 # سيرة النبي ﷺ — Screen Design Specification
+
 ### For UI/UX Designer — V1
 
 ---
@@ -6,6 +7,7 @@
 ## Global Design System
 
 ### Brand Identity
+
 - **App Name:** سيرة النبي ﷺ
 - **Tagline:** تعلّم السيرة وأنت تلعب
 - **Personality:** Warm, magical, inviting — like a grandfather telling stories by firelight
@@ -13,61 +15,65 @@
 
 ### Color Palette
 
-| Token | Hex | Usage |
-|---|---|---|
-| **Desert Gold** | `#D4A843` | Primary accent, stars, XP highlights, buttons |
-| **Deep Night Blue** | `#1A2744` | Primary backgrounds, headers, navigation |
-| **Warm Sand** | `#F5E6C8` | Card backgrounds, light surfaces |
-| **Sunset Orange** | `#E8734A` | Hearts, streak flame, urgent CTAs |
-| **Royal Purple** | `#4A2D6B` | Badge glow, special celebrations, premium feel |
-| **Starlight White** | `#FFF8F0` | Text on dark backgrounds, clean surfaces |
-| **Soft Cream** | `#FAF3E8` | Page backgrounds, neutral surfaces |
-| **Success Green** | `#4CAF6E` | Correct answers, completion states |
-| **Error Red** | `#E05555` | Wrong answers, heart loss |
-| **Muted Gray** | `#8A8A8A` | Disabled states, locked content |
+| Token               | Hex       | Usage                                          |
+| ------------------- | --------- | ---------------------------------------------- |
+| **Desert Gold**     | `#D4A843` | Primary accent, stars, XP highlights, buttons  |
+| **Deep Night Blue** | `#1A2744` | Primary backgrounds, headers, navigation       |
+| **Warm Sand**       | `#F5E6C8` | Card backgrounds, light surfaces               |
+| **Sunset Orange**   | `#E8734A` | Hearts, streak flame, urgent CTAs              |
+| **Royal Purple**    | `#4A2D6B` | Badge glow, special celebrations, premium feel |
+| **Starlight White** | `#FFF8F0` | Text on dark backgrounds, clean surfaces       |
+| **Soft Cream**      | `#FAF3E8` | Page backgrounds, neutral surfaces             |
+| **Success Green**   | `#4CAF6E` | Correct answers, completion states             |
+| **Error Red**       | `#E05555` | Wrong answers, heart loss                      |
+| **Muted Gray**      | `#8A8A8A` | Disabled states, locked content                |
 
 ### Gradient Presets
 
-| Name | Definition | Usage |
-|---|---|---|
-| **Night Sky** | `#1A2744 → #4A2D6B` (top→bottom) | Main backgrounds, journey map sky |
-| **Desert Horizon** | `#E8734A → #D4A843 → #F5E6C8` (top→bottom) | Celebration screens, warm panels |
-| **Golden Glow** | `#D4A843 → #F5E6C8` (center→edge, radial) | Star burst, achievement highlights |
+| Name               | Definition                                 | Usage                              |
+| ------------------ | ------------------------------------------ | ---------------------------------- |
+| **Night Sky**      | `#1A2744 → #4A2D6B` (top→bottom)           | Main backgrounds, journey map sky  |
+| **Desert Horizon** | `#E8734A → #D4A843 → #F5E6C8` (top→bottom) | Celebration screens, warm panels   |
+| **Golden Glow**    | `#D4A843 → #F5E6C8` (center→edge, radial)  | Star burst, achievement highlights |
 
 ### Typography
 
-| Style | Font | Size | Weight | Usage |
-|---|---|---|---|---|
-| **H1 — Hero** | Cairo Bold | 32px | 700 | Splash tagline, celebration headlines |
-| **H2 — Section** | Cairo Bold | 24px | 700 | Screen titles, narrator speech |
-| **H3 — Card Title** | Cairo SemiBold | 20px | 600 | Stage names, goal titles |
-| **Body** | Cairo Regular | 16px | 400 | Story narration, descriptions |
-| **Body Small** | Cairo Regular | 14px | 400 | Secondary info, timestamps |
-| **Caption** | Cairo Medium | 12px | 500 | Labels, badges, stat counters |
-| **Button** | Cairo Bold | 16px | 700 | All button text |
-| **XP Counter** | Cairo Black | 28px | 900 | XP numbers, streak count, score |
+| Style               | Font           | Size | Weight | Usage                                 |
+| ------------------- | -------------- | ---- | ------ | ------------------------------------- |
+| **H1 — Hero**       | Cairo Bold     | 32px | 700    | Splash tagline, celebration headlines |
+| **H2 — Section**    | Cairo Bold     | 24px | 700    | Screen titles, narrator speech        |
+| **H3 — Card Title** | Cairo SemiBold | 20px | 600    | Stage names, goal titles              |
+| **Body**            | Cairo Regular  | 16px | 400    | Story narration, descriptions         |
+| **Body Small**      | Cairo Regular  | 14px | 400    | Secondary info, timestamps            |
+| **Caption**         | Cairo Medium   | 12px | 500    | Labels, badges, stat counters         |
+| **Button**          | Cairo Bold     | 16px | 700    | All button text                       |
+| **XP Counter**      | Cairo Black    | 28px | 900    | XP numbers, streak count, score       |
 
 > **Font Choice:** Cairo — a Google Font designed specifically for Arabic with excellent readability at all sizes and beautiful Arabic letterforms. It has proper Arabic ligatures and diacritics support.
 
 ### Iconography
+
 - Style: Outlined with rounded corners, 2px stroke
 - Size: 24×24 (standard), 32×32 (navigation), 48×48 (feature)
 - Custom icons needed: Heart, Star (filled/empty), Flame, Lock, Shield, Scroll, Sword (decorative), Crescent, Mosque silhouette
 - All icons should feel hand-drawn and warm — avoid sharp geometric styles
 
 ### Corner Radius
+
 - **Small (buttons, chips):** 12px
 - **Medium (cards, panels):** 16px
 - **Large (modals, sheets):** 24px
 - **Full (avatars, badges):** 50% circle
 
 ### Shadows & Elevation
+
 - **Level 1 (cards):** `0 2px 8px rgba(26, 39, 68, 0.08)`
 - **Level 2 (floating):** `0 4px 16px rgba(26, 39, 68, 0.12)`
 - **Level 3 (modals):** `0 8px 32px rgba(26, 39, 68, 0.20)`
 - **Glow (active items):** `0 0 20px rgba(212, 168, 67, 0.4)`
 
 ### Spacing System
+
 - Base unit: 4px
 - Spacing scale: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64
 - Screen padding: 20px horizontal
@@ -75,6 +81,7 @@
 - Between sections: 24px
 
 ### Animation Principles
+
 - **Duration:** Quick feedback = 200ms, Transitions = 300ms, Celebrations = 800–1200ms
 - **Easing:** `ease-out` for entrances, `ease-in-out` for transitions, `spring` for bouncy celebrations
 - **Philosophy:** Every tap should feel alive. Nothing should feel static or dead.
@@ -84,6 +91,7 @@
 ## Shared Components
 
 ### Bottom Navigation Bar (Son)
+
 - **Background:** Deep Night Blue (`#1A2744`) with subtle top border in Desert Gold
 - **Items (RTL order from right):** الرئيسية (Home) | التقدم (Progress) | الأهداف (Goals) | الجوائز (Awards) | الإعدادات (Settings)
 - **Active state:** Desert Gold icon + label, subtle glow beneath
@@ -91,22 +99,26 @@
 - **Animation:** Active icon scales up with a gentle bounce (1.0 → 1.15 → 1.0, 300ms spring)
 
 ### Top Status Bar (Son — Home Screen)
+
 - **Layout (RTL):** Right side: profile avatar circle + display name | Left side: streak flame + count, heart icon + count, XP badge
 - **Hearts:** Row of 5 small heart icons — filled red for remaining, outlined gray for lost
 - **Streak:** 🔥 flame icon with counter, subtle pulse animation when streak is active
 - **XP:** Golden shield icon with total XP number
 
 ### Primary Button
+
 - **Default:** Desert Gold background, Deep Night Blue text, 48px height, full-width, 12px radius
 - **Pressed:** Darkens 10%, scales to 0.97
 - **Disabled:** 40% opacity, no interaction
 - **Animation:** Gentle press-down on touch (scale 0.97, 100ms), release bounce (scale 1.0, 200ms spring)
 
 ### Secondary Button
+
 - **Default:** Transparent background, Desert Gold border (2px), Desert Gold text
 - **Pressed:** Desert Gold background at 10% opacity
 
 ### Card Component
+
 - **Background:** Warm Sand (`#F5E6C8`)
 - **Border:** None (shadow provides depth)
 - **Shadow:** Level 1
@@ -114,6 +126,7 @@
 - **Content padding:** 16px
 
 ### Narrator Speech Bubble
+
 - **Background:** Starlight White with a subtle golden border (1px `#D4A843`)
 - **Radius:** 16px with a speech-bubble tail pointing toward the Narrator illustration
 - **Text:** Cairo Bold 20px, Deep Night Blue color
@@ -130,6 +143,7 @@
 **Purpose:** First impression — set the tone, build anticipation.
 
 **Layout:**
+
 - Full-screen illustration: a **starry desert night sky** as the background — gradient from Deep Night Blue at top to Royal Purple at horizon
 - Desert dunes silhouette along the bottom 20% of the screen in sandy golden tones
 - A single **campfire** in the center-bottom, glowing with warm orange light
@@ -138,6 +152,7 @@
 - **Tagline** below the logo: "تعلّم السيرة وأنت تلعب" in Cairo Regular, Starlight White at 80% opacity
 
 **Animations:**
+
 1. Screen fades in from black (600ms)
 2. Stars begin to twinkle — random stars pulse in brightness (infinite loop, staggered delays)
 3. Campfire flickers with a warm glow — animated Lottie fire with light casting on the sand
@@ -155,6 +170,7 @@
 **Purpose:** Explain the app's value in 3 swipeable panels. First-time users only.
 
 **Shared Layout:**
+
 - Full-screen with Night Sky gradient background
 - Central **illustration area** (60% of screen height) — large, detailed, atmospheric
 - **Title** below illustration: Cairo Bold 24px, Starlight White
@@ -164,18 +180,21 @@
 - **Next button** bottom-center: Primary button style, "التالي" (screens 1–2), "ابدأ الآن" (screen 3)
 
 **Screen 2 — Onboarding 1: "رحلة عبر الزمن"**
+
 - **Illustration:** A winding golden path stretching across a desert landscape under a starlit sky, with small glowing stage markers along the path. At the end of the path, a distant glowing city (Mecca) silhouette.
 - **Title:** رحلة عبر الزمن
 - **Description:** انطلق في رحلة مشوقة عبر سيرة النبي ﷺ مرحلة بمرحلة
 - **Animation:** Path draws itself from bottom-right to top-left (1200ms, ease-out), stage markers pop in sequentially along the path (100ms delay each)
 
 **Screen 3 — Onboarding 2: "تعلّم وأنت تلعب"**
+
 - **Illustration:** A child silhouette sitting cross-legged, with floating quiz cards around them — MCQ options, stars, hearts, and XP badges orbit gently around the child. The Narrator silhouette stands behind them, hand extended as if teaching.
 - **Title:** تعلّم وأنت تلعب
 - **Description:** أسئلة ممتعة ونجوم ومكافآت في كل مرحلة
 - **Animation:** Quiz cards float in from edges (staggered, 600ms each), orbit slowly around the child in a gentle circular motion (infinite, 8s per rotation). Stars occasionally sparkle.
 
 **Screen 4 — Onboarding 3: "أبوك يتابع تقدمك"**
+
 - **Illustration:** Split scene — on the right, the child silhouette playing on a device with stars floating up; on the left, a father silhouette looking at a glowing screen showing progress bars and stars. A golden line connects them.
 - **Title:** أبوك يتابع تقدمك
 - **Description:** والدك يشاهد إنجازاتك ويضع لك أهدافاً ومكافآت
@@ -190,6 +209,7 @@
 **Purpose:** Entry point — choose to sign up or log in.
 
 **Layout:**
+
 - **Background:** Night Sky gradient
 - **Top 40%:** The Narrator silhouette sitting by a campfire (same as splash but smaller), with the app logo above: "سيرة النبي ﷺ"
 - **Bottom 60%:** A rounded white/cream card sliding up from the bottom (radius 24px top corners only), containing:
@@ -203,6 +223,7 @@
   - **Terms text:** "بالمتابعة، أنت توافق على شروط الاستخدام وسياسة الخصوصية" in Caption style, Muted Gray, with underlined links
 
 **Animations:**
+
 1. Background and Narrator are already visible (coming from splash)
 2. Bottom card slides up from below the screen (400ms, ease-out)
 3. Welcome text fades in (200ms, delayed 200ms)
@@ -216,6 +237,7 @@
 **Purpose:** Account creation with role selection.
 
 **Layout:**
+
 - **Background:** Soft Cream full screen
 - **Header:** Back arrow (RTL: right side), screen title "إنشاء حساب" centered
 - **Role Selection (top section):**
@@ -245,6 +267,7 @@
 - **Footer link:** "لديك حساب بالفعل؟ سجّل دخولك" — tappable, Desert Gold text
 
 **Animations:**
+
 - Role cards slide in from sides (300ms, staggered 100ms)
 - Form fields fade in sequentially (150ms each, 50ms stagger)
 - On submit: button shows a loading spinner (Lottie), then transitions to Home on success
@@ -257,6 +280,7 @@
 **Purpose:** Returning user authentication.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Header:** Back arrow, "تسجيل الدخول" centered
 - **Top illustration:** Small Narrator silhouette waving, with speech bubble: "أهلاً بعودتك!" — scaled smaller than landing page
@@ -268,6 +292,7 @@
 - **Footer:** "ليس لديك حساب؟ أنشئ حساباً جديداً" — tappable link
 
 **Animations:**
+
 - Narrator waves (Lottie, subtle arm movement loop)
 - Speech bubble typewriter effect on the text
 - Same field focus/error animations as Sign Up
@@ -280,6 +305,7 @@
 **Purpose:** The heart of the app — the desert path showing all stages.
 
 **Layout:**
+
 - **Background:** A vertically scrollable desert landscape illustration
   - **Sky:** Night Sky gradient at the top, transitioning to a warm sunset horizon
   - **Terrain:** Sandy dunes, scattered desert plants, rock formations, distant mountain silhouettes
@@ -310,7 +336,7 @@
     - Stage 3 (The Birth): Glowing light rays
     - Stage 4 (Childhood): Small desert tent
     - Stage 5 (Youth): Mountain silhouette
-    - *(and so on for remaining stages)*
+    - _(and so on for remaining stages)_
 
 - **Bottom Navigation Bar:** Fixed at bottom, as described in Shared Components
 
@@ -322,6 +348,7 @@
   - Gentle side-to-side wobble animation to attract attention (subtle, 4s loop)
 
 **Animations:**
+
 1. On first load: camera (scroll position) starts at the bottom and smoothly scrolls up to the current stage (800ms, ease-out)
 2. Path "draws" itself as the user scrolls down to previously completed sections (parallax trail effect)
 3. Completed stage nodes have a subtle shimmer that passes over them occasionally
@@ -331,6 +358,7 @@
 7. Narrator next to current stage has an idle animation (slight sway, occasional wave)
 
 **Interaction:**
+
 - Tap completed stage → opens Stage Detail (replay option)
 - Tap current stage → opens Stage Detail (play option)
 - Tap locked stage → brief shake animation + lock icon bounces, tooltip: "أكمل المراحل السابقة أولاً"
@@ -343,6 +371,7 @@
 **Purpose:** Preview a stage before starting — shows info and score history.
 
 **Layout:**
+
 - **Presentation:** Bottom sheet that slides up over the Journey Map (covers 70% of screen)
 - **Background:** Warm Sand with rounded top corners (24px)
 - **Handle bar:** Small gray pill at top center (36×4px)
@@ -365,6 +394,7 @@
 - **Hearts Indicator:** Below button: "❤️ ×5 جاهز" if full, or "❤️ ×3 متبقي" with a countdown timer if refilling
 
 **Animations:**
+
 - Sheet slides up with spring physics (400ms)
 - Illustration has subtle parallax as sheet is dragged
 - Stats pills pop in sequentially (100ms stagger, scale from 0.8→1.0)
@@ -378,6 +408,7 @@
 **Purpose:** The Narrator introduces the stage — sets emotional context.
 
 **Layout:**
+
 - **Background:** Night Sky gradient with a campfire glow at the bottom center
 - **Narrator Illustration (center-bottom):** Large Narrator silhouette (from behind, seated by fire), taking up the bottom 40% of the screen. Campfire in front of him, warm light casting on desert sand.
 - **Speech Bubble (center-top):** Large Narrator Speech Bubble containing the welcome text
@@ -388,6 +419,7 @@
 - **Continue Button:** Bottom of screen, "هيا بنا" Primary button with a forward arrow icon
 
 **Animations:**
+
 1. Screen fades in from the previous screen (300ms)
 2. Campfire is a looping Lottie animation — warm, flickering, casting moving light
 3. Narrator fades in and shifts up slightly (300ms, delayed 200ms)
@@ -406,6 +438,7 @@
 **Purpose:** Display the story content — the core educational experience.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Top Bar (fixed):**
   - Progress bar spanning full width — fills from right to left (RTL) as the child advances through panels
@@ -433,6 +466,7 @@
   - Subtle swipe-left (RTL) gesture also advances
 
 **Animations:**
+
 1. Panel transitions: current illustration slides out to the left while new one slides in from the right (RTL-aware), 400ms ease-in-out
 2. Narration text fades in with a slight upward motion (200ms, delayed 200ms after illustration settles)
 3. Progress bar fills smoothly to the next increment (300ms, ease-out)
@@ -446,6 +480,7 @@
 **Purpose:** Mid-story engagement check — keeps the child actively thinking.
 
 **Layout:**
+
 - **Background:** Soft Cream (matching story panel for continuity)
 - **Top Bar:** Same progress bar + hearts as Story Panel
 - **Question Area:**
@@ -484,6 +519,7 @@
 - **Continue Button:** Appears after feedback, "التالي" — delayed 1.5s to let the child absorb the feedback
 
 **Animations:**
+
 - Question card slides up from below (300ms spring)
 - Options fade in with stagger (100ms each)
 - Selecting an option: option scales down (0.97) then back, brief highlight
@@ -497,6 +533,7 @@
 **Purpose:** End-of-stage assessment — 3–5 questions covering all the stage content.
 
 **Layout:**
+
 - **Background:** Deep Night Blue gradient (more serious/focused feel than inline questions)
 - **Top Bar:**
   - Question counter: "السؤال ٣ من ٥" in Cairo Medium 14px, Starlight White
@@ -525,6 +562,7 @@
   - Wrong: screen subtly shakes (2 shakes, 200ms)
 
 **Transitions between questions:**
+
 - Current question card slides out left (RTL: right), next slides in from right (RTL: left)
 - 500ms pause between questions for the child to breathe
 - Progress dots update with a satisfying pop animation
@@ -536,9 +574,9 @@
 **Purpose:** Reward the child — the climax of each stage.
 
 **Layout:**
+
 - **Background:** Desert Horizon gradient (warm, celebratory)
 - **Central Content (vertically centered, stacked):**
-
   1. **Stars Display (hero element):**
      - Three large stars (80px each) in a horizontal row
      - Earned stars: Golden, filled, glowing, with sparkle particles
@@ -570,6 +608,7 @@
   - "العودة للخريطة" — Text link below buttons
 
 **Animations (this is the BIG celebration moment):**
+
 1. Screen transitions in with a golden flash (200ms)
 2. Stars fly in from above one by one (300ms each, 200ms stagger)
    - Each earned star: arrives gray, then fills with gold in a burst of sparkles
@@ -584,6 +623,7 @@
 10. Subtle haptic feedback on star reveals (if device supports)
 
 **Sound cues (visual representation for designer):**
+
 - Star reveal: bright chime
 - Score tick-up: rapid ticking
 - Confetti: celebratory fanfare
@@ -596,6 +636,7 @@
 **Purpose:** Overview of all learning progress — stages, XP, streak history.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Header:** "تقدمي" in Cairo Bold 24px, centered
 
@@ -634,6 +675,7 @@
   - Today's bar: highlighted with glow
 
 **Animations:**
+
 - Summary cards slide in from right (RTL) with stagger (200ms each)
 - Numbers in summary cards count up from 0 (600ms)
 - Stage list items fade in with stagger (50ms each)
@@ -646,6 +688,7 @@
 **Purpose:** See goals set by father — provides motivation and targets.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Header:** "أهدافي" in Cairo Bold 24px
 
@@ -673,6 +716,7 @@
   - Subtitle: "عندما يضع والدك هدفاً ستراه هنا"
 
 **Animations:**
+
 - Cards slide in from bottom with stagger (150ms each)
 - Progress bars fill from 0 to current value (500ms, ease-out) on appear
 - Deadline text pulses subtly if <3 days remaining (2s loop, opacity 0.7→1.0)
@@ -685,6 +729,7 @@
 **Purpose:** Showcase all earned rewards — XP milestones, achievements.
 
 **Layout:**
+
 - **Background:** Night Sky gradient (gives awards a premium, museum-like feel)
 - **Header:** "إنجازاتي" in Cairo Bold 24px, Starlight White
 
@@ -710,6 +755,7 @@
   - V1 prototype badges: "Badge 1", "Badge 2", etc. with placeholder icons
 
 **Animations:**
+
 - XP ring draws itself on screen load (800ms, ease-out)
 - Level number counts up from 0 (400ms)
 - Stat cards flip in (3D card flip, staggered 150ms)
@@ -724,6 +770,7 @@
 **Purpose:** Dedicated view for all badges — expanded from Awards Screen.
 
 **Layout:**
+
 - **Background:** Night Sky gradient
 - **Header:** "الشارات" with back arrow
 
@@ -749,6 +796,7 @@
   - "إغلاق" button
 
 **Animations:**
+
 - Tabs scroll with momentum, active tab indicator slides smoothly
 - Grid items stagger in (50ms each)
 - Locked badges have a subtle "locked" shake when tapped
@@ -761,6 +809,7 @@
 **Purpose:** Quick 30-second engagement — maintain streak on busy days.
 
 **Layout:**
+
 - **Background:** Dramatic — Royal Purple to Deep Night Blue gradient with scattered stars
 - **Header:** "⚡ تحدي اليوم" in Cairo Bold 24px, Desert Gold
 
@@ -788,6 +837,7 @@
   - Countdown to next challenge: "التحدي القادم بعد ٧ ساعات"
 
 **Animations:**
+
 - Screen enters with a dramatic zoom-in through stars (400ms)
 - Timer ring depletes smoothly
 - When time is low (<5s): ring pulses, background subtly flashes
@@ -801,6 +851,7 @@
 **Purpose:** Account management and app preferences.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Header:** "الإعدادات" in Cairo Bold 24px
 
@@ -841,6 +892,7 @@
   - Animation: thumb slides + track color transitions (200ms)
 
 **Animations:**
+
 - Sections slide in with subtle stagger (100ms)
 - Toggle switches animate smoothly
 - Tapping "تسجيل الخروج": confirmation modal slides up from bottom
@@ -852,6 +904,7 @@
 **Purpose:** Son receives and responds to father's linking request.
 
 **Layout:**
+
 - **Presentation:** Full-screen modal overlay (semi-transparent dark background)
 - **Card:** Centered card, Starlight White, 24px radius, Level 3 shadow, max-width 320px
 
@@ -866,6 +919,7 @@
   - **16px spacing**
 
 **Animations:**
+
 - Background dims (300ms, 0→50% black opacity)
 - Card slides up and scales from 0.9→1.0 (300ms spring)
 - Father-Son illustration: dashed line animates (dash-offset animation, 2s loop)
@@ -879,6 +933,7 @@
 **Purpose:** Father's primary screen — overview of all linked sons.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Header:**
   - "أبنائي" in Cairo Bold 24px
@@ -911,6 +966,7 @@
   - Same style as Son's bottom nav but simpler
 
 **Animations:**
+
 - Son cards slide in from right (RTL) with stagger (200ms each)
 - Stats numbers count up briefly (300ms)
 - Active indicator green dot pulses subtly (2s loop)
@@ -924,6 +980,7 @@
 **Purpose:** Deep dive into a specific son's learning data.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Header:** Son's display name + back arrow
 
@@ -956,6 +1013,7 @@
   - "إنشاء هدف جديد" button — Primary, full-width at bottom
 
 **Animations:**
+
 - Stat circles pop in with stagger (150ms each), numbers count up (400ms)
 - Stage list items fade in with stagger (50ms each)
 - Timeline items slide in from right (RTL) with stagger
@@ -968,6 +1026,7 @@
 **Purpose:** Manage all goals across all sons.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Header:** "الأهداف" in Cairo Bold 24px
 
@@ -998,6 +1057,7 @@
   - CTA button: "إنشاء أول هدف"
 
 **Animations:**
+
 - Tab switching: content cross-fades (200ms)
 - Goal cards stagger in (100ms each)
 - Status badges have color-coded subtle pulse (active goals only)
@@ -1010,12 +1070,12 @@
 **Purpose:** Father creates a new goal with deadline and reward for his son.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Header:** "هدف جديد" + back arrow + "إنشاء" text button (disabled until form is valid, then Desert Gold)
 - **Presentation:** Full screen (pushed navigation)
 
 - **Form Fields:**
-
   1. **Select Son:**
      - If multiple sons: horizontal scrollable avatar chips
      - Each chip: avatar (40px) + name, selectable
@@ -1058,6 +1118,7 @@
   - Disabled state until all required fields are filled
 
 **Animations:**
+
 - Son chips slide in from right (RTL) with stagger
 - Preview card updates with subtle cross-fade on each field change
 - On submit: loading spinner → success animation (checkmark burst) → navigate back to Goals tab
@@ -1070,6 +1131,7 @@
 **Purpose:** Father's account management.
 
 **Layout:**
+
 - **Background:** Soft Cream
 - **Header:** "الإعدادات"
 
@@ -1105,39 +1167,39 @@
 
 ### Lottie Animations Needed
 
-| Animation | Screen(s) | Duration | Description |
-|---|---|---|---|
-| **Campfire** | Splash, Narrator Welcome | Loop | Warm flickering fire with light glow cast |
-| **Star Burst** | Results, Quiz Correct | 800ms | Gold star with sparkle particles exploding outward |
-| **Heart Break** | Quiz Wrong | 500ms | Heart cracks down the middle and pieces fall |
-| **Confetti** | Results (3 stars) | 2000ms | Multi-colored confetti explosion from center |
-| **Streak Flame** | Home, Results | Loop | Animated fire flame that grows with streak count |
-| **Loading Spinner** | Various | Loop | Golden desert-themed spiral/sand spinner |
-| **Checkmark Success** | Goal Created, Correct Answer | 600ms | Circle draws, then checkmark pops inside |
-| **XP Float** | Quiz Correct | 600ms | "+10 XP" text floats upward and fades |
-| **Narrator Idle** | Home (Journey Map) | Loop (4s) | Subtle sway and occasional wave |
-| **Narrator Celebrating** | Results | 1200ms | Arms spread wide, slight jump |
-| **Narrator Encouraging** | Wrong Answer | 800ms | Hand on heart, gentle nod |
-| **Narrator Excited** | 3-Star Result | 1000ms | Arms raised, pointing up |
-| **Sand Particles** | Journey Map | Loop | Very subtle floating dust particles |
-| **Page Turn** | Story Panel transition | 400ms | Paper edge curl effect |
-| **Lightning Crackle** | Daily Challenge | Loop (3s) | ⚡ bolt flickers and crackles |
-| **Lock Shake** | Locked Stage tap | 300ms | Padlock shakes side to side |
-| **Badge Reveal** | Badge Earned | 1000ms | Badge spins in, glows, settles with shimmer |
-| **Connection Burst** | Link Accept | 600ms | Golden particles burst along the connection line |
-| **Banner Unfurl** | Perfect Run | 400ms | Scroll/banner unrolls from center |
+| Animation                | Screen(s)                    | Duration  | Description                                        |
+| ------------------------ | ---------------------------- | --------- | -------------------------------------------------- |
+| **Campfire**             | Splash, Narrator Welcome     | Loop      | Warm flickering fire with light glow cast          |
+| **Star Burst**           | Results, Quiz Correct        | 800ms     | Gold star with sparkle particles exploding outward |
+| **Heart Break**          | Quiz Wrong                   | 500ms     | Heart cracks down the middle and pieces fall       |
+| **Confetti**             | Results (3 stars)            | 2000ms    | Multi-colored confetti explosion from center       |
+| **Streak Flame**         | Home, Results                | Loop      | Animated fire flame that grows with streak count   |
+| **Loading Spinner**      | Various                      | Loop      | Golden desert-themed spiral/sand spinner           |
+| **Checkmark Success**    | Goal Created, Correct Answer | 600ms     | Circle draws, then checkmark pops inside           |
+| **XP Float**             | Quiz Correct                 | 600ms     | "+10 XP" text floats upward and fades              |
+| **Narrator Idle**        | Home (Journey Map)           | Loop (4s) | Subtle sway and occasional wave                    |
+| **Narrator Celebrating** | Results                      | 1200ms    | Arms spread wide, slight jump                      |
+| **Narrator Encouraging** | Wrong Answer                 | 800ms     | Hand on heart, gentle nod                          |
+| **Narrator Excited**     | 3-Star Result                | 1000ms    | Arms raised, pointing up                           |
+| **Sand Particles**       | Journey Map                  | Loop      | Very subtle floating dust particles                |
+| **Page Turn**            | Story Panel transition       | 400ms     | Paper edge curl effect                             |
+| **Lightning Crackle**    | Daily Challenge              | Loop (3s) | ⚡ bolt flickers and crackles                      |
+| **Lock Shake**           | Locked Stage tap             | 300ms     | Padlock shakes side to side                        |
+| **Badge Reveal**         | Badge Earned                 | 1000ms    | Badge spins in, glows, settles with shimmer        |
+| **Connection Burst**     | Link Accept                  | 600ms     | Golden particles burst along the connection line   |
+| **Banner Unfurl**        | Perfect Run                  | 400ms     | Scroll/banner unrolls from center                  |
 
 ### Haptic Feedback Map (for developer reference)
 
-| Event | Haptic Type |
-|---|---|
-| Correct answer | Success (light) |
-| Wrong answer | Error (medium) |
-| Star earned | Impact (light) |
-| Stage complete | Success (heavy) |
+| Event            | Haptic Type            |
+| ---------------- | ---------------------- |
+| Correct answer   | Success (light)        |
+| Wrong answer     | Error (medium)         |
+| Star earned      | Impact (light)         |
+| Stage complete   | Success (heavy)        |
 | Streak milestone | Notification (success) |
-| Button tap | Impact (light) |
-| Heart lost | Impact (medium) |
+| Button tap       | Impact (light)         |
+| Heart lost       | Impact (medium)        |
 
 ---
 
@@ -1205,17 +1267,17 @@
 
 ## Illustration Asset List
 
-| Asset | Screen | Description | Size Guidance |
-|---|---|---|---|
-| Desert night sky BG | Splash, Onboarding | Starry sky with gradient, high-res | Full screen, tileable vertically |
-| Campfire scene | Splash, Narrator Welcome | Fire on sand with warm glow | Center-bottom, ~60% width |
-| Narrator silhouette (4 states) | Multiple | Faceless man in white thobe from behind | ~300px height, transparent BG |
-| Journey map landscape | Home | Continuous vertical desert scene | Full width, ~3000px tall for scrolling |
-| Stage node illustrations (10) | Home, Stage Detail | Unique per stage — see list in Screen 8 | 120×120px (nodes), 600px wide (detail) |
-| Story panel illustrations (~30) | Story Panels | 3 per stage × 10 stages, atmospheric | Full width, ~45% screen height |
-| Onboarding illustrations (3) | Onboarding | Described per screen above | 80% width, ~50% screen height |
-| Father-Son connection | Link Request | Two silhouettes with golden line | ~280px wide |
-| Empty state illustrations (3) | Goals, Sons, Badges | Narrator with contextual prop | ~200px wide |
+| Asset                           | Screen                   | Description                             | Size Guidance                          |
+| ------------------------------- | ------------------------ | --------------------------------------- | -------------------------------------- |
+| Desert night sky BG             | Splash, Onboarding       | Starry sky with gradient, high-res      | Full screen, tileable vertically       |
+| Campfire scene                  | Splash, Narrator Welcome | Fire on sand with warm glow             | Center-bottom, ~60% width              |
+| Narrator silhouette (4 states)  | Multiple                 | Faceless man in white thobe from behind | ~300px height, transparent BG          |
+| Journey map landscape           | Home                     | Continuous vertical desert scene        | Full width, ~3000px tall for scrolling |
+| Stage node illustrations (10)   | Home, Stage Detail       | Unique per stage — see list in Screen 8 | 120×120px (nodes), 600px wide (detail) |
+| Story panel illustrations (~30) | Story Panels             | 3 per stage × 10 stages, atmospheric    | Full width, ~45% screen height         |
+| Onboarding illustrations (3)    | Onboarding               | Described per screen above              | 80% width, ~50% screen height          |
+| Father-Son connection           | Link Request             | Two silhouettes with golden line        | ~280px wide                            |
+| Empty state illustrations (3)   | Goals, Sons, Badges      | Narrator with contextual prop           | ~200px wide                            |
 
 ---
 

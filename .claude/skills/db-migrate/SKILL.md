@@ -11,6 +11,7 @@ argument-hint: <migration-name>
 Create and apply a Prisma migration after schema changes, with validation checks.
 
 ## Arguments
+
 - `$ARGUMENTS` — Migration name in snake_case (e.g., `add_user_avatar`, `create_badges_table`)
 
 ## Steps
@@ -33,11 +34,13 @@ Create and apply a Prisma migration after schema changes, with validation checks
    - Never modify applied migrations
 
 ## Naming Rules
+
 - snake_case, descriptive
 - Prefix with action: `add_`, `create_`, `update_`, `remove_`, `alter_`
 - Examples: `add_user_avatar`, `create_badges_table`, `add_streak_milestone_field`
 
 ## Rules
+
 - NEVER modify or delete existing applied migrations
 - NEVER skip validation step
 - Always warn on destructive changes (DROP TABLE, DROP COLUMN)

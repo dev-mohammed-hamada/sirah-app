@@ -1,4 +1,5 @@
 # Screen 25: Create Goal
+
 ### إنشاء هدف جديد
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, shared components (Input Field, Primary Button, Card Component).
@@ -27,6 +28,7 @@ Father creates a new goal with deadline and reward for his son. The form include
 #### 1. Select Son
 
 **If multiple sons:**
+
 - **Label:** "اختر ابنك" — Cairo Bold 14px, Muted Gray
 - Horizontal scrollable row of avatar chips:
   - Each chip: 48px avatar circle + name below (Cairo Regular 12px)
@@ -36,6 +38,7 @@ Father creates a new goal with deadline and reward for his son. The form include
   - **Selection animation:** Border color transitions (150ms) + checkmark pops in (spring, 200ms)
 
 **If one son:**
+
 - Pre-selected, shown as info header: avatar + name (non-interactive)
 
 #### 2. Goal Description
@@ -149,35 +152,36 @@ Father creates a new goal with deadline and reward for his son. The form include
 
 ## Animations
 
-| # | Element | Animation | Duration | Notes |
-|---|---------|-----------|----------|-------|
-| 1 | Son chips | Slide in from right (RTL) with stagger | 150ms each | |
-| 2 | Chip selection | Border transition + checkmark pop | 200ms (spring) | On tap |
-| 3 | Preview card | Subtle cross-fade on each field change | 150ms | Real-time updates |
-| 4 | Submit loading | Button shows golden Lottie spinner | Until response | On tap |
-| 5 | Submit success | Checkmark burst animation | 600ms (Lottie) | On success |
-| 6 | After success | Navigate back to Goals tab | 300ms transition | Auto after 800ms |
-| 7 | Field focus | Same as design system (label float, golden border) | 150ms | Standard |
-| 8 | Validation error | Affected fields shake | 300ms (3 shakes) | On submit attempt |
-| 9 | "إنشاء" header button | Opacity transitions (disabled↔enabled) | 200ms | As form validity changes |
+| #   | Element               | Animation                                          | Duration         | Notes                    |
+| --- | --------------------- | -------------------------------------------------- | ---------------- | ------------------------ |
+| 1   | Son chips             | Slide in from right (RTL) with stagger             | 150ms each       |                          |
+| 2   | Chip selection        | Border transition + checkmark pop                  | 200ms (spring)   | On tap                   |
+| 3   | Preview card          | Subtle cross-fade on each field change             | 150ms            | Real-time updates        |
+| 4   | Submit loading        | Button shows golden Lottie spinner                 | Until response   | On tap                   |
+| 5   | Submit success        | Checkmark burst animation                          | 600ms (Lottie)   | On success               |
+| 6   | After success         | Navigate back to Goals tab                         | 300ms transition | Auto after 800ms         |
+| 7   | Field focus           | Same as design system (label float, golden border) | 150ms            | Standard                 |
+| 8   | Validation error      | Affected fields shake                              | 300ms (3 shakes) | On submit attempt        |
+| 9   | "إنشاء" header button | Opacity transitions (disabled↔enabled)             | 200ms            | As form validity changes |
 
 ---
 
 ## Interaction
 
-| Action | Result |
-|--------|--------|
-| Tap son chip | Select that son (deselects others if multi-select not needed) |
-| Type in any field | Preview card updates in real-time |
-| Tap date field | Native date picker opens |
-| Tap "إنشاء الهدف" or header "إنشاء" | Validate → loading → success → navigate to Goals Tab |
-| Back arrow | Confirmation if form has data: "تجاهل التغييرات؟" modal |
+| Action                              | Result                                                        |
+| ----------------------------------- | ------------------------------------------------------------- |
+| Tap son chip                        | Select that son (deselects others if multi-select not needed) |
+| Type in any field                   | Preview card updates in real-time                             |
+| Tap date field                      | Native date picker opens                                      |
+| Tap "إنشاء الهدف" or header "إنشاء" | Validate → loading → success → navigate to Goals Tab          |
+| Back arrow                          | Confirmation if form has data: "تجاهل التغييرات؟" modal       |
 
 ---
 
 ## Discard Confirmation Modal
 
 If the father taps back with unsaved changes:
+
 - **Bottom sheet:** small, Starlight White bg
 - "تجاهل التغييرات؟" — Cairo Bold 18px
 - "ستفقد البيانات التي أدخلتها" — Cairo Regular 14px, Muted Gray
@@ -189,15 +193,16 @@ If the father taps back with unsaved changes:
 ## Notification Triggered
 
 On successful goal creation, the son receives:
+
 - Push notification: "أبوك يرسل لك تحدياً جديداً! 🎯 المكافأة: [reward]"
 
 ---
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Loading spinner | Golden desert-themed | Lottie JSON |
+| Asset             | Description                   | Format      |
+| ----------------- | ----------------------------- | ----------- |
+| Loading spinner   | Golden desert-themed          | Lottie JSON |
 | Checkmark success | Circle draws + checkmark pops | Lottie JSON |
-| Calendar icon | For date picker field | SVG, 24px |
-| Trophy icon | For reward field prefix | SVG, 24px |
+| Calendar icon     | For date picker field         | SVG, 24px   |
+| Trophy icon       | For reward field prefix       | SVG, 24px   |

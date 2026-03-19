@@ -11,6 +11,7 @@ argument-hint: <feature-name>
 Create a new feature branch from the latest `develop` branch following project conventions.
 
 ## Arguments
+
 - `$ARGUMENTS` — Branch name suffix (e.g., `auth-refresh`, `splash-screen`, `heart-refill-bug`)
 
 ## Steps
@@ -29,11 +30,13 @@ Create a new feature branch from the latest `develop` branch following project c
 7. Show confirmation with branch name and next steps
 
 ## Naming Rules
+
 - All lowercase, kebab-case
 - Short and descriptive (2-4 words)
 - No ticket numbers unless user provides them
 
 ## Examples
+
 ```
 /new-feature auth-refresh      → feature/auth-refresh
 /new-feature splash-screen     → feature/splash-screen

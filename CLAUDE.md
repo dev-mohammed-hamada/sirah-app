@@ -118,4 +118,7 @@ Project-specific Claude Code skills in `.claude/skills/`:
 - `/new-screen` — Scaffold a new React Native screen
 - `/new-backend-module` — Scaffold a new NestJS module
 - `/seed-stage` — Add stage content to seed data
+- `/create-pr` — Create a PR on GitHub with proper conventions
 - `/pr-review` — Review PR against project conventions
+- `/task` — Load and start working on a V1 task from `tasks/` folder
+- `/explain` — Create or read detailed explanation docs in `explains/` folder

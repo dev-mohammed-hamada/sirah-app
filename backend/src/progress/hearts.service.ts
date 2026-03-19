@@ -54,8 +54,7 @@ export class HeartsService {
       where: { id: userId },
       data: {
         heartsRemaining: hearts.remaining - 1,
-        heartsLastRefill:
-          hearts.remaining === MAX_HEARTS ? new Date() : undefined,
+        heartsLastRefill: hearts.remaining === MAX_HEARTS ? new Date() : undefined,
       },
       select: { heartsRemaining: true },
     });

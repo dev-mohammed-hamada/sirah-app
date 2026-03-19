@@ -1,4 +1,14 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UsersService } from './users.service';
@@ -27,10 +37,7 @@ export class UsersController {
   }
 
   @Post('link-request')
-  sendLinkRequest(
-    @CurrentUser() user: { id: string },
-    @Body('username') username: string,
-  ) {
+  sendLinkRequest(@CurrentUser() user: { id: string }, @Body('username') username: string) {
     return this.usersService.sendLinkRequest(user.id, username);
   }
 

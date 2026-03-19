@@ -1,4 +1,5 @@
 # Screen 03: Onboarding — Page 2
+
 ### تعلّم وأنت تلعب
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, and shared components.
@@ -59,14 +60,14 @@ Second onboarding panel. Shows the gamified learning experience — quizzes, sta
 
 ## Animations
 
-| Step | Element | Animation | Duration | Delay |
-|------|---------|-----------|----------|-------|
-| 1 | Quiz cards | Float in from edges (staggered) | 600ms each | Staggered 200ms |
-| 2 | Stars, hearts, XP | Orbit slowly around the child in a gentle circular motion | Infinite, 8s per rotation | 0ms |
-| 3 | Stars | Occasional individual sparkle effect | 300ms per sparkle | Random intervals |
-| 4 | Child silhouette | Gentle idle animation (subtle breathing/sway) | 3s loop | 0ms |
-| 5 | Narrator | Slight hand gesture animation | 4s loop | 0ms |
-| 6 | Ambient glow | Soft pulse around the child | 3s loop, opacity 0.6→0.9 | 0ms |
+| Step | Element           | Animation                                                 | Duration                  | Delay            |
+| ---- | ----------------- | --------------------------------------------------------- | ------------------------- | ---------------- |
+| 1    | Quiz cards        | Float in from edges (staggered)                           | 600ms each                | Staggered 200ms  |
+| 2    | Stars, hearts, XP | Orbit slowly around the child in a gentle circular motion | Infinite, 8s per rotation | 0ms              |
+| 3    | Stars             | Occasional individual sparkle effect                      | 300ms per sparkle         | Random intervals |
+| 4    | Child silhouette  | Gentle idle animation (subtle breathing/sway)             | 3s loop                   | 0ms              |
+| 5    | Narrator          | Slight hand gesture animation                             | 4s loop                   | 0ms              |
+| 6    | Ambient glow      | Soft pulse around the child                               | 3s loop, opacity 0.6→0.9  | 0ms              |
 
 ---
 
@@ -81,9 +82,9 @@ Second onboarding panel. Shows the gamified learning experience — quizzes, sta
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Child silhouette (seated) | Faceless child sitting cross-legged | PNG, transparent BG |
-| Narrator silhouette (teaching pose) | Standing, hand extended | PNG, transparent BG |
-| Quiz card mockups (2–3) | Rounded cards with Arabic text | SVG |
-| Floating elements (star, heart, XP badge) | Individual game mechanic icons | SVG/Lottie |
+| Asset                                     | Description                         | Format              |
+| ----------------------------------------- | ----------------------------------- | ------------------- |
+| Child silhouette (seated)                 | Faceless child sitting cross-legged | PNG, transparent BG |
+| Narrator silhouette (teaching pose)       | Standing, hand extended             | PNG, transparent BG |
+| Quiz card mockups (2–3)                   | Rounded cards with Arabic text      | SVG                 |
+| Floating elements (star, heart, XP badge) | Individual game mechanic icons      | SVG/Lottie          |

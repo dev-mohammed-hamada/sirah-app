@@ -1,4 +1,5 @@
 # Screen 15: Progress Screen (Son)
+
 ### شاشة التقدم
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, shared components (Bottom Navigation Bar, Card Component).
@@ -22,12 +23,14 @@ Overview of all learning progress — stages completed, XP, streak history, week
 Three cards in a horizontally scrollable row (card width: ~140px, height: ~100px, 12px gap):
 
 #### Card 1: Total XP
+
 - Background: Desert Gold gradient (`#D4A843 → #E8C36A`)
 - Icon: Golden shield (top-right RTL)
 - Number: Cairo Black 32px, Starlight White
 - Label: "نقاط الخبرة" — Cairo Regular 12px, Starlight White at 80%
 
 #### Card 2: Streak
+
 - Background: Sunset Orange gradient (`#E8734A → #F09060`)
 - Icon: Flame (top-right RTL)
 - Number: Cairo Black 32px, Starlight White
@@ -37,6 +40,7 @@ Three cards in a horizontally scrollable row (card width: ~140px, height: ~100px
   - Empty dot = missed (white at 30%)
 
 #### Card 3: Stars
+
 - Background: Royal Purple gradient (`#4A2D6B → #6B4A8B`)
 - Icon: Star cluster (top-right RTL)
 - Number: "18/30" — Cairo Black 32px, Starlight White
@@ -48,12 +52,12 @@ Three cards in a horizontally scrollable row (card width: ~140px, height: ~100px
 
 Vertical scrollable list of all 10 stages:
 
-| Element | Position | Style |
-|---------|----------|-------|
-| Stage number | Right (RTL), 40px golden circle | Cairo Bold 16px, Starlight White inside |
-| Stage title | Next to number | Cairo Regular 16px, Deep Night Blue |
-| Stars | Far left (RTL) | 3 small stars (filled gold / empty gray) |
-| Best score | Below stars | Cairo Regular 12px, Muted Gray, "78/100" |
+| Element      | Position                        | Style                                    |
+| ------------ | ------------------------------- | ---------------------------------------- |
+| Stage number | Right (RTL), 40px golden circle | Cairo Bold 16px, Starlight White inside  |
+| Stage title  | Next to number                  | Cairo Regular 16px, Deep Night Blue      |
+| Stars        | Far left (RTL)                  | 3 small stars (filled gold / empty gray) |
+| Best score   | Below stars                     | Cairo Regular 12px, Muted Gray, "78/100" |
 
 **Row States:**
 | State | Style |
@@ -118,34 +122,34 @@ Row height: 64px, subtle dividers (1px, light gray at 20%)
 
 ## Animations
 
-| # | Element | Animation | Duration | Notes |
-|---|---------|-----------|----------|-------|
-| 1 | Summary cards | Slide in from right (RTL) with stagger | 200ms each | 100ms stagger |
-| 2 | Card numbers | Count up from 0 to final value | 600ms (ease-out) | After cards settle |
-| 3 | Streak calendar dots | Pop in sequentially | 50ms each | Left to right (RTL) |
-| 4 | Stage list items | Fade in with stagger | 150ms each, 50ms stagger | Top to bottom |
-| 5 | Current stage row | Subtle golden glow pulse | 2s loop | Always active |
-| 6 | Bar chart bars | Grow from bottom to full height | 400ms each, 100ms stagger | Left to right |
-| 7 | Today's bar | Extra glow after growth | 600ms | After bar reaches height |
+| #   | Element              | Animation                              | Duration                  | Notes                    |
+| --- | -------------------- | -------------------------------------- | ------------------------- | ------------------------ |
+| 1   | Summary cards        | Slide in from right (RTL) with stagger | 200ms each                | 100ms stagger            |
+| 2   | Card numbers         | Count up from 0 to final value         | 600ms (ease-out)          | After cards settle       |
+| 3   | Streak calendar dots | Pop in sequentially                    | 50ms each                 | Left to right (RTL)      |
+| 4   | Stage list items     | Fade in with stagger                   | 150ms each, 50ms stagger  | Top to bottom            |
+| 5   | Current stage row    | Subtle golden glow pulse               | 2s loop                   | Always active            |
+| 6   | Bar chart bars       | Grow from bottom to full height        | 400ms each, 100ms stagger | Left to right            |
+| 7   | Today's bar          | Extra glow after growth                | 600ms                     | After bar reaches height |
 
 ---
 
 ## Interaction
 
-| Action | Result |
-|--------|--------|
-| Horizontal scroll on cards | Scroll between summary cards |
-| Tap a completed stage row | Navigate to Stage Detail (`09-stage-detail.md`) |
-| Tap current stage row | Navigate to Stage Detail |
-| Tap locked stage row | No action (or subtle lock shake) |
+| Action                     | Result                                          |
+| -------------------------- | ----------------------------------------------- |
+| Horizontal scroll on cards | Scroll between summary cards                    |
+| Tap a completed stage row  | Navigate to Stage Detail (`09-stage-detail.md`) |
+| Tap current stage row      | Navigate to Stage Detail                        |
+| Tap locked stage row       | No action (or subtle lock shake)                |
 
 ---
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Shield icon | Golden shield for XP | SVG |
-| Flame icon | Animated flame for streak | SVG or small Lottie |
-| Star cluster icon | Group of small stars | SVG |
-| Lock icon (small) | For locked stages in list | SVG |
+| Asset             | Description               | Format              |
+| ----------------- | ------------------------- | ------------------- |
+| Shield icon       | Golden shield for XP      | SVG                 |
+| Flame icon        | Animated flame for streak | SVG or small Lottie |
+| Star cluster icon | Group of small stars      | SVG                 |
+| Lock icon (small) | For locked stages in list | SVG                 |

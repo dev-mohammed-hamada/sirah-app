@@ -7,7 +7,7 @@ export class NotificationsService {
 
   constructor(private prisma: PrismaService) {}
 
-  async sendToUser(userId: string, title: string, body: string, data?: Record<string, string>) {
+  async sendToUser(userId: string, title: string, _body: string, _data?: Record<string, string>) {
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
       select: { fcmToken: true },

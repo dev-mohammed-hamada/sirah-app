@@ -1,4 +1,5 @@
 # Screen 01: Splash Screen
+
 ### شاشة البداية
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, and shared components.
@@ -48,15 +49,15 @@ First impression — set the tone, build anticipation. This is the very first th
 
 ## Animations
 
-| Step | Element | Animation | Duration | Delay |
-|------|---------|-----------|----------|-------|
-| 1 | Entire screen | Fade in from black | 600ms | 0ms |
-| 2 | Stars | Begin twinkling — random stars pulse in brightness | Infinite loop | Staggered |
-| 3 | Campfire | Flickering warm glow — Lottie fire animation with light casting on sand | Infinite loop | 0ms |
-| 4 | Narrator silhouette | Fades in gently, shifts up slightly | 400ms | 300ms |
-| 5 | Logo | Scales in from 0.8→1.0 with soft bounce | 500ms (spring) | 600ms |
-| 6 | Tagline | Fades in from 0→100% opacity | 300ms | 900ms |
-| 7 | Auto-transition | Fades through to Onboarding (first-time) or Home (logged in) | 400ms | 2500ms total |
+| Step | Element             | Animation                                                               | Duration       | Delay        |
+| ---- | ------------------- | ----------------------------------------------------------------------- | -------------- | ------------ |
+| 1    | Entire screen       | Fade in from black                                                      | 600ms          | 0ms          |
+| 2    | Stars               | Begin twinkling — random stars pulse in brightness                      | Infinite loop  | Staggered    |
+| 3    | Campfire            | Flickering warm glow — Lottie fire animation with light casting on sand | Infinite loop  | 0ms          |
+| 4    | Narrator silhouette | Fades in gently, shifts up slightly                                     | 400ms          | 300ms        |
+| 5    | Logo                | Scales in from 0.8→1.0 with soft bounce                                 | 500ms (spring) | 600ms        |
+| 6    | Tagline             | Fades in from 0→100% opacity                                            | 300ms          | 900ms        |
+| 7    | Auto-transition     | Fades through to Onboarding (first-time) or Home (logged in)            | 400ms          | 2500ms total |
 
 ---
 
@@ -84,10 +85,10 @@ Magical, serene, like the opening scene of a storybook. The child should feel li
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Desert night sky background | Starry sky with gradient, high-res | PNG or SVG, full screen |
-| Desert dunes silhouette | Sandy golden horizon line | SVG (scalable) |
-| Campfire scene | Fire on sand with warm glow | Lottie JSON |
-| Narrator silhouette (seated, from behind) | Faceless man in white thobe | PNG with transparent BG |
-| Star twinkle overlay | Twinkling star effect | Lottie JSON |
+| Asset                                     | Description                        | Format                  |
+| ----------------------------------------- | ---------------------------------- | ----------------------- |
+| Desert night sky background               | Starry sky with gradient, high-res | PNG or SVG, full screen |
+| Desert dunes silhouette                   | Sandy golden horizon line          | SVG (scalable)          |
+| Campfire scene                            | Fire on sand with warm glow        | Lottie JSON             |
+| Narrator silhouette (seated, from behind) | Faceless man in white thobe        | PNG with transparent BG |
+| Star twinkle overlay                      | Twinkling star effect              | Lottie JSON             |

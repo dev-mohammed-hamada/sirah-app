@@ -11,6 +11,7 @@ argument-hint: [--fix]
 Run all CI checks locally to catch issues before pushing. Mirrors what GitHub Actions will run on PRs.
 
 ## Arguments
+
 - `--fix` (optional) — Auto-fix lint and formatting issues instead of just reporting
 
 ## Steps
@@ -19,6 +20,7 @@ Run all CI checks locally to catch issues before pushing. Mirrors what GitHub Ac
 2. Run checks sequentially, reporting results for each:
 
 ### Step 1: Lint
+
 ```bash
 # Report only
 npm run lint --workspaces --if-present
@@ -28,6 +30,7 @@ npm run lint -- --fix --workspaces --if-present
 ```
 
 ### Step 2: Type Check
+
 ```bash
 npx tsc --noEmit --project shared/tsconfig.json
 npx tsc --noEmit --project backend/tsconfig.json
@@ -35,6 +38,7 @@ npx tsc --noEmit --project mobile/tsconfig.json
 ```
 
 ### Step 3: Tests
+
 ```bash
 npm run test --workspaces --if-present
 ```
@@ -47,6 +51,7 @@ npm run test --workspaces --if-present
 5. If all pass, confirm ready to push
 
 ## Rules
+
 - Always run all checks even if an earlier one fails
 - Show clear pass/fail status for each step
 - If `--fix` is used, re-run lint after fixing to confirm clean

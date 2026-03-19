@@ -1,6 +1,27 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 
+interface StageProgressSelect {
+  bestScore: number;
+  starsEarned: number;
+}
+
+interface StageWithProgress {
+  id: string;
+  orderIndex: number;
+  title: string;
+  arabicTitle: string;
+  maxScore: number;
+  stageProgress: StageProgressSelect[];
+}
+
+interface GroupWithStages {
+  id: string;
+  orderIndex: number;
+  title: string;
+  stages: StageWithProgress[];
+}
+
 @Injectable()
 export class StagesService {
   constructor(private prisma: PrismaService) {}
@@ -21,11 +42,11 @@ export class StagesService {
       },
     });
 
-    return groups.map((group) => ({
+    return groups.map((group: GroupWithStages) => ({
       id: group.id,
       orderIndex: group.orderIndex,
       title: group.title,
-      stages: group.stages.map((stage) => {
+      stages: group.stages.map((stage: StageWithProgress) => {
         const progress = stage.stageProgress[0];
         return {
           id: stage.id,
@@ -60,12 +81,19 @@ export class StagesService {
       arabicTitle: stage.arabicTitle,
       description: stage.description,
       maxScore: stage.maxScore,
-      storyPanels: stage.storyPanels.map((panel) => ({
-        id: panel.id,
-        orderIndex: panel.orderIndex,
-        narrationText: panel.narrationText,
-        imageUrl: panel.imageUrl,
-      })),
+      storyPanels: stage.storyPanels.map(
+        (panel: {
+          id: string;
+          orderIndex: number;
+          narrationText: string;
+          imageUrl: string | null;
+        }) => ({
+          id: panel.id,
+          orderIndex: panel.orderIndex,
+          narrationText: panel.narrationText,
+          imageUrl: panel.imageUrl,
+        }),
+      ),
     };
   }
 
@@ -81,14 +109,24 @@ export class StagesService {
     });
 
     // Exclude correctAnswer from response — validation is server-side only
-    return questions.map((q) => ({
-      id: q.id,
-      type: q.type,
-      questionText: q.questionText,
-      options: q.options,
-      xpValue: q.xpValue,
-      isInline: q.isInline,
-      orderIndex: q.orderIndex,
-    }));
+    return questions.map(
+      (q: {
+        id: string;
+        type: string;
+        questionText: string;
+        options: unknown;
+        xpValue: number;
+        isInline: boolean;
+        orderIndex: number;
+      }) => ({
+        id: q.id,
+        type: q.type,
+        questionText: q.questionText,
+        options: q.options,
+        xpValue: q.xpValue,
+        isInline: q.isInline,
+        orderIndex: q.orderIndex,
+      }),
+    );
   }
 }

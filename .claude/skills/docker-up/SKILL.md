@@ -11,6 +11,7 @@ argument-hint: [up|down|restart|logs]
 Manage the local development environment using docker-compose.
 
 ## Arguments
+
 - `up` (default) — Start all services
 - `down` — Stop all services
 - `restart` — Restart all services
@@ -19,6 +20,7 @@ Manage the local development environment using docker-compose.
 ## Steps
 
 ### For `up` (default):
+
 1. Check if `docker-compose.yml` exists in project root. If not, warn user it needs to be created first
 2. Check if Docker daemon is running: `docker info`. If not, tell user to start Docker Desktop
 3. Start services: `docker-compose up -d`
@@ -29,22 +31,27 @@ Manage the local development environment using docker-compose.
 8. Confirm environment is ready with connection details
 
 ### For `down`:
+
 1. Stop services: `docker-compose down`
 2. Confirm all services stopped
 
 ### For `restart`:
+
 1. Run `docker-compose restart`
 2. Wait for PostgreSQL ready check
 3. Show status
 
 ### For `logs`:
+
 1. Show last 50 lines: `docker-compose logs --tail=50`
 
 ## Services (expected in docker-compose.yml)
+
 - **db** — PostgreSQL 15, port 5432
 - **redis** — Redis 7 (for future session/cache), port 6379
 
 ## Rules
+
 - Never run `docker-compose down -v` (destroys volumes/data) unless user explicitly asks
 - Always check Docker is running before attempting commands
 - Always run migrations after starting fresh

@@ -1,4 +1,5 @@
 # سيرة النبي ﷺ — Project Description
+
 ### Development-Ready Document
 
 ---
@@ -12,6 +13,7 @@ The core philosophy is borrowed directly from Duolingo's proven model: **make le
 The app is structured as a **journey path** — a winding road through the Arabian desert that the child walks stage by stage, unlocking the story of the Prophet's life from before his birth to the opening of Mecca. The path is never overwhelming — the child only ever sees the next step in front of them.
 
 **The addiction loop:**
+
 > Open app → Narrator welcomes you back → Short story panel → Quiz questions → Stars + XP earned → Streak updated → Tomorrow's lesson teased
 
 ---
@@ -31,13 +33,15 @@ The app is structured as a **journey path** — a winding road through the Arabi
 The heart of the experience. Every stage is narrated by **a wise old man** — a warm, faceless silhouette in a white thobe, sitting by a fire or under a desert sky. He speaks directly to the child, telling the story as if whispering a secret from history.
 
 **Character rules:**
+
 - Always faceless — shown as a silhouette or from behind.
 - Has a name (to be decided — something classic like "الشيخ" or "جدو").
 - Appears at the start of every stage with a welcome line.
 - Reacts to the child's quiz performance — celebrates correct answers, gently encourages after wrong ones.
-- Sends the daily streak reminder notification in his voice: *"أين أنت يا بطلي؟ القصة تنتظرك."*
+- Sends the daily streak reminder notification in his voice: _"أين أنت يا بطلي؟ القصة تنتظرك."_
 
 **Character states (illustrated):**
+
 - Neutral: sitting, looking forward
 - Excited: arms raised, pointing to the sky
 - Encouraging: hand on heart, nodding
@@ -52,6 +56,7 @@ The heart of the experience. Every stage is narrated by **a wise old man** — a
 The child is the core player. Age range: **6–14 years old.**
 
 **Son's V1 features:**
+
 - Create an independent account
 - Play through stages guided by the Narrator
 - Earn Hearts (lives), XP, Stars, and Badges
@@ -67,6 +72,7 @@ The child is the core player. Age range: **6–14 years old.**
 The father monitors and motivates from the outside. He does not play the game — he observes and sets incentives.
 
 **Father's V1 features:**
+
 - Create an account
 - Link to his son's account via username or unique code
 - View son's progress: stages completed, stars, XP, streak
@@ -76,13 +82,15 @@ The father monitors and motivates from the outside. He does not play the game �
 #### Goal – Reward System
 
 **Goal (created by the father):**
+
 - Written description
 - Deadline set by father
 - A predefined group of stages to complete (groups defined by developers)
 
 **Reward (attached to goal):**
+
 - Written description of the real-world reward (e.g., "20 riyals if you finish by Friday")
-- Notification sent to son when goal is created: *"أبوك يرسل لك تحدياً جديداً! 🎯"*
+- Notification sent to son when goal is created: _"أبوك يرسل لك تحدياً جديداً! 🎯"_
 
 ---
 
@@ -105,7 +113,7 @@ The father monitors and motivates from the outside. He does not play the game �
 - Each **wrong answer** costs 1 Heart.
 - At **0 Hearts**, the session ends — the child must retry the stage.
 - Hearts **refill fully** after a waiting period (e.g., 30 minutes) or when a new day begins.
-- This creates urgency: *"I need to think carefully, I only have 2 hearts left."*
+- This creates urgency: _"I need to think carefully, I only have 2 hearts left."_
 
 > **Why this works:** It adds stakes to every question without being punishing. The child learns to slow down and think.
 
@@ -129,10 +137,10 @@ The father monitors and motivates from the outside. He does not play the game �
 
 - Each stage has a **3-star rating** based on final score (0–100):
 
-| Score | Stars |
-|-------|-------|
-| 1–50  | ⭐ 1 Star |
-| 51–80 | ⭐⭐ 2 Stars |
+| Score  | Stars          |
+| ------ | -------------- |
+| 1–50   | ⭐ 1 Star      |
+| 51–80  | ⭐⭐ 2 Stars   |
 | 81–100 | ⭐⭐⭐ 3 Stars |
 
 - Stars are used to **unlock the next group** (need 24 of 30 stars).
@@ -264,27 +272,35 @@ Every interaction should have an immediate, satisfying response:
 These are additional ideas to make the app genuinely addictive and loved:
 
 ### 7.1 "Today's Story" Home Screen Widget
+
 A small widget on the home screen (iOS/Android) showing the current stage name and the Narrator's face, with a "Continue" button. Seeing it while scrolling through your phone creates a passive reminder without a notification.
 
 ### 7.2 Celebration Moments That Feel Special
+
 Not every stage completion should feel the same. After every 5th stage or group completion, trigger a **bigger celebration** — a longer animation, a special Narrator line, and a unique one-time badge. These "big moments" become memories the child looks forward to.
 
 ### 7.3 Tease the Next Stage
-At the end of every stage, the Narrator gives a short teaser for the next one: *"في المرحلة القادمة ستكتشف لماذا اهتزّ عرش الرحمن..."* — curiosity is one of the most powerful hooks.
+
+At the end of every stage, the Narrator gives a short teaser for the next one: _"في المرحلة القادمة ستكتشف لماذا اهتزّ عرش الرحمن..."_ — curiosity is one of the most powerful hooks.
 
 ### 7.4 The "So Close" Effect
-If a child ends a session 1–2 stars short of their best score, show a screen that says: *"تقريباً! كنت قريباً من 3 نجوم — حاول مرة أخرى؟"* This near-miss psychology massively increases replay rate.
+
+If a child ends a session 1–2 stars short of their best score, show a screen that says: _"تقريباً! كنت قريباً من 3 نجوم — حاول مرة أخرى؟"_ This near-miss psychology massively increases replay rate.
 
 ### 7.5 Father Reaction Feature
+
 When a son completes a goal, the father can send a quick **reaction** — a short preset phrase like "أحسنت يا بطلي! 🏆" that appears as a special notification to the son. The son seeing a reaction from his father is a uniquely powerful motivator in this cultural context.
 
 ### 7.6 Weekly Summary for Fathers
-Every Sunday, the father receives a weekly summary notification: *"محمد أكمل 3 مراحل هذا الأسبوع وحصل على 18 نجمة 🌟"* — keeps the father engaged without requiring him to open the app daily.
+
+Every Sunday, the father receives a weekly summary notification: _"محمد أكمل 3 مراحل هذا الأسبوع وحصل على 18 نجمة 🌟"_ — keeps the father engaged without requiring him to open the app daily.
 
 ### 7.7 Streak Protection (Freeze)
+
 Once a child earns a **7-day streak**, they unlock one **Streak Freeze** — a one-time shield that protects the streak if they miss a single day. This is directly from Duolingo and is extremely effective at reducing churn around "accidental misses" (travel, illness, etc.).
 
 ### 7.8 Short Session Mode
+
 If a child opens the app and the current stage seems long, offer a **"5 دقائق فقط"** mode — just the daily challenge + one story panel. This captures the child even on busy days and keeps the streak alive.
 
 ---
@@ -293,28 +309,28 @@ If a child opens the app and the current stage seems long, offer a **"5 دقائ
 
 ### Son's Notifications
 
-| Trigger | Message |
-|---|---|
-| Father sends link request | "والدك يريد متابعة تقدمك — اقبل الطلب؟" |
-| Father creates a new goal | "أبوك يرسل لك تحدياً جديداً! 🎯 المكافأة: [reward]" |
-| Goal deadline in 3 days | "تبقّى 3 أيام لإنهاء هدفك — هيّا!" |
-| Streak reminder (no session today) | "أين أنت يا بطلي؟ سلسلتك 🔥 تنتظرك!" |
-| Streak milestone reached | "ماشاء الله! 7 أيام متواصلة 🔥🔥🔥" |
-| New badge earned | "حصلت على شارة جديدة! 🏅 افتح التطبيق لتراها" |
-| Father sends a reaction | "والدك قال: أحسنت يا بطلي! 🏆" |
-| Daily challenge available | "تحدي اليوم جاهز — 30 ثانية فقط! ⚡" |
+| Trigger                            | Message                                             |
+| ---------------------------------- | --------------------------------------------------- |
+| Father sends link request          | "والدك يريد متابعة تقدمك — اقبل الطلب؟"             |
+| Father creates a new goal          | "أبوك يرسل لك تحدياً جديداً! 🎯 المكافأة: [reward]" |
+| Goal deadline in 3 days            | "تبقّى 3 أيام لإنهاء هدفك — هيّا!"                  |
+| Streak reminder (no session today) | "أين أنت يا بطلي؟ سلسلتك 🔥 تنتظرك!"                |
+| Streak milestone reached           | "ماشاء الله! 7 أيام متواصلة 🔥🔥🔥"                 |
+| New badge earned                   | "حصلت على شارة جديدة! 🏅 افتح التطبيق لتراها"       |
+| Father sends a reaction            | "والدك قال: أحسنت يا بطلي! 🏆"                      |
+| Daily challenge available          | "تحدي اليوم جاهز — 30 ثانية فقط! ⚡"                |
 
 ### Father's Notifications
 
-| Trigger | Message |
-|---|---|
-| Son accepts link request | "[Son's name] قبل طلب الربط ✓" |
-| Son completes a stage | "[Son's name] أكمل المرحلة [X] 🎉" |
-| Son completes a goal | "[Son's name] أنهى هدفه! حان وقت المكافأة 🏆" |
-| Son earns a badge | "[Son's name] حصل على شارة جديدة 🏅" |
-| Son hits streak milestone | "[Son's name] على سلسلة [X] أيام متواصلة 🔥" |
-| Goal deadline approaching (son hasn't finished) | "تبقّى 3 أيام على هدف [Son's name] ولم ينتهِ بعد" |
-| Weekly summary (every Sunday) | "[Son's name] أكمل [X] مراحل هذا الأسبوع — [X] نجمة 🌟" |
+| Trigger                                         | Message                                                 |
+| ----------------------------------------------- | ------------------------------------------------------- |
+| Son accepts link request                        | "[Son's name] قبل طلب الربط ✓"                          |
+| Son completes a stage                           | "[Son's name] أكمل المرحلة [X] 🎉"                      |
+| Son completes a goal                            | "[Son's name] أنهى هدفه! حان وقت المكافأة 🏆"           |
+| Son earns a badge                               | "[Son's name] حصل على شارة جديدة 🏅"                    |
+| Son hits streak milestone                       | "[Son's name] على سلسلة [X] أيام متواصلة 🔥"            |
+| Goal deadline approaching (son hasn't finished) | "تبقّى 3 أيام على هدف [Son's name] ولم ينتهِ بعد"       |
+| Weekly summary (every Sunday)                   | "[Son's name] أكمل [X] مراحل هذا الأسبوع — [X] نجمة 🌟" |
 
 > **Technical:** Firebase Cloud Messaging (FCM) for both Android and iOS, triggered from the NestJS backend via the Firebase Admin SDK.
 
@@ -323,6 +339,7 @@ If a child opens the app and the current stage seems long, offer a **"5 دقائ
 ## 9. Content Guidelines
 
 ### Story Content
+
 - Sourced from trusted Seerah books: Ibn Hisham, Ibn Kathir's Al-Bidaya wa Al-Nihaya.
 - AI is used **only** for: shortening into child-friendly format, generating quiz questions.
 - All content is reviewed by a knowledgeable Islamic reviewer before publishing.
@@ -330,6 +347,7 @@ If a child opens the app and the current stage seems long, offer a **"5 دقائ
 - Each stage: 3 story panels + 2 inline questions + 3–5 final quiz questions.
 
 ### Visual Content
+
 - All human figures are **faceless silhouettes.** No exceptions.
 - Settings: Arabian Peninsula — desert, tents, mountains, old Mecca architecture, starry sky, fire.
 - The Narrator character: white thobe silhouette, always from behind or in profile.
@@ -340,17 +358,17 @@ If a child opens the app and the current stage seems long, offer a **"5 دقائ
 
 ## 10. Game Structure Summary
 
-| Element | V1 Value |
-|---|---|
-| Total Stages | 10 |
-| Total Groups | 1 |
-| Stars per Stage | 3 |
-| Total Stars per Group | 30 |
-| Stars needed to advance | 24 / 30 |
-| Hearts per session | 5 |
-| Heart refill time | 30 minutes |
-| Daily Challenge | 1 per day |
-| Stage session length | 5–10 minutes |
+| Element                  | V1 Value                 |
+| ------------------------ | ------------------------ |
+| Total Stages             | 10                       |
+| Total Groups             | 1                        |
+| Stars per Stage          | 3                        |
+| Total Stars per Group    | 30                       |
+| Stars needed to advance  | 24 / 30                  |
+| Hearts per session       | 5                        |
+| Heart refill time        | 30 minutes               |
+| Daily Challenge          | 1 per day                |
+| Stage session length     | 5–10 minutes             |
 | Quiz questions per stage | 3–5 (final) + 2 (inline) |
 
 ---
@@ -358,6 +376,7 @@ If a child opens the app and the current stage seems long, offer a **"5 دقائ
 ## 11. Screen List (V1)
 
 ### Son Experience
+
 1. Splash Screen
 2. Onboarding (3 screens)
 3. Landing (Sign Up / Login)
@@ -380,6 +399,7 @@ If a child opens the app and the current stage seems long, offer a **"5 دقائ
 20. Link Request Screen (Accept / Decline)
 
 ### Father Experience
+
 21. Father Home / Sons Tab
 22. Son Progress Detail Screen
 23. Goals Tab (Father View)
@@ -397,28 +417,29 @@ If a child opens the app and the current stage seems long, offer a **"5 دقائ
 
 ## 13. Technical Stack
 
-| Layer | Technology | Reason |
-|---|---|---|
-| Mobile Framework | **React Native (Expo)** | Single codebase for iOS + Android, large JS ecosystem, excellent community support |
-| Backend Framework | **NestJS** | Enterprise-grade Node.js framework with TypeScript, modular architecture, built-in support for REST & WebSockets |
-| Database | **PostgreSQL** | Robust relational database ideal for structured data (users, stages, progress, goals), strong querying for dashboards and analytics |
-| ORM | **Prisma** | Type-safe database access, auto-generated migrations, excellent DX with NestJS and TypeScript |
-| Authentication | **Passport.js + JWT** | Industry-standard auth strategy, integrates natively with NestJS guards and middleware |
-| Push Notifications | **Firebase Cloud Messaging (FCM)** | Free, reliable push delivery on both iOS and Android — used as a notification service only, not as a backend |
-| Real-time Updates | **Socket.io (via @nestjs/websockets)** | Real-time progress updates on the father's dashboard without polling |
-| File/Image Storage | **AWS S3 or Cloudflare R2** | Cost-effective object storage for story panel illustrations, Narrator assets, and badge images |
-| Image/Animation | **Lottie (lottie-react-native)** | Lightweight JSON-based animations for celebration screens and Narrator reactions |
-| State Management | **Zustand** | Minimal, fast, and unopinionated state management — ideal for quiz logic, hearts, XP, and streak state |
-| Navigation | **React Navigation** | The standard navigation library for React Native, supports stack, tab, and drawer navigators with RTL support |
-| API Communication | **Axios + React Query (TanStack Query)** | Axios for HTTP requests, React Query for caching, background refetching, and server state synchronization |
-| Language & Tooling | **TypeScript** | Shared type safety across backend (NestJS) and mobile (React Native) — reduces bugs and enables code sharing |
-| AI Content Pipeline | **Offline tool** | AI is used to generate content before release — not a live API call in the app |
+| Layer               | Technology                               | Reason                                                                                                                              |
+| ------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Mobile Framework    | **React Native (Expo)**                  | Single codebase for iOS + Android, large JS ecosystem, excellent community support                                                  |
+| Backend Framework   | **NestJS**                               | Enterprise-grade Node.js framework with TypeScript, modular architecture, built-in support for REST & WebSockets                    |
+| Database            | **PostgreSQL**                           | Robust relational database ideal for structured data (users, stages, progress, goals), strong querying for dashboards and analytics |
+| ORM                 | **Prisma**                               | Type-safe database access, auto-generated migrations, excellent DX with NestJS and TypeScript                                       |
+| Authentication      | **Passport.js + JWT**                    | Industry-standard auth strategy, integrates natively with NestJS guards and middleware                                              |
+| Push Notifications  | **Firebase Cloud Messaging (FCM)**       | Free, reliable push delivery on both iOS and Android — used as a notification service only, not as a backend                        |
+| Real-time Updates   | **Socket.io (via @nestjs/websockets)**   | Real-time progress updates on the father's dashboard without polling                                                                |
+| File/Image Storage  | **AWS S3 or Cloudflare R2**              | Cost-effective object storage for story panel illustrations, Narrator assets, and badge images                                      |
+| Image/Animation     | **Lottie (lottie-react-native)**         | Lightweight JSON-based animations for celebration screens and Narrator reactions                                                    |
+| State Management    | **Zustand**                              | Minimal, fast, and unopinionated state management — ideal for quiz logic, hearts, XP, and streak state                              |
+| Navigation          | **React Navigation**                     | The standard navigation library for React Native, supports stack, tab, and drawer navigators with RTL support                       |
+| API Communication   | **Axios + React Query (TanStack Query)** | Axios for HTTP requests, React Query for caching, background refetching, and server state synchronization                           |
+| Language & Tooling  | **TypeScript**                           | Shared type safety across backend (NestJS) and mobile (React Native) — reduces bugs and enables code sharing                        |
+| AI Content Pipeline | **Offline tool**                         | AI is used to generate content before release — not a live API call in the app                                                      |
 
 ---
 
 ## 14. Core Data Models (PostgreSQL / Prisma)
 
 ### User
+
 ```
 id            String    @id @default(uuid())
 displayName   String
@@ -433,6 +454,7 @@ createdAt     DateTime  @default(now())
 ```
 
 ### Stage
+
 ```
 id            String    @id @default(uuid())
 groupId       String    (FK → StageGroup)
@@ -445,6 +467,7 @@ maxScore      Int
 ```
 
 ### StageProgress (per user per stage)
+
 ```
 id            String    @id @default(uuid())
 userId        String    (FK → User)
@@ -457,6 +480,7 @@ attempts      Int       @default(0)
 ```
 
 ### Goal
+
 ```
 id              String    @id @default(uuid())
 fatherId        String    (FK → User)
@@ -470,6 +494,7 @@ createdAt       DateTime  @default(now())
 ```
 
 ### QuizQuestion
+
 ```
 id            String    @id @default(uuid())
 stageId       String    (FK → Stage)
@@ -502,7 +527,8 @@ xpValue       Int
 Primary mission: drive app downloads. Target audience: Muslim fathers.
 
 ### Pages
-- **Home** — Hero targeting fathers: *"علّم ابنك السيرة النبوية وهو يلعب."* App Store + Google Play buttons above the fold.
+
+- **Home** — Hero targeting fathers: _"علّم ابنك السيرة النبوية وهو يلعب."_ App Store + Google Play buttons above the fold.
 - **About Us** — Mission and story behind the project.
 - **Who Is This For?** — Fathers and children, ages 6–14.
 - **What Do We Offer?** — Features, Goal-Reward system, Duolingo-style learning, Seerah credibility.
@@ -510,6 +536,7 @@ Primary mission: drive app downloads. Target audience: Muslim fathers.
 - **Contact** — Communication form.
 
 ### Conversion Flow
+
 1. Father lands → compelling headline + download buttons immediately visible
 2. Scrolls → Problem section (Seerah is hard for kids)
 3. Scrolls → Solution section (app screenshots, journey map, Narrator character)

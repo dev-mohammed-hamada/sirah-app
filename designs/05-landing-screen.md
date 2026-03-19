@@ -1,4 +1,5 @@
 # Screen 05: Landing Screen
+
 ### شاشة الترحيب — Sign Up / Login
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, and shared components.
@@ -14,12 +15,14 @@ Entry point after onboarding — the user chooses to create a new account or log
 ## Layout
 
 ### Top Section (40% of screen)
+
 - **Background:** Night Sky gradient
 - The **Narrator silhouette** sitting by a campfire (same as splash but smaller scale)
 - **App logo** above the Narrator: "سيرة النبي ﷺ" in Cairo Bold 24px, Starlight White
 - Campfire continues flickering (Lottie, looping from splash)
 
 ### Bottom Section (60% of screen)
+
 - A **rounded white/cream card** sliding up from the bottom
   - Background: Soft Cream (`#FAF3E8`)
   - Radius: 24px (top corners only)
@@ -70,16 +73,16 @@ Entry point after onboarding — the user chooses to create a new account or log
 
 ## Animations
 
-| Step | Element | Animation | Duration | Delay |
-|------|---------|-----------|----------|-------|
-| 1 | Top section | Already visible (coming from splash/onboarding) | — | — |
-| 2 | Campfire | Continues flickering (Lottie loop) | Infinite | 0ms |
-| 3 | Bottom card | Slides up from below screen | 400ms (ease-out) | 0ms |
-| 4 | Welcome text | Fades in | 200ms | 200ms |
-| 5 | Subtitle | Fades in | 200ms | 300ms |
-| 6 | Primary button | Fades in from below | 200ms | 400ms |
-| 7 | Secondary button | Fades in from below | 200ms | 500ms |
-| 8 | Terms text | Fades in | 200ms | 600ms |
+| Step | Element          | Animation                                       | Duration         | Delay |
+| ---- | ---------------- | ----------------------------------------------- | ---------------- | ----- |
+| 1    | Top section      | Already visible (coming from splash/onboarding) | —                | —     |
+| 2    | Campfire         | Continues flickering (Lottie loop)              | Infinite         | 0ms   |
+| 3    | Bottom card      | Slides up from below screen                     | 400ms (ease-out) | 0ms   |
+| 4    | Welcome text     | Fades in                                        | 200ms            | 200ms |
+| 5    | Subtitle         | Fades in                                        | 200ms            | 300ms |
+| 6    | Primary button   | Fades in from below                             | 200ms            | 400ms |
+| 7    | Secondary button | Fades in from below                             | 200ms            | 500ms |
+| 8    | Terms text       | Fades in                                        | 200ms            | 600ms |
 
 ---
 
@@ -94,6 +97,6 @@ Entry point after onboarding — the user chooses to create a new account or log
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
+| Asset                           | Description                    | Format                   |
+| ------------------------------- | ------------------------------ | ------------------------ |
 | Narrator campfire scene (small) | Reuse from splash, scaled down | Same Lottie + PNG assets |

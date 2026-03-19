@@ -1,4 +1,5 @@
 # Screen 04: Onboarding — Page 3
+
 ### أبوك يتابع تقدمك
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, and shared components.
@@ -59,15 +60,15 @@ Third and final onboarding panel. Introduces the father-son linking concept — 
 
 ## Animations
 
-| Step | Element | Animation | Duration | Delay |
-|------|---------|-----------|----------|-------|
-| 1 | Son silhouette | Fades in from right (RTL) | 400ms | 0ms |
-| 2 | Father silhouette | Fades in from left (RTL) | 400ms | 200ms |
-| 3 | Golden connection line | Draws between father and son | 800ms (ease-out) | 400ms |
-| 4 | Connection line | Gentle pulse glow after drawing | Infinite, 2s loop | After draw |
-| 5 | Father's screen elements | Progress bars fill, stars appear | 600ms | 600ms |
-| 6 | Son's screen elements | Stars and XP float upward | Infinite, slow drift | 600ms |
-| 7 | "ابدأ الآن" button | Subtle glow pulse to attract tap | 2s loop | After all animations |
+| Step | Element                  | Animation                        | Duration             | Delay                |
+| ---- | ------------------------ | -------------------------------- | -------------------- | -------------------- |
+| 1    | Son silhouette           | Fades in from right (RTL)        | 400ms                | 0ms                  |
+| 2    | Father silhouette        | Fades in from left (RTL)         | 400ms                | 200ms                |
+| 3    | Golden connection line   | Draws between father and son     | 800ms (ease-out)     | 400ms                |
+| 4    | Connection line          | Gentle pulse glow after drawing  | Infinite, 2s loop    | After draw           |
+| 5    | Father's screen elements | Progress bars fill, stars appear | 600ms                | 600ms                |
+| 6    | Son's screen elements    | Stars and XP float upward        | Infinite, slow drift | 600ms                |
+| 7    | "ابدأ الآن" button       | Subtle glow pulse to attract tap | 2s loop              | After all animations |
 
 ---
 
@@ -81,9 +82,9 @@ Third and final onboarding panel. Introduces the father-son linking concept — 
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Father silhouette with device | Adult looking at a screen showing dashboard | PNG, transparent BG |
-| Son silhouette with device | Child playing on device with floating rewards | PNG, transparent BG |
-| Golden connection line | Animated line connecting two figures | Lottie or SVG with CSS animation |
-| Dashboard elements | Mini progress bars, stars for father's screen | SVG |
+| Asset                         | Description                                   | Format                           |
+| ----------------------------- | --------------------------------------------- | -------------------------------- |
+| Father silhouette with device | Adult looking at a screen showing dashboard   | PNG, transparent BG              |
+| Son silhouette with device    | Child playing on device with floating rewards | PNG, transparent BG              |
+| Golden connection line        | Animated line connecting two figures          | Lottie or SVG with CSS animation |
+| Dashboard elements            | Mini progress bars, stars for father's screen | SVG                              |

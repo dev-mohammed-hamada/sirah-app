@@ -1,1185 +1,1518 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سيرة النبي ﷺ — Entry Flow</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --desert-gold: #D4A843;
-    --deep-night-blue: #1A2744;
-    --warm-sand: #F5E6C8;
-    --sunset-orange: #E8734A;
-    --royal-purple: #4A2D6B;
-    --starlight-white: #FFF8F0;
-    --soft-cream: #FAF3E8;
-    --success-green: #4CAF6E;
-    --error-red: #E05555;
-    --muted-gray: #8A8A8A;
-    --shadow-1: 0 2px 8px rgba(26, 39, 68, 0.08);
-    --shadow-2: 0 4px 16px rgba(26, 39, 68, 0.12);
-    --shadow-3: 0 8px 32px rgba(26, 39, 68, 0.20);
-    --glow: 0 0 20px rgba(212, 168, 67, 0.4);
-    --radius-sm: 12px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: #1a1a2e;
-    direction: rtl;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سيرة النبي ﷺ — Entry Flow</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --desert-gold: #d4a843;
+        --deep-night-blue: #1a2744;
+        --warm-sand: #f5e6c8;
+        --sunset-orange: #e8734a;
+        --royal-purple: #4a2d6b;
+        --starlight-white: #fff8f0;
+        --soft-cream: #faf3e8;
+        --success-green: #4caf6e;
+        --error-red: #e05555;
+        --muted-gray: #8a8a8a;
+        --shadow-1: 0 2px 8px rgba(26, 39, 68, 0.08);
+        --shadow-2: 0 4px 16px rgba(26, 39, 68, 0.12);
+        --shadow-3: 0 8px 32px rgba(26, 39, 68, 0.2);
+        --glow: 0 0 20px rgba(212, 168, 67, 0.4);
+        --radius-sm: 12px;
+        --radius-md: 16px;
+        --radius-lg: 24px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Cairo', sans-serif;
+        background: #1a1a2e;
+        direction: rtl;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
 
-  /* Navigation */
-  .page-nav {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .page-nav h1 {
-    color: var(--starlight-white);
-    font-size: 20px;
-    font-weight: 700;
-  }
-  .nav-pills {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .nav-pills a {
-    color: var(--desert-gold);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 14px;
-    border: 1px solid rgba(212,168,67,0.4);
-    border-radius: 20px;
-    transition: all 0.2s;
-  }
-  .nav-pills a:hover, .nav-pills a.active {
-    background: var(--desert-gold);
-    color: var(--deep-night-blue);
-  }
-  .nav-pills a.ext {
-    border-color: rgba(255,255,255,0.2);
-    color: rgba(255,255,255,0.6);
-  }
-  .nav-pills a.ext:hover { background: rgba(255,255,255,0.1); color: white; }
+      /* Navigation */
+      .page-nav {
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .page-nav h1 {
+        color: var(--starlight-white);
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .nav-pills {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .nav-pills a {
+        color: var(--desert-gold);
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 5px 14px;
+        border: 1px solid rgba(212, 168, 67, 0.4);
+        border-radius: 20px;
+        transition: all 0.2s;
+      }
+      .nav-pills a:hover,
+      .nav-pills a.active {
+        background: var(--desert-gold);
+        color: var(--deep-night-blue);
+      }
+      .nav-pills a.ext {
+        border-color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .nav-pills a.ext:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
 
-  /* Screen Grid */
-  .screen-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-  }
+      /* Screen Grid */
+      .screen-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: center;
+        width: 100%;
+        max-width: 1200px;
+      }
 
-  /* Phone Frame */
-  .phone-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-  .phone-label {
-    color: var(--starlight-white);
-    font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-  }
-  .phone-sublabel {
-    color: var(--muted-gray);
-    font-size: 11px;
-    text-align: center;
-  }
-  .phone {
-    width: 375px;
-    height: 812px;
-    border-radius: 44px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 0 3px #333, 0 0 0 6px #1a1a1a, var(--shadow-3);
-    background: var(--deep-night-blue);
-    flex-shrink: 0;
-  }
-  .phone-screen {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-  }
+      /* Phone Frame */
+      .phone-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .phone-label {
+        color: var(--starlight-white);
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+      }
+      .phone-sublabel {
+        color: var(--muted-gray);
+        font-size: 11px;
+        text-align: center;
+      }
+      .phone {
+        width: 375px;
+        height: 812px;
+        border-radius: 44px;
+        overflow: hidden;
+        position: relative;
+        box-shadow:
+          0 0 0 3px #333,
+          0 0 0 6px #1a1a1a,
+          var(--shadow-3);
+        background: var(--deep-night-blue);
+        flex-shrink: 0;
+      }
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
 
-  /* iOS Status Bar */
-  .ios-status {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 54px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 28px 8px;
-    z-index: 10;
-    color: var(--starlight-white);
-    font-size: 14px;
-    font-weight: 600;
-  }
-  .ios-status .time { font-size: 15px; font-weight: 700; }
-  .ios-status .icons { display: flex; gap: 4px; font-size: 12px; }
+      /* iOS Status Bar */
+      .ios-status {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 54px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0 28px 8px;
+        z-index: 10;
+        color: var(--starlight-white);
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .ios-status .time {
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .ios-status .icons {
+        display: flex;
+        gap: 4px;
+        font-size: 12px;
+      }
 
-  /* Home Indicator */
-  .home-indicator {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 134px;
-    height: 5px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 3px;
-    z-index: 10;
-  }
+      /* Home Indicator */
+      .home-indicator {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 134px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
+        z-index: 10;
+      }
 
-  /* ==================== SCREEN 01: SPLASH ==================== */
-  .splash-bg {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #1A2744 0%, #2a3a5c 40%, #4A2D6B 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
+      /* ==================== SCREEN 01: SPLASH ==================== */
+      .splash-bg {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, #1a2744 0%, #2a3a5c 40%, #4a2d6b 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-  /* Stars */
-  .stars-container {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    pointer-events: none;
-  }
-  .star-dot {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: white;
-    border-radius: 50%;
-    animation: twinkle var(--dur, 3s) ease-in-out infinite;
-    animation-delay: var(--delay, 0s);
-  }
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.5); }
-  }
+      /* Stars */
+      .stars-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+      }
+      .star-dot {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        animation: twinkle var(--dur, 3s) ease-in-out infinite;
+        animation-delay: var(--delay, 0s);
+      }
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.5);
+        }
+      }
 
-  /* Desert Dunes */
-  .dunes {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 180px;
-    z-index: 1;
-  }
-  .dune-layer {
-    position: absolute;
-    bottom: 0;
-    left: -10%;
-    right: -10%;
-  }
+      /* Desert Dunes */
+      .dunes {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 180px;
+        z-index: 1;
+      }
+      .dune-layer {
+        position: absolute;
+        bottom: 0;
+        left: -10%;
+        right: -10%;
+      }
 
-  /* Campfire */
-  .campfire-area {
-    position: relative;
-    z-index: 2;
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .campfire {
-    width: 60px;
-    height: 80px;
-    position: relative;
-  }
-  .flame {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 50px;
-    background: radial-gradient(ellipse at bottom, #ff6600 0%, #ff9900 40%, #ffcc00 60%, transparent 100%);
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    animation: flicker 0.5s ease-in-out infinite alternate;
-    filter: blur(1px);
-  }
-  .flame::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 35px;
-    background: radial-gradient(ellipse at bottom, #fff 0%, #ffcc00 30%, #ff6600 60%, transparent 100%);
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    animation: flicker 0.3s ease-in-out infinite alternate-reverse;
-  }
-  .flame-glow {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 100px;
-    background: radial-gradient(ellipse, rgba(255,153,0,0.3) 0%, rgba(255,100,0,0.1) 40%, transparent 70%);
-    animation: glowPulse 2s ease-in-out infinite;
-  }
-  @keyframes flicker {
-    0% { transform: translateX(-50%) scaleY(1) scaleX(1); }
-    25% { transform: translateX(-50%) scaleY(1.05) scaleX(0.95); }
-    50% { transform: translateX(-50%) scaleY(0.95) scaleX(1.05); }
-    75% { transform: translateX(-50%) scaleY(1.02) scaleX(0.98); }
-    100% { transform: translateX(-50%) scaleY(0.98) scaleX(1.02); }
-  }
-  @keyframes glowPulse {
-    0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-    50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
-  }
+      /* Campfire */
+      .campfire-area {
+        position: relative;
+        z-index: 2;
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .campfire {
+        width: 60px;
+        height: 80px;
+        position: relative;
+      }
+      .flame {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 50px;
+        background: radial-gradient(
+          ellipse at bottom,
+          #ff6600 0%,
+          #ff9900 40%,
+          #ffcc00 60%,
+          transparent 100%
+        );
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        animation: flicker 0.5s ease-in-out infinite alternate;
+        filter: blur(1px);
+      }
+      .flame::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 35px;
+        background: radial-gradient(
+          ellipse at bottom,
+          #fff 0%,
+          #ffcc00 30%,
+          #ff6600 60%,
+          transparent 100%
+        );
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        animation: flicker 0.3s ease-in-out infinite alternate-reverse;
+      }
+      .flame-glow {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 100px;
+        background: radial-gradient(
+          ellipse,
+          rgba(255, 153, 0, 0.3) 0%,
+          rgba(255, 100, 0, 0.1) 40%,
+          transparent 70%
+        );
+        animation: glowPulse 2s ease-in-out infinite;
+      }
+      @keyframes flicker {
+        0% {
+          transform: translateX(-50%) scaleY(1) scaleX(1);
+        }
+        25% {
+          transform: translateX(-50%) scaleY(1.05) scaleX(0.95);
+        }
+        50% {
+          transform: translateX(-50%) scaleY(0.95) scaleX(1.05);
+        }
+        75% {
+          transform: translateX(-50%) scaleY(1.02) scaleX(0.98);
+        }
+        100% {
+          transform: translateX(-50%) scaleY(0.98) scaleX(1.02);
+        }
+      }
+      @keyframes glowPulse {
+        0%,
+        100% {
+          opacity: 0.6;
+          transform: translateX(-50%) scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: translateX(-50%) scale(1.1);
+        }
+      }
 
-  /* Logs */
-  .logs {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 2px;
-  }
-  .log {
-    width: 28px;
-    height: 8px;
-    background: linear-gradient(to bottom, #8B4513, #654321);
-    border-radius: 4px;
-  }
-  .log:nth-child(2) { transform: rotate(-15deg) translateY(-4px); }
-  .log:nth-child(3) { transform: rotate(15deg) translateY(-4px); }
+      /* Logs */
+      .logs {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 2px;
+      }
+      .log {
+        width: 28px;
+        height: 8px;
+        background: linear-gradient(to bottom, #8b4513, #654321);
+        border-radius: 4px;
+      }
+      .log:nth-child(2) {
+        transform: rotate(-15deg) translateY(-4px);
+      }
+      .log:nth-child(3) {
+        transform: rotate(15deg) translateY(-4px);
+      }
 
-  /* Narrator Silhouette */
-  .narrator-silhouette {
-    position: relative;
-    z-index: 2;
-    margin-top: -20px;
-    margin-right: 40px;
-  }
-  .narrator-body {
-    width: 50px;
-    height: 70px;
-    background: #1a1a2e;
-    border-radius: 25px 25px 15px 15px;
-    position: relative;
-  }
-  .narrator-head {
-    width: 28px;
-    height: 28px;
-    background: #1a1a2e;
-    border-radius: 50%;
-    position: absolute;
-    top: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .narrator-head::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 36px;
-    height: 12px;
-    background: #1a1a2e;
-    border-radius: 50%;
-  }
+      /* Narrator Silhouette */
+      .narrator-silhouette {
+        position: relative;
+        z-index: 2;
+        margin-top: -20px;
+        margin-right: 40px;
+      }
+      .narrator-body {
+        width: 50px;
+        height: 70px;
+        background: #1a1a2e;
+        border-radius: 25px 25px 15px 15px;
+        position: relative;
+      }
+      .narrator-head {
+        width: 28px;
+        height: 28px;
+        background: #1a1a2e;
+        border-radius: 50%;
+        position: absolute;
+        top: -24px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .narrator-head::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 36px;
+        height: 12px;
+        background: #1a1a2e;
+        border-radius: 50%;
+      }
 
-  /* Logo */
-  .splash-logo {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  .splash-logo h1 {
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--starlight-white);
-    text-shadow: 0 2px 20px rgba(212, 168, 67, 0.4);
-    animation: logoIn 0.5s ease-out 0.6s both;
-  }
-  .splash-logo p {
-    font-size: 16px;
-    color: var(--starlight-white);
-    opacity: 0.8;
-    margin-top: 8px;
-    animation: fadeIn 0.3s ease-out 0.9s both;
-  }
-  @keyframes logoIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+      /* Logo */
+      .splash-logo {
+        position: relative;
+        z-index: 3;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .splash-logo h1 {
+        font-size: 36px;
+        font-weight: 900;
+        color: var(--starlight-white);
+        text-shadow: 0 2px 20px rgba(212, 168, 67, 0.4);
+        animation: logoIn 0.5s ease-out 0.6s both;
+      }
+      .splash-logo p {
+        font-size: 16px;
+        color: var(--starlight-white);
+        opacity: 0.8;
+        margin-top: 8px;
+        animation: fadeIn 0.3s ease-out 0.9s both;
+      }
+      @keyframes logoIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  /* ==================== SCREEN 02-04: ONBOARDING ==================== */
-  .onboarding-bg {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #1A2744 0%, #4A2D6B 100%);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-  }
+      /* ==================== SCREEN 02-04: ONBOARDING ==================== */
+      .onboarding-bg {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, #1a2744 0%, #4a2d6b 100%);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
 
-  .onboarding-skip {
-    position: absolute;
-    top: 60px;
-    right: 24px;
-    z-index: 5;
-    color: rgba(255,255,255,0.6);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-  }
+      .onboarding-skip {
+        position: absolute;
+        top: 60px;
+        right: 24px;
+        z-index: 5;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+      }
 
-  .onboarding-illustration {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 24px 0;
-    position: relative;
-  }
+      .onboarding-illustration {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 24px 0;
+        position: relative;
+      }
 
-  .onboarding-text {
-    padding: 24px 32px;
-    text-align: center;
-  }
-  .onboarding-text h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--starlight-white);
-    margin-bottom: 12px;
-  }
-  .onboarding-text p {
-    font-size: 16px;
-    color: var(--starlight-white);
-    opacity: 0.8;
-    line-height: 1.6;
-  }
+      .onboarding-text {
+        padding: 24px 32px;
+        text-align: center;
+      }
+      .onboarding-text h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--starlight-white);
+        margin-bottom: 12px;
+      }
+      .onboarding-text p {
+        font-size: 16px;
+        color: var(--starlight-white);
+        opacity: 0.8;
+        line-height: 1.6;
+      }
 
-  .onboarding-bottom {
-    padding: 16px 32px 48px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
+      .onboarding-bottom {
+        padding: 16px 32px 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
 
-  .page-dots {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-  }
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    transition: all 0.3s;
-  }
-  .dot.active {
-    background: var(--desert-gold);
-    width: 10px;
-    height: 10px;
-    margin-top: -1px;
-  }
+      .page-dots {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transition: all 0.3s;
+      }
+      .dot.active {
+        background: var(--desert-gold);
+        width: 10px;
+        height: 10px;
+        margin-top: -1px;
+      }
 
-  .btn {
-    font-family: 'Cairo', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    height: 48px;
-    border: none;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    padding: 0 24px;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 280px;
-  }
-  .btn-primary {
-    background: var(--desert-gold);
-    color: var(--deep-night-blue);
-  }
-  .btn-primary:hover { filter: brightness(0.9); transform: scale(0.97); }
-  .btn-secondary {
-    background: transparent;
-    color: var(--desert-gold);
-    border: 2px solid var(--desert-gold);
-  }
-  .btn-secondary:hover { background: rgba(212, 168, 67, 0.1); }
-  .btn-glow {
-    animation: btnGlow 2s ease-in-out infinite;
-  }
-  @keyframes btnGlow {
-    0%, 100% { box-shadow: 0 0 10px rgba(212, 168, 67, 0.2); }
-    50% { box-shadow: 0 0 25px rgba(212, 168, 67, 0.5); }
-  }
+      .btn {
+        font-family: 'Cairo', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        height: 48px;
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        padding: 0 24px;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 280px;
+      }
+      .btn-primary {
+        background: var(--desert-gold);
+        color: var(--deep-night-blue);
+      }
+      .btn-primary:hover {
+        filter: brightness(0.9);
+        transform: scale(0.97);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--desert-gold);
+        border: 2px solid var(--desert-gold);
+      }
+      .btn-secondary:hover {
+        background: rgba(212, 168, 67, 0.1);
+      }
+      .btn-glow {
+        animation: btnGlow 2s ease-in-out infinite;
+      }
+      @keyframes btnGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 10px rgba(212, 168, 67, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 25px rgba(212, 168, 67, 0.5);
+        }
+      }
 
-  /* Onboarding 1: Path */
-  .path-illustration {
-    width: 280px;
-    height: 360px;
-    position: relative;
-  }
-  .golden-path {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  .golden-path svg { width: 100%; height: 100%; }
-  .path-line {
-    stroke: var(--desert-gold);
-    stroke-width: 3;
-    fill: none;
-    stroke-dasharray: 800;
-    stroke-dashoffset: 800;
-    animation: drawPath 2s ease-out forwards;
-    filter: drop-shadow(0 0 6px rgba(212,168,67,0.5));
-  }
-  @keyframes drawPath {
-    to { stroke-dashoffset: 0; }
-  }
-  .path-marker {
-    width: 16px;
-    height: 16px;
-    background: var(--desert-gold);
-    border-radius: 50%;
-    position: absolute;
-    box-shadow: 0 0 10px rgba(212,168,67,0.6);
-    animation: markerPop 0.3s ease-out both;
-  }
-  .city-glow {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .city-silhouette {
-    display: flex;
-    gap: 2px;
-    align-items: flex-end;
-    opacity: 0.6;
-  }
-  .building {
-    background: var(--desert-gold);
-    opacity: 0.7;
-    border-radius: 2px 2px 0 0;
-  }
-  .city-glow-effect {
-    width: 100px;
-    height: 40px;
-    background: radial-gradient(ellipse, rgba(212,168,67,0.4) 0%, transparent 70%);
-    margin-top: -15px;
-    animation: glowPulse 3s ease-in-out infinite;
-  }
+      /* Onboarding 1: Path */
+      .path-illustration {
+        width: 280px;
+        height: 360px;
+        position: relative;
+      }
+      .golden-path {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      .golden-path svg {
+        width: 100%;
+        height: 100%;
+      }
+      .path-line {
+        stroke: var(--desert-gold);
+        stroke-width: 3;
+        fill: none;
+        stroke-dasharray: 800;
+        stroke-dashoffset: 800;
+        animation: drawPath 2s ease-out forwards;
+        filter: drop-shadow(0 0 6px rgba(212, 168, 67, 0.5));
+      }
+      @keyframes drawPath {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      .path-marker {
+        width: 16px;
+        height: 16px;
+        background: var(--desert-gold);
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: 0 0 10px rgba(212, 168, 67, 0.6);
+        animation: markerPop 0.3s ease-out both;
+      }
+      .city-glow {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .city-silhouette {
+        display: flex;
+        gap: 2px;
+        align-items: flex-end;
+        opacity: 0.6;
+      }
+      .building {
+        background: var(--desert-gold);
+        opacity: 0.7;
+        border-radius: 2px 2px 0 0;
+      }
+      .city-glow-effect {
+        width: 100px;
+        height: 40px;
+        background: radial-gradient(ellipse, rgba(212, 168, 67, 0.4) 0%, transparent 70%);
+        margin-top: -15px;
+        animation: glowPulse 3s ease-in-out infinite;
+      }
 
-  /* Onboarding 2: Quiz elements */
-  .quiz-illustration {
-    width: 300px;
-    height: 340px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .center-glow {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(212,168,67,0.2) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: glowPulse 3s ease-in-out infinite;
-  }
-  .child-figure {
-    position: relative;
-    z-index: 2;
-  }
-  .child-body {
-    width: 40px;
-    height: 45px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 20px 20px 10px 10px;
-  }
-  .child-head {
-    width: 24px;
-    height: 24px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 50%;
-    margin: 0 auto -8px;
-  }
-  .floating-item {
-    position: absolute;
-    animation: orbit var(--orbit-dur, 8s) linear infinite;
-    animation-delay: var(--orbit-delay, 0s);
-  }
-  @keyframes orbit {
-    0% { transform: rotate(0deg) translateX(var(--orbit-r, 100px)) rotate(0deg); }
-    100% { transform: rotate(360deg) translateX(var(--orbit-r, 100px)) rotate(-360deg); }
-  }
-  .quiz-card-mini {
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 8px;
-    padding: 6px 12px;
-    font-size: 11px;
-    color: var(--starlight-white);
-    white-space: nowrap;
-  }
-  .float-icon {
-    font-size: 24px;
-    filter: drop-shadow(0 0 8px rgba(212,168,67,0.5));
-  }
+      /* Onboarding 2: Quiz elements */
+      .quiz-illustration {
+        width: 300px;
+        height: 340px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .center-glow {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(212, 168, 67, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: glowPulse 3s ease-in-out infinite;
+      }
+      .child-figure {
+        position: relative;
+        z-index: 2;
+      }
+      .child-body {
+        width: 40px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 20px 20px 10px 10px;
+      }
+      .child-head {
+        width: 24px;
+        height: 24px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        margin: 0 auto -8px;
+      }
+      .floating-item {
+        position: absolute;
+        animation: orbit var(--orbit-dur, 8s) linear infinite;
+        animation-delay: var(--orbit-delay, 0s);
+      }
+      @keyframes orbit {
+        0% {
+          transform: rotate(0deg) translateX(var(--orbit-r, 100px)) rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg) translateX(var(--orbit-r, 100px)) rotate(-360deg);
+        }
+      }
+      .quiz-card-mini {
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 11px;
+        color: var(--starlight-white);
+        white-space: nowrap;
+      }
+      .float-icon {
+        font-size: 24px;
+        filter: drop-shadow(0 0 8px rgba(212, 168, 67, 0.5));
+      }
 
-  /* Onboarding 3: Father-Son */
-  .link-illustration {
-    width: 300px;
-    height: 340px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-  }
-  .person-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    z-index: 2;
-  }
-  .person-avatar {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-  }
-  .person-avatar.father {
-    background: rgba(212,168,67,0.2);
-    border: 2px solid var(--desert-gold);
-  }
-  .person-avatar.son {
-    background: rgba(76,175,110,0.2);
-    border: 2px solid var(--success-green);
-  }
-  .person-device {
-    width: 56px;
-    height: 90px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 10px;
-    padding: 8px 4px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    align-items: center;
-  }
-  .mini-bar {
-    width: 80%;
-    height: 4px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .mini-bar .fill {
-    height: 100%;
-    border-radius: 2px;
-  }
-  .connection-line {
-    position: absolute;
-    top: 50%;
-    left: 25%;
-    right: 25%;
-    height: 3px;
-    background: var(--desert-gold);
-    transform: translateY(-50%);
-    border-radius: 2px;
-    animation: lineGlow 2s ease-in-out infinite;
-    box-shadow: 0 0 12px rgba(212,168,67,0.5);
-  }
-  .connection-line::before, .connection-line::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    background: var(--desert-gold);
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(212,168,67,0.6);
-  }
-  .connection-line::before { right: -5px; }
-  .connection-line::after { left: -5px; }
-  @keyframes lineGlow {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-  }
+      /* Onboarding 3: Father-Son */
+      .link-illustration {
+        width: 300px;
+        height: 340px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+      }
+      .person-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        z-index: 2;
+      }
+      .person-avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+      }
+      .person-avatar.father {
+        background: rgba(212, 168, 67, 0.2);
+        border: 2px solid var(--desert-gold);
+      }
+      .person-avatar.son {
+        background: rgba(76, 175, 110, 0.2);
+        border: 2px solid var(--success-green);
+      }
+      .person-device {
+        width: 56px;
+        height: 90px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+        padding: 8px 4px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        align-items: center;
+      }
+      .mini-bar {
+        width: 80%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .mini-bar .fill {
+        height: 100%;
+        border-radius: 2px;
+      }
+      .connection-line {
+        position: absolute;
+        top: 50%;
+        left: 25%;
+        right: 25%;
+        height: 3px;
+        background: var(--desert-gold);
+        transform: translateY(-50%);
+        border-radius: 2px;
+        animation: lineGlow 2s ease-in-out infinite;
+        box-shadow: 0 0 12px rgba(212, 168, 67, 0.5);
+      }
+      .connection-line::before,
+      .connection-line::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 10px;
+        height: 10px;
+        background: var(--desert-gold);
+        border-radius: 50%;
+        box-shadow: 0 0 8px rgba(212, 168, 67, 0.6);
+      }
+      .connection-line::before {
+        right: -5px;
+      }
+      .connection-line::after {
+        left: -5px;
+      }
+      @keyframes lineGlow {
+        0%,
+        100% {
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
 
-  .person-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--starlight-white);
-    opacity: 0.8;
-  }
-  .device-float {
-    font-size: 10px;
-    position: absolute;
-    animation: floatUp 3s ease-in-out infinite;
-  }
-  @keyframes floatUp {
-    0%, 100% { transform: translateY(0); opacity: 0.6; }
-    50% { transform: translateY(-8px); opacity: 1; }
-  }
+      .person-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--starlight-white);
+        opacity: 0.8;
+      }
+      .device-float {
+        font-size: 10px;
+        position: absolute;
+        animation: floatUp 3s ease-in-out infinite;
+      }
+      @keyframes floatUp {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.6;
+        }
+        50% {
+          transform: translateY(-8px);
+          opacity: 1;
+        }
+      }
 
-  /* ==================== SCREEN 05: LANDING ==================== */
-  .landing-bg {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-  }
-  .landing-top {
-    flex: 0 0 40%;
-    background: linear-gradient(to bottom, #1A2744 0%, #4A2D6B 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .landing-bottom {
-    flex: 1;
-    background: var(--soft-cream);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    margin-top: -24px;
-    position: relative;
-    z-index: 3;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-    animation: slideUp 0.4s ease-out;
-  }
-  @keyframes slideUp {
-    from { transform: translateY(40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  .landing-welcome {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--deep-night-blue);
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  .landing-subtitle {
-    font-size: 16px;
-    color: var(--muted-gray);
-    margin-bottom: 32px;
-    text-align: center;
-  }
-  .landing-buttons {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-  }
-  .landing-terms {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--muted-gray);
-    text-align: center;
-    margin-top: 24px;
-    line-height: 1.8;
-  }
-  .landing-terms a {
-    color: var(--desert-gold);
-    text-decoration: underline;
-  }
+      /* ==================== SCREEN 05: LANDING ==================== */
+      .landing-bg {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+      .landing-top {
+        flex: 0 0 40%;
+        background: linear-gradient(to bottom, #1a2744 0%, #4a2d6b 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .landing-bottom {
+        flex: 1;
+        background: var(--soft-cream);
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: -24px;
+        position: relative;
+        z-index: 3;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        animation: slideUp 0.4s ease-out;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(40px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      .landing-welcome {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--deep-night-blue);
+        margin-bottom: 8px;
+        text-align: center;
+      }
+      .landing-subtitle {
+        font-size: 16px;
+        color: var(--muted-gray);
+        margin-bottom: 32px;
+        text-align: center;
+      }
+      .landing-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+      }
+      .landing-terms {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--muted-gray);
+        text-align: center;
+        margin-top: 24px;
+        line-height: 1.8;
+      }
+      .landing-terms a {
+        color: var(--desert-gold);
+        text-decoration: underline;
+      }
 
-  /* Flow Arrow */
-  .flow-arrow {
-    color: var(--desert-gold);
-    font-size: 28px;
-    text-align: center;
-    padding: 8px 0;
-    opacity: 0.5;
-    animation: arrowPulse 1.5s ease-in-out infinite;
-  }
-  @keyframes arrowPulse {
-    0%, 100% { opacity: 0.3; transform: translateY(0); }
-    50% { opacity: 0.7; transform: translateY(4px); }
-  }
+      /* Flow Arrow */
+      .flow-arrow {
+        color: var(--desert-gold);
+        font-size: 28px;
+        text-align: center;
+        padding: 8px 0;
+        opacity: 0.5;
+        animation: arrowPulse 1.5s ease-in-out infinite;
+      }
+      @keyframes arrowPulse {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: translateY(0);
+        }
+        50% {
+          opacity: 0.7;
+          transform: translateY(4px);
+        }
+      }
 
-  /* Screen label link */
-  .screen-link {
-    display: inline-block;
-    color: var(--desert-gold);
-    font-size: 11px;
-    text-decoration: none;
-    margin-top: 8px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-  .screen-link:hover { opacity: 1; }
+      /* Screen label link */
+      .screen-link {
+        display: inline-block;
+        color: var(--desert-gold);
+        font-size: 11px;
+        text-decoration: none;
+        margin-top: 8px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .screen-link:hover {
+        opacity: 1;
+      }
 
-  /* Responsive */
-  @media (max-width: 420px) {
-    .phone { width: 100%; height: auto; aspect-ratio: 375/812; border-radius: 32px; }
-  }
-</style>
-</head>
-<body>
-
-<!-- Navigation -->
-<div class="page-nav">
-  <h1>Entry Flow — مسار الدخول</h1>
-  <div class="nav-pills">
-    <a href="00-design-system.html" class="ext">Design System</a>
-    <a href="#splash" class="active">Splash</a>
-    <a href="#onboarding1">Onboarding 1</a>
-    <a href="#onboarding2">Onboarding 2</a>
-    <a href="#onboarding3">Onboarding 3</a>
-    <a href="#landing">Landing</a>
-    <a href="02-auth-flow.html" class="ext">Auth →</a>
-  </div>
-</div>
-
-<div class="screen-grid">
-
-  <!-- ==================== SCREEN 01: SPLASH ==================== -->
-  <div class="phone-wrapper" id="splash">
-    <div class="phone-label">01 — Splash Screen</div>
-    <div class="phone-sublabel">شاشة البداية · Auto-transition 2.5s</div>
-    <div class="phone">
-      <div class="phone-screen">
-        <div class="ios-status">
-          <span class="time">٩:٤١</span>
-          <span class="icons">📶 📡 🔋</span>
-        </div>
-
-        <div class="splash-bg">
-          <!-- Stars -->
-          <div class="stars-container">
-            <div class="star-dot" style="top:8%;left:15%;--dur:2.5s;--delay:0s;"></div>
-            <div class="star-dot" style="top:12%;left:45%;--dur:3.5s;--delay:0.5s;width:4px;height:4px;"></div>
-            <div class="star-dot" style="top:5%;left:70%;--dur:2s;--delay:1s;"></div>
-            <div class="star-dot" style="top:18%;left:85%;--dur:4s;--delay:0.3s;width:2px;height:2px;"></div>
-            <div class="star-dot" style="top:25%;left:25%;--dur:3s;--delay:0.7s;width:4px;height:4px;"></div>
-            <div class="star-dot" style="top:15%;left:55%;--dur:2.8s;--delay:1.2s;"></div>
-            <div class="star-dot" style="top:8%;left:35%;--dur:3.2s;--delay:0.4s;width:2px;height:2px;"></div>
-            <div class="star-dot" style="top:22%;left:65%;--dur:2.3s;--delay:0.9s;"></div>
-            <div class="star-dot" style="top:30%;left:10%;--dur:3.8s;--delay:0.2s;width:2px;height:2px;"></div>
-            <div class="star-dot" style="top:10%;left:90%;--dur:2.6s;--delay:1.5s;"></div>
-            <div class="star-dot" style="top:35%;left:50%;--dur:3.1s;--delay:0.6s;width:2px;height:2px;"></div>
-            <div class="star-dot" style="top:20%;left:78%;--dur:2.9s;--delay:0.8s;"></div>
-          </div>
-
-          <!-- Logo -->
-          <div class="splash-logo">
-            <h1>سيرة النبي ﷺ</h1>
-            <p>تعلّم السيرة وأنت تلعب</p>
-          </div>
-
-          <!-- Campfire + Narrator -->
-          <div class="campfire-area">
-            <div class="campfire">
-              <div class="flame"></div>
-              <div class="flame-glow"></div>
-              <div class="logs">
-                <div class="log"></div>
-                <div class="log"></div>
-                <div class="log"></div>
-              </div>
-            </div>
-          </div>
-          <div class="narrator-silhouette">
-            <div class="narrator-body">
-              <div class="narrator-head"></div>
-            </div>
-          </div>
-
-          <!-- Dunes -->
-          <div class="dunes">
-            <svg class="dune-layer" viewBox="0 0 500 180" preserveAspectRatio="none" style="height: 180px;">
-              <path d="M0,180 Q60,100 130,130 Q200,160 280,110 Q360,60 440,120 Q500,150 540,100 L540,180 Z" fill="rgba(212,168,67,0.15)"/>
-              <path d="M0,180 Q80,120 160,150 Q240,170 320,130 Q400,90 480,140 L540,180 Z" fill="rgba(212,168,67,0.25)"/>
-              <path d="M0,180 Q100,140 200,160 Q300,180 400,150 Q480,130 540,160 L540,180 Z" fill="rgba(245,230,200,0.2)"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="home-indicator"></div>
+      /* Responsive */
+      @media (max-width: 420px) {
+        .phone {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 375/812;
+          border-radius: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <div class="page-nav">
+      <h1>Entry Flow — مسار الدخول</h1>
+      <div class="nav-pills">
+        <a href="00-design-system.html" class="ext">Design System</a>
+        <a href="#splash" class="active">Splash</a>
+        <a href="#onboarding1">Onboarding 1</a>
+        <a href="#onboarding2">Onboarding 2</a>
+        <a href="#onboarding3">Onboarding 3</a>
+        <a href="#landing">Landing</a>
+        <a href="02-auth-flow.html" class="ext">Auth →</a>
       </div>
     </div>
-    <a class="screen-link" href="#onboarding1">→ Onboarding 1</a>
-  </div>
 
-  <div class="flow-arrow">⬇</div>
+    <div class="screen-grid">
+      <!-- ==================== SCREEN 01: SPLASH ==================== -->
+      <div class="phone-wrapper" id="splash">
+        <div class="phone-label">01 — Splash Screen</div>
+        <div class="phone-sublabel">شاشة البداية · Auto-transition 2.5s</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ios-status">
+              <span class="time">٩:٤١</span>
+              <span class="icons">📶 📡 🔋</span>
+            </div>
 
-  <!-- ==================== SCREEN 02: ONBOARDING 1 ==================== -->
-  <div class="phone-wrapper" id="onboarding1">
-    <div class="phone-label">02 — Onboarding Page 1</div>
-    <div class="phone-sublabel">رحلة عبر الزمن</div>
-    <div class="phone">
-      <div class="phone-screen">
-        <div class="ios-status">
-          <span class="time">٩:٤١</span>
-          <span class="icons">📶 📡 🔋</span>
-        </div>
-
-        <div class="onboarding-bg">
-          <a href="#landing" class="onboarding-skip">تخطي</a>
-
-          <!-- Stars -->
-          <div class="stars-container">
-            <div class="star-dot" style="top:8%;left:20%;--dur:3s;--delay:0s;"></div>
-            <div class="star-dot" style="top:12%;left:50%;--dur:2.5s;--delay:0.5s;width:4px;height:4px;"></div>
-            <div class="star-dot" style="top:6%;left:75%;--dur:3.5s;--delay:1s;"></div>
-            <div class="star-dot" style="top:18%;left:35%;--dur:2.8s;--delay:0.3s;"></div>
-          </div>
-
-          <div class="onboarding-illustration">
-            <div class="path-illustration">
-              <!-- City silhouette -->
-              <div class="city-glow" style="top: 30px; left: 50%;">
-                <div class="city-silhouette">
-                  <div class="building" style="width: 8px; height: 20px;"></div>
-                  <div class="building" style="width: 6px; height: 30px; border-radius: 50% 50% 0 0;"></div>
-                  <div class="building" style="width: 10px; height: 25px;"></div>
-                  <div class="building" style="width: 4px; height: 35px;"></div>
-                  <div class="building" style="width: 8px; height: 22px;"></div>
-                </div>
-                <div class="city-glow-effect"></div>
+            <div class="splash-bg">
+              <!-- Stars -->
+              <div class="stars-container">
+                <div class="star-dot" style="top: 8%; left: 15%; --dur: 2.5s; --delay: 0s"></div>
+                <div
+                  class="star-dot"
+                  style="top: 12%; left: 45%; --dur: 3.5s; --delay: 0.5s; width: 4px; height: 4px"
+                ></div>
+                <div class="star-dot" style="top: 5%; left: 70%; --dur: 2s; --delay: 1s"></div>
+                <div
+                  class="star-dot"
+                  style="top: 18%; left: 85%; --dur: 4s; --delay: 0.3s; width: 2px; height: 2px"
+                ></div>
+                <div
+                  class="star-dot"
+                  style="top: 25%; left: 25%; --dur: 3s; --delay: 0.7s; width: 4px; height: 4px"
+                ></div>
+                <div class="star-dot" style="top: 15%; left: 55%; --dur: 2.8s; --delay: 1.2s"></div>
+                <div
+                  class="star-dot"
+                  style="top: 8%; left: 35%; --dur: 3.2s; --delay: 0.4s; width: 2px; height: 2px"
+                ></div>
+                <div class="star-dot" style="top: 22%; left: 65%; --dur: 2.3s; --delay: 0.9s"></div>
+                <div
+                  class="star-dot"
+                  style="top: 30%; left: 10%; --dur: 3.8s; --delay: 0.2s; width: 2px; height: 2px"
+                ></div>
+                <div class="star-dot" style="top: 10%; left: 90%; --dur: 2.6s; --delay: 1.5s"></div>
+                <div
+                  class="star-dot"
+                  style="top: 35%; left: 50%; --dur: 3.1s; --delay: 0.6s; width: 2px; height: 2px"
+                ></div>
+                <div class="star-dot" style="top: 20%; left: 78%; --dur: 2.9s; --delay: 0.8s"></div>
               </div>
 
-              <!-- Path SVG -->
-              <div class="golden-path">
-                <svg viewBox="0 0 280 360" fill="none">
-                  <path class="path-line" d="M240,340 C240,300 40,280 40,240 C40,200 240,180 240,140 C240,100 120,80 140,60" />
+              <!-- Logo -->
+              <div class="splash-logo">
+                <h1>سيرة النبي ﷺ</h1>
+                <p>تعلّم السيرة وأنت تلعب</p>
+              </div>
+
+              <!-- Campfire + Narrator -->
+              <div class="campfire-area">
+                <div class="campfire">
+                  <div class="flame"></div>
+                  <div class="flame-glow"></div>
+                  <div class="logs">
+                    <div class="log"></div>
+                    <div class="log"></div>
+                    <div class="log"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="narrator-silhouette">
+                <div class="narrator-body">
+                  <div class="narrator-head"></div>
+                </div>
+              </div>
+
+              <!-- Dunes -->
+              <div class="dunes">
+                <svg
+                  class="dune-layer"
+                  viewBox="0 0 500 180"
+                  preserveAspectRatio="none"
+                  style="height: 180px"
+                >
+                  <path
+                    d="M0,180 Q60,100 130,130 Q200,160 280,110 Q360,60 440,120 Q500,150 540,100 L540,180 Z"
+                    fill="rgba(212,168,67,0.15)"
+                  />
+                  <path
+                    d="M0,180 Q80,120 160,150 Q240,170 320,130 Q400,90 480,140 L540,180 Z"
+                    fill="rgba(212,168,67,0.25)"
+                  />
+                  <path
+                    d="M0,180 Q100,140 200,160 Q300,180 400,150 Q480,130 540,160 L540,180 Z"
+                    fill="rgba(245,230,200,0.2)"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+        <a class="screen-link" href="#onboarding1">→ Onboarding 1</a>
+      </div>
+
+      <div class="flow-arrow">⬇</div>
+
+      <!-- ==================== SCREEN 02: ONBOARDING 1 ==================== -->
+      <div class="phone-wrapper" id="onboarding1">
+        <div class="phone-label">02 — Onboarding Page 1</div>
+        <div class="phone-sublabel">رحلة عبر الزمن</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ios-status">
+              <span class="time">٩:٤١</span>
+              <span class="icons">📶 📡 🔋</span>
+            </div>
+
+            <div class="onboarding-bg">
+              <a href="#landing" class="onboarding-skip">تخطي</a>
+
+              <!-- Stars -->
+              <div class="stars-container">
+                <div class="star-dot" style="top: 8%; left: 20%; --dur: 3s; --delay: 0s"></div>
+                <div
+                  class="star-dot"
+                  style="top: 12%; left: 50%; --dur: 2.5s; --delay: 0.5s; width: 4px; height: 4px"
+                ></div>
+                <div class="star-dot" style="top: 6%; left: 75%; --dur: 3.5s; --delay: 1s"></div>
+                <div class="star-dot" style="top: 18%; left: 35%; --dur: 2.8s; --delay: 0.3s"></div>
+              </div>
+
+              <div class="onboarding-illustration">
+                <div class="path-illustration">
+                  <!-- City silhouette -->
+                  <div class="city-glow" style="top: 30px; left: 50%">
+                    <div class="city-silhouette">
+                      <div class="building" style="width: 8px; height: 20px"></div>
+                      <div
+                        class="building"
+                        style="width: 6px; height: 30px; border-radius: 50% 50% 0 0"
+                      ></div>
+                      <div class="building" style="width: 10px; height: 25px"></div>
+                      <div class="building" style="width: 4px; height: 35px"></div>
+                      <div class="building" style="width: 8px; height: 22px"></div>
+                    </div>
+                    <div class="city-glow-effect"></div>
+                  </div>
+
+                  <!-- Path SVG -->
+                  <div class="golden-path">
+                    <svg viewBox="0 0 280 360" fill="none">
+                      <path
+                        class="path-line"
+                        d="M240,340 C240,300 40,280 40,240 C40,200 240,180 240,140 C240,100 120,80 140,60"
+                      />
+                    </svg>
+                  </div>
+
+                  <!-- Stage markers -->
+                  <div
+                    class="path-marker"
+                    style="top: 310px; left: 220px; animation-delay: 1.5s"
+                  ></div>
+                  <div
+                    class="path-marker"
+                    style="top: 260px; left: 80px; animation-delay: 1.7s"
+                  ></div>
+                  <div
+                    class="path-marker"
+                    style="top: 210px; left: 200px; animation-delay: 1.9s"
+                  ></div>
+                  <div
+                    class="path-marker"
+                    style="top: 160px; left: 60px; animation-delay: 2.1s"
+                  ></div>
+                  <div
+                    class="path-marker"
+                    style="top: 110px; left: 180px; animation-delay: 2.3s"
+                  ></div>
+
+                  <!-- Mini dunes -->
+                  <svg
+                    style="
+                      position: absolute;
+                      bottom: 0;
+                      left: -10%;
+                      right: -10%;
+                      width: 120%;
+                      height: 60px;
+                    "
+                    viewBox="0 0 320 60"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0,60 Q40,30 80,45 Q120,55 180,35 Q240,15 300,40 Q320,50 340,30 L340,60 Z"
+                      fill="rgba(245,230,200,0.15)"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <div class="onboarding-text">
+                <h2>رحلة عبر الزمن</h2>
+                <p>انطلق في رحلة مشوقة عبر سيرة النبي ﷺ مرحلة بمرحلة</p>
+              </div>
+
+              <div class="onboarding-bottom">
+                <div class="page-dots">
+                  <div class="dot active"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                </div>
+                <button class="btn btn-primary" onclick="location.href = '#onboarding2'">
+                  التالي
+                </button>
+              </div>
+            </div>
+
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-arrow">⬇</div>
+
+      <!-- ==================== SCREEN 03: ONBOARDING 2 ==================== -->
+      <div class="phone-wrapper" id="onboarding2">
+        <div class="phone-label">03 — Onboarding Page 2</div>
+        <div class="phone-sublabel">تعلّم وأنت تلعب</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ios-status">
+              <span class="time">٩:٤١</span>
+              <span class="icons">📶 📡 🔋</span>
+            </div>
+
+            <div class="onboarding-bg">
+              <a href="#landing" class="onboarding-skip">تخطي</a>
+
+              <div class="stars-container">
+                <div class="star-dot" style="top: 8%; left: 15%; --dur: 3s; --delay: 0.2s"></div>
+                <div class="star-dot" style="top: 14%; left: 60%; --dur: 2.5s; --delay: 0.8s"></div>
+                <div
+                  class="star-dot"
+                  style="top: 5%; left: 82%; --dur: 3.2s; --delay: 0.5s; width: 2px; height: 2px"
+                ></div>
+              </div>
+
+              <div class="onboarding-illustration">
+                <div class="quiz-illustration">
+                  <!-- Center glow -->
+                  <div class="center-glow"></div>
+
+                  <!-- Child figure -->
+                  <div class="child-figure">
+                    <div class="child-head"></div>
+                    <div class="child-body"></div>
+                  </div>
+
+                  <!-- Orbiting items -->
+                  <div
+                    class="floating-item"
+                    style="
+                      --orbit-dur: 10s;
+                      --orbit-delay: 0s;
+                      --orbit-r: 90px;
+                      top: 40%;
+                      left: 40%;
+                    "
+                  >
+                    <span class="float-icon">⭐</span>
+                  </div>
+                  <div
+                    class="floating-item"
+                    style="
+                      --orbit-dur: 12s;
+                      --orbit-delay: -3s;
+                      --orbit-r: 110px;
+                      top: 40%;
+                      left: 40%;
+                    "
+                  >
+                    <span class="float-icon">❤️</span>
+                  </div>
+                  <div
+                    class="floating-item"
+                    style="
+                      --orbit-dur: 9s;
+                      --orbit-delay: -5s;
+                      --orbit-r: 130px;
+                      top: 40%;
+                      left: 40%;
+                    "
+                  >
+                    <div class="quiz-card-mini">أ. عبدالمطلب</div>
+                  </div>
+                  <div
+                    class="floating-item"
+                    style="
+                      --orbit-dur: 11s;
+                      --orbit-delay: -7s;
+                      --orbit-r: 100px;
+                      top: 40%;
+                      left: 40%;
+                    "
+                  >
+                    <div
+                      class="quiz-card-mini"
+                      style="background: rgba(212, 168, 67, 0.2); border-color: var(--desert-gold)"
+                    >
+                      +10 XP
+                    </div>
+                  </div>
+                  <div
+                    class="floating-item"
+                    style="
+                      --orbit-dur: 13s;
+                      --orbit-delay: -2s;
+                      --orbit-r: 120px;
+                      top: 40%;
+                      left: 40%;
+                    "
+                  >
+                    <span class="float-icon">🌟</span>
+                  </div>
+                  <div
+                    class="floating-item"
+                    style="
+                      --orbit-dur: 8s;
+                      --orbit-delay: -4s;
+                      --orbit-r: 80px;
+                      top: 40%;
+                      left: 40%;
+                    "
+                  >
+                    <div class="quiz-card-mini">ب. أبو طالب</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="onboarding-text">
+                <h2>تعلّم وأنت تلعب</h2>
+                <p>أسئلة ممتعة ونجوم ومكافآت في كل مرحلة</p>
+              </div>
+
+              <div class="onboarding-bottom">
+                <div class="page-dots">
+                  <div class="dot"></div>
+                  <div class="dot active"></div>
+                  <div class="dot"></div>
+                </div>
+                <button class="btn btn-primary" onclick="location.href = '#onboarding3'">
+                  التالي
+                </button>
+              </div>
+            </div>
+
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-arrow">⬇</div>
+
+      <!-- ==================== SCREEN 04: ONBOARDING 3 ==================== -->
+      <div class="phone-wrapper" id="onboarding3">
+        <div class="phone-label">04 — Onboarding Page 3</div>
+        <div class="phone-sublabel">أبوك يتابع تقدمك</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ios-status">
+              <span class="time">٩:٤١</span>
+              <span class="icons">📶 📡 🔋</span>
+            </div>
+
+            <div class="onboarding-bg">
+              <div class="stars-container">
+                <div class="star-dot" style="top: 8%; left: 20%; --dur: 2.8s; --delay: 0.3s"></div>
+                <div
+                  class="star-dot"
+                  style="top: 12%; left: 55%; --dur: 3.5s; --delay: 0.7s; width: 4px; height: 4px"
+                ></div>
+                <div class="star-dot" style="top: 6%; left: 80%; --dur: 3s; --delay: 1.1s"></div>
+              </div>
+
+              <div class="onboarding-illustration">
+                <div class="link-illustration">
+                  <!-- Father side -->
+                  <div class="person-card">
+                    <div class="person-avatar father">👤</div>
+                    <div class="person-label">الأب</div>
+                    <div class="person-device">
+                      <div
+                        style="font-size: 8px; color: rgba(255, 255, 255, 0.5); margin-bottom: 4px"
+                      >
+                        Dashboard
+                      </div>
+                      <div class="mini-bar">
+                        <div class="fill" style="width: 70%; background: var(--desert-gold)"></div>
+                      </div>
+                      <div class="mini-bar">
+                        <div
+                          class="fill"
+                          style="width: 45%; background: var(--success-green)"
+                        ></div>
+                      </div>
+                      <div class="mini-bar">
+                        <div class="fill" style="width: 90%; background: var(--desert-gold)"></div>
+                      </div>
+                      <div style="font-size: 12px; margin-top: 4px">⭐⭐⭐</div>
+                    </div>
+                  </div>
+
+                  <!-- Connection line -->
+                  <div class="connection-line"></div>
+
+                  <!-- Son side -->
+                  <div class="person-card">
+                    <div class="person-avatar son">🧒</div>
+                    <div class="person-label">الابن</div>
+                    <div class="person-device" style="border-color: rgba(76, 175, 110, 0.3)">
+                      <div
+                        style="font-size: 8px; color: rgba(255, 255, 255, 0.5); margin-bottom: 4px"
+                      >
+                        Playing
+                      </div>
+                      <div style="font-size: 16px; text-align: center">
+                        <span style="animation: floatUp 2s ease-in-out infinite">⭐</span>
+                      </div>
+                      <div
+                        style="
+                          font-size: 10px;
+                          color: var(--desert-gold);
+                          text-align: center;
+                          animation: floatUp 2.5s ease-in-out infinite;
+                        "
+                      >
+                        +10 XP
+                      </div>
+                      <div
+                        style="display: flex; gap: 2px; justify-content: center; margin-top: 4px"
+                      >
+                        <span style="font-size: 10px">❤️❤️❤️</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="onboarding-text">
+                <h2>أبوك يتابع تقدمك</h2>
+                <p>والدك يشاهد إنجازاتك ويضع لك أهدافاً ومكافآت</p>
+              </div>
+
+              <div class="onboarding-bottom">
+                <div class="page-dots">
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot active"></div>
+                </div>
+                <button class="btn btn-primary btn-glow" onclick="location.href = '#landing'">
+                  ابدأ الآن
+                </button>
+              </div>
+            </div>
+
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-arrow">⬇</div>
+
+      <!-- ==================== SCREEN 05: LANDING ==================== -->
+      <div class="phone-wrapper" id="landing">
+        <div class="phone-label">05 — Landing Screen</div>
+        <div class="phone-sublabel">شاشة الترحيب — Sign Up / Login</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ios-status">
+              <span class="time">٩:٤١</span>
+              <span class="icons">📶 📡 🔋</span>
+            </div>
+
+            <div class="landing-bg">
+              <!-- Top: Night scene -->
+              <div class="landing-top">
+                <div class="stars-container">
+                  <div class="star-dot" style="top: 15%; left: 20%; --dur: 3s; --delay: 0s"></div>
+                  <div
+                    class="star-dot"
+                    style="top: 10%; left: 55%; --dur: 2.5s; --delay: 0.5s; width: 4px; height: 4px"
+                  ></div>
+                  <div class="star-dot" style="top: 20%; left: 80%; --dur: 3.5s; --delay: 1s"></div>
+                  <div
+                    class="star-dot"
+                    style="top: 30%; left: 35%; --dur: 2.8s; --delay: 0.7s"
+                  ></div>
+                </div>
+
+                <div
+                  style="
+                    font-size: 24px;
+                    font-weight: 700;
+                    color: var(--starlight-white);
+                    z-index: 2;
+                    margin-bottom: 16px;
+                  "
+                >
+                  سيرة النبي ﷺ
+                </div>
+
+                <!-- Mini campfire -->
+                <div style="position: relative; z-index: 2; transform: scale(0.7)">
+                  <div class="campfire">
+                    <div class="flame"></div>
+                    <div class="flame-glow"></div>
+                    <div class="logs">
+                      <div class="log"></div>
+                      <div class="log"></div>
+                      <div class="log"></div>
+                    </div>
+                  </div>
+                </div>
+                <div style="transform: scale(0.6); z-index: 2; margin-top: -10px">
+                  <div class="narrator-body" style="background: rgba(255, 255, 255, 0.08)">
+                    <div class="narrator-head" style="background: rgba(255, 255, 255, 0.08)"></div>
+                  </div>
+                </div>
+
+                <!-- Dunes -->
+                <svg
+                  style="
+                    position: absolute;
+                    bottom: 20px;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 40px;
+                    z-index: 1;
+                  "
+                  viewBox="0 0 400 40"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M0,40 Q50,15 120,28 Q200,40 280,20 Q350,8 400,25 L400,40 Z"
+                    fill="rgba(212,168,67,0.15)"
+                  />
                 </svg>
               </div>
 
-              <!-- Stage markers -->
-              <div class="path-marker" style="top: 310px; left: 220px; animation-delay: 1.5s;"></div>
-              <div class="path-marker" style="top: 260px; left: 80px; animation-delay: 1.7s;"></div>
-              <div class="path-marker" style="top: 210px; left: 200px; animation-delay: 1.9s;"></div>
-              <div class="path-marker" style="top: 160px; left: 60px; animation-delay: 2.1s;"></div>
-              <div class="path-marker" style="top: 110px; left: 180px; animation-delay: 2.3s;"></div>
+              <!-- Bottom: Card -->
+              <div class="landing-bottom">
+                <div class="landing-welcome">أهلاً بك يا بطلي</div>
+                <div class="landing-subtitle">سجّل حسابك وابدأ الرحلة</div>
 
-              <!-- Mini dunes -->
-              <svg style="position: absolute; bottom: 0; left: -10%; right: -10%; width: 120%; height: 60px;" viewBox="0 0 320 60" preserveAspectRatio="none">
-                <path d="M0,60 Q40,30 80,45 Q120,55 180,35 Q240,15 300,40 Q320,50 340,30 L340,60 Z" fill="rgba(245,230,200,0.15)"/>
-              </svg>
-            </div>
-          </div>
-
-          <div class="onboarding-text">
-            <h2>رحلة عبر الزمن</h2>
-            <p>انطلق في رحلة مشوقة عبر سيرة النبي ﷺ مرحلة بمرحلة</p>
-          </div>
-
-          <div class="onboarding-bottom">
-            <div class="page-dots">
-              <div class="dot active"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
-            </div>
-            <button class="btn btn-primary" onclick="location.href='#onboarding2'">التالي</button>
-          </div>
-        </div>
-
-        <div class="home-indicator"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="flow-arrow">⬇</div>
-
-  <!-- ==================== SCREEN 03: ONBOARDING 2 ==================== -->
-  <div class="phone-wrapper" id="onboarding2">
-    <div class="phone-label">03 — Onboarding Page 2</div>
-    <div class="phone-sublabel">تعلّم وأنت تلعب</div>
-    <div class="phone">
-      <div class="phone-screen">
-        <div class="ios-status">
-          <span class="time">٩:٤١</span>
-          <span class="icons">📶 📡 🔋</span>
-        </div>
-
-        <div class="onboarding-bg">
-          <a href="#landing" class="onboarding-skip">تخطي</a>
-
-          <div class="stars-container">
-            <div class="star-dot" style="top:8%;left:15%;--dur:3s;--delay:0.2s;"></div>
-            <div class="star-dot" style="top:14%;left:60%;--dur:2.5s;--delay:0.8s;"></div>
-            <div class="star-dot" style="top:5%;left:82%;--dur:3.2s;--delay:0.5s;width:2px;height:2px;"></div>
-          </div>
-
-          <div class="onboarding-illustration">
-            <div class="quiz-illustration">
-              <!-- Center glow -->
-              <div class="center-glow"></div>
-
-              <!-- Child figure -->
-              <div class="child-figure">
-                <div class="child-head"></div>
-                <div class="child-body"></div>
-              </div>
-
-              <!-- Orbiting items -->
-              <div class="floating-item" style="--orbit-dur: 10s; --orbit-delay: 0s; --orbit-r: 90px; top: 40%; left: 40%;">
-                <span class="float-icon">⭐</span>
-              </div>
-              <div class="floating-item" style="--orbit-dur: 12s; --orbit-delay: -3s; --orbit-r: 110px; top: 40%; left: 40%;">
-                <span class="float-icon">❤️</span>
-              </div>
-              <div class="floating-item" style="--orbit-dur: 9s; --orbit-delay: -5s; --orbit-r: 130px; top: 40%; left: 40%;">
-                <div class="quiz-card-mini">أ. عبدالمطلب</div>
-              </div>
-              <div class="floating-item" style="--orbit-dur: 11s; --orbit-delay: -7s; --orbit-r: 100px; top: 40%; left: 40%;">
-                <div class="quiz-card-mini" style="background: rgba(212,168,67,0.2); border-color: var(--desert-gold);">+10 XP</div>
-              </div>
-              <div class="floating-item" style="--orbit-dur: 13s; --orbit-delay: -2s; --orbit-r: 120px; top: 40%; left: 40%;">
-                <span class="float-icon">🌟</span>
-              </div>
-              <div class="floating-item" style="--orbit-dur: 8s; --orbit-delay: -4s; --orbit-r: 80px; top: 40%; left: 40%;">
-                <div class="quiz-card-mini">ب. أبو طالب</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="onboarding-text">
-            <h2>تعلّم وأنت تلعب</h2>
-            <p>أسئلة ممتعة ونجوم ومكافآت في كل مرحلة</p>
-          </div>
-
-          <div class="onboarding-bottom">
-            <div class="page-dots">
-              <div class="dot"></div>
-              <div class="dot active"></div>
-              <div class="dot"></div>
-            </div>
-            <button class="btn btn-primary" onclick="location.href='#onboarding3'">التالي</button>
-          </div>
-        </div>
-
-        <div class="home-indicator"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="flow-arrow">⬇</div>
-
-  <!-- ==================== SCREEN 04: ONBOARDING 3 ==================== -->
-  <div class="phone-wrapper" id="onboarding3">
-    <div class="phone-label">04 — Onboarding Page 3</div>
-    <div class="phone-sublabel">أبوك يتابع تقدمك</div>
-    <div class="phone">
-      <div class="phone-screen">
-        <div class="ios-status">
-          <span class="time">٩:٤١</span>
-          <span class="icons">📶 📡 🔋</span>
-        </div>
-
-        <div class="onboarding-bg">
-          <div class="stars-container">
-            <div class="star-dot" style="top:8%;left:20%;--dur:2.8s;--delay:0.3s;"></div>
-            <div class="star-dot" style="top:12%;left:55%;--dur:3.5s;--delay:0.7s;width:4px;height:4px;"></div>
-            <div class="star-dot" style="top:6%;left:80%;--dur:3s;--delay:1.1s;"></div>
-          </div>
-
-          <div class="onboarding-illustration">
-            <div class="link-illustration">
-              <!-- Father side -->
-              <div class="person-card">
-                <div class="person-avatar father">👤</div>
-                <div class="person-label">الأب</div>
-                <div class="person-device">
-                  <div style="font-size: 8px; color: rgba(255,255,255,0.5); margin-bottom: 4px;">Dashboard</div>
-                  <div class="mini-bar"><div class="fill" style="width: 70%; background: var(--desert-gold);"></div></div>
-                  <div class="mini-bar"><div class="fill" style="width: 45%; background: var(--success-green);"></div></div>
-                  <div class="mini-bar"><div class="fill" style="width: 90%; background: var(--desert-gold);"></div></div>
-                  <div style="font-size: 12px; margin-top: 4px;">⭐⭐⭐</div>
+                <div class="landing-buttons">
+                  <a href="02-auth-flow.html#signup" style="text-decoration: none">
+                    <button class="btn btn-primary" style="width: 280px">إنشاء حساب جديد</button>
+                  </a>
+                  <a href="02-auth-flow.html#login" style="text-decoration: none">
+                    <button class="btn btn-secondary" style="width: 280px">تسجيل الدخول</button>
+                  </a>
                 </div>
-              </div>
 
-              <!-- Connection line -->
-              <div class="connection-line"></div>
-
-              <!-- Son side -->
-              <div class="person-card">
-                <div class="person-avatar son">🧒</div>
-                <div class="person-label">الابن</div>
-                <div class="person-device" style="border-color: rgba(76,175,110,0.3);">
-                  <div style="font-size: 8px; color: rgba(255,255,255,0.5); margin-bottom: 4px;">Playing</div>
-                  <div style="font-size: 16px; text-align: center;">
-                    <span style="animation: floatUp 2s ease-in-out infinite;">⭐</span>
-                  </div>
-                  <div style="font-size: 10px; color: var(--desert-gold); text-align: center; animation: floatUp 2.5s ease-in-out infinite;">+10 XP</div>
-                  <div style="display: flex; gap: 2px; justify-content: center; margin-top: 4px;">
-                    <span style="font-size: 10px;">❤️❤️❤️</span>
-                  </div>
+                <div class="landing-terms">
+                  بالمتابعة، أنت توافق على
+                  <a href="#">شروط الاستخدام</a>
+                  و<a href="#">سياسة الخصوصية</a>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="onboarding-text">
-            <h2>أبوك يتابع تقدمك</h2>
-            <p>والدك يشاهد إنجازاتك ويضع لك أهدافاً ومكافآت</p>
-          </div>
-
-          <div class="onboarding-bottom">
-            <div class="page-dots">
-              <div class="dot"></div>
-              <div class="dot"></div>
-              <div class="dot active"></div>
-            </div>
-            <button class="btn btn-primary btn-glow" onclick="location.href='#landing'">ابدأ الآن</button>
+            <div class="home-indicator" style="background: rgba(0, 0, 0, 0.15)"></div>
           </div>
         </div>
-
-        <div class="home-indicator"></div>
+        <a class="screen-link" href="02-auth-flow.html">→ Auth Flow (Sign Up / Login)</a>
       </div>
     </div>
-  </div>
-
-  <div class="flow-arrow">⬇</div>
-
-  <!-- ==================== SCREEN 05: LANDING ==================== -->
-  <div class="phone-wrapper" id="landing">
-    <div class="phone-label">05 — Landing Screen</div>
-    <div class="phone-sublabel">شاشة الترحيب — Sign Up / Login</div>
-    <div class="phone">
-      <div class="phone-screen">
-        <div class="ios-status">
-          <span class="time">٩:٤١</span>
-          <span class="icons">📶 📡 🔋</span>
-        </div>
-
-        <div class="landing-bg">
-          <!-- Top: Night scene -->
-          <div class="landing-top">
-            <div class="stars-container">
-              <div class="star-dot" style="top:15%;left:20%;--dur:3s;--delay:0s;"></div>
-              <div class="star-dot" style="top:10%;left:55%;--dur:2.5s;--delay:0.5s;width:4px;height:4px;"></div>
-              <div class="star-dot" style="top:20%;left:80%;--dur:3.5s;--delay:1s;"></div>
-              <div class="star-dot" style="top:30%;left:35%;--dur:2.8s;--delay:0.7s;"></div>
-            </div>
-
-            <div style="font-size: 24px; font-weight: 700; color: var(--starlight-white); z-index: 2; margin-bottom: 16px;">سيرة النبي ﷺ</div>
-
-            <!-- Mini campfire -->
-            <div style="position: relative; z-index: 2; transform: scale(0.7);">
-              <div class="campfire">
-                <div class="flame"></div>
-                <div class="flame-glow"></div>
-                <div class="logs">
-                  <div class="log"></div>
-                  <div class="log"></div>
-                  <div class="log"></div>
-                </div>
-              </div>
-            </div>
-            <div style="transform: scale(0.6); z-index: 2; margin-top: -10px;">
-              <div class="narrator-body" style="background: rgba(255,255,255,0.08);">
-                <div class="narrator-head" style="background: rgba(255,255,255,0.08);"></div>
-              </div>
-            </div>
-
-            <!-- Dunes -->
-            <svg style="position: absolute; bottom: 20px; left: 0; right: 0; width: 100%; height: 40px; z-index: 1;" viewBox="0 0 400 40" preserveAspectRatio="none">
-              <path d="M0,40 Q50,15 120,28 Q200,40 280,20 Q350,8 400,25 L400,40 Z" fill="rgba(212,168,67,0.15)"/>
-            </svg>
-          </div>
-
-          <!-- Bottom: Card -->
-          <div class="landing-bottom">
-            <div class="landing-welcome">أهلاً بك يا بطلي</div>
-            <div class="landing-subtitle">سجّل حسابك وابدأ الرحلة</div>
-
-            <div class="landing-buttons">
-              <a href="02-auth-flow.html#signup" style="text-decoration: none;">
-                <button class="btn btn-primary" style="width: 280px;">إنشاء حساب جديد</button>
-              </a>
-              <a href="02-auth-flow.html#login" style="text-decoration: none;">
-                <button class="btn btn-secondary" style="width: 280px;">تسجيل الدخول</button>
-              </a>
-            </div>
-
-            <div class="landing-terms">
-              بالمتابعة، أنت توافق على
-              <a href="#">شروط الاستخدام</a>
-              و<a href="#">سياسة الخصوصية</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="home-indicator" style="background: rgba(0,0,0,0.15);"></div>
-      </div>
-    </div>
-    <a class="screen-link" href="02-auth-flow.html">→ Auth Flow (Sign Up / Login)</a>
-  </div>
-
-</div>
-
-</body>
+  </body>
 </html>

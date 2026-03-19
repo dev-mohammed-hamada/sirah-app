@@ -33,7 +33,7 @@ export class DailyChallengeService {
       return null;
     }
 
-    const stageIds = completedStages.map((s) => s.stageId);
+    const stageIds = completedStages.map((s: { stageId: string }) => s.stageId);
 
     const questionCount = await this.prisma.quizQuestion.count({
       where: { stageId: { in: stageIds } },

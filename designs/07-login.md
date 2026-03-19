@@ -1,4 +1,5 @@
 # Screen 07: Login
+
 ### تسجيل الدخول
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, shared components (Input Field, Primary Button).
@@ -17,16 +18,17 @@ Returning user authentication. Should feel warm and welcoming — like the Narra
 - **Header:** Back arrow (RTL: right side), "تسجيل الدخول" centered, Cairo Bold 20px
 
 ### Top Illustration
+
 - Small **Narrator silhouette** waving (scaled smaller than landing page, ~120px height)
 - **Speech bubble** above/beside Narrator: "أهلاً بعودتك!" — Narrator Speech Bubble component
 - Positioned in the top-center area, below the header
 
 ### Form Fields
 
-| Field | Label | Type | Notes |
-|-------|-------|------|-------|
-| Username | اسم المستخدم | Text | Standard Input Field |
-| Password | كلمة المرور | Password | With show/hide eye toggle |
+| Field    | Label        | Type     | Notes                     |
+| -------- | ------------ | -------- | ------------------------- |
+| Username | اسم المستخدم | Text     | Standard Input Field      |
+| Password | كلمة المرور  | Password | With show/hide eye toggle |
 
 ### Action Section
 
@@ -72,16 +74,16 @@ Returning user authentication. Should feel warm and welcoming — like the Narra
 
 ## Animations
 
-| Step | Element | Animation | Duration | Delay |
-|------|---------|-----------|----------|-------|
-| 1 | Narrator | Waving arm movement (Lottie, subtle, looping) | 2s loop | 0ms |
-| 2 | Speech bubble | Fades in, scales from 0.9→1.0 | 300ms (spring) | 200ms |
-| 3 | Speech text | Typewriter effect, word by word | 40ms per word | After bubble appears |
-| 4 | Form fields | Fade in with slight upward motion | 200ms each | 100ms stagger |
-| 5 | Button + links | Fade in | 200ms | After fields |
-| 6 | Login loading | Button shows golden Lottie spinner | Until response | On tap |
-| 7 | Login success | Narrator transitions from waving to celebrating state (arms open), then screen transitions | 600ms Narrator, then 300ms transition | On success |
-| 8 | Login error | Fields shake (3 shakes, 300ms), error message appears below | 300ms | On error |
+| Step | Element        | Animation                                                                                  | Duration                              | Delay                |
+| ---- | -------------- | ------------------------------------------------------------------------------------------ | ------------------------------------- | -------------------- |
+| 1    | Narrator       | Waving arm movement (Lottie, subtle, looping)                                              | 2s loop                               | 0ms                  |
+| 2    | Speech bubble  | Fades in, scales from 0.9→1.0                                                              | 300ms (spring)                        | 200ms                |
+| 3    | Speech text    | Typewriter effect, word by word                                                            | 40ms per word                         | After bubble appears |
+| 4    | Form fields    | Fade in with slight upward motion                                                          | 200ms each                            | 100ms stagger        |
+| 5    | Button + links | Fade in                                                                                    | 200ms                                 | After fields         |
+| 6    | Login loading  | Button shows golden Lottie spinner                                                         | Until response                        | On tap               |
+| 7    | Login success  | Narrator transitions from waving to celebrating state (arms open), then screen transitions | 600ms Narrator, then 300ms transition | On success           |
+| 8    | Login error    | Fields shake (3 shakes, 300ms), error message appears below                                | 300ms                                 | On error             |
 
 ---
 
@@ -98,18 +100,18 @@ Returning user authentication. Should feel warm and welcoming — like the Narra
 
 ## Error States
 
-| Error | Display |
-|-------|---------|
-| Empty fields | Red border + "هذا الحقل مطلوب" |
+| Error                   | Display                                                                            |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| Empty fields            | Red border + "هذا الحقل مطلوب"                                                     |
 | Wrong username/password | Toast at top: "اسم المستخدم أو كلمة المرور غير صحيحة" + both fields get red border |
-| Server error | Toast: "حدث خطأ، حاول مرة أخرى" |
-| Too many attempts | Toast: "محاولات كثيرة، حاول بعد ٥ دقائق" + button disabled with countdown |
+| Server error            | Toast: "حدث خطأ، حاول مرة أخرى"                                                    |
+| Too many attempts       | Toast: "محاولات كثيرة، حاول بعد ٥ دقائق" + button disabled with countdown          |
 
 ---
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Narrator waving | Faceless silhouette with subtle arm wave | Lottie JSON |
+| Asset                | Description                                     | Format                          |
+| -------------------- | ----------------------------------------------- | ------------------------------- |
+| Narrator waving      | Faceless silhouette with subtle arm wave        | Lottie JSON                     |
 | Narrator celebrating | Transition from waving to arms-open celebration | Lottie JSON (or separate state) |

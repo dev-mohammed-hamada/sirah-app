@@ -18,6 +18,10 @@ export class DailyChallengeController {
     @CurrentUser() user: { id: string },
     @Body() body: { questionId: string; selectedAnswer: string },
   ) {
-    return this.dailyChallengeService.submitChallenge(user.id, body.questionId, body.selectedAnswer);
+    return this.dailyChallengeService.submitChallenge(
+      user.id,
+      body.questionId,
+      body.selectedAnswer,
+    );
   }
 }

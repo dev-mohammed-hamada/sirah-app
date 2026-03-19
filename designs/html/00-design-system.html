@@ -1,1050 +1,1372 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سيرة النبي ﷺ — Design System</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --desert-gold: #D4A843;
-    --deep-night-blue: #1A2744;
-    --warm-sand: #F5E6C8;
-    --sunset-orange: #E8734A;
-    --royal-purple: #4A2D6B;
-    --starlight-white: #FFF8F0;
-    --soft-cream: #FAF3E8;
-    --success-green: #4CAF6E;
-    --error-red: #E05555;
-    --muted-gray: #8A8A8A;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سيرة النبي ﷺ — Design System</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --desert-gold: #d4a843;
+        --deep-night-blue: #1a2744;
+        --warm-sand: #f5e6c8;
+        --sunset-orange: #e8734a;
+        --royal-purple: #4a2d6b;
+        --starlight-white: #fff8f0;
+        --soft-cream: #faf3e8;
+        --success-green: #4caf6e;
+        --error-red: #e05555;
+        --muted-gray: #8a8a8a;
 
-    --gradient-night-sky: linear-gradient(to bottom, #1A2744, #4A2D6B);
-    --gradient-desert-horizon: linear-gradient(to bottom, #E8734A, #D4A843, #F5E6C8);
-    --gradient-golden-glow: radial-gradient(circle, #D4A843, #F5E6C8);
+        --gradient-night-sky: linear-gradient(to bottom, #1a2744, #4a2d6b);
+        --gradient-desert-horizon: linear-gradient(to bottom, #e8734a, #d4a843, #f5e6c8);
+        --gradient-golden-glow: radial-gradient(circle, #d4a843, #f5e6c8);
 
-    --shadow-1: 0 2px 8px rgba(26, 39, 68, 0.08);
-    --shadow-2: 0 4px 16px rgba(26, 39, 68, 0.12);
-    --shadow-3: 0 8px 32px rgba(26, 39, 68, 0.20);
-    --glow: 0 0 20px rgba(212, 168, 67, 0.4);
+        --shadow-1: 0 2px 8px rgba(26, 39, 68, 0.08);
+        --shadow-2: 0 4px 16px rgba(26, 39, 68, 0.12);
+        --shadow-3: 0 8px 32px rgba(26, 39, 68, 0.2);
+        --glow: 0 0 20px rgba(212, 168, 67, 0.4);
 
-    --radius-sm: 12px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-  }
+        --radius-sm: 12px;
+        --radius-md: 16px;
+        --radius-lg: 24px;
+      }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: #f0f0f0;
-    color: var(--deep-night-blue);
-    direction: rtl;
-  }
+      body {
+        font-family: 'Cairo', sans-serif;
+        background: #f0f0f0;
+        color: var(--deep-night-blue);
+        direction: rtl;
+      }
 
-  /* Page Layout */
-  .page-header {
-    background: var(--deep-night-blue);
-    color: var(--starlight-white);
-    padding: 32px 40px;
-    text-align: center;
-  }
-  .page-header h1 { font-size: 36px; font-weight: 900; margin-bottom: 8px; }
-  .page-header p { font-size: 16px; opacity: 0.7; }
+      /* Page Layout */
+      .page-header {
+        background: var(--deep-night-blue);
+        color: var(--starlight-white);
+        padding: 32px 40px;
+        text-align: center;
+      }
+      .page-header h1 {
+        font-size: 36px;
+        font-weight: 900;
+        margin-bottom: 8px;
+      }
+      .page-header p {
+        font-size: 16px;
+        opacity: 0.7;
+      }
 
-  .nav-links {
-    background: var(--deep-night-blue);
-    padding: 0 40px 20px;
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .nav-links a {
-    color: var(--desert-gold);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 6px 16px;
-    border: 1px solid var(--desert-gold);
-    border-radius: 20px;
-    transition: all 0.2s;
-  }
-  .nav-links a:hover {
-    background: var(--desert-gold);
-    color: var(--deep-night-blue);
-  }
+      .nav-links {
+        background: var(--deep-night-blue);
+        padding: 0 40px 20px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        color: var(--desert-gold);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 16px;
+        border: 1px solid var(--desert-gold);
+        border-radius: 20px;
+        transition: all 0.2s;
+      }
+      .nav-links a:hover {
+        background: var(--desert-gold);
+        color: var(--deep-night-blue);
+      }
 
-  .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 24px;
+      }
 
-  .section {
-    background: white;
-    border-radius: var(--radius-md);
-    padding: 32px;
-    margin-bottom: 32px;
-    box-shadow: var(--shadow-1);
-  }
-  .section h2 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--desert-gold);
-    color: var(--deep-night-blue);
-  }
-  .section h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 24px 0 12px;
-    color: var(--deep-night-blue);
-  }
+      .section {
+        background: white;
+        border-radius: var(--radius-md);
+        padding: 32px;
+        margin-bottom: 32px;
+        box-shadow: var(--shadow-1);
+      }
+      .section h2 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid var(--desert-gold);
+        color: var(--deep-night-blue);
+      }
+      .section h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 24px 0 12px;
+        color: var(--deep-night-blue);
+      }
 
-  /* Color Palette */
-  .color-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
-  }
-  .color-card {
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    box-shadow: var(--shadow-1);
-  }
-  .color-swatch {
-    height: 80px;
-    display: flex;
-    align-items: flex-end;
-    padding: 8px 12px;
-  }
-  .color-swatch span {
-    font-size: 11px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.85);
-    color: #333;
-  }
-  .color-info {
-    padding: 12px;
-    background: white;
-  }
-  .color-info .name { font-size: 14px; font-weight: 700; }
-  .color-info .usage { font-size: 11px; color: var(--muted-gray); margin-top: 4px; }
+      /* Color Palette */
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
+      }
+      .color-card {
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        box-shadow: var(--shadow-1);
+      }
+      .color-swatch {
+        height: 80px;
+        display: flex;
+        align-items: flex-end;
+        padding: 8px 12px;
+      }
+      .color-swatch span {
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.85);
+        color: #333;
+      }
+      .color-info {
+        padding: 12px;
+        background: white;
+      }
+      .color-info .name {
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .color-info .usage {
+        font-size: 11px;
+        color: var(--muted-gray);
+        margin-top: 4px;
+      }
 
-  /* Gradients */
-  .gradient-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .gradient-card {
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    box-shadow: var(--shadow-1);
-  }
-  .gradient-swatch {
-    height: 100px;
-    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  }
-  .gradient-info { padding: 12px; background: white; }
-  .gradient-info .name { font-size: 14px; font-weight: 700; }
-  .gradient-info .desc { font-size: 11px; color: var(--muted-gray); margin-top: 4px; }
+      /* Gradients */
+      .gradient-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .gradient-card {
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        box-shadow: var(--shadow-1);
+      }
+      .gradient-swatch {
+        height: 100px;
+        border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      }
+      .gradient-info {
+        padding: 12px;
+        background: white;
+      }
+      .gradient-info .name {
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .gradient-info .desc {
+        font-size: 11px;
+        color: var(--muted-gray);
+        margin-top: 4px;
+      }
 
-  /* Typography */
-  .type-row {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: 16px 0;
-    border-bottom: 1px solid #f0f0f0;
-    gap: 20px;
-  }
-  .type-sample { flex: 1; }
-  .type-meta {
-    font-size: 12px;
-    color: var(--muted-gray);
-    white-space: nowrap;
-    text-align: left;
-    min-width: 180px;
-  }
+      /* Typography */
+      .type-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 16px 0;
+        border-bottom: 1px solid #f0f0f0;
+        gap: 20px;
+      }
+      .type-sample {
+        flex: 1;
+      }
+      .type-meta {
+        font-size: 12px;
+        color: var(--muted-gray);
+        white-space: nowrap;
+        text-align: left;
+        min-width: 180px;
+      }
 
-  /* Shadows */
-  .shadow-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-  }
-  .shadow-box {
-    height: 80px;
-    background: white;
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--muted-gray);
-  }
+      /* Shadows */
+      .shadow-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+      .shadow-box {
+        height: 80px;
+        background: white;
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--muted-gray);
+      }
 
-  /* Spacing */
-  .spacing-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 8px;
-  }
-  .spacing-label {
-    font-size: 13px;
-    font-weight: 600;
-    min-width: 50px;
-    text-align: left;
-  }
-  .spacing-bar {
-    height: 24px;
-    background: var(--desert-gold);
-    border-radius: 4px;
-    opacity: 0.6;
-  }
+      /* Spacing */
+      .spacing-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 8px;
+      }
+      .spacing-label {
+        font-size: 13px;
+        font-weight: 600;
+        min-width: 50px;
+        text-align: left;
+      }
+      .spacing-bar {
+        height: 24px;
+        background: var(--desert-gold);
+        border-radius: 4px;
+        opacity: 0.6;
+      }
 
-  /* Radius */
-  .radius-grid {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .radius-box {
-    width: 80px;
-    height: 80px;
-    background: var(--warm-sand);
-    border: 2px solid var(--desert-gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--deep-night-blue);
-  }
+      /* Radius */
+      .radius-grid {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .radius-box {
+        width: 80px;
+        height: 80px;
+        background: var(--warm-sand);
+        border: 2px solid var(--desert-gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--deep-night-blue);
+      }
 
-  /* Components */
-  .component-demo {
-    background: var(--soft-cream);
-    border-radius: var(--radius-sm);
-    padding: 24px;
-    margin-bottom: 24px;
-  }
-  .component-label {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--muted-gray);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-  }
+      /* Components */
+      .component-demo {
+        background: var(--soft-cream);
+        border-radius: var(--radius-sm);
+        padding: 24px;
+        margin-bottom: 24px;
+      }
+      .component-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--muted-gray);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
 
-  /* Buttons */
-  .btn {
-    font-family: 'Cairo', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    height: 48px;
-    border: none;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    padding: 0 24px;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 200px;
-  }
-  .btn-primary {
-    background: var(--desert-gold);
-    color: var(--deep-night-blue);
-  }
-  .btn-primary:hover { filter: brightness(0.9); transform: scale(0.97); }
-  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
-  .btn-secondary {
-    background: transparent;
-    color: var(--desert-gold);
-    border: 2px solid var(--desert-gold);
-  }
-  .btn-secondary:hover { background: rgba(212, 168, 67, 0.1); }
+      /* Buttons */
+      .btn {
+        font-family: 'Cairo', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        height: 48px;
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        padding: 0 24px;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 200px;
+      }
+      .btn-primary {
+        background: var(--desert-gold);
+        color: var(--deep-night-blue);
+      }
+      .btn-primary:hover {
+        filter: brightness(0.9);
+        transform: scale(0.97);
+      }
+      .btn-primary:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--desert-gold);
+        border: 2px solid var(--desert-gold);
+      }
+      .btn-secondary:hover {
+        background: rgba(212, 168, 67, 0.1);
+      }
 
-  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+      .btn-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
 
-  /* Input Field */
-  .input-field {
-    position: relative;
-    margin-bottom: 16px;
-    max-width: 335px;
-  }
-  .input-field input {
-    font-family: 'Cairo', sans-serif;
-    width: 100%;
-    height: 52px;
-    background: white;
-    border: 1.5px solid #E0D5C5;
-    border-radius: var(--radius-sm);
-    padding: 16px 16px 8px;
-    font-size: 16px;
-    color: var(--deep-night-blue);
-    direction: rtl;
-    outline: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .input-field input:focus {
-    border-color: var(--desert-gold);
-    box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
-  }
-  .input-field input.error {
-    border-color: var(--error-red);
-    box-shadow: 0 0 0 3px rgba(224, 85, 85, 0.15);
-  }
-  .input-field label {
-    position: absolute;
-    top: 4px;
-    right: 16px;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--muted-gray);
-  }
-  .input-field .error-msg {
-    font-size: 12px;
-    color: var(--error-red);
-    margin-top: 4px;
-  }
+      /* Input Field */
+      .input-field {
+        position: relative;
+        margin-bottom: 16px;
+        max-width: 335px;
+      }
+      .input-field input {
+        font-family: 'Cairo', sans-serif;
+        width: 100%;
+        height: 52px;
+        background: white;
+        border: 1.5px solid #e0d5c5;
+        border-radius: var(--radius-sm);
+        padding: 16px 16px 8px;
+        font-size: 16px;
+        color: var(--deep-night-blue);
+        direction: rtl;
+        outline: none;
+        transition:
+          border-color 0.15s,
+          box-shadow 0.15s;
+      }
+      .input-field input:focus {
+        border-color: var(--desert-gold);
+        box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+      }
+      .input-field input.error {
+        border-color: var(--error-red);
+        box-shadow: 0 0 0 3px rgba(224, 85, 85, 0.15);
+      }
+      .input-field label {
+        position: absolute;
+        top: 4px;
+        right: 16px;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--muted-gray);
+      }
+      .input-field .error-msg {
+        font-size: 12px;
+        color: var(--error-red);
+        margin-top: 4px;
+      }
 
-  /* Toggle Switch */
-  .toggle-wrap {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .toggle {
-    width: 48px;
-    height: 28px;
-    border-radius: 14px;
-    background: #ccc;
-    position: relative;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .toggle.on { background: var(--desert-gold); }
-  .toggle .thumb {
-    width: 22px;
-    height: 22px;
-    background: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 3px;
-    right: 3px;
-    transition: transform 0.2s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  }
-  .toggle.on .thumb { transform: translateX(-20px); }
+      /* Toggle Switch */
+      .toggle-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .toggle {
+        width: 48px;
+        height: 28px;
+        border-radius: 14px;
+        background: #ccc;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .toggle.on {
+        background: var(--desert-gold);
+      }
+      .toggle .thumb {
+        width: 22px;
+        height: 22px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        transition: transform 0.2s;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      }
+      .toggle.on .thumb {
+        transform: translateX(-20px);
+      }
 
-  /* Card */
-  .card {
-    background: var(--warm-sand);
-    border-radius: var(--radius-md);
-    padding: 16px;
-    box-shadow: var(--shadow-1);
-  }
+      /* Card */
+      .card {
+        background: var(--warm-sand);
+        border-radius: var(--radius-md);
+        padding: 16px;
+        box-shadow: var(--shadow-1);
+      }
 
-  /* Setting Row */
-  .setting-row {
-    display: flex;
-    align-items: center;
-    height: 56px;
-    padding: 0 16px;
-    background: white;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-  .setting-row:first-child { border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
-  .setting-row:last-child { border-bottom: none; border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
-  .setting-row .icon { font-size: 20px; margin-left: 12px; }
-  .setting-row .label { flex: 1; font-size: 16px; }
-  .setting-row .chevron { color: var(--muted-gray); font-size: 14px; }
+      /* Setting Row */
+      .setting-row {
+        display: flex;
+        align-items: center;
+        height: 56px;
+        padding: 0 16px;
+        background: white;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      .setting-row:first-child {
+        border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      }
+      .setting-row:last-child {
+        border-bottom: none;
+        border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      }
+      .setting-row .icon {
+        font-size: 20px;
+        margin-left: 12px;
+      }
+      .setting-row .label {
+        flex: 1;
+        font-size: 16px;
+      }
+      .setting-row .chevron {
+        color: var(--muted-gray);
+        font-size: 14px;
+      }
 
-  /* Bottom Nav */
-  .bottom-nav {
-    display: flex;
-    background: var(--deep-night-blue);
-    border-top: 1px solid var(--desert-gold);
-    padding: 8px 0 4px;
-    border-radius: 0 0 var(--radius-md) var(--radius-md);
-    max-width: 375px;
-  }
-  .nav-item {
-    flex: 1;
-    text-align: center;
-    padding: 6px 0;
-    cursor: pointer;
-  }
-  .nav-item .nav-icon { font-size: 22px; margin-bottom: 2px; }
-  .nav-item .nav-label { font-size: 10px; font-weight: 600; color: var(--muted-gray); }
-  .nav-item.active .nav-icon { color: var(--desert-gold); }
-  .nav-item.active .nav-label { color: var(--desert-gold); }
+      /* Bottom Nav */
+      .bottom-nav {
+        display: flex;
+        background: var(--deep-night-blue);
+        border-top: 1px solid var(--desert-gold);
+        padding: 8px 0 4px;
+        border-radius: 0 0 var(--radius-md) var(--radius-md);
+        max-width: 375px;
+      }
+      .nav-item {
+        flex: 1;
+        text-align: center;
+        padding: 6px 0;
+        cursor: pointer;
+      }
+      .nav-item .nav-icon {
+        font-size: 22px;
+        margin-bottom: 2px;
+      }
+      .nav-item .nav-label {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--muted-gray);
+      }
+      .nav-item.active .nav-icon {
+        color: var(--desert-gold);
+      }
+      .nav-item.active .nav-label {
+        color: var(--desert-gold);
+      }
 
-  /* Speech Bubble */
-  .speech-bubble {
-    background: var(--starlight-white);
-    border: 1px solid var(--desert-gold);
-    border-radius: var(--radius-md);
-    padding: 16px 20px;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--deep-night-blue);
-    position: relative;
-    max-width: 300px;
-    animation: bubbleIn 0.3s ease-out;
-  }
-  .speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    right: 30px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid var(--starlight-white);
-  }
-  @keyframes bubbleIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
+      /* Speech Bubble */
+      .speech-bubble {
+        background: var(--starlight-white);
+        border: 1px solid var(--desert-gold);
+        border-radius: var(--radius-md);
+        padding: 16px 20px;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--deep-night-blue);
+        position: relative;
+        max-width: 300px;
+        animation: bubbleIn 0.3s ease-out;
+      }
+      .speech-bubble::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        right: 30px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid var(--starlight-white);
+      }
+      @keyframes bubbleIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
 
-  /* Status Bar */
-  .status-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(26, 39, 68, 0.9);
-    backdrop-filter: blur(10px);
-    padding: 8px 16px;
-    border-radius: var(--radius-sm);
-    max-width: 343px;
-  }
-  .status-bar .profile {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .status-bar .avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--desert-gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: var(--deep-night-blue);
-    font-weight: 700;
-  }
-  .status-bar .name {
-    color: var(--starlight-white);
-    font-size: 14px;
-    font-weight: 600;
-  }
-  .status-bar .stats {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-  }
-  .status-bar .stat {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--starlight-white);
-  }
+      /* Status Bar */
+      .status-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(26, 39, 68, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 8px 16px;
+        border-radius: var(--radius-sm);
+        max-width: 343px;
+      }
+      .status-bar .profile {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .status-bar .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--desert-gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: var(--deep-night-blue);
+        font-weight: 700;
+      }
+      .status-bar .name {
+        color: var(--starlight-white);
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .status-bar .stats {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .status-bar .stat {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--starlight-white);
+      }
 
-  /* Heart icons */
-  .hearts { display: flex; gap: 3px; }
-  .heart { font-size: 16px; }
-  .heart.full { color: var(--error-red); }
-  .heart.empty { color: var(--muted-gray); opacity: 0.4; }
+      /* Heart icons */
+      .hearts {
+        display: flex;
+        gap: 3px;
+      }
+      .heart {
+        font-size: 16px;
+      }
+      .heart.full {
+        color: var(--error-red);
+      }
+      .heart.empty {
+        color: var(--muted-gray);
+        opacity: 0.4;
+      }
 
-  /* Star rating */
-  .stars { display: flex; gap: 4px; }
-  .star { font-size: 24px; }
-  .star.filled { color: var(--desert-gold); }
-  .star.empty { color: var(--muted-gray); opacity: 0.3; }
+      /* Star rating */
+      .stars {
+        display: flex;
+        gap: 4px;
+      }
+      .star {
+        font-size: 24px;
+      }
+      .star.filled {
+        color: var(--desert-gold);
+      }
+      .star.empty {
+        color: var(--muted-gray);
+        opacity: 0.3;
+      }
 
-  /* Progress bar */
-  .progress-bar {
-    width: 100%;
-    height: 8px;
-    background: rgba(0,0,0,0.08);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .progress-bar .fill {
-    height: 100%;
-    background: var(--desert-gold);
-    border-radius: 4px;
-    transition: width 0.4s ease-out;
-  }
+      /* Progress bar */
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .progress-bar .fill {
+        height: 100%;
+        background: var(--desert-gold);
+        border-radius: 4px;
+        transition: width 0.4s ease-out;
+      }
 
-  /* Stage Node */
-  .stage-nodes {
-    display: flex;
-    gap: 24px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .stage-node {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  .stage-node:hover { transform: scale(1.1); }
-  .stage-node.completed {
-    background: var(--desert-gold);
-    box-shadow: var(--glow);
-  }
-  .stage-node.completed::after {
-    content: '✓';
-    position: absolute;
-    bottom: -4px;
-    right: -4px;
-    width: 20px;
-    height: 20px;
-    background: var(--success-green);
-    color: white;
-    border-radius: 50%;
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-  }
-  .stage-node.current {
-    background: var(--desert-gold);
-    box-shadow: var(--glow);
-    animation: nodePulse 2s ease-in-out infinite;
-  }
-  .stage-node.locked {
-    background: var(--muted-gray);
-    opacity: 0.5;
-  }
-  .stage-node .node-label {
-    font-size: 10px;
-    font-weight: 600;
-    position: absolute;
-    bottom: -20px;
-    white-space: nowrap;
-    color: var(--deep-night-blue);
-  }
-  @keyframes nodePulse {
-    0%, 100% { box-shadow: 0 0 10px rgba(212, 168, 67, 0.3); }
-    50% { box-shadow: 0 0 25px rgba(212, 168, 67, 0.6); }
-  }
+      /* Stage Node */
+      .stage-nodes {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .stage-node {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .stage-node:hover {
+        transform: scale(1.1);
+      }
+      .stage-node.completed {
+        background: var(--desert-gold);
+        box-shadow: var(--glow);
+      }
+      .stage-node.completed::after {
+        content: '✓';
+        position: absolute;
+        bottom: -4px;
+        right: -4px;
+        width: 20px;
+        height: 20px;
+        background: var(--success-green);
+        color: white;
+        border-radius: 50%;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+      .stage-node.current {
+        background: var(--desert-gold);
+        box-shadow: var(--glow);
+        animation: nodePulse 2s ease-in-out infinite;
+      }
+      .stage-node.locked {
+        background: var(--muted-gray);
+        opacity: 0.5;
+      }
+      .stage-node .node-label {
+        font-size: 10px;
+        font-weight: 600;
+        position: absolute;
+        bottom: -20px;
+        white-space: nowrap;
+        color: var(--deep-night-blue);
+      }
+      @keyframes nodePulse {
+        0%,
+        100% {
+          box-shadow: 0 0 10px rgba(212, 168, 67, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 25px rgba(212, 168, 67, 0.6);
+        }
+      }
 
-  /* Goal Card */
-  .goal-card {
-    background: var(--warm-sand);
-    border-radius: var(--radius-md);
-    padding: 16px;
-    box-shadow: var(--shadow-1);
-    border-right: 3px solid var(--desert-gold);
-    max-width: 335px;
-  }
-  .goal-card.completed { border-right-color: var(--success-green); }
-  .goal-card.expired { border-right-color: var(--error-red); }
-  .goal-card .goal-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-  .goal-card .goal-meta {
-    font-size: 13px;
-    color: var(--muted-gray);
-    display: flex;
-    gap: 16px;
-    margin-top: 8px;
-  }
+      /* Goal Card */
+      .goal-card {
+        background: var(--warm-sand);
+        border-radius: var(--radius-md);
+        padding: 16px;
+        box-shadow: var(--shadow-1);
+        border-right: 3px solid var(--desert-gold);
+        max-width: 335px;
+      }
+      .goal-card.completed {
+        border-right-color: var(--success-green);
+      }
+      .goal-card.expired {
+        border-right-color: var(--error-red);
+      }
+      .goal-card .goal-title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .goal-card .goal-meta {
+        font-size: 13px;
+        color: var(--muted-gray);
+        display: flex;
+        gap: 16px;
+        margin-top: 8px;
+      }
 
-  /* Badge */
-  .badge-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .badge-cell {
-    text-align: center;
-    padding: 16px 8px;
-    border-radius: var(--radius-sm);
-    background: white;
-    box-shadow: var(--shadow-1);
-    cursor: pointer;
-    transition: transform 0.2s;
-  }
-  .badge-cell:hover { transform: translateY(-2px); }
-  .badge-cell .badge-icon { font-size: 40px; margin-bottom: 8px; }
-  .badge-cell .badge-name { font-size: 12px; font-weight: 600; }
-  .badge-cell.locked { opacity: 0.4; filter: grayscale(1); }
-  .badge-cell.earned { box-shadow: var(--glow); }
+      /* Badge */
+      .badge-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .badge-cell {
+        text-align: center;
+        padding: 16px 8px;
+        border-radius: var(--radius-sm);
+        background: white;
+        box-shadow: var(--shadow-1);
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      .badge-cell:hover {
+        transform: translateY(-2px);
+      }
+      .badge-cell .badge-icon {
+        font-size: 40px;
+        margin-bottom: 8px;
+      }
+      .badge-cell .badge-name {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .badge-cell.locked {
+        opacity: 0.4;
+        filter: grayscale(1);
+      }
+      .badge-cell.earned {
+        box-shadow: var(--glow);
+      }
 
-  /* Phone Frame for previews */
-  .phone-frame {
-    width: 375px;
-    height: 200px;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: var(--shadow-3);
-    position: relative;
-    margin: 0 auto;
-  }
+      /* Phone Frame for previews */
+      .phone-frame {
+        width: 375px;
+        height: 200px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow-3);
+        position: relative;
+        margin: 0 auto;
+      }
 
-  @media (max-width: 600px) {
-    .container { padding: 16px; }
-    .section { padding: 20px; }
-    .color-grid { grid-template-columns: repeat(2, 1fr); }
-    .gradient-grid { grid-template-columns: 1fr; }
-    .shadow-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-</style>
-</head>
-<body>
-
-<!-- Header -->
-<div class="page-header">
-  <h1>سيرة النبي ﷺ</h1>
-  <p>Design System — نظام التصميم</p>
-</div>
-
-<div class="nav-links">
-  <a href="01-entry-flow.html">Splash & Onboarding</a>
-  <a href="02-auth-flow.html">Auth Flow</a>
-  <a href="03-son-journey.html">Son Journey</a>
-  <a href="04-son-tabs.html">Son Tabs</a>
-  <a href="05-father-flow.html">Father Flow</a>
-</div>
-
-<div class="container">
-
-  <!-- COLOR PALETTE -->
-  <div class="section">
-    <h2>🎨 لوحة الألوان — Color Palette</h2>
-    <div class="color-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background: #D4A843"><span>#D4A843</span></div>
-        <div class="color-info">
-          <div class="name">Desert Gold</div>
-          <div class="usage">Primary accent, stars, XP, buttons</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #1A2744"><span>#1A2744</span></div>
-        <div class="color-info">
-          <div class="name">Deep Night Blue</div>
-          <div class="usage">Backgrounds, headers, navigation</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #F5E6C8"><span>#F5E6C8</span></div>
-        <div class="color-info">
-          <div class="name">Warm Sand</div>
-          <div class="usage">Card backgrounds, light surfaces</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #E8734A"><span>#E8734A</span></div>
-        <div class="color-info">
-          <div class="name">Sunset Orange</div>
-          <div class="usage">Hearts, streak flame, urgent CTAs</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #4A2D6B"><span>#4A2D6B</span></div>
-        <div class="color-info">
-          <div class="name">Royal Purple</div>
-          <div class="usage">Badge glow, celebrations, premium</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FFF8F0; border: 1px solid #eee"><span>#FFF8F0</span></div>
-        <div class="color-info">
-          <div class="name">Starlight White</div>
-          <div class="usage">Text on dark, clean surfaces</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #FAF3E8; border: 1px solid #eee"><span>#FAF3E8</span></div>
-        <div class="color-info">
-          <div class="name">Soft Cream</div>
-          <div class="usage">Page backgrounds, neutral</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #4CAF6E"><span>#4CAF6E</span></div>
-        <div class="color-info">
-          <div class="name">Success Green</div>
-          <div class="usage">Correct answers, completion</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #E05555"><span>#E05555</span></div>
-        <div class="color-info">
-          <div class="name">Error Red</div>
-          <div class="usage">Wrong answers, heart loss</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #8A8A8A"><span>#8A8A8A</span></div>
-        <div class="color-info">
-          <div class="name">Muted Gray</div>
-          <div class="usage">Disabled states, locked content</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- GRADIENTS -->
-  <div class="section">
-    <h2>🌅 التدرجات — Gradients</h2>
-    <div class="gradient-grid">
-      <div class="gradient-card">
-        <div class="gradient-swatch" style="background: linear-gradient(to bottom, #1A2744, #4A2D6B)"></div>
-        <div class="gradient-info">
-          <div class="name">Night Sky</div>
-          <div class="desc">Main backgrounds, journey map sky</div>
-        </div>
-      </div>
-      <div class="gradient-card">
-        <div class="gradient-swatch" style="background: linear-gradient(to bottom, #E8734A, #D4A843, #F5E6C8)"></div>
-        <div class="gradient-info">
-          <div class="name">Desert Horizon</div>
-          <div class="desc">Celebration screens, warm panels</div>
-        </div>
-      </div>
-      <div class="gradient-card">
-        <div class="gradient-swatch" style="background: radial-gradient(circle, #D4A843, #F5E6C8)"></div>
-        <div class="gradient-info">
-          <div class="name">Golden Glow</div>
-          <div class="desc">Star burst, achievement highlights</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TYPOGRAPHY -->
-  <div class="section">
-    <h2>✏️ الخطوط — Typography</h2>
-    <div class="type-row">
-      <div class="type-sample" style="font-size: 32px; font-weight: 900;">سيرة النبي ﷺ — H1 Hero</div>
-      <div class="type-meta">Cairo Black · 32px · 900</div>
-    </div>
-    <div class="type-row">
-      <div class="type-sample" style="font-size: 24px; font-weight: 700;">الإعدادات — H2 Section</div>
-      <div class="type-meta">Cairo Bold · 24px · 700</div>
-    </div>
-    <div class="type-row">
-      <div class="type-sample" style="font-size: 20px; font-weight: 600;">عام الفيل — H3 Card Title</div>
-      <div class="type-meta">Cairo SemiBold · 20px · 600</div>
-    </div>
-    <div class="type-row">
-      <div class="type-sample" style="font-size: 16px; font-weight: 400;">في مكة المكرمة، ولد خير البشر — Body</div>
-      <div class="type-meta">Cairo Regular · 16px · 400</div>
-    </div>
-    <div class="type-row">
-      <div class="type-sample" style="font-size: 14px; font-weight: 400;">منذ ٣ أيام — Body Small</div>
-      <div class="type-meta">Cairo Regular · 14px · 400</div>
-    </div>
-    <div class="type-row">
-      <div class="type-sample" style="font-size: 12px; font-weight: 500;">مرحلة ٣ من ١٠ — Caption</div>
-      <div class="type-meta">Cairo Medium · 12px · 500</div>
-    </div>
-    <div class="type-row">
-      <div class="type-sample" style="font-size: 16px; font-weight: 700;">ابدأ الرحلة — Button</div>
-      <div class="type-meta">Cairo Bold · 16px · 700</div>
-    </div>
-    <div class="type-row">
-      <div class="type-sample" style="font-size: 28px; font-weight: 900; color: var(--desert-gold);">٤٥٠ XP — Counter</div>
-      <div class="type-meta">Cairo Black · 28px · 900</div>
-    </div>
-  </div>
-
-  <!-- SHADOWS -->
-  <div class="section">
-    <h2>🌓 الظلال — Shadows & Elevation</h2>
-    <div class="shadow-grid">
-      <div class="shadow-box" style="box-shadow: var(--shadow-1);">Level 1 · Cards</div>
-      <div class="shadow-box" style="box-shadow: var(--shadow-2);">Level 2 · Floating</div>
-      <div class="shadow-box" style="box-shadow: var(--shadow-3);">Level 3 · Modals</div>
-      <div class="shadow-box" style="box-shadow: var(--glow); border: 1px solid var(--desert-gold);">Glow · Active</div>
-    </div>
-  </div>
-
-  <!-- SPACING -->
-  <div class="section">
-    <h2>📐 المسافات — Spacing System</h2>
-    <p style="font-size: 14px; color: var(--muted-gray); margin-bottom: 16px;">Base unit: 4px</p>
-    <div class="spacing-row"><div class="spacing-label">4px</div><div class="spacing-bar" style="width: 4px;"></div></div>
-    <div class="spacing-row"><div class="spacing-label">8px</div><div class="spacing-bar" style="width: 8px;"></div></div>
-    <div class="spacing-row"><div class="spacing-label">12px</div><div class="spacing-bar" style="width: 12px;"></div></div>
-    <div class="spacing-row"><div class="spacing-label">16px</div><div class="spacing-bar" style="width: 16px;"></div></div>
-    <div class="spacing-row"><div class="spacing-label">20px</div><div class="spacing-bar" style="width: 20px;"></div></div>
-    <div class="spacing-row"><div class="spacing-label">24px</div><div class="spacing-bar" style="width: 24px;"></div></div>
-    <div class="spacing-row"><div class="spacing-label">32px</div><div class="spacing-bar" style="width: 32px;"></div></div>
-    <div class="spacing-row"><div class="spacing-label">40px</div><div class="spacing-bar" style="width: 40px;"></div></div>
-    <div class="spacing-row"><div class="spacing-label">48px</div><div class="spacing-bar" style="width: 48px;"></div></div>
-    <div class="spacing-row"><div class="spacing-label">64px</div><div class="spacing-bar" style="width: 64px;"></div></div>
-  </div>
-
-  <!-- CORNER RADIUS -->
-  <div class="section">
-    <h2>⭕ الزوايا — Corner Radius</h2>
-    <div class="radius-grid">
-      <div class="radius-box" style="border-radius: 12px;">12px<br>Small</div>
-      <div class="radius-box" style="border-radius: 16px;">16px<br>Medium</div>
-      <div class="radius-box" style="border-radius: 24px;">24px<br>Large</div>
-      <div class="radius-box" style="border-radius: 50%; width: 80px; height: 80px;">50%<br>Circle</div>
-    </div>
-  </div>
-
-  <!-- COMPONENTS -->
-  <div class="section">
-    <h2>🧩 المكونات — Shared Components</h2>
-
-    <!-- Buttons -->
-    <h3>الأزرار — Buttons</h3>
-    <div class="component-demo">
-      <div class="component-label">Primary / Secondary / Disabled</div>
-      <div class="btn-row">
-        <button class="btn btn-primary">ابدأ الرحلة</button>
-        <button class="btn btn-secondary">تسجيل الدخول</button>
-        <button class="btn btn-primary" disabled>غير متاح</button>
-      </div>
+      @media (max-width: 600px) {
+        .container {
+          padding: 16px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .color-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .gradient-grid {
+          grid-template-columns: 1fr;
+        }
+        .shadow-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="page-header">
+      <h1>سيرة النبي ﷺ</h1>
+      <p>Design System — نظام التصميم</p>
     </div>
 
-    <!-- Input Fields -->
-    <h3>حقول الإدخال — Input Fields</h3>
-    <div class="component-demo">
-      <div class="component-label">Default / Focused / Error</div>
-      <div class="input-field">
-        <label>اسم المستخدم</label>
-        <input type="text" value="محمد_أحمد" />
-      </div>
-      <div class="input-field">
-        <label>البريد الإلكتروني</label>
-        <input type="email" value="ahmed@email.com" style="border-color: var(--desert-gold); box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);" />
-      </div>
-      <div class="input-field">
-        <label>كلمة المرور</label>
-        <input type="password" value="123" class="error" />
-        <div class="error-msg">كلمة المرور يجب أن تكون ٨ أحرف على الأقل</div>
-      </div>
+    <div class="nav-links">
+      <a href="01-entry-flow.html">Splash & Onboarding</a>
+      <a href="02-auth-flow.html">Auth Flow</a>
+      <a href="03-son-journey.html">Son Journey</a>
+      <a href="04-son-tabs.html">Son Tabs</a>
+      <a href="05-father-flow.html">Father Flow</a>
     </div>
 
-    <!-- Toggle Switch -->
-    <h3>مفتاح التبديل — Toggle Switch</h3>
-    <div class="component-demo">
-      <div class="component-label">On / Off</div>
-      <div style="display: flex; gap: 32px;">
-        <div class="toggle-wrap">
-          <span style="font-size: 14px;">تفعيل الإشعارات</span>
-          <div class="toggle on"><div class="thumb"></div></div>
-        </div>
-        <div class="toggle-wrap">
-          <span style="font-size: 14px;">وضع الصامت</span>
-          <div class="toggle"><div class="thumb"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Setting Row -->
-    <h3>صف الإعداد — Setting Row</h3>
-    <div class="component-demo">
-      <div class="component-label">With chevron / With toggle</div>
-      <div style="max-width: 335px; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-1);">
-        <div class="setting-row">
-          <span class="icon">🔒</span>
-          <span class="label">تغيير كلمة المرور</span>
-          <span class="chevron">‹</span>
-        </div>
-        <div class="setting-row">
-          <span class="icon">👤</span>
-          <span class="label">الحسابات المرتبطة</span>
-          <span class="chevron">‹</span>
-        </div>
-        <div class="setting-row">
-          <span class="icon">🔔</span>
-          <span class="label">تفعيل الإشعارات</span>
-          <div class="toggle on" style="margin-right: auto;"><div class="thumb"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Card -->
-    <h3>البطاقة — Card Component</h3>
-    <div class="component-demo">
-      <div class="component-label">Default card</div>
-      <div class="card" style="max-width: 335px;">
-        <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px;">عام الفيل</div>
-        <div style="font-size: 14px; color: var(--muted-gray); margin-bottom: 12px;">قصة أصحاب الفيل وحماية الكعبة</div>
-        <div class="progress-bar"><div class="fill" style="width: 60%;"></div></div>
-        <div style="font-size: 12px; color: var(--muted-gray); margin-top: 4px;">٦ من ١٠ مراحل</div>
-      </div>
-    </div>
-
-    <!-- Speech Bubble -->
-    <h3>فقاعة الحوار — Narrator Speech Bubble</h3>
-    <div class="component-demo">
-      <div class="component-label">With tail pointer</div>
-      <div class="speech-bubble">أهلاً بك يا بطلي! هل أنت مستعد للمغامرة؟</div>
-    </div>
-
-    <!-- Hearts -->
-    <h3>القلوب — Hearts</h3>
-    <div class="component-demo">
-      <div class="component-label">5/5 · 3/5 · 0/5</div>
-      <div style="display: flex; gap: 32px;">
-        <div class="hearts">
-          <span class="heart full">❤️</span><span class="heart full">❤️</span><span class="heart full">❤️</span><span class="heart full">❤️</span><span class="heart full">❤️</span>
-        </div>
-        <div class="hearts">
-          <span class="heart full">❤️</span><span class="heart full">❤️</span><span class="heart full">❤️</span><span class="heart empty">🤍</span><span class="heart empty">🤍</span>
-        </div>
-        <div class="hearts">
-          <span class="heart empty">🤍</span><span class="heart empty">🤍</span><span class="heart empty">🤍</span><span class="heart empty">🤍</span><span class="heart empty">🤍</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stars -->
-    <h3>النجوم — Star Rating</h3>
-    <div class="component-demo">
-      <div class="component-label">3★ · 2★ · 1★ · 0★</div>
-      <div style="display: flex; gap: 32px;">
-        <div class="stars"><span class="star filled">⭐</span><span class="star filled">⭐</span><span class="star filled">⭐</span></div>
-        <div class="stars"><span class="star filled">⭐</span><span class="star filled">⭐</span><span class="star empty">☆</span></div>
-        <div class="stars"><span class="star filled">⭐</span><span class="star empty">☆</span><span class="star empty">☆</span></div>
-        <div class="stars"><span class="star empty">☆</span><span class="star empty">☆</span><span class="star empty">☆</span></div>
-      </div>
-    </div>
-
-    <!-- Progress Bar -->
-    <h3>شريط التقدم — Progress Bar</h3>
-    <div class="component-demo">
-      <div class="component-label">0% · 40% · 75% · 100%</div>
-      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 335px;">
-        <div class="progress-bar"><div class="fill" style="width: 0%;"></div></div>
-        <div class="progress-bar"><div class="fill" style="width: 40%;"></div></div>
-        <div class="progress-bar"><div class="fill" style="width: 75%;"></div></div>
-        <div class="progress-bar"><div class="fill" style="width: 100%; background: var(--success-green);"></div></div>
-      </div>
-    </div>
-
-    <!-- Stage Nodes -->
-    <h3>عقد المراحل — Stage Nodes</h3>
-    <div class="component-demo">
-      <div class="component-label">Completed / Current / Locked</div>
-      <div class="stage-nodes" style="padding-bottom: 24px;">
-        <div class="stage-node completed">🌙<span class="node-label">مكتمل</span></div>
-        <div class="stage-node completed">🐘<span class="node-label">مكتمل</span></div>
-        <div class="stage-node current">✨<span class="node-label">الحالي</span></div>
-        <div class="stage-node locked">🔒<span class="node-label">مقفل</span></div>
-        <div class="stage-node locked">🔒<span class="node-label">مقفل</span></div>
-      </div>
-    </div>
-
-    <!-- Goal Card -->
-    <h3>بطاقة الهدف — Goal Card</h3>
-    <div class="component-demo">
-      <div class="component-label">Active / Completed / Expired</div>
-      <div style="display: flex; flex-direction: column; gap: 12px;">
-        <div class="goal-card">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div class="goal-title">أكمل مراحل قصة الفيل</div>
-            <span style="font-size: 11px; padding: 2px 8px; background: rgba(212,168,67,0.15); color: var(--desert-gold); border-radius: 8px; font-weight: 600;">نشط</span>
+    <div class="container">
+      <!-- COLOR PALETTE -->
+      <div class="section">
+        <h2>🎨 لوحة الألوان — Color Palette</h2>
+        <div class="color-grid">
+          <div class="color-card">
+            <div class="color-swatch" style="background: #d4a843"><span>#D4A843</span></div>
+            <div class="color-info">
+              <div class="name">Desert Gold</div>
+              <div class="usage">Primary accent, stars, XP, buttons</div>
+            </div>
           </div>
-          <div class="progress-bar" style="margin: 8px 0;"><div class="fill" style="width: 60%;"></div></div>
-          <div class="goal-meta"><span>⏰ باقي ٣ أيام</span><span>🏆 ٢٠ ريال</span></div>
-        </div>
-        <div class="goal-card completed">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div class="goal-title">أكمل المرحلة الأولى</div>
-            <span style="font-size: 11px; padding: 2px 8px; background: rgba(76,175,110,0.15); color: var(--success-green); border-radius: 8px; font-weight: 600;">مكتمل ✓</span>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #1a2744"><span>#1A2744</span></div>
+            <div class="color-info">
+              <div class="name">Deep Night Blue</div>
+              <div class="usage">Backgrounds, headers, navigation</div>
+            </div>
           </div>
-          <div class="progress-bar" style="margin: 8px 0;"><div class="fill" style="width: 100%; background: var(--success-green);"></div></div>
-          <div class="goal-meta"><span>🏆 آيس كريم</span></div>
-        </div>
-        <div class="goal-card expired">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <div class="goal-title">أكمل ٣ مراحل</div>
-            <span style="font-size: 11px; padding: 2px 8px; background: rgba(224,85,85,0.15); color: var(--error-red); border-radius: 8px; font-weight: 600;">منتهي</span>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #f5e6c8"><span>#F5E6C8</span></div>
+            <div class="color-info">
+              <div class="name">Warm Sand</div>
+              <div class="usage">Card backgrounds, light surfaces</div>
+            </div>
           </div>
-          <div class="progress-bar" style="margin: 8px 0;"><div class="fill" style="width: 40%; background: var(--error-red);"></div></div>
-          <div class="goal-meta"><span>⏰ انتهى</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Badge Grid -->
-    <h3>شبكة الشارات — Badge Grid</h3>
-    <div class="component-demo">
-      <div class="component-label">Earned / Locked</div>
-      <div class="badge-grid" style="max-width: 335px;">
-        <div class="badge-cell earned"><div class="badge-icon">⭐</div><div class="badge-name">المبتدئ</div></div>
-        <div class="badge-cell earned"><div class="badge-icon">🔥</div><div class="badge-name">المثابر</div></div>
-        <div class="badge-cell earned"><div class="badge-icon">🌟</div><div class="badge-name">النجم</div></div>
-        <div class="badge-cell locked"><div class="badge-icon">🔥</div><div class="badge-name">الحافظ</div></div>
-        <div class="badge-cell locked"><div class="badge-icon">💎</div><div class="badge-name">المتقن</div></div>
-        <div class="badge-cell locked"><div class="badge-icon">⚔️</div><div class="badge-name">المحارب</div></div>
-      </div>
-    </div>
-
-    <!-- Bottom Navigation -->
-    <h3>شريط التنقل — Bottom Navigation</h3>
-    <div class="component-demo">
-      <div class="component-label">Son (5 tabs) / Father (2 tabs)</div>
-      <div style="display: flex; flex-direction: column; gap: 16px;">
-        <div class="bottom-nav">
-          <div class="nav-item active"><div class="nav-icon">🏠</div><div class="nav-label">الرئيسية</div></div>
-          <div class="nav-item"><div class="nav-icon">📊</div><div class="nav-label">التقدم</div></div>
-          <div class="nav-item"><div class="nav-icon">🎯</div><div class="nav-label">الأهداف</div></div>
-          <div class="nav-item"><div class="nav-icon">🏆</div><div class="nav-label">الجوائز</div></div>
-          <div class="nav-item"><div class="nav-icon">⚙️</div><div class="nav-label">الإعدادات</div></div>
-        </div>
-        <div class="bottom-nav" style="max-width: 200px;">
-          <div class="nav-item active"><div class="nav-icon">👥</div><div class="nav-label">أبنائي</div></div>
-          <div class="nav-item"><div class="nav-icon">🎯</div><div class="nav-label">الأهداف</div></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Status Bar -->
-    <h3>شريط الحالة — Top Status Bar</h3>
-    <div class="component-demo">
-      <div class="component-label">Son's home screen header</div>
-      <div class="status-bar">
-        <div class="profile">
-          <div class="avatar">م</div>
-          <div class="name">محمد</div>
-        </div>
-        <div class="stats">
-          <div class="stat">🔥 <span style="color: var(--sunset-orange);">٧</span></div>
-          <div class="stat">
-            <span class="heart full" style="font-size: 14px;">❤️</span>
-            <span style="color: var(--error-red);">٤</span>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #e8734a"><span>#E8734A</span></div>
+            <div class="color-info">
+              <div class="name">Sunset Orange</div>
+              <div class="usage">Hearts, streak flame, urgent CTAs</div>
+            </div>
           </div>
-          <div class="stat">🛡️ <span style="color: var(--desert-gold);">٤٥٠</span></div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #4a2d6b"><span>#4A2D6B</span></div>
+            <div class="color-info">
+              <div class="name">Royal Purple</div>
+              <div class="usage">Badge glow, celebrations, premium</div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #fff8f0; border: 1px solid #eee">
+              <span>#FFF8F0</span>
+            </div>
+            <div class="color-info">
+              <div class="name">Starlight White</div>
+              <div class="usage">Text on dark, clean surfaces</div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #faf3e8; border: 1px solid #eee">
+              <span>#FAF3E8</span>
+            </div>
+            <div class="color-info">
+              <div class="name">Soft Cream</div>
+              <div class="usage">Page backgrounds, neutral</div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #4caf6e"><span>#4CAF6E</span></div>
+            <div class="color-info">
+              <div class="name">Success Green</div>
+              <div class="usage">Correct answers, completion</div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #e05555"><span>#E05555</span></div>
+            <div class="color-info">
+              <div class="name">Error Red</div>
+              <div class="usage">Wrong answers, heart loss</div>
+            </div>
+          </div>
+          <div class="color-card">
+            <div class="color-swatch" style="background: #8a8a8a"><span>#8A8A8A</span></div>
+            <div class="color-info">
+              <div class="name">Muted Gray</div>
+              <div class="usage">Disabled states, locked content</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRADIENTS -->
+      <div class="section">
+        <h2>🌅 التدرجات — Gradients</h2>
+        <div class="gradient-grid">
+          <div class="gradient-card">
+            <div
+              class="gradient-swatch"
+              style="background: linear-gradient(to bottom, #1a2744, #4a2d6b)"
+            ></div>
+            <div class="gradient-info">
+              <div class="name">Night Sky</div>
+              <div class="desc">Main backgrounds, journey map sky</div>
+            </div>
+          </div>
+          <div class="gradient-card">
+            <div
+              class="gradient-swatch"
+              style="background: linear-gradient(to bottom, #e8734a, #d4a843, #f5e6c8)"
+            ></div>
+            <div class="gradient-info">
+              <div class="name">Desert Horizon</div>
+              <div class="desc">Celebration screens, warm panels</div>
+            </div>
+          </div>
+          <div class="gradient-card">
+            <div
+              class="gradient-swatch"
+              style="background: radial-gradient(circle, #d4a843, #f5e6c8)"
+            ></div>
+            <div class="gradient-info">
+              <div class="name">Golden Glow</div>
+              <div class="desc">Star burst, achievement highlights</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TYPOGRAPHY -->
+      <div class="section">
+        <h2>✏️ الخطوط — Typography</h2>
+        <div class="type-row">
+          <div class="type-sample" style="font-size: 32px; font-weight: 900">
+            سيرة النبي ﷺ — H1 Hero
+          </div>
+          <div class="type-meta">Cairo Black · 32px · 900</div>
+        </div>
+        <div class="type-row">
+          <div class="type-sample" style="font-size: 24px; font-weight: 700">
+            الإعدادات — H2 Section
+          </div>
+          <div class="type-meta">Cairo Bold · 24px · 700</div>
+        </div>
+        <div class="type-row">
+          <div class="type-sample" style="font-size: 20px; font-weight: 600">
+            عام الفيل — H3 Card Title
+          </div>
+          <div class="type-meta">Cairo SemiBold · 20px · 600</div>
+        </div>
+        <div class="type-row">
+          <div class="type-sample" style="font-size: 16px; font-weight: 400">
+            في مكة المكرمة، ولد خير البشر — Body
+          </div>
+          <div class="type-meta">Cairo Regular · 16px · 400</div>
+        </div>
+        <div class="type-row">
+          <div class="type-sample" style="font-size: 14px; font-weight: 400">
+            منذ ٣ أيام — Body Small
+          </div>
+          <div class="type-meta">Cairo Regular · 14px · 400</div>
+        </div>
+        <div class="type-row">
+          <div class="type-sample" style="font-size: 12px; font-weight: 500">
+            مرحلة ٣ من ١٠ — Caption
+          </div>
+          <div class="type-meta">Cairo Medium · 12px · 500</div>
+        </div>
+        <div class="type-row">
+          <div class="type-sample" style="font-size: 16px; font-weight: 700">
+            ابدأ الرحلة — Button
+          </div>
+          <div class="type-meta">Cairo Bold · 16px · 700</div>
+        </div>
+        <div class="type-row">
+          <div
+            class="type-sample"
+            style="font-size: 28px; font-weight: 900; color: var(--desert-gold)"
+          >
+            ٤٥٠ XP — Counter
+          </div>
+          <div class="type-meta">Cairo Black · 28px · 900</div>
+        </div>
+      </div>
+
+      <!-- SHADOWS -->
+      <div class="section">
+        <h2>🌓 الظلال — Shadows & Elevation</h2>
+        <div class="shadow-grid">
+          <div class="shadow-box" style="box-shadow: var(--shadow-1)">Level 1 · Cards</div>
+          <div class="shadow-box" style="box-shadow: var(--shadow-2)">Level 2 · Floating</div>
+          <div class="shadow-box" style="box-shadow: var(--shadow-3)">Level 3 · Modals</div>
+          <div
+            class="shadow-box"
+            style="box-shadow: var(--glow); border: 1px solid var(--desert-gold)"
+          >
+            Glow · Active
+          </div>
+        </div>
+      </div>
+
+      <!-- SPACING -->
+      <div class="section">
+        <h2>📐 المسافات — Spacing System</h2>
+        <p style="font-size: 14px; color: var(--muted-gray); margin-bottom: 16px">Base unit: 4px</p>
+        <div class="spacing-row">
+          <div class="spacing-label">4px</div>
+          <div class="spacing-bar" style="width: 4px"></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">8px</div>
+          <div class="spacing-bar" style="width: 8px"></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">12px</div>
+          <div class="spacing-bar" style="width: 12px"></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">16px</div>
+          <div class="spacing-bar" style="width: 16px"></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">20px</div>
+          <div class="spacing-bar" style="width: 20px"></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">24px</div>
+          <div class="spacing-bar" style="width: 24px"></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">32px</div>
+          <div class="spacing-bar" style="width: 32px"></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">40px</div>
+          <div class="spacing-bar" style="width: 40px"></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">48px</div>
+          <div class="spacing-bar" style="width: 48px"></div>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-label">64px</div>
+          <div class="spacing-bar" style="width: 64px"></div>
+        </div>
+      </div>
+
+      <!-- CORNER RADIUS -->
+      <div class="section">
+        <h2>⭕ الزوايا — Corner Radius</h2>
+        <div class="radius-grid">
+          <div class="radius-box" style="border-radius: 12px">12px<br />Small</div>
+          <div class="radius-box" style="border-radius: 16px">16px<br />Medium</div>
+          <div class="radius-box" style="border-radius: 24px">24px<br />Large</div>
+          <div class="radius-box" style="border-radius: 50%; width: 80px; height: 80px">
+            50%<br />Circle
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPONENTS -->
+      <div class="section">
+        <h2>🧩 المكونات — Shared Components</h2>
+
+        <!-- Buttons -->
+        <h3>الأزرار — Buttons</h3>
+        <div class="component-demo">
+          <div class="component-label">Primary / Secondary / Disabled</div>
+          <div class="btn-row">
+            <button class="btn btn-primary">ابدأ الرحلة</button>
+            <button class="btn btn-secondary">تسجيل الدخول</button>
+            <button class="btn btn-primary" disabled>غير متاح</button>
+          </div>
+        </div>
+
+        <!-- Input Fields -->
+        <h3>حقول الإدخال — Input Fields</h3>
+        <div class="component-demo">
+          <div class="component-label">Default / Focused / Error</div>
+          <div class="input-field">
+            <label>اسم المستخدم</label>
+            <input type="text" value="محمد_أحمد" />
+          </div>
+          <div class="input-field">
+            <label>البريد الإلكتروني</label>
+            <input
+              type="email"
+              value="ahmed@email.com"
+              style="
+                border-color: var(--desert-gold);
+                box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+              "
+            />
+          </div>
+          <div class="input-field">
+            <label>كلمة المرور</label>
+            <input type="password" value="123" class="error" />
+            <div class="error-msg">كلمة المرور يجب أن تكون ٨ أحرف على الأقل</div>
+          </div>
+        </div>
+
+        <!-- Toggle Switch -->
+        <h3>مفتاح التبديل — Toggle Switch</h3>
+        <div class="component-demo">
+          <div class="component-label">On / Off</div>
+          <div style="display: flex; gap: 32px">
+            <div class="toggle-wrap">
+              <span style="font-size: 14px">تفعيل الإشعارات</span>
+              <div class="toggle on"><div class="thumb"></div></div>
+            </div>
+            <div class="toggle-wrap">
+              <span style="font-size: 14px">وضع الصامت</span>
+              <div class="toggle"><div class="thumb"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Setting Row -->
+        <h3>صف الإعداد — Setting Row</h3>
+        <div class="component-demo">
+          <div class="component-label">With chevron / With toggle</div>
+          <div
+            style="
+              max-width: 335px;
+              border-radius: var(--radius-sm);
+              overflow: hidden;
+              box-shadow: var(--shadow-1);
+            "
+          >
+            <div class="setting-row">
+              <span class="icon">🔒</span>
+              <span class="label">تغيير كلمة المرور</span>
+              <span class="chevron">‹</span>
+            </div>
+            <div class="setting-row">
+              <span class="icon">👤</span>
+              <span class="label">الحسابات المرتبطة</span>
+              <span class="chevron">‹</span>
+            </div>
+            <div class="setting-row">
+              <span class="icon">🔔</span>
+              <span class="label">تفعيل الإشعارات</span>
+              <div class="toggle on" style="margin-right: auto"><div class="thumb"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card -->
+        <h3>البطاقة — Card Component</h3>
+        <div class="component-demo">
+          <div class="component-label">Default card</div>
+          <div class="card" style="max-width: 335px">
+            <div style="font-size: 20px; font-weight: 600; margin-bottom: 8px">عام الفيل</div>
+            <div style="font-size: 14px; color: var(--muted-gray); margin-bottom: 12px">
+              قصة أصحاب الفيل وحماية الكعبة
+            </div>
+            <div class="progress-bar"><div class="fill" style="width: 60%"></div></div>
+            <div style="font-size: 12px; color: var(--muted-gray); margin-top: 4px">
+              ٦ من ١٠ مراحل
+            </div>
+          </div>
+        </div>
+
+        <!-- Speech Bubble -->
+        <h3>فقاعة الحوار — Narrator Speech Bubble</h3>
+        <div class="component-demo">
+          <div class="component-label">With tail pointer</div>
+          <div class="speech-bubble">أهلاً بك يا بطلي! هل أنت مستعد للمغامرة؟</div>
+        </div>
+
+        <!-- Hearts -->
+        <h3>القلوب — Hearts</h3>
+        <div class="component-demo">
+          <div class="component-label">5/5 · 3/5 · 0/5</div>
+          <div style="display: flex; gap: 32px">
+            <div class="hearts">
+              <span class="heart full">❤️</span><span class="heart full">❤️</span
+              ><span class="heart full">❤️</span><span class="heart full">❤️</span
+              ><span class="heart full">❤️</span>
+            </div>
+            <div class="hearts">
+              <span class="heart full">❤️</span><span class="heart full">❤️</span
+              ><span class="heart full">❤️</span><span class="heart empty">🤍</span
+              ><span class="heart empty">🤍</span>
+            </div>
+            <div class="hearts">
+              <span class="heart empty">🤍</span><span class="heart empty">🤍</span
+              ><span class="heart empty">🤍</span><span class="heart empty">🤍</span
+              ><span class="heart empty">🤍</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stars -->
+        <h3>النجوم — Star Rating</h3>
+        <div class="component-demo">
+          <div class="component-label">3★ · 2★ · 1★ · 0★</div>
+          <div style="display: flex; gap: 32px">
+            <div class="stars">
+              <span class="star filled">⭐</span><span class="star filled">⭐</span
+              ><span class="star filled">⭐</span>
+            </div>
+            <div class="stars">
+              <span class="star filled">⭐</span><span class="star filled">⭐</span
+              ><span class="star empty">☆</span>
+            </div>
+            <div class="stars">
+              <span class="star filled">⭐</span><span class="star empty">☆</span
+              ><span class="star empty">☆</span>
+            </div>
+            <div class="stars">
+              <span class="star empty">☆</span><span class="star empty">☆</span
+              ><span class="star empty">☆</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <h3>شريط التقدم — Progress Bar</h3>
+        <div class="component-demo">
+          <div class="component-label">0% · 40% · 75% · 100%</div>
+          <div style="display: flex; flex-direction: column; gap: 12px; max-width: 335px">
+            <div class="progress-bar"><div class="fill" style="width: 0%"></div></div>
+            <div class="progress-bar"><div class="fill" style="width: 40%"></div></div>
+            <div class="progress-bar"><div class="fill" style="width: 75%"></div></div>
+            <div class="progress-bar">
+              <div class="fill" style="width: 100%; background: var(--success-green)"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage Nodes -->
+        <h3>عقد المراحل — Stage Nodes</h3>
+        <div class="component-demo">
+          <div class="component-label">Completed / Current / Locked</div>
+          <div class="stage-nodes" style="padding-bottom: 24px">
+            <div class="stage-node completed">🌙<span class="node-label">مكتمل</span></div>
+            <div class="stage-node completed">🐘<span class="node-label">مكتمل</span></div>
+            <div class="stage-node current">✨<span class="node-label">الحالي</span></div>
+            <div class="stage-node locked">🔒<span class="node-label">مقفل</span></div>
+            <div class="stage-node locked">🔒<span class="node-label">مقفل</span></div>
+          </div>
+        </div>
+
+        <!-- Goal Card -->
+        <h3>بطاقة الهدف — Goal Card</h3>
+        <div class="component-demo">
+          <div class="component-label">Active / Completed / Expired</div>
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <div class="goal-card">
+              <div style="display: flex; justify-content: space-between; align-items: center">
+                <div class="goal-title">أكمل مراحل قصة الفيل</div>
+                <span
+                  style="
+                    font-size: 11px;
+                    padding: 2px 8px;
+                    background: rgba(212, 168, 67, 0.15);
+                    color: var(--desert-gold);
+                    border-radius: 8px;
+                    font-weight: 600;
+                  "
+                  >نشط</span
+                >
+              </div>
+              <div class="progress-bar" style="margin: 8px 0">
+                <div class="fill" style="width: 60%"></div>
+              </div>
+              <div class="goal-meta"><span>⏰ باقي ٣ أيام</span><span>🏆 ٢٠ ريال</span></div>
+            </div>
+            <div class="goal-card completed">
+              <div style="display: flex; justify-content: space-between; align-items: center">
+                <div class="goal-title">أكمل المرحلة الأولى</div>
+                <span
+                  style="
+                    font-size: 11px;
+                    padding: 2px 8px;
+                    background: rgba(76, 175, 110, 0.15);
+                    color: var(--success-green);
+                    border-radius: 8px;
+                    font-weight: 600;
+                  "
+                  >مكتمل ✓</span
+                >
+              </div>
+              <div class="progress-bar" style="margin: 8px 0">
+                <div class="fill" style="width: 100%; background: var(--success-green)"></div>
+              </div>
+              <div class="goal-meta"><span>🏆 آيس كريم</span></div>
+            </div>
+            <div class="goal-card expired">
+              <div style="display: flex; justify-content: space-between; align-items: center">
+                <div class="goal-title">أكمل ٣ مراحل</div>
+                <span
+                  style="
+                    font-size: 11px;
+                    padding: 2px 8px;
+                    background: rgba(224, 85, 85, 0.15);
+                    color: var(--error-red);
+                    border-radius: 8px;
+                    font-weight: 600;
+                  "
+                  >منتهي</span
+                >
+              </div>
+              <div class="progress-bar" style="margin: 8px 0">
+                <div class="fill" style="width: 40%; background: var(--error-red)"></div>
+              </div>
+              <div class="goal-meta"><span>⏰ انتهى</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge Grid -->
+        <h3>شبكة الشارات — Badge Grid</h3>
+        <div class="component-demo">
+          <div class="component-label">Earned / Locked</div>
+          <div class="badge-grid" style="max-width: 335px">
+            <div class="badge-cell earned">
+              <div class="badge-icon">⭐</div>
+              <div class="badge-name">المبتدئ</div>
+            </div>
+            <div class="badge-cell earned">
+              <div class="badge-icon">🔥</div>
+              <div class="badge-name">المثابر</div>
+            </div>
+            <div class="badge-cell earned">
+              <div class="badge-icon">🌟</div>
+              <div class="badge-name">النجم</div>
+            </div>
+            <div class="badge-cell locked">
+              <div class="badge-icon">🔥</div>
+              <div class="badge-name">الحافظ</div>
+            </div>
+            <div class="badge-cell locked">
+              <div class="badge-icon">💎</div>
+              <div class="badge-name">المتقن</div>
+            </div>
+            <div class="badge-cell locked">
+              <div class="badge-icon">⚔️</div>
+              <div class="badge-name">المحارب</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <h3>شريط التنقل — Bottom Navigation</h3>
+        <div class="component-demo">
+          <div class="component-label">Son (5 tabs) / Father (2 tabs)</div>
+          <div style="display: flex; flex-direction: column; gap: 16px">
+            <div class="bottom-nav">
+              <div class="nav-item active">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-label">الرئيسية</div>
+              </div>
+              <div class="nav-item">
+                <div class="nav-icon">📊</div>
+                <div class="nav-label">التقدم</div>
+              </div>
+              <div class="nav-item">
+                <div class="nav-icon">🎯</div>
+                <div class="nav-label">الأهداف</div>
+              </div>
+              <div class="nav-item">
+                <div class="nav-icon">🏆</div>
+                <div class="nav-label">الجوائز</div>
+              </div>
+              <div class="nav-item">
+                <div class="nav-icon">⚙️</div>
+                <div class="nav-label">الإعدادات</div>
+              </div>
+            </div>
+            <div class="bottom-nav" style="max-width: 200px">
+              <div class="nav-item active">
+                <div class="nav-icon">👥</div>
+                <div class="nav-label">أبنائي</div>
+              </div>
+              <div class="nav-item">
+                <div class="nav-icon">🎯</div>
+                <div class="nav-label">الأهداف</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status Bar -->
+        <h3>شريط الحالة — Top Status Bar</h3>
+        <div class="component-demo">
+          <div class="component-label">Son's home screen header</div>
+          <div class="status-bar">
+            <div class="profile">
+              <div class="avatar">م</div>
+              <div class="name">محمد</div>
+            </div>
+            <div class="stats">
+              <div class="stat">🔥 <span style="color: var(--sunset-orange)">٧</span></div>
+              <div class="stat">
+                <span class="heart full" style="font-size: 14px">❤️</span>
+                <span style="color: var(--error-red)">٤</span>
+              </div>
+              <div class="stat">🛡️ <span style="color: var(--desert-gold)">٤٥٠</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-  </div>
-
-</div>
-
-</body>
+  </body>
 </html>
