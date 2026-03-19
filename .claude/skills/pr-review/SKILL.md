@@ -2,6 +2,7 @@
 name: pr-review
 description: Review a pull request for Sirah project code quality, conventions compliance, and potential issues.
 user-invocable: true
+disable-model-invocation: false
 allowed-tools: Read, Grep, Glob, Bash
 context: fork
 agent: Explore
