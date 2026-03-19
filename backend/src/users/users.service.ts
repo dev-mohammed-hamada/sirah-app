@@ -9,7 +9,19 @@ interface LinkedUser {
   accountType: string;
 }
 
-interface LinkWithUser {
+interface LinkWithTo {
+  id: string;
+  status: string;
+  to: LinkedUser;
+}
+
+interface LinkWithFrom {
+  id: string;
+  status: string;
+  from: LinkedUser;
+}
+
+interface LinkWithBoth {
   id: string;
   fromId: string;
   toId: string;
@@ -42,7 +54,7 @@ export class UsersService {
     }
 
     const linkedAccounts = [
-      ...user.linkedTo.map((link: LinkWithUser) => ({
+      ...user.linkedTo.map((link: LinkWithTo) => ({
         id: link.id,
         userId: link.to.id,
         displayName: link.to.displayName,
@@ -50,7 +62,7 @@ export class UsersService {
         accountType: link.to.accountType,
         linkStatus: link.status,
       })),
-      ...user.linkedFrom.map((link: LinkWithUser) => ({
+      ...user.linkedFrom.map((link: LinkWithFrom) => ({
         id: link.id,
         userId: link.from.id,
         displayName: link.from.displayName,
@@ -164,7 +176,7 @@ export class UsersService {
       include: { from: true, to: true },
     });
 
-    return links.map((link: LinkWithUser) => {
+    return links.map((link: LinkWithBoth) => {
       const other = link.fromId === userId ? link.to : link.from;
       return {
         linkId: link.id,
