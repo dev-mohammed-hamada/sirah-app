@@ -76,7 +76,7 @@ function RoleCard({
         color={selected ? colors.desertGold : colors.deepNightBlue}
         style={styles.centered}
       >
-        {role === 'SON' ? '👦' : '👤'}
+        {role === 'SON' ? '🌙' : '⭐'}
       </AppText>
       <AppText
         variant="bodyLarge"

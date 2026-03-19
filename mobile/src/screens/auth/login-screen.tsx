@@ -195,7 +195,7 @@ export function LoginScreen({ navigation }: Props) {
             <NarratorBubble text="أهلاً بعودتك!" typewriterSpeed={40} />
             <View style={styles.narratorSilhouette}>
               <AppText variant="h1" style={styles.centered}>
-                🧕
+                🕌
               </AppText>
             </View>
           </Animated.View>
