@@ -34,6 +34,5 @@ export const useQuizStore = create<QuizState>((set) => ({
 
   nextPanel: () => set((state) => ({ currentPanelIndex: state.currentPanelIndex + 1 })),
 
-  reset: () =>
-    set({ currentStageId: null, answers: [], heartsRemaining: 5, currentPanelIndex: 0 }),
+  reset: () => set({ currentStageId: null, answers: [], heartsRemaining: 5, currentPanelIndex: 0 }),
 }));

@@ -1,4 +1,5 @@
 # Screen 02: Onboarding — Page 1
+
 ### رحلة عبر الزمن
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, and shared components.
@@ -62,14 +63,14 @@ First of 3 onboarding panels. Introduces the concept of a journey through the Se
 
 ## Animations
 
-| Step | Element | Animation | Duration | Delay |
-|------|---------|-----------|----------|-------|
-| 1 | Golden path | Draws itself from bottom-right to top-left | 1200ms (ease-out) | 0ms |
-| 2 | Stage markers | Pop in sequentially along the path | 100ms each | Staggered after path draws |
-| 3 | Mecca silhouette | Gentle glow pulse once path reaches it | 600ms | After path completes |
-| 4 | Title | Fades in with slight upward motion | 300ms | 200ms after path |
-| 5 | Description | Fades in | 300ms | 100ms after title |
-| 6 | Next button | Fades in from below | 200ms | After description |
+| Step | Element          | Animation                                  | Duration          | Delay                      |
+| ---- | ---------------- | ------------------------------------------ | ----------------- | -------------------------- |
+| 1    | Golden path      | Draws itself from bottom-right to top-left | 1200ms (ease-out) | 0ms                        |
+| 2    | Stage markers    | Pop in sequentially along the path         | 100ms each        | Staggered after path draws |
+| 3    | Mecca silhouette | Gentle glow pulse once path reaches it     | 600ms             | After path completes       |
+| 4    | Title            | Fades in with slight upward motion         | 300ms             | 200ms after path           |
+| 5    | Description      | Fades in                                   | 300ms             | 100ms after title          |
+| 6    | Next button      | Fades in from below                        | 200ms             | After description          |
 
 ---
 
@@ -91,8 +92,8 @@ First of 3 onboarding panels. Introduces the concept of a journey through the Se
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Desert path illustration | Winding golden path through desert with stage markers | PNG/SVG, ~80% screen width, ~50% screen height |
-| Mecca silhouette | Distant glowing city | Part of the path illustration or separate layer |
-| Stage marker glow | Small golden glowing dot | SVG or Lottie for glow animation |
+| Asset                    | Description                                           | Format                                          |
+| ------------------------ | ----------------------------------------------------- | ----------------------------------------------- |
+| Desert path illustration | Winding golden path through desert with stage markers | PNG/SVG, ~80% screen width, ~50% screen height  |
+| Mecca silhouette         | Distant glowing city                                  | Part of the path illustration or separate layer |
+| Stage marker glow        | Small golden glowing dot                              | SVG or Lottie for glow animation                |

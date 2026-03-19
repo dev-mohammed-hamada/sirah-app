@@ -1,4 +1,5 @@
 # سيرة النبي ﷺ — Global Design System
+
 ### Foundation for All Screens
 
 ---
@@ -14,43 +15,43 @@
 
 ## Color Palette
 
-| Token | Hex | Usage |
-|---|---|---|
-| **Desert Gold** | `#D4A843` | Primary accent, stars, XP highlights, buttons |
-| **Deep Night Blue** | `#1A2744` | Primary backgrounds, headers, navigation |
-| **Warm Sand** | `#F5E6C8` | Card backgrounds, light surfaces |
-| **Sunset Orange** | `#E8734A` | Hearts, streak flame, urgent CTAs |
-| **Royal Purple** | `#4A2D6B` | Badge glow, special celebrations, premium feel |
-| **Starlight White** | `#FFF8F0` | Text on dark backgrounds, clean surfaces |
-| **Soft Cream** | `#FAF3E8` | Page backgrounds, neutral surfaces |
-| **Success Green** | `#4CAF6E` | Correct answers, completion states |
-| **Error Red** | `#E05555` | Wrong answers, heart loss |
-| **Muted Gray** | `#8A8A8A` | Disabled states, locked content |
+| Token               | Hex       | Usage                                          |
+| ------------------- | --------- | ---------------------------------------------- |
+| **Desert Gold**     | `#D4A843` | Primary accent, stars, XP highlights, buttons  |
+| **Deep Night Blue** | `#1A2744` | Primary backgrounds, headers, navigation       |
+| **Warm Sand**       | `#F5E6C8` | Card backgrounds, light surfaces               |
+| **Sunset Orange**   | `#E8734A` | Hearts, streak flame, urgent CTAs              |
+| **Royal Purple**    | `#4A2D6B` | Badge glow, special celebrations, premium feel |
+| **Starlight White** | `#FFF8F0` | Text on dark backgrounds, clean surfaces       |
+| **Soft Cream**      | `#FAF3E8` | Page backgrounds, neutral surfaces             |
+| **Success Green**   | `#4CAF6E` | Correct answers, completion states             |
+| **Error Red**       | `#E05555` | Wrong answers, heart loss                      |
+| **Muted Gray**      | `#8A8A8A` | Disabled states, locked content                |
 
 ---
 
 ## Gradient Presets
 
-| Name | Definition | Usage |
-|---|---|---|
-| **Night Sky** | `#1A2744 → #4A2D6B` (top→bottom) | Main backgrounds, journey map sky |
-| **Desert Horizon** | `#E8734A → #D4A843 → #F5E6C8` (top→bottom) | Celebration screens, warm panels |
-| **Golden Glow** | `#D4A843 → #F5E6C8` (center→edge, radial) | Star burst, achievement highlights |
+| Name               | Definition                                 | Usage                              |
+| ------------------ | ------------------------------------------ | ---------------------------------- |
+| **Night Sky**      | `#1A2744 → #4A2D6B` (top→bottom)           | Main backgrounds, journey map sky  |
+| **Desert Horizon** | `#E8734A → #D4A843 → #F5E6C8` (top→bottom) | Celebration screens, warm panels   |
+| **Golden Glow**    | `#D4A843 → #F5E6C8` (center→edge, radial)  | Star burst, achievement highlights |
 
 ---
 
 ## Typography
 
-| Style | Font | Size | Weight | Usage |
-|---|---|---|---|---|
-| **H1 — Hero** | Cairo Bold | 32px | 700 | Splash tagline, celebration headlines |
-| **H2 — Section** | Cairo Bold | 24px | 700 | Screen titles, narrator speech |
-| **H3 — Card Title** | Cairo SemiBold | 20px | 600 | Stage names, goal titles |
-| **Body** | Cairo Regular | 16px | 400 | Story narration, descriptions |
-| **Body Small** | Cairo Regular | 14px | 400 | Secondary info, timestamps |
-| **Caption** | Cairo Medium | 12px | 500 | Labels, badges, stat counters |
-| **Button** | Cairo Bold | 16px | 700 | All button text |
-| **XP Counter** | Cairo Black | 28px | 900 | XP numbers, streak count, score |
+| Style               | Font           | Size | Weight | Usage                                 |
+| ------------------- | -------------- | ---- | ------ | ------------------------------------- |
+| **H1 — Hero**       | Cairo Bold     | 32px | 700    | Splash tagline, celebration headlines |
+| **H2 — Section**    | Cairo Bold     | 24px | 700    | Screen titles, narrator speech        |
+| **H3 — Card Title** | Cairo SemiBold | 20px | 600    | Stage names, goal titles              |
+| **Body**            | Cairo Regular  | 16px | 400    | Story narration, descriptions         |
+| **Body Small**      | Cairo Regular  | 14px | 400    | Secondary info, timestamps            |
+| **Caption**         | Cairo Medium   | 12px | 500    | Labels, badges, stat counters         |
+| **Button**          | Cairo Bold     | 16px | 700    | All button text                       |
+| **XP Counter**      | Cairo Black    | 28px | 900    | XP numbers, streak count, score       |
 
 > **Font Choice:** Cairo — a Google Font designed specifically for Arabic with excellent readability at all sizes and beautiful Arabic letterforms. It has proper Arabic ligatures and diacritics support.
 

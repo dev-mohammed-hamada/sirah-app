@@ -11,6 +11,7 @@ argument-hint: <version>
 Create a release branch from `develop`, bump version numbers, and prepare a PR to `main`.
 
 ## Arguments
+
 - `$ARGUMENTS` — Semantic version (e.g., `1.0.0`, `1.1.0`, `0.2.0`)
 
 ## Steps
@@ -35,6 +36,7 @@ Create a release branch from `develop`, bump version numbers, and prepare a PR t
    - Merge `main` back to `develop`
 
 ## Rules
+
 - Never skip version bump
 - Never create release from a dirty working tree
 - Always base release on latest `develop`

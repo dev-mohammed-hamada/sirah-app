@@ -35,10 +35,18 @@ export function SonTabNavigator() {
       }}
     >
       <Tab.Screen name="HomeTab" component={HomeScreen} options={{ tabBarLabel: 'الرئيسية' }} />
-      <Tab.Screen name="ProgressTab" component={ProgressScreen} options={{ tabBarLabel: 'التقدم' }} />
+      <Tab.Screen
+        name="ProgressTab"
+        component={ProgressScreen}
+        options={{ tabBarLabel: 'التقدم' }}
+      />
       <Tab.Screen name="GoalsTab" component={GoalsScreen} options={{ tabBarLabel: 'الأهداف' }} />
       <Tab.Screen name="AwardsTab" component={AwardsScreen} options={{ tabBarLabel: 'الجوائز' }} />
-      <Tab.Screen name="SettingsTab" component={SettingsScreen} options={{ tabBarLabel: 'الإعدادات' }} />
+      <Tab.Screen
+        name="SettingsTab"
+        component={SettingsScreen}
+        options={{ tabBarLabel: 'الإعدادات' }}
+      />
     </Tab.Navigator>
   );
 }

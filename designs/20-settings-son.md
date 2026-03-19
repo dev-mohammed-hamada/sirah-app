@@ -1,4 +1,5 @@
 # Screen 20: Settings Screen (Son)
+
 ### إعدادات الابن
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, shared components (Toggle Switch, Setting Row, Primary Button).
@@ -31,25 +32,29 @@ Account management and app preferences for the son. Simple, clean, functional.
 Each group has a section header and rows below:
 
 #### الحساب (Account)
-| Row | Icon | Label | Action |
-|-----|------|-------|--------|
-| 1 | 🔒 | تغيير كلمة المرور | Navigate → password change screen |
-| 2 | 🔗 | الحسابات المرتبطة | Navigate → linked accounts list |
+
+| Row | Icon | Label             | Action                            |
+| --- | ---- | ----------------- | --------------------------------- |
+| 1   | 🔒   | تغيير كلمة المرور | Navigate → password change screen |
+| 2   | 🔗   | الحسابات المرتبطة | Navigate → linked accounts list   |
 
 #### الإشعارات (Notifications)
-| Row | Icon | Label | Action |
-|-----|------|-------|--------|
-| 1 | 🔔 | تفعيل الإشعارات | Toggle switch (on/off) |
-| 2 | ⏰ | وقت التذكير اليومي | Time picker (default: 6:00 PM) |
+
+| Row | Icon | Label              | Action                         |
+| --- | ---- | ------------------ | ------------------------------ |
+| 1   | 🔔   | تفعيل الإشعارات    | Toggle switch (on/off)         |
+| 2   | ⏰   | وقت التذكير اليومي | Time picker (default: 6:00 PM) |
 
 #### التطبيق (App)
-| Row | Icon | Label | Action |
-|-----|------|-------|--------|
-| 1 | ℹ️ | عن التطبيق | Navigate → About screen |
-| 2 | 📄 | شروط الاستخدام | Navigate → Terms |
-| 3 | 🛡️ | سياسة الخصوصية | Navigate → Privacy |
+
+| Row | Icon | Label          | Action                  |
+| --- | ---- | -------------- | ----------------------- |
+| 1   | ℹ️   | عن التطبيق     | Navigate → About screen |
+| 2   | 📄   | شروط الاستخدام | Navigate → Terms        |
+| 3   | 🛡️   | سياسة الخصوصية | Navigate → Privacy      |
 
 #### تسجيل الخروج
+
 - Red text button at bottom: "تسجيل الخروج" — Cairo Bold 16px, Error Red, centered
 - No icon, standalone button with 48px height, full-width, transparent bg, 12px radius
 - Pressed: Error Red at 10% bg
@@ -118,12 +123,12 @@ When tapping "الحسابات المرتبطة":
 
 ## Animations
 
-| # | Element | Animation | Duration | Notes |
-|---|---------|-----------|----------|-------|
-| 1 | Sections | Slide in with subtle stagger | 100ms each | Top to bottom |
-| 2 | Toggle switch | Thumb slides + track color transitions | 200ms | Smooth |
-| 3 | Logout tap | Confirmation modal slides up from bottom | 300ms (spring) | Before actual logout |
-| 4 | Row tap | Row bg briefly highlights (Desert Gold at 5%) | 150ms | Tap feedback |
+| #   | Element       | Animation                                     | Duration       | Notes                |
+| --- | ------------- | --------------------------------------------- | -------------- | -------------------- |
+| 1   | Sections      | Slide in with subtle stagger                  | 100ms each     | Top to bottom        |
+| 2   | Toggle switch | Thumb slides + track color transitions        | 200ms          | Smooth               |
+| 3   | Logout tap    | Confirmation modal slides up from bottom      | 300ms (spring) | Before actual logout |
+| 4   | Row tap       | Row bg briefly highlights (Desert Gold at 5%) | 150ms          | Tap feedback         |
 
 ---
 
@@ -142,21 +147,21 @@ When tapping "الحسابات المرتبطة":
 
 ## Interaction
 
-| Action | Result |
-|--------|--------|
-| Tap profile edit | Navigate to profile edit (change name, avatar) |
-| Tap setting row with chevron | Navigate to sub-screen |
-| Toggle notification | Enable/disable notifications |
-| Tap time picker | Native time picker opens |
-| Tap logout | Show confirmation modal |
-| Confirm logout | Clear session → navigate to Landing (`05-landing-screen.md`) |
+| Action                       | Result                                                       |
+| ---------------------------- | ------------------------------------------------------------ |
+| Tap profile edit             | Navigate to profile edit (change name, avatar)               |
+| Tap setting row with chevron | Navigate to sub-screen                                       |
+| Toggle notification          | Enable/disable notifications                                 |
+| Tap time picker              | Native time picker opens                                     |
+| Tap logout                   | Show confirmation modal                                      |
+| Confirm logout               | Clear session → navigate to Landing (`05-landing-screen.md`) |
 
 ---
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Default avatar | Placeholder avatar for users without custom photo | SVG/PNG, 80px |
-| Pencil edit icon | Small circular edit button | SVG, 24px |
-| Setting icons (8) | Lock, link, bell, clock, info, document, shield | SVG, 24px each |
+| Asset             | Description                                       | Format         |
+| ----------------- | ------------------------------------------------- | -------------- |
+| Default avatar    | Placeholder avatar for users without custom photo | SVG/PNG, 80px  |
+| Pencil edit icon  | Small circular edit button                        | SVG, 24px      |
+| Setting icons (8) | Lock, link, bell, clock, info, document, shield   | SVG, 24px each |

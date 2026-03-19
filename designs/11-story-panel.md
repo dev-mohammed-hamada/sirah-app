@@ -1,4 +1,5 @@
 # Screen 11: Story Panel
+
 ### لوحة القصة
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, shared components.
@@ -16,6 +17,7 @@ Display the story content — the core educational experience. Each stage has 3 
 - **Background:** Soft Cream (`#FAF3E8`)
 
 ### Top Bar (fixed)
+
 - **Progress bar:** Full width, 4px height, rounded
   - Track: light gray (`#E0D5C5`)
   - Fill: Desert Gold, fills from right to left (RTL)
@@ -25,12 +27,14 @@ Display the story content — the core educational experience. Each stage has 3 
   - Left (RTL): Stage title — Cairo Medium 12px, Muted Gray
 
 ### Story Illustration (top 45% of screen)
+
 - **Full-bleed** (edge to edge, no padding)
 - Large atmospheric illustration for this story panel
 - Soft gradient fade at bottom: illustration blends into Soft Cream background
   - Gradient: transparent → Soft Cream over bottom 40px
 
 **Illustration style guidelines:**
+
 - Painterly, atmospheric, warm tones
 - **Faceless silhouettes** for all human figures — no exceptions
 - Rich desert environments
@@ -46,6 +50,7 @@ Display the story content — the core educational experience. Each stage has 3 
 | 4 (Childhood) | 1 | A small child silhouette running among sand dunes with a desert sunset |
 
 ### Narration Text (bottom section)
+
 - Container with 20px horizontal padding
 - **Narrator tag:** Small pill before the text
   - "الراوي:" — Cairo Medium 12px, Deep Night Blue text on Desert Gold background, rounded 8px
@@ -55,6 +60,7 @@ Display the story content — the core educational experience. Each stage has 3 
   - 12px margin-top from narrator tag
 
 ### Navigation
+
 - **"التالي" button:** Primary Button, full-width, at bottom with 20px padding
 - **Swipe gesture:** Swipe left (RTL) also advances to next panel/question
 
@@ -96,23 +102,23 @@ Display the story content — the core educational experience. Each stage has 3 
 
 ## Animations
 
-| # | Element | Animation | Duration | Notes |
-|---|---------|-----------|----------|-------|
-| 1 | Panel transition | Current illustration slides out left (RTL), new slides in from right (RTL) | 400ms (ease-in-out) | Between panels |
-| 2 | Narration text | Fades in with slight upward motion | 200ms | Delayed 200ms after illustration settles |
-| 3 | Progress bar | Fills smoothly to next increment | 300ms (ease-out) | On each new panel |
-| 4 | Narrator tag | Subtle slide-in from right (RTL) | 200ms | First appearance on panel |
-| 5 | Page turn effect | Tiny paper particle effect at the edge during transition | 400ms | Visual cue for panel change |
-| 6 | Illustration internal | Where possible: clouds drifting, fire flickering, light pulsing | Loop/subtle | Lottie overlays on static illustrations |
+| #   | Element               | Animation                                                                  | Duration            | Notes                                    |
+| --- | --------------------- | -------------------------------------------------------------------------- | ------------------- | ---------------------------------------- |
+| 1   | Panel transition      | Current illustration slides out left (RTL), new slides in from right (RTL) | 400ms (ease-in-out) | Between panels                           |
+| 2   | Narration text        | Fades in with slight upward motion                                         | 200ms               | Delayed 200ms after illustration settles |
+| 3   | Progress bar          | Fills smoothly to next increment                                           | 300ms (ease-out)    | On each new panel                        |
+| 4   | Narrator tag          | Subtle slide-in from right (RTL)                                           | 200ms               | First appearance on panel                |
+| 5   | Page turn effect      | Tiny paper particle effect at the edge during transition                   | 400ms               | Visual cue for panel change              |
+| 6   | Illustration internal | Where possible: clouds drifting, fire flickering, light pulsing            | Loop/subtle         | Lottie overlays on static illustrations  |
 
 ---
 
 ## Interaction
 
-| Action | Result |
-|--------|--------|
-| Tap "التالي" | Advance to next story panel or inline question |
-| Swipe left (RTL) | Same as tapping next |
+| Action                 | Result                                                      |
+| ---------------------- | ----------------------------------------------------------- |
+| Tap "التالي"           | Advance to next story panel or inline question              |
+| Swipe left (RTL)       | Same as tapping next                                        |
 | No backward navigation | Child cannot go back to previous panels (forward-only flow) |
 
 ---
@@ -120,6 +126,7 @@ Display the story content — the core educational experience. Each stage has 3 
 ## Stage Flow Context
 
 Each stage has this rhythm:
+
 1. Story Panel 1 → **Inline Question 1** → Story Panel 2 → **Inline Question 2** → Story Panel 3 → **Final Quiz**
 
 This screen handles panels 1, 2, and 3. After panels 1 and 2, it transitions to the Inline Question screen (`12-inline-question.md`). After panel 3, it goes to the Final Quiz (`13-final-quiz.md`).
@@ -137,7 +144,7 @@ This screen handles panels 1, 2, and 3. After panels 1 and 2, it transitions to 
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| ~30 story illustrations | 3 per stage × 10 stages, atmospheric, faceless silhouettes | PNG, full-width, ~45% screen height |
-| Illustration overlays (optional) | Subtle animated elements: clouds, fire, light | Lottie JSON layers |
+| Asset                            | Description                                                | Format                              |
+| -------------------------------- | ---------------------------------------------------------- | ----------------------------------- |
+| ~30 story illustrations          | 3 per stage × 10 stages, atmospheric, faceless silhouettes | PNG, full-width, ~45% screen height |
+| Illustration overlays (optional) | Subtle animated elements: clouds, fire, light              | Lottie JSON layers                  |

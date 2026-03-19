@@ -11,6 +11,7 @@ argument-hint: [module-name]
 Scaffold a complete NestJS module following Sirah backend conventions.
 
 ## Module Name
+
 $ARGUMENTS
 
 ## Files to Create
@@ -37,6 +38,7 @@ backend/src/$ARGUMENTS/
 7. **RESTful routes**: Resources as nouns, proper HTTP methods
 
 ## Steps
+
 1. Create the module directory and files
 2. Add module to `app.module.ts` imports
 3. Create DTOs with class-validator decorators

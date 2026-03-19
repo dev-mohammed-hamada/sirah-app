@@ -1,4 +1,5 @@
 # Screen 26: Settings Screen (Father)
+
 ### إعدادات الأب
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, shared components (Toggle Switch, Setting Row).
@@ -28,35 +29,40 @@ Father's account management — profile, linked sons, notification preferences.
 ### Settings Groups
 
 #### الحساب (Account)
-| Row | Icon | Label | Action |
-|-----|------|-------|--------|
-| 1 | 🔒 | تغيير كلمة المرور | Navigate → password change |
-| 2 | 👥 | الأبناء المرتبطين | Navigate → linked sons list |
+
+| Row | Icon | Label             | Action                      |
+| --- | ---- | ----------------- | --------------------------- |
+| 1   | 🔒   | تغيير كلمة المرور | Navigate → password change  |
+| 2   | 👥   | الأبناء المرتبطين | Navigate → linked sons list |
 
 **Linked Sons Sub-screen:**
+
 - List of linked sons:
   - Each row: Son's avatar (40px) + display name + username
   - "إلغاء الربط" button: small, Error Red text
 - Can add new son from here too: "ربط ابن جديد" link at bottom
 
 #### الإشعارات (Notifications)
-| Row | Icon | Label | Default | Action |
-|-----|------|-------|---------|--------|
-| 1 | 🔔 | تفعيل الإشعارات | On | Master toggle |
-| 2 | ⭐ | إشعار إكمال المرحلة | On | Toggle (son completes stage) |
-| 3 | 🎯 | إشعار إنجاز الهدف | On | Toggle (son completes goal) |
-| 4 | 🔥 | إشعار السلسلة | On | Toggle (son streak milestones) |
+
+| Row | Icon | Label               | Default | Action                         |
+| --- | ---- | ------------------- | ------- | ------------------------------ |
+| 1   | 🔔   | تفعيل الإشعارات     | On      | Master toggle                  |
+| 2   | ⭐   | إشعار إكمال المرحلة | On      | Toggle (son completes stage)   |
+| 3   | 🎯   | إشعار إنجاز الهدف   | On      | Toggle (son completes goal)    |
+| 4   | 🔥   | إشعار السلسلة       | On      | Toggle (son streak milestones) |
 
 > **Note:** When master toggle is off, all sub-toggles are disabled (grayed out)
 
 #### التطبيق (App)
-| Row | Icon | Label | Action |
-|-----|------|-------|--------|
-| 1 | ℹ️ | عن التطبيق | Navigate → About |
-| 2 | 📄 | شروط الاستخدام | Navigate → Terms |
-| 3 | 🛡️ | سياسة الخصوصية | Navigate → Privacy |
+
+| Row | Icon | Label          | Action             |
+| --- | ---- | -------------- | ------------------ |
+| 1   | ℹ️   | عن التطبيق     | Navigate → About   |
+| 2   | 📄   | شروط الاستخدام | Navigate → Terms   |
+| 3   | 🛡️   | سياسة الخصوصية | Navigate → Privacy |
 
 #### تسجيل الخروج
+
 - "تسجيل الخروج" — Error Red text button, full-width, 48px height
 
 ---
@@ -114,6 +120,7 @@ Father's account management — profile, linked sons, notification preferences.
 ## Animations
 
 Same as Son's settings (`20-settings-son.md`):
+
 - Sections stagger in (100ms each)
 - Toggle switches animate smoothly (200ms)
 - Logout shows confirmation modal (slides up, 300ms)
@@ -123,14 +130,14 @@ Same as Son's settings (`20-settings-son.md`):
 
 ## Interaction
 
-| Action | Result |
-|--------|--------|
-| Tap profile edit | Navigate to edit profile |
-| Tap chevron row | Navigate to sub-screen |
+| Action                     | Result                                                  |
+| -------------------------- | ------------------------------------------------------- |
+| Tap profile edit           | Navigate to edit profile                                |
+| Tap chevron row            | Navigate to sub-screen                                  |
 | Toggle master notification | Enable/disable all notifications + controls sub-toggles |
-| Toggle sub-notification | Enable/disable specific notification type |
-| Tap logout | Show confirmation modal (same as Son's) |
-| Confirm logout | Clear session → Landing screen (`05-landing-screen.md`) |
+| Toggle sub-notification    | Enable/disable specific notification type               |
+| Tap logout                 | Show confirmation modal (same as Son's)                 |
+| Confirm logout             | Clear session → Landing screen (`05-landing-screen.md`) |
 
 ---
 

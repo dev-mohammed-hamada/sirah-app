@@ -26,6 +26,7 @@ Create a well-formatted git commit following the project's strict conventions.
 ```
 
 ### Types (pick one)
+
 - `feat` — new feature
 - `fix` — bug fix
 - `chore` — maintenance, deps, configs
@@ -37,6 +38,7 @@ Create a well-formatted git commit following the project's strict conventions.
 - `ci` — CI/CD changes
 
 ### Scopes (pick one)
+
 - `mobile` — Expo/React Native app
 - `backend` — NestJS server
 - `shared` — shared types package
@@ -47,6 +49,7 @@ Create a well-formatted git commit following the project's strict conventions.
 - `db` — database/Prisma
 
 ### Rules
+
 - Imperative mood, lowercase, max 72 chars
 - No period at the end
 - No `Co-Authored-By` or AI attribution
@@ -54,6 +57,7 @@ Create a well-formatted git commit following the project's strict conventions.
 - If user provides `$ARGUMENTS`, use it as the summary (still apply type/scope)
 
 ### Examples
+
 ```
 feat(mobile): add splash screen with campfire animation
 fix(backend): correct heart refill calculation for edge case

@@ -1,4 +1,5 @@
 # Screen 22: Father Home / Sons Tab
+
 ### الرئيسية — أبنائي
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, shared components (Primary Button, Card Component).
@@ -19,6 +20,7 @@ Father's primary screen — overview of all linked sons and their progress at a 
   - Right (RTL): Father's profile avatar (40px circle, golden border)
 
 ### Father's Bottom Navigation
+
 - **2 tabs only** (simpler than Son's):
   - "أبنائي" (Sons) — people icon
   - "الأهداف" (Goals) — target icon
@@ -33,14 +35,14 @@ Father's primary screen — overview of all linked sons and their progress at a 
 
 **Card layout:**
 
-| Element | Position | Style |
-|---------|----------|-------|
-| Son's avatar | Right (RTL), 56px circle, golden border | Default avatar if none set |
-| Display name | Next to avatar, top | Cairo Bold 16px, Deep Night Blue |
-| Username | Below name | "@username" — Cairo Regular 12px, Muted Gray |
-| Quick stats row | Below username, 8px top margin | Horizontal, 16px gap between items |
-| Last active | Far left (RTL), vertically centered | Green/gray dot + text |
-| Progress bar | Bottom of card, full-width | Mini bar showing stage completion |
+| Element         | Position                                | Style                                        |
+| --------------- | --------------------------------------- | -------------------------------------------- |
+| Son's avatar    | Right (RTL), 56px circle, golden border | Default avatar if none set                   |
+| Display name    | Next to avatar, top                     | Cairo Bold 16px, Deep Night Blue             |
+| Username        | Below name                              | "@username" — Cairo Regular 12px, Muted Gray |
+| Quick stats row | Below username, 8px top margin          | Horizontal, 16px gap between items           |
+| Last active     | Far left (RTL), vertically centered     | Green/gray dot + text                        |
+| Progress bar    | Bottom of card, full-width              | Mini bar showing stage completion            |
 
 **Quick stats:**
 | Stat | Format |
@@ -56,6 +58,7 @@ Father's primary screen — overview of all linked sons and their progress at a 
 | Not today | Gray dot (8px, `#8A8A8A`) + "آخر نشاط: أمس" — Cairo Regular 11px, Muted Gray |
 
 **Mini progress bar (bottom of card):**
+
 - Track: light gray, 4px height, rounded
 - Fill: Desert Gold
 - Label at right (RTL): "٤/١٠ مراحل" — Cairo Regular 11px, Muted Gray
@@ -113,6 +116,7 @@ Father's primary screen — overview of all linked sons and their progress at a 
 ## Link Son Flow (on FAB tap)
 
 **Search Modal:**
+
 - Bottom sheet (60% height), Starlight White bg, 24px top radius
 - **Search field:** "اسم المستخدم" — standard Input Field
 - **Real-time search results** as father types (after 3 chars)
@@ -124,33 +128,33 @@ Father's primary screen — overview of all linked sons and their progress at a 
 
 ## Animations
 
-| # | Element | Animation | Duration | Notes |
-|---|---------|-----------|----------|-------|
-| 1 | Son cards | Slide in from right (RTL) with stagger | 200ms each | 100ms stagger |
-| 2 | Stats numbers | Brief count up | 300ms | On card appear |
-| 3 | Active dot (green) | Subtle pulse | 2s loop | Always active |
-| 4 | FAB | Subtle bounce on first appear | 300ms (spring) | Attract attention |
-| 5 | Pull-to-refresh | Sand-swirl animation | Until data loads | Custom |
-| 6 | Search modal | Slides up (spring) | 400ms | On FAB tap |
-| 7 | Empty state | Narrator fades in + illustration gentle sway | 300ms + 3s loop | Only when empty |
+| #   | Element            | Animation                                    | Duration         | Notes             |
+| --- | ------------------ | -------------------------------------------- | ---------------- | ----------------- |
+| 1   | Son cards          | Slide in from right (RTL) with stagger       | 200ms each       | 100ms stagger     |
+| 2   | Stats numbers      | Brief count up                               | 300ms            | On card appear    |
+| 3   | Active dot (green) | Subtle pulse                                 | 2s loop          | Always active     |
+| 4   | FAB                | Subtle bounce on first appear                | 300ms (spring)   | Attract attention |
+| 5   | Pull-to-refresh    | Sand-swirl animation                         | Until data loads | Custom            |
+| 6   | Search modal       | Slides up (spring)                           | 400ms            | On FAB tap        |
+| 7   | Empty state        | Narrator fades in + illustration gentle sway | 300ms + 3s loop  | Only when empty   |
 
 ---
 
 ## Interaction
 
-| Action | Result |
-|--------|--------|
-| Tap son card | Navigate to Son Progress Detail (`23-son-progress-father-view.md`) |
-| Tap FAB (+) | Open link son search modal |
-| Pull-to-refresh | Refresh sons data |
-| Tap "الأهداف" tab | Switch to Goals Tab (`24-goals-father-view.md`) |
+| Action            | Result                                                             |
+| ----------------- | ------------------------------------------------------------------ |
+| Tap son card      | Navigate to Son Progress Detail (`23-son-progress-father-view.md`) |
+| Tap FAB (+)       | Open link son search modal                                         |
+| Pull-to-refresh   | Refresh sons data                                                  |
+| Tap "الأهداف" tab | Switch to Goals Tab (`24-goals-father-view.md`)                    |
 
 ---
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Empty state illustration | Narrator with link/chain icon | PNG, ~200px wide |
-| Default son avatar | Placeholder for sons without photo | SVG/PNG, 56px |
-| Default father avatar | Placeholder for father without photo | SVG/PNG, 40px |
+| Asset                    | Description                          | Format           |
+| ------------------------ | ------------------------------------ | ---------------- |
+| Empty state illustration | Narrator with link/chain icon        | PNG, ~200px wide |
+| Default son avatar       | Placeholder for sons without photo   | SVG/PNG, 56px    |
+| Default father avatar    | Placeholder for father without photo | SVG/PNG, 40px    |

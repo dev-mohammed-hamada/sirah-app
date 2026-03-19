@@ -1,4 +1,5 @@
 # Screen Flow Diagram & Guidelines
+
 ### مخطط التنقل والإرشادات
 
 ---
@@ -130,6 +131,7 @@
 | الإعدادات | Settings — Son (20) | Gear icon |
 
 **Stack navigators within tabs:**
+
 - Home → Stage Detail → Narrator Welcome → Story Panels → Quiz → Results
 - Awards → Badges Screen (pushed)
 - Settings → sub-screens (pushed)
@@ -143,11 +145,13 @@
 | الأهداف | Goals Tab (24) | Target icon |
 
 **Stack navigators:**
+
 - Sons Tab → Son Progress Detail → Create Goal
 - Goals Tab → Create Goal
 - Settings accessible via profile icon in header
 
 ### Modal Screens (overlay, not in navigation stack)
+
 - Link Request (21) — full screen modal
 - Link Son Search — bottom sheet
 - Logout Confirmation — bottom sheet
@@ -159,14 +163,16 @@
 ## Responsive Considerations
 
 ### Target Devices
-| Platform | Width Range | Primary Target |
-|----------|------------|---------------|
-| iPhone SE | 375px | Minimum supported |
-| iPhone 14/15 | 390px | Primary design target |
-| iPhone 14/15 Pro Max | 430px | Maximum iOS width |
-| Mid-range Android | 360–412px | Primary Android range |
+
+| Platform             | Width Range | Primary Target        |
+| -------------------- | ----------- | --------------------- |
+| iPhone SE            | 375px       | Minimum supported     |
+| iPhone 14/15         | 390px       | Primary design target |
+| iPhone 14/15 Pro Max | 430px       | Maximum iOS width     |
+| Mid-range Android    | 360–412px   | Primary Android range |
 
 ### Scaling Rules
+
 - **Design at:** 375px width (iPhone SE baseline)
 - **Verify at:** 430px width (Pro Max — ensure no awkward spacing)
 - **Safe areas:** Respect notch/Dynamic Island and home indicator insets
@@ -176,6 +182,7 @@
 - **RTL mirroring:** All layouts mirror — verify chevrons, progress bars, swipe directions
 
 ### Key RTL Checks
+
 - [ ] Progress bars fill from right to left
 - [ ] Navigation back arrows point right (→)
 - [ ] Swipe to advance = swipe left
@@ -189,6 +196,7 @@
 ## Accessibility Notes
 
 ### Visual Accessibility
+
 - All illustrations must have **descriptive alt text** for screen readers
 - Color is **never the only indicator** — always pair with icons or text
   - Example: correct/wrong answers use green/red AND checkmark/X icon
@@ -198,6 +206,7 @@
   - Interactive elements: minimum **3:1** against adjacent colors
 
 ### Motion Accessibility
+
 - All animations must respect **"Reduce Motion"** system setting
 - When Reduce Motion is on:
   - Replace animations with simple fades (200ms)
@@ -207,6 +216,7 @@
 - Confetti, star bursts, and celebration animations → simple opacity fade
 
 ### Interactive Accessibility
+
 - Interactive elements must have **visible focus states** (for external keyboard/switch control)
 - Touch targets: minimum 44×44px
 - Buttons must have accessible labels if icon-only
@@ -216,6 +226,7 @@
 ## Designer Deliverables Checklist
 
 ### Design System
+
 - [ ] Complete Figma design system file:
   - [ ] Color tokens with semantic names
   - [ ] Typography styles (all 8 levels)
@@ -225,6 +236,7 @@
   - [ ] Corner radius tokens
 
 ### Components
+
 - [ ] All shared components with states:
   - [ ] Primary Button (default, pressed, disabled, loading)
   - [ ] Secondary Button (default, pressed, disabled)
@@ -240,12 +252,14 @@
   - [ ] Badge Cell (earned, locked, in-progress)
 
 ### Screens
+
 - [ ] All 26 screens designed at **375px** width (iPhone SE baseline)
 - [ ] Responsive variants at **430px** width (iPhone Pro Max)
 - [ ] All screen states: default, loading, empty, error
 - [ ] Keyboard-visible states for form screens
 
 ### Illustrations & Assets
+
 - [ ] Narrator character: 4 emotional states + waving + mini-avatar
 - [ ] 10 stage node thematic illustrations (120×120px)
 - [ ] 10 stage detail illustrations (full-width, 180px tall)
@@ -256,11 +270,13 @@
 - [ ] 10 badge icons (earned + locked versions)
 
 ### Animations
+
 - [ ] Lottie animation storyboards/specs for all 24 animations
 - [ ] Timing sheets for complex sequences (Celebration screen)
 - [ ] Reduce Motion fallback specs
 
 ### Prototype
+
 - [ ] Interactive Figma prototype covering:
   - [ ] Complete stage flow (Map → Detail → Welcome → Story → Quiz → Results)
   - [ ] Quiz answering (correct + wrong feedback)
@@ -269,6 +285,7 @@
   - [ ] Father: view progress → create goal
 
 ### Verification
+
 - [ ] RTL layout verification on all screens
 - [ ] Contrast ratio check on all text/bg combinations
 - [ ] Touch target size audit (≥44px)

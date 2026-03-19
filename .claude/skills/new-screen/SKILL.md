@@ -11,10 +11,12 @@ argument-hint: [ScreenName] [son|father|auth]
 Create a new screen component following the Sirah project conventions.
 
 ## Arguments
+
 - `$0` — Screen name in PascalCase (e.g., `BadgesScreen`)
 - `$1` — Flow: `son`, `father`, or `auth`
 
 ## File Location
+
 - `auth` → `mobile/src/screens/auth/$0.tsx`
 - `son` → `mobile/src/screens/son/$0.tsx`
 - `father` → `mobile/src/screens/father/$0.tsx`
@@ -22,6 +24,7 @@ Create a new screen component following the Sirah project conventions.
 ## Template
 
 The screen must follow these conventions:
+
 1. **Functional component** with hooks only
 2. **RTL-aware styles**: use `paddingStart`/`paddingEnd`, never `left`/`right`
 3. **Theme imports**: colors, typography, spacing from `../../theme`
@@ -31,6 +34,7 @@ The screen must follow these conventions:
 7. **File name**: PascalCase matching component name
 
 ## Steps
+
 1. Create the screen file with the template
 2. Add the screen to the appropriate navigator
 3. Add navigation types if new params needed

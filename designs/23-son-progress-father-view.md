@@ -1,4 +1,5 @@
 # Screen 23: Son Progress Detail (Father View)
+
 ### تفاصيل تقدم الابن
 
 > **Reference:** [00-design-system.md](00-design-system.md) for colors, typography, shared components (Primary Button, Card Component).
@@ -22,11 +23,11 @@ Deep dive into a specific son's learning data. The father can see stage-by-stage
 - **Display name:** Cairo Bold 18px, Deep Night Blue, centered, below avatar
 - **Three stat circles** in a horizontal row (16px gap, centered):
 
-| Stat | Background | Number Style | Label |
-|------|-----------|-------------|-------|
-| XP | Desert Gold gradient | Cairo Bold 20px, Starlight White | "نقاط الخبرة" Cairo Regular 10px |
+| Stat   | Background             | Number Style                     | Label                             |
+| ------ | ---------------------- | -------------------------------- | --------------------------------- |
+| XP     | Desert Gold gradient   | Cairo Bold 20px, Starlight White | "نقاط الخبرة" Cairo Regular 10px  |
 | Streak | Sunset Orange gradient | Cairo Bold 20px, Starlight White | "أيام متواصلة" Cairo Regular 10px |
-| Stars | Royal Purple gradient | Cairo Bold 20px, Starlight White | "النجوم" Cairo Regular 10px |
+| Stars  | Royal Purple gradient  | Cairo Bold 20px, Starlight White | "النجوم" Cairo Regular 10px       |
 
 Each circle: 64px diameter, gradient background, number centered inside, label below
 
@@ -35,18 +36,19 @@ Each circle: 64px diameter, gradient background, number centered inside, label b
 **Section header:** "تقدم المراحل" — Cairo Bold 18px, Deep Night Blue
 
 **Overall progress bar (top of section):**
+
 - Full-width, 8px height, rounded
 - Fill: Desert Gold
 - Label: "٤ من ١٠ مراحل" — Cairo Regular 12px, Muted Gray
 
 **Vertical list of all 10 stages:**
 
-| Element | Style |
-|---------|-------|
-| Stage number | 36px circle, right (RTL) |
-| Stage title | Cairo Regular 15px, Deep Night Blue |
-| Stars | 3 small stars (filled gold / empty gray), left (RTL) |
-| Score | Cairo Regular 12px, Muted Gray, below stars: "78/100" |
+| Element      | Style                                                 |
+| ------------ | ----------------------------------------------------- |
+| Stage number | 36px circle, right (RTL)                              |
+| Stage title  | Cairo Regular 15px, Deep Night Blue                   |
+| Stars        | 3 small stars (filled gold / empty gray), left (RTL)  |
+| Score        | Cairo Regular 12px, Muted Gray, below stars: "78/100" |
 
 **Row states:**
 | State | Number Circle | Text | Stars |
@@ -63,6 +65,7 @@ Row height: 56px, subtle dividers
 **Chronological list (most recent first):**
 
 Each item:
+
 - **Timeline connector:** Thin vertical golden line (2px) on the right (RTL) connecting events
 - **Event dot:** 10px circle on the line — Desert Gold for completed, other colors for milestones
 - **Event text:** Cairo Regular 14px, Deep Night Blue
@@ -128,31 +131,31 @@ Each item:
 
 ## Animations
 
-| # | Element | Animation | Duration | Notes |
-|---|---------|-----------|----------|-------|
-| 1 | Stat circles | Pop in with stagger, scale 0.8→1.0 | 200ms each | 150ms stagger |
-| 2 | Stat numbers | Count up from 0 | 400ms | After pop |
-| 3 | Overall progress bar | Fill from 0 to current | 600ms (ease-out) | On section appear |
-| 4 | Stage list items | Fade in with stagger | 100ms each, 50ms stagger | Top to bottom |
-| 5 | Timeline items | Slide in from right (RTL) with stagger | 150ms each | With golden line drawing down |
-| 6 | Timeline line | Draws downward as items appear | Linked to items | Sequential |
+| #   | Element              | Animation                              | Duration                 | Notes                         |
+| --- | -------------------- | -------------------------------------- | ------------------------ | ----------------------------- |
+| 1   | Stat circles         | Pop in with stagger, scale 0.8→1.0     | 200ms each               | 150ms stagger                 |
+| 2   | Stat numbers         | Count up from 0                        | 400ms                    | After pop                     |
+| 3   | Overall progress bar | Fill from 0 to current                 | 600ms (ease-out)         | On section appear             |
+| 4   | Stage list items     | Fade in with stagger                   | 100ms each, 50ms stagger | Top to bottom                 |
+| 5   | Timeline items       | Slide in from right (RTL) with stagger | 150ms each               | With golden line drawing down |
+| 6   | Timeline line        | Draws downward as items appear         | Linked to items          | Sequential                    |
 
 ---
 
 ## Interaction
 
-| Action | Result |
-|--------|--------|
+| Action               | Result                                                                   |
+| -------------------- | ------------------------------------------------------------------------ |
 | Tap "إنشاء هدف جديد" | Navigate to Create Goal (`25-create-goal.md`) with this son pre-selected |
-| Back arrow | Return to Father Home (`22-father-home.md`) |
-| Scroll | All sections scrollable as one page |
-| Tap a stage row | No action (informational — father can't play) |
+| Back arrow           | Return to Father Home (`22-father-home.md`)                              |
+| Scroll               | All sections scrollable as one page                                      |
+| Tap a stage row      | No action (informational — father can't play)                            |
 
 ---
 
 ## Assets Needed
 
-| Asset | Description | Format |
-|-------|-------------|--------|
-| Stat circle backgrounds | 3 gradient circles (gold, orange, purple) | SVG |
-| Timeline connector | Thin golden vertical line with dots | SVG/CSS |
+| Asset                   | Description                               | Format  |
+| ----------------------- | ----------------------------------------- | ------- |
+| Stat circle backgrounds | 3 gradient circles (gold, orange, purple) | SVG     |
+| Timeline connector      | Thin golden vertical line with dots       | SVG/CSS |
