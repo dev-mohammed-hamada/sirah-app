@@ -16,12 +16,16 @@ Load a task definition from the `tasks/` folder and begin implementation with fu
 
 ## Steps
 
-1. **Find the task file:**
+1. **Show implementation order:**
+   - Read `tasks/IMPLEMENTATION-ORDER.md` and display the current progress (which tasks are done, which is next)
+   - Highlight the task being loaded and its position in the order
+
+2. **Find the task file:**
    - If a number is given (e.g., `04`), open `tasks/04-*.md`
    - If a name is given (e.g., `journey-map`), search `tasks/` for a matching filename
    - If no argument, list all tasks and ask which one to work on
 
-2. **Read the full task file** from `tasks/` and understand:
+3. **Read the full task file** from `tasks/` and understand:
    - Priority level
    - Description and scope
    - Screen specs and design references
@@ -29,31 +33,35 @@ Load a task definition from the `tasks/` folder and begin implementation with fu
    - Technical requirements
    - Acceptance criteria
 
-3. **Read referenced design docs** listed in the task's References section (from `designs/` folder) to get full visual and interaction specs
+4. **Read referenced design docs** listed in the task's References section (from `designs/` folder) to get full visual and interaction specs
 
-4. **Check current progress:**
+5. **Check current progress:**
    - Look at existing code related to this task (screens, services, components)
    - Check git log for related commits
    - Identify what's already done vs what remains
 
-5. **Present implementation plan** to the user before coding:
+6. **Present implementation plan** to the user before coding:
    - What will be built (files to create/modify)
    - Order of implementation
    - Any dependencies on other tasks
    - Any blockers or open questions
 
-6. **Implement** only after user confirms the plan:
+7. **Implement** only after user confirms the plan:
    - Follow all project conventions (RTL, kebab-case files, PascalCase components, etc.)
    - Use the acceptance criteria as a checklist
    - Run `/ci-local` after significant changes
 
-7. **Update the task file** — check off completed acceptance criteria as you go:
+8. **Update the task file** — check off completed acceptance criteria as you go:
    - `- [ ]` → `- [x]` for completed items
    - Add notes if scope changed
 
+9. **Update the implementation order** — when a task is completed, update `tasks/IMPLEMENTATION-ORDER.md`:
+   - Change the task's status from `pending` to `done`
+
 ## Rules
 
-- Always read the task file first — never work from memory alone
+- Always read `tasks/IMPLEMENTATION-ORDER.md` first to show progress and context
+- Always read the task file — never work from memory alone
 - Always read the referenced design docs before implementing UI
 - Never skip the plan step — confirm with the user before writing code
 - Follow task dependencies (e.g., task 23 design system should come before UI tasks)
