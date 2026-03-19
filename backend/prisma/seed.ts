@@ -149,7 +149,8 @@ const stages: StageData[] = [
           { id: '4', text: 'كفالة عمه أبو طالب' },
         ],
         correctAnswer: '1,2,3,4',
-        explanation: 'توفي أبوه قبل مولده، ثم وُلد، ثم توفيت أمه وهو في السادسة، ثم كفله عمه بعد وفاة جده',
+        explanation:
+          'توفي أبوه قبل مولده، ثم وُلد، ثم توفيت أمه وهو في السادسة، ثم كفله عمه بعد وفاة جده',
       },
       {
         type: QuestionType.MCQ,
@@ -864,8 +865,7 @@ async function main() {
   for (let i = 0; i < stages.length; i++) {
     const stageData = stages[i];
     const xpPerQuestion = 10;
-    const totalQuestions =
-      stageData.inlineQuestions.length + stageData.finalQuizQuestions.length;
+    const totalQuestions = stageData.inlineQuestions.length + stageData.finalQuizQuestions.length;
     const maxScore = totalQuestions * xpPerQuestion;
 
     const stage = await prisma.stage.create({
@@ -933,14 +933,8 @@ async function main() {
 
   // Summary
   const totalPanels = stages.reduce((s, st) => s + st.panels.length, 0);
-  const totalInline = stages.reduce(
-    (s, st) => s + st.inlineQuestions.length,
-    0,
-  );
-  const totalFinal = stages.reduce(
-    (s, st) => s + st.finalQuizQuestions.length,
-    0,
-  );
+  const totalInline = stages.reduce((s, st) => s + st.inlineQuestions.length, 0);
+  const totalFinal = stages.reduce((s, st) => s + st.finalQuizQuestions.length, 0);
 
   console.log('\nSeed complete!');
   console.log(`  Stages: ${stages.length}`);
