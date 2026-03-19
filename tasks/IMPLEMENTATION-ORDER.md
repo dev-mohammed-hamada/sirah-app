@@ -5,7 +5,7 @@ Ordered by dependency chain — each task builds on what came before.
 | #   | Task                           | Priority | Status  | Depends On |
 | --- | ------------------------------ | -------- | ------- | ---------- |
 | 23  | Design System Components       | HIGH     | done    | —          |
-| 00  | Seed Stage Content             | HIGH     | pending | —          |
+| 00  | Seed Stage Content             | HIGH     | done    | —          |
 | 01  | Auth Screens                   | HIGH     | pending | 23         |
 | 02  | Onboarding Screens             | HIGH     | pending | 23, 01     |
 | 03  | Splash Screen                  | MEDIUM   | pending | 23, 01     |
