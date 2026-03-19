@@ -1,592 +1,754 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سيرة النبي ﷺ — Auth Flow</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --desert-gold: #D4A843;
-    --deep-night-blue: #1A2744;
-    --warm-sand: #F5E6C8;
-    --sunset-orange: #E8734A;
-    --royal-purple: #4A2D6B;
-    --starlight-white: #FFF8F0;
-    --soft-cream: #FAF3E8;
-    --success-green: #4CAF6E;
-    --error-red: #E05555;
-    --muted-gray: #8A8A8A;
-    --shadow-1: 0 2px 8px rgba(26, 39, 68, 0.08);
-    --shadow-2: 0 4px 16px rgba(26, 39, 68, 0.12);
-    --shadow-3: 0 8px 32px rgba(26, 39, 68, 0.20);
-    --glow: 0 0 20px rgba(212, 168, 67, 0.4);
-    --radius-sm: 12px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: #1a1a2e;
-    direction: rtl;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سيرة النبي ﷺ — Auth Flow</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --desert-gold: #d4a843;
+        --deep-night-blue: #1a2744;
+        --warm-sand: #f5e6c8;
+        --sunset-orange: #e8734a;
+        --royal-purple: #4a2d6b;
+        --starlight-white: #fff8f0;
+        --soft-cream: #faf3e8;
+        --success-green: #4caf6e;
+        --error-red: #e05555;
+        --muted-gray: #8a8a8a;
+        --shadow-1: 0 2px 8px rgba(26, 39, 68, 0.08);
+        --shadow-2: 0 4px 16px rgba(26, 39, 68, 0.12);
+        --shadow-3: 0 8px 32px rgba(26, 39, 68, 0.2);
+        --glow: 0 0 20px rgba(212, 168, 67, 0.4);
+        --radius-sm: 12px;
+        --radius-md: 16px;
+        --radius-lg: 24px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Cairo', sans-serif;
+        background: #1a1a2e;
+        direction: rtl;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
 
-  .page-nav {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .page-nav h1 { color: var(--starlight-white); font-size: 20px; font-weight: 700; }
-  .nav-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-  .nav-pills a {
-    color: var(--desert-gold);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 14px;
-    border: 1px solid rgba(212,168,67,0.4);
-    border-radius: 20px;
-    transition: all 0.2s;
-  }
-  .nav-pills a:hover, .nav-pills a.active { background: var(--desert-gold); color: var(--deep-night-blue); }
-  .nav-pills a.ext { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); }
-  .nav-pills a.ext:hover { background: rgba(255,255,255,0.1); color: white; }
+      .page-nav {
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .page-nav h1 {
+        color: var(--starlight-white);
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .nav-pills {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .nav-pills a {
+        color: var(--desert-gold);
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 5px 14px;
+        border: 1px solid rgba(212, 168, 67, 0.4);
+        border-radius: 20px;
+        transition: all 0.2s;
+      }
+      .nav-pills a:hover,
+      .nav-pills a.active {
+        background: var(--desert-gold);
+        color: var(--deep-night-blue);
+      }
+      .nav-pills a.ext {
+        border-color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .nav-pills a.ext:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+      }
 
-  .screen-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center;
-    width: 100%;
-    max-width: 900px;
-  }
+      .screen-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+        width: 100%;
+        max-width: 900px;
+      }
 
-  .phone-wrapper { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .phone-label { color: var(--starlight-white); font-size: 14px; font-weight: 700; text-align: center; }
-  .phone-sublabel { color: var(--muted-gray); font-size: 11px; text-align: center; }
-  .phone {
-    width: 375px;
-    height: 812px;
-    border-radius: 44px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 0 0 3px #333, 0 0 0 6px #1a1a1a, var(--shadow-3);
-    background: var(--soft-cream);
-    flex-shrink: 0;
-  }
-  .phone-screen { width: 100%; height: 100%; position: relative; overflow-y: auto; overflow-x: hidden; }
-  .phone-screen::-webkit-scrollbar { display: none; }
+      .phone-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .phone-label {
+        color: var(--starlight-white);
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+      }
+      .phone-sublabel {
+        color: var(--muted-gray);
+        font-size: 11px;
+        text-align: center;
+      }
+      .phone {
+        width: 375px;
+        height: 812px;
+        border-radius: 44px;
+        overflow: hidden;
+        position: relative;
+        box-shadow:
+          0 0 0 3px #333,
+          0 0 0 6px #1a1a1a,
+          var(--shadow-3);
+        background: var(--soft-cream);
+        flex-shrink: 0;
+      }
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .phone-screen::-webkit-scrollbar {
+        display: none;
+      }
 
-  .ios-status {
-    position: sticky;
-    top: 0;
-    height: 54px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 28px 8px;
-    z-index: 10;
-    color: var(--deep-night-blue);
-    font-size: 14px;
-    font-weight: 600;
-    background: var(--soft-cream);
-  }
-  .ios-status .time { font-size: 15px; font-weight: 700; }
-  .ios-status .icons { display: flex; gap: 4px; font-size: 12px; }
+      .ios-status {
+        position: sticky;
+        top: 0;
+        height: 54px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0 28px 8px;
+        z-index: 10;
+        color: var(--deep-night-blue);
+        font-size: 14px;
+        font-weight: 600;
+        background: var(--soft-cream);
+      }
+      .ios-status .time {
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .ios-status .icons {
+        display: flex;
+        gap: 4px;
+        font-size: 12px;
+      }
 
-  .home-indicator {
-    position: sticky;
-    bottom: 0;
-    width: 134px;
-    height: 5px;
-    background: rgba(0,0,0,0.15);
-    border-radius: 3px;
-    margin: 12px auto;
-  }
+      .home-indicator {
+        position: sticky;
+        bottom: 0;
+        width: 134px;
+        height: 5px;
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 3px;
+        margin: 12px auto;
+      }
 
-  /* Header */
-  .screen-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 20px 16px;
-    position: relative;
-  }
-  .screen-header h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--deep-night-blue);
-  }
-  .back-arrow {
-    position: absolute;
-    right: 20px;
-    font-size: 22px;
-    color: var(--deep-night-blue);
-    cursor: pointer;
-    text-decoration: none;
-  }
+      /* Header */
+      .screen-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 20px 16px;
+        position: relative;
+      }
+      .screen-header h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--deep-night-blue);
+      }
+      .back-arrow {
+        position: absolute;
+        right: 20px;
+        font-size: 22px;
+        color: var(--deep-night-blue);
+        cursor: pointer;
+        text-decoration: none;
+      }
 
-  /* Role Cards */
-  .role-cards {
-    display: flex;
-    gap: 12px;
-    padding: 0 20px;
-    margin-bottom: 24px;
-  }
-  .role-card {
-    flex: 1;
-    background: white;
-    border-radius: var(--radius-md);
-    padding: 20px 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: 1.5px solid #e0e0e0;
-    position: relative;
-  }
-  .role-card.selected {
-    border: 3px solid var(--desert-gold);
-    box-shadow: 0 0 12px rgba(212,168,67,0.3);
-  }
-  .role-card .check {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 22px;
-    height: 22px;
-    background: var(--desert-gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    opacity: 0;
-    transform: scale(0);
-    transition: all 0.2s;
-  }
-  .role-card.selected .check {
-    opacity: 1;
-    transform: scale(1);
-  }
-  .role-icon {
-    font-size: 40px;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .role-mini {
-    width: 60px;
-    height: 30px;
-    margin: 8px auto;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-  }
-  .role-label {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--deep-night-blue);
-    margin-top: 4px;
-  }
+      /* Role Cards */
+      .role-cards {
+        display: flex;
+        gap: 12px;
+        padding: 0 20px;
+        margin-bottom: 24px;
+      }
+      .role-card {
+        flex: 1;
+        background: white;
+        border-radius: var(--radius-md);
+        padding: 20px 12px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 1.5px solid #e0e0e0;
+        position: relative;
+      }
+      .role-card.selected {
+        border: 3px solid var(--desert-gold);
+        box-shadow: 0 0 12px rgba(212, 168, 67, 0.3);
+      }
+      .role-card .check {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 22px;
+        height: 22px;
+        background: var(--desert-gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.2s;
+      }
+      .role-card.selected .check {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .role-icon {
+        font-size: 40px;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .role-mini {
+        width: 60px;
+        height: 30px;
+        margin: 8px auto;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+      }
+      .role-label {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--deep-night-blue);
+        margin-top: 4px;
+      }
 
-  /* Form */
-  .form-area {
-    padding: 0 20px;
-  }
-  .input-group {
-    margin-bottom: 16px;
-  }
-  .input-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted-gray);
-    margin-bottom: 6px;
-    display: block;
-  }
-  .input-field {
-    width: 100%;
-    height: 52px;
-    background: white;
-    border: 1.5px solid #E0D5C5;
-    border-radius: var(--radius-sm);
-    padding: 0 16px;
-    font-family: 'Cairo', sans-serif;
-    font-size: 16px;
-    color: var(--deep-night-blue);
-    outline: none;
-    transition: all 0.15s;
-    direction: rtl;
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  .input-field.focused {
-    border-color: var(--desert-gold);
-    box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
-  }
-  .input-field.error {
-    border-color: var(--error-red);
-    box-shadow: 0 0 0 3px rgba(224, 85, 85, 0.15);
-  }
-  .input-field.valid {
-    border-color: var(--success-green);
-  }
-  .input-inner {
-    flex: 1;
-    font-family: 'Cairo', sans-serif;
-    font-size: 16px;
-    color: var(--deep-night-blue);
-    border: none;
-    outline: none;
-    background: none;
-    direction: rtl;
-    line-height: 52px;
-  }
-  .input-inner::placeholder { color: var(--muted-gray); opacity: 0.5; }
-  .input-icon {
-    font-size: 18px;
-    color: var(--muted-gray);
-    cursor: pointer;
-    margin-right: 8px;
-  }
-  .input-icon.success { color: var(--success-green); }
-  .input-icon.error { color: var(--error-red); }
-  .error-text {
-    font-size: 12px;
-    color: var(--error-red);
-    margin-top: 4px;
-  }
+      /* Form */
+      .form-area {
+        padding: 0 20px;
+      }
+      .input-group {
+        margin-bottom: 16px;
+      }
+      .input-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--muted-gray);
+        margin-bottom: 6px;
+        display: block;
+      }
+      .input-field {
+        width: 100%;
+        height: 52px;
+        background: white;
+        border: 1.5px solid #e0d5c5;
+        border-radius: var(--radius-sm);
+        padding: 0 16px;
+        font-family: 'Cairo', sans-serif;
+        font-size: 16px;
+        color: var(--deep-night-blue);
+        outline: none;
+        transition: all 0.15s;
+        direction: rtl;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      .input-field.focused {
+        border-color: var(--desert-gold);
+        box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+      }
+      .input-field.error {
+        border-color: var(--error-red);
+        box-shadow: 0 0 0 3px rgba(224, 85, 85, 0.15);
+      }
+      .input-field.valid {
+        border-color: var(--success-green);
+      }
+      .input-inner {
+        flex: 1;
+        font-family: 'Cairo', sans-serif;
+        font-size: 16px;
+        color: var(--deep-night-blue);
+        border: none;
+        outline: none;
+        background: none;
+        direction: rtl;
+        line-height: 52px;
+      }
+      .input-inner::placeholder {
+        color: var(--muted-gray);
+        opacity: 0.5;
+      }
+      .input-icon {
+        font-size: 18px;
+        color: var(--muted-gray);
+        cursor: pointer;
+        margin-right: 8px;
+      }
+      .input-icon.success {
+        color: var(--success-green);
+      }
+      .input-icon.error {
+        color: var(--error-red);
+      }
+      .error-text {
+        font-size: 12px;
+        color: var(--error-red);
+        margin-top: 4px;
+      }
 
-  /* Buttons */
-  .btn {
-    font-family: 'Cairo', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    height: 48px;
-    border: none;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    padding: 0 24px;
-    width: 100%;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-primary { background: var(--desert-gold); color: var(--deep-night-blue); }
-  .btn-primary:hover { filter: brightness(0.9); transform: scale(0.98); }
+      /* Buttons */
+      .btn {
+        font-family: 'Cairo', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        height: 48px;
+        border: none;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        padding: 0 24px;
+        width: 100%;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn-primary {
+        background: var(--desert-gold);
+        color: var(--deep-night-blue);
+      }
+      .btn-primary:hover {
+        filter: brightness(0.9);
+        transform: scale(0.98);
+      }
 
-  .footer-link {
-    text-align: center;
-    padding: 16px 0;
-    font-size: 14px;
-    color: var(--muted-gray);
-  }
-  .footer-link a { color: var(--desert-gold); text-decoration: none; font-weight: 600; }
+      .footer-link {
+        text-align: center;
+        padding: 16px 0;
+        font-size: 14px;
+        color: var(--muted-gray);
+      }
+      .footer-link a {
+        color: var(--desert-gold);
+        text-decoration: none;
+        font-weight: 600;
+      }
 
-  /* Speech Bubble */
-  .speech-bubble {
-    background: var(--starlight-white);
-    border: 1px solid var(--desert-gold);
-    border-radius: var(--radius-md);
-    padding: 12px 20px;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--deep-night-blue);
-    position: relative;
-    display: inline-block;
-    animation: bubbleIn 0.3s ease-out;
-    box-shadow: var(--shadow-1);
-  }
-  .speech-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    right: 30px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid var(--starlight-white);
-  }
-  @keyframes bubbleIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
+      /* Speech Bubble */
+      .speech-bubble {
+        background: var(--starlight-white);
+        border: 1px solid var(--desert-gold);
+        border-radius: var(--radius-md);
+        padding: 12px 20px;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--deep-night-blue);
+        position: relative;
+        display: inline-block;
+        animation: bubbleIn 0.3s ease-out;
+        box-shadow: var(--shadow-1);
+      }
+      .speech-bubble::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        right: 30px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid var(--starlight-white);
+      }
+      @keyframes bubbleIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
 
-  /* Narrator mini */
-  .narrator-mini {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 16px 0 24px;
-  }
-  .narrator-wave {
-    width: 70px;
-    height: 90px;
-    position: relative;
-    margin-top: 8px;
-  }
-  .narrator-m-body {
-    width: 44px;
-    height: 56px;
-    background: var(--deep-night-blue);
-    border-radius: 22px 22px 12px 12px;
-    position: relative;
-    margin: 0 auto;
-  }
-  .narrator-m-head {
-    width: 26px;
-    height: 26px;
-    background: var(--deep-night-blue);
-    border-radius: 50%;
-    position: absolute;
-    top: -22px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .narrator-m-head::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 34px;
-    height: 10px;
-    background: var(--deep-night-blue);
-    border-radius: 50%;
-  }
-  .narrator-m-arm {
-    position: absolute;
-    top: 8px;
-    left: -12px;
-    width: 16px;
-    height: 8px;
-    background: var(--deep-night-blue);
-    border-radius: 4px;
-    transform-origin: right center;
-    animation: wave 1.5s ease-in-out infinite;
-  }
-  @keyframes wave {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-20deg); }
-    75% { transform: rotate(10deg); }
-  }
+      /* Narrator mini */
+      .narrator-mini {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 16px 0 24px;
+      }
+      .narrator-wave {
+        width: 70px;
+        height: 90px;
+        position: relative;
+        margin-top: 8px;
+      }
+      .narrator-m-body {
+        width: 44px;
+        height: 56px;
+        background: var(--deep-night-blue);
+        border-radius: 22px 22px 12px 12px;
+        position: relative;
+        margin: 0 auto;
+      }
+      .narrator-m-head {
+        width: 26px;
+        height: 26px;
+        background: var(--deep-night-blue);
+        border-radius: 50%;
+        position: absolute;
+        top: -22px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .narrator-m-head::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 34px;
+        height: 10px;
+        background: var(--deep-night-blue);
+        border-radius: 50%;
+      }
+      .narrator-m-arm {
+        position: absolute;
+        top: 8px;
+        left: -12px;
+        width: 16px;
+        height: 8px;
+        background: var(--deep-night-blue);
+        border-radius: 4px;
+        transform-origin: right center;
+        animation: wave 1.5s ease-in-out infinite;
+      }
+      @keyframes wave {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(-20deg);
+        }
+        75% {
+          transform: rotate(10deg);
+        }
+      }
 
-  .screen-link {
-    display: inline-block;
-    color: var(--desert-gold);
-    font-size: 11px;
-    text-decoration: none;
-    margin-top: 8px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-  .screen-link:hover { opacity: 1; }
-</style>
-</head>
-<body>
-
-<div class="page-nav">
-  <h1>Auth Flow — التسجيل والدخول</h1>
-  <div class="nav-pills">
-    <a href="01-entry-flow.html" class="ext">← Entry Flow</a>
-    <a href="#signup" class="active">Sign Up</a>
-    <a href="#login">Login</a>
-    <a href="03-son-journey.html" class="ext">Son Journey →</a>
-  </div>
-</div>
-
-<div class="screen-grid">
-
-  <!-- ==================== SCREEN 06: SIGN UP ==================== -->
-  <div class="phone-wrapper" id="signup">
-    <div class="phone-label">06 — Sign Up</div>
-    <div class="phone-sublabel">إنشاء حساب · Role Selection + Form</div>
-    <div class="phone">
-      <div class="phone-screen">
-        <div class="ios-status">
-          <span class="time">٩:٤١</span>
-          <span class="icons">📶 📡 🔋</span>
-        </div>
-
-        <div class="screen-header">
-          <a href="01-entry-flow.html#landing" class="back-arrow">→</a>
-          <h2>إنشاء حساب</h2>
-        </div>
-
-        <!-- Role Selection -->
-        <div class="role-cards">
-          <div class="role-card">
-            <div class="check">✓</div>
-            <span class="role-icon">👤</span>
-            <div class="role-mini" style="background: rgba(26,39,68,0.05);">
-              <div style="width: 20px; height: 3px; background: var(--muted-gray); border-radius: 2px; opacity: 0.4;"></div>
-              <div style="width: 14px; height: 3px; background: var(--muted-gray); border-radius: 2px; opacity: 0.4;"></div>
-            </div>
-            <div class="role-label">أب</div>
-          </div>
-          <div class="role-card selected">
-            <div class="check">✓</div>
-            <span class="role-icon">🧒</span>
-            <div class="role-mini" style="background: rgba(212,168,67,0.1);">
-              <div style="width: 4px; height: 4px; background: var(--desert-gold); border-radius: 50%;"></div>
-              <div style="width: 10px; height: 2px; background: var(--desert-gold); border-radius: 2px; opacity: 0.5;"></div>
-              <div style="width: 4px; height: 4px; background: var(--desert-gold); border-radius: 50%;"></div>
-            </div>
-            <div class="role-label">ابن</div>
-          </div>
-        </div>
-
-        <!-- Form -->
-        <div class="form-area">
-          <div class="input-group">
-            <label class="input-label">الاسم</label>
-            <div class="input-field focused">
-              <span class="input-inner" style="color: var(--deep-night-blue);">محمد أحمد</span>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label class="input-label">العمر</label>
-            <div class="input-field">
-              <span class="input-inner" style="color: var(--deep-night-blue);">١٠</span>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label class="input-label">اسم المستخدم</label>
-            <div class="input-field valid">
-              <span class="input-inner">mohammed_ahmed</span>
-              <span class="input-icon success">✓</span>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label class="input-label">كلمة المرور</label>
-            <div class="input-field">
-              <span class="input-inner">••••••••</span>
-              <span class="input-icon">👁️</span>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label class="input-label">تأكيد كلمة المرور</label>
-            <div class="input-field error">
-              <span class="input-inner">•••••</span>
-              <span class="input-icon">👁️</span>
-            </div>
-            <div class="error-text">كلمتا المرور غير متطابقتين</div>
-          </div>
-
-          <div style="height: 24px;"></div>
-          <button class="btn btn-primary">إنشاء الحساب</button>
-
-          <div class="footer-link">
-            لديك حساب بالفعل؟ <a href="#login">سجّل دخولك</a>
-          </div>
-        </div>
-
-        <div class="home-indicator"></div>
+      .screen-link {
+        display: inline-block;
+        color: var(--desert-gold);
+        font-size: 11px;
+        text-decoration: none;
+        margin-top: 8px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+      }
+      .screen-link:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-nav">
+      <h1>Auth Flow — التسجيل والدخول</h1>
+      <div class="nav-pills">
+        <a href="01-entry-flow.html" class="ext">← Entry Flow</a>
+        <a href="#signup" class="active">Sign Up</a>
+        <a href="#login">Login</a>
+        <a href="03-son-journey.html" class="ext">Son Journey →</a>
       </div>
     </div>
-    <a class="screen-link" href="03-son-journey.html">→ Home / Journey Map (on success)</a>
-  </div>
 
-  <!-- ==================== SCREEN 07: LOGIN ==================== -->
-  <div class="phone-wrapper" id="login">
-    <div class="phone-label">07 — Login</div>
-    <div class="phone-sublabel">تسجيل الدخول · Narrator Welcome Back</div>
-    <div class="phone">
-      <div class="phone-screen">
-        <div class="ios-status">
-          <span class="time">٩:٤١</span>
-          <span class="icons">📶 📡 🔋</span>
-        </div>
-
-        <div class="screen-header">
-          <a href="01-entry-flow.html#landing" class="back-arrow">→</a>
-          <h2>تسجيل الدخول</h2>
-        </div>
-
-        <!-- Narrator -->
-        <div class="narrator-mini">
-          <div class="speech-bubble">أهلاً بعودتك!</div>
-          <div class="narrator-wave">
-            <div class="narrator-m-body">
-              <div class="narrator-m-head"></div>
-              <div class="narrator-m-arm"></div>
+    <div class="screen-grid">
+      <!-- ==================== SCREEN 06: SIGN UP ==================== -->
+      <div class="phone-wrapper" id="signup">
+        <div class="phone-label">06 — Sign Up</div>
+        <div class="phone-sublabel">إنشاء حساب · Role Selection + Form</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ios-status">
+              <span class="time">٩:٤١</span>
+              <span class="icons">📶 📡 🔋</span>
             </div>
-          </div>
-        </div>
 
-        <!-- Form -->
-        <div class="form-area">
-          <div class="input-group">
-            <label class="input-label">اسم المستخدم</label>
-            <div class="input-field">
-              <span class="input-inner" style="color: var(--muted-gray); opacity: 0.5;">أدخل اسم المستخدم</span>
+            <div class="screen-header">
+              <a href="01-entry-flow.html#landing" class="back-arrow">→</a>
+              <h2>إنشاء حساب</h2>
             </div>
-          </div>
 
-          <div class="input-group">
-            <label class="input-label">كلمة المرور</label>
-            <div class="input-field">
-              <span class="input-inner" style="color: var(--muted-gray); opacity: 0.5;">أدخل كلمة المرور</span>
-              <span class="input-icon">👁️</span>
+            <!-- Role Selection -->
+            <div class="role-cards">
+              <div class="role-card">
+                <div class="check">✓</div>
+                <span class="role-icon">👤</span>
+                <div class="role-mini" style="background: rgba(26, 39, 68, 0.05)">
+                  <div
+                    style="
+                      width: 20px;
+                      height: 3px;
+                      background: var(--muted-gray);
+                      border-radius: 2px;
+                      opacity: 0.4;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 14px;
+                      height: 3px;
+                      background: var(--muted-gray);
+                      border-radius: 2px;
+                      opacity: 0.4;
+                    "
+                  ></div>
+                </div>
+                <div class="role-label">أب</div>
+              </div>
+              <div class="role-card selected">
+                <div class="check">✓</div>
+                <span class="role-icon">🧒</span>
+                <div class="role-mini" style="background: rgba(212, 168, 67, 0.1)">
+                  <div
+                    style="
+                      width: 4px;
+                      height: 4px;
+                      background: var(--desert-gold);
+                      border-radius: 50%;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 10px;
+                      height: 2px;
+                      background: var(--desert-gold);
+                      border-radius: 2px;
+                      opacity: 0.5;
+                    "
+                  ></div>
+                  <div
+                    style="
+                      width: 4px;
+                      height: 4px;
+                      background: var(--desert-gold);
+                      border-radius: 50%;
+                    "
+                  ></div>
+                </div>
+                <div class="role-label">ابن</div>
+              </div>
             </div>
-          </div>
 
-          <div style="height: 24px;"></div>
-          <button class="btn btn-primary">تسجيل الدخول</button>
+            <!-- Form -->
+            <div class="form-area">
+              <div class="input-group">
+                <label class="input-label">الاسم</label>
+                <div class="input-field focused">
+                  <span class="input-inner" style="color: var(--deep-night-blue)">محمد أحمد</span>
+                </div>
+              </div>
 
-          <div style="text-align: center; padding: 16px 0;">
-            <a href="#" style="font-size: 14px; color: var(--muted-gray); text-decoration: none;">نسيت كلمة المرور؟</a>
-          </div>
+              <div class="input-group">
+                <label class="input-label">العمر</label>
+                <div class="input-field">
+                  <span class="input-inner" style="color: var(--deep-night-blue)">١٠</span>
+                </div>
+              </div>
 
-          <div class="footer-link" style="margin-top: 16px;">
-            ليس لديك حساب؟ <a href="#signup">أنشئ حساباً جديداً</a>
+              <div class="input-group">
+                <label class="input-label">اسم المستخدم</label>
+                <div class="input-field valid">
+                  <span class="input-inner">mohammed_ahmed</span>
+                  <span class="input-icon success">✓</span>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label class="input-label">كلمة المرور</label>
+                <div class="input-field">
+                  <span class="input-inner">••••••••</span>
+                  <span class="input-icon">👁️</span>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label class="input-label">تأكيد كلمة المرور</label>
+                <div class="input-field error">
+                  <span class="input-inner">•••••</span>
+                  <span class="input-icon">👁️</span>
+                </div>
+                <div class="error-text">كلمتا المرور غير متطابقتين</div>
+              </div>
+
+              <div style="height: 24px"></div>
+              <button class="btn btn-primary">إنشاء الحساب</button>
+
+              <div class="footer-link">لديك حساب بالفعل؟ <a href="#login">سجّل دخولك</a></div>
+            </div>
+
+            <div class="home-indicator"></div>
           </div>
         </div>
+        <a class="screen-link" href="03-son-journey.html">→ Home / Journey Map (on success)</a>
+      </div>
 
-        <!-- Error State Preview -->
-        <div style="padding: 32px 20px 0;">
-          <div style="font-size: 11px; font-weight: 600; color: var(--muted-gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">⬇ Error State Preview</div>
-          <div style="background: rgba(224,85,85,0.08); border: 1px solid rgba(224,85,85,0.2); border-radius: var(--radius-sm); padding: 12px 16px; display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 18px;">⚠️</span>
-            <span style="font-size: 14px; color: var(--error-red); font-weight: 600;">اسم المستخدم أو كلمة المرور غير صحيحة</span>
+      <!-- ==================== SCREEN 07: LOGIN ==================== -->
+      <div class="phone-wrapper" id="login">
+        <div class="phone-label">07 — Login</div>
+        <div class="phone-sublabel">تسجيل الدخول · Narrator Welcome Back</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ios-status">
+              <span class="time">٩:٤١</span>
+              <span class="icons">📶 📡 🔋</span>
+            </div>
+
+            <div class="screen-header">
+              <a href="01-entry-flow.html#landing" class="back-arrow">→</a>
+              <h2>تسجيل الدخول</h2>
+            </div>
+
+            <!-- Narrator -->
+            <div class="narrator-mini">
+              <div class="speech-bubble">أهلاً بعودتك!</div>
+              <div class="narrator-wave">
+                <div class="narrator-m-body">
+                  <div class="narrator-m-head"></div>
+                  <div class="narrator-m-arm"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form -->
+            <div class="form-area">
+              <div class="input-group">
+                <label class="input-label">اسم المستخدم</label>
+                <div class="input-field">
+                  <span class="input-inner" style="color: var(--muted-gray); opacity: 0.5"
+                    >أدخل اسم المستخدم</span
+                  >
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label class="input-label">كلمة المرور</label>
+                <div class="input-field">
+                  <span class="input-inner" style="color: var(--muted-gray); opacity: 0.5"
+                    >أدخل كلمة المرور</span
+                  >
+                  <span class="input-icon">👁️</span>
+                </div>
+              </div>
+
+              <div style="height: 24px"></div>
+              <button class="btn btn-primary">تسجيل الدخول</button>
+
+              <div style="text-align: center; padding: 16px 0">
+                <a href="#" style="font-size: 14px; color: var(--muted-gray); text-decoration: none"
+                  >نسيت كلمة المرور؟</a
+                >
+              </div>
+
+              <div class="footer-link" style="margin-top: 16px">
+                ليس لديك حساب؟ <a href="#signup">أنشئ حساباً جديداً</a>
+              </div>
+            </div>
+
+            <!-- Error State Preview -->
+            <div style="padding: 32px 20px 0">
+              <div
+                style="
+                  font-size: 11px;
+                  font-weight: 600;
+                  color: var(--muted-gray);
+                  text-transform: uppercase;
+                  letter-spacing: 1px;
+                  margin-bottom: 12px;
+                "
+              >
+                ⬇ Error State Preview
+              </div>
+              <div
+                style="
+                  background: rgba(224, 85, 85, 0.08);
+                  border: 1px solid rgba(224, 85, 85, 0.2);
+                  border-radius: var(--radius-sm);
+                  padding: 12px 16px;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                "
+              >
+                <span style="font-size: 18px">⚠️</span>
+                <span style="font-size: 14px; color: var(--error-red); font-weight: 600"
+                  >اسم المستخدم أو كلمة المرور غير صحيحة</span
+                >
+              </div>
+            </div>
+
+            <!-- Too Many Attempts State -->
+            <div style="padding: 16px 20px">
+              <div
+                style="
+                  background: rgba(224, 85, 85, 0.08);
+                  border: 1px solid rgba(224, 85, 85, 0.2);
+                  border-radius: var(--radius-sm);
+                  padding: 12px 16px;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                "
+              >
+                <span style="font-size: 18px">🔒</span>
+                <span style="font-size: 14px; color: var(--error-red); font-weight: 600"
+                  >محاولات كثيرة، حاول بعد ٥ دقائق</span
+                >
+              </div>
+            </div>
+
+            <div class="home-indicator"></div>
           </div>
         </div>
-
-        <!-- Too Many Attempts State -->
-        <div style="padding: 16px 20px;">
-          <div style="background: rgba(224,85,85,0.08); border: 1px solid rgba(224,85,85,0.2); border-radius: var(--radius-sm); padding: 12px 16px; display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 18px;">🔒</span>
-            <span style="font-size: 14px; color: var(--error-red); font-weight: 600;">محاولات كثيرة، حاول بعد ٥ دقائق</span>
-          </div>
-        </div>
-
-        <div class="home-indicator"></div>
+        <a class="screen-link" href="03-son-journey.html">→ Home / Journey Map (on success)</a>
       </div>
     </div>
-    <a class="screen-link" href="03-son-journey.html">→ Home / Journey Map (on success)</a>
-  </div>
-
-</div>
-
-</body>
+  </body>
 </html>
