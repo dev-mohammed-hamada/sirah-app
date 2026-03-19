@@ -45,14 +45,14 @@ Build the authentication UI screens and connect them to the backend API. Include
 
 ## Acceptance Criteria
 
-- [ ] Landing screen renders with animations
-- [ ] Role selection works with visual feedback
-- [ ] Username availability check with debounce
-- [ ] Validation errors display correctly
-- [ ] Successful registration creates account and navigates
-- [ ] Successful login stores token and navigates by role
-- [ ] Error states handled (network, validation, lockout)
-- [ ] RTL layout verified
+- [x] Landing screen renders with animations
+- [x] Role selection works with visual feedback
+- [x] Username availability check with debounce
+- [x] Validation errors display correctly
+- [x] Successful registration creates account and navigates
+- [x] Successful login stores token and navigates by role
+- [x] Error states handled (network, validation, lockout)
+- [x] RTL layout verified
 
 ## References
 
