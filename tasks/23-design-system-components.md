@@ -54,12 +54,12 @@ Build the reusable UI component library based on the design system spec. These c
 
 ## Acceptance Criteria
 
-- [ ] All components match design system spec
-- [ ] RTL layout works correctly
-- [ ] Cairo font renders at all weights
-- [ ] Color tokens match spec
-- [ ] Components accept appropriate props
-- [ ] Press/focus/error states work
+- [x] All components match design system spec
+- [x] RTL layout works correctly
+- [x] Cairo font renders at all weights
+- [x] Color tokens match spec
+- [x] Components accept appropriate props
+- [x] Press/focus/error states work
 
 ## References
 
