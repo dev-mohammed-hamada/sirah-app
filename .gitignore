@@ -46,6 +46,9 @@ yarn-error.log*
 # Testing
 coverage/
 
+# Explanations (local reference only)
+explains/
+
 # Misc
 *.pem
 .cache/
