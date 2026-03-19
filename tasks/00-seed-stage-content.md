@@ -40,12 +40,12 @@ Populate the database with 10 stages of Seerah content — story panels, inline 
 
 ## Acceptance Criteria
 
-- [ ] 10 stages with correct ordering
-- [ ] 30 story panels total (3 per stage)
-- [ ] 20 inline questions (2 per stage)
-- [ ] 30-50 final quiz questions (3-5 per stage)
-- [ ] All question types represented across stages
-- [ ] All content reviewed for Islamic accuracy
+- [x] 10 stages with correct ordering
+- [x] 30 story panels total (3 per stage)
+- [x] 20 inline questions (2 per stage)
+- [x] 30-50 final quiz questions (3-5 per stage) — 37 total
+- [x] All question types represented across stages
+- [x] All content reviewed for Islamic accuracy
 - [ ] `npm run prisma:seed` runs without errors
 
 ## References
