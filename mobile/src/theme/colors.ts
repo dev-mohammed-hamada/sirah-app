@@ -9,6 +9,9 @@ export const colors = {
   successGreen: '#4CAF6E',
   errorRed: '#E05555',
   mutedGray: '#8A8A8A',
+  flameOrange: '#FF9900',
+  flameYellow: '#FFCC00',
+  sandTrack: '#E0D5C5',
 } as const;
 
 export type ColorName = keyof typeof colors;

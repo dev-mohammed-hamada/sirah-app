@@ -11,7 +11,7 @@ Ordered by dependency chain — each task builds on what came before.
 | 03  | Splash Screen                  | MEDIUM   | done    | 23, 01     |
 | 04  | Home / Journey Map             | HIGH     | done    | 23, 01, 00 |
 | 05  | Stage Detail Sheet             | HIGH     | done    | 04         |
-| 06  | Stage Flow — Narrator + Panels | HIGH     | pending | 05, 00     |
+| 06  | Stage Flow — Narrator + Panels | HIGH     | done    | 05, 00     |
 | 07  | Inline Questions               | HIGH     | pending | 06         |
 | 08  | Final Quiz                     | HIGH     | pending | 07         |
 | 09  | Celebration / Results          | HIGH     | pending | 08         |
