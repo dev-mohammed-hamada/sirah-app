@@ -1,52 +1,99 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { colors } from '../../theme';
+import { AppText } from '../../components/ui/app-text';
+import { JourneyMapScreen } from '../../screens/son/journey-map-screen';
 import type { SonTabParamList } from './types';
+import { ar } from '../../i18n/ar';
 
-// Placeholder screens
+// Placeholder screens for tabs not yet built
 const Placeholder = ({ name }: { name: string }) => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>{name}</Text>
+  <View style={placeholderStyles.container}>
+    <AppText style={placeholderStyles.text}>{name}</AppText>
   </View>
 );
 
-const HomeScreen = () => <Placeholder name="Home" />;
-const ProgressScreen = () => <Placeholder name="Progress" />;
-const GoalsScreen = () => <Placeholder name="Goals" />;
-const AwardsScreen = () => <Placeholder name="Awards" />;
-const SettingsScreen = () => <Placeholder name="Settings" />;
+const ProgressScreen = () => <Placeholder name={ar.tabs.progress} />;
+const GoalsScreen = () => <Placeholder name={ar.tabs.goals} />;
+const AwardsScreen = () => <Placeholder name={ar.tabs.awards} />;
+const SettingsScreen = () => <Placeholder name={ar.tabs.settings} />;
+
+const TAB_ICONS: Record<keyof SonTabParamList, string> = {
+  HomeTab: '🏠',
+  ProgressTab: '📊',
+  GoalsTab: '🎯',
+  AwardsTab: '🏆',
+  SettingsTab: '⚙️',
+};
 
 const Tab = createBottomTabNavigator<SonTabParamList>();
 
 export function SonTabNavigator() {
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({ route }) => ({
         headerShown: false,
         tabBarStyle: {
           backgroundColor: colors.deepNightBlue,
-          borderTopWidth: 0,
-          height: 60,
-          paddingBottom: 8,
+          borderTopWidth: 1,
+          borderTopColor: colors.desertGold,
+          height: 70,
+          paddingBottom: 20,
+          paddingTop: 8,
         },
         tabBarActiveTintColor: colors.desertGold,
         tabBarInactiveTintColor: colors.mutedGray,
-      }}
+        tabBarIcon: ({ color }) => (
+          <AppText style={{ fontSize: 20, color, textAlign: 'center' }}>
+            {TAB_ICONS[route.name]}
+          </AppText>
+        ),
+        tabBarLabelStyle: {
+          fontWeight: '600',
+          fontSize: 9,
+        },
+      })}
     >
-      <Tab.Screen name="HomeTab" component={HomeScreen} options={{ tabBarLabel: 'الرئيسية' }} />
+      <Tab.Screen
+        name="HomeTab"
+        component={JourneyMapScreen}
+        options={{ tabBarLabel: ar.tabs.home }}
+      />
       <Tab.Screen
         name="ProgressTab"
         component={ProgressScreen}
-        options={{ tabBarLabel: 'التقدم' }}
+        options={{ tabBarLabel: ar.tabs.progress }}
       />
-      <Tab.Screen name="GoalsTab" component={GoalsScreen} options={{ tabBarLabel: 'الأهداف' }} />
-      <Tab.Screen name="AwardsTab" component={AwardsScreen} options={{ tabBarLabel: 'الجوائز' }} />
+      <Tab.Screen
+        name="GoalsTab"
+        component={GoalsScreen}
+        options={{ tabBarLabel: ar.tabs.goals }}
+      />
+      <Tab.Screen
+        name="AwardsTab"
+        component={AwardsScreen}
+        options={{ tabBarLabel: ar.tabs.awards }}
+      />
       <Tab.Screen
         name="SettingsTab"
         component={SettingsScreen}
-        options={{ tabBarLabel: 'الإعدادات' }}
+        options={{ tabBarLabel: ar.tabs.settings }}
       />
     </Tab.Navigator>
   );
 }
+
+const placeholderStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.deepNightBlue,
+  },
+  text: {
+    fontSize: 18,
+    color: colors.starlightWhite,
+    textAlign: 'center',
+  },
+});
