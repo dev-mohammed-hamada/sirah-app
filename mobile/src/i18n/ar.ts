@@ -57,6 +57,12 @@ export const ar = {
     retryStage: 'أعد المحاولة',
     dailyChallengeReady: 'تحدي اليوم جاهز!',
     start: 'ابدأ',
+    bestScore: 'أفضل نتيجتك',
+    heartsReady: 'جاهز',
+    heartsRefill: 'تجديد خلال',
+    perfectBadge: 'أداء مثالي!',
+    attempts: 'محاولات',
+    stageStars: 'النجوم',
   },
 
   // Quiz
