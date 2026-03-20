@@ -39,9 +39,9 @@ export function DailyBanner({ onPress }: DailyBannerProps) {
   return (
     <Animated.View style={[styles.container, wobbleStyle]}>
       <Pressable style={styles.inner} onPress={onPress}>
-        <AppText style={styles.text}>⚡ {ar.home.dailyChallenge} جاهز!</AppText>
+        <AppText style={styles.text}>⚡ {ar.home.dailyChallengeReady}</AppText>
         <View style={styles.button}>
-          <AppText style={styles.buttonText}>ابدأ</AppText>
+          <AppText style={styles.buttonText}>{ar.home.start}</AppText>
         </View>
       </Pressable>
     </Animated.View>
