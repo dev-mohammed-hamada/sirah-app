@@ -17,13 +17,12 @@ import Animated, {
   withDelay,
   withRepeat,
   Easing,
-  interpolate,
   useAnimatedProps,
 } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { colors, spacing, radius, typography } from '../../theme';
+import { colors, gradients, spacing, radius, typography } from '../../theme';
 import { AppText, PrimaryButton } from '../../components';
 import type { AuthStackParamList } from '../../app/navigation/types';
 import { ar } from '../../i18n/ar';
@@ -70,7 +69,7 @@ function StarDot({
           width: size,
           height: size,
           borderRadius: size / 2,
-          backgroundColor: '#FFFFFF',
+          backgroundColor: colors.starlightWhite,
         },
         style,
       ]}
@@ -407,7 +406,10 @@ export function OnboardingScreen({ navigation }: Props) {
 
   const renderPage = ({ item, index }: { item: (typeof pages)[0]; index: number }) => (
     <View style={[styles.page, { width: SCREEN_WIDTH }]}>
-      <LinearGradient colors={['#1A2744', '#4A2D6B']} style={StyleSheet.absoluteFill} />
+      <LinearGradient
+        colors={[colors.deepNightBlue, colors.royalPurple]}
+        style={StyleSheet.absoluteFill}
+      />
 
       {/* Stars */}
       {PAGE_STARS[index].map((star, i) => (
