@@ -14,6 +14,8 @@ interface NarratorBubbleProps {
   typewriter?: boolean;
   typewriterSpeed?: number;
   onFinishTyping?: () => void;
+  /** Use compact variant (login screen: 12px 20px padding, 18px font) */
+  compact?: boolean;
 }
 
 export function NarratorBubble({
@@ -21,6 +23,7 @@ export function NarratorBubble({
   typewriter = true,
   typewriterSpeed = 40,
   onFinishTyping,
+  compact = false,
 }: NarratorBubbleProps) {
   const [displayedText, setDisplayedText] = useState(typewriter ? '' : text);
   const bubbleScale = useSharedValue(0.9);
@@ -59,9 +62,13 @@ export function NarratorBubble({
   }));
 
   return (
-    <Animated.View style={[styles.bubble, animatedStyle]}>
+    <Animated.View style={[styles.bubble, compact && styles.bubbleCompact, animatedStyle]}>
       <View style={styles.tail} />
-      <AppText variant="h3" color={colors.deepNightBlue}>
+      <AppText
+        variant={compact ? 'h4' : 'h3'}
+        color={colors.deepNightBlue}
+        style={compact ? styles.compactText : undefined}
+      >
         {displayedText}
       </AppText>
     </Animated.View>
@@ -74,15 +81,30 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.desertGold,
     borderRadius: radius.md,
-    padding: spacing.lg,
+    paddingVertical: spacing.lg,
+    paddingHorizontal: spacing.xl,
     marginHorizontal: spacing.xl,
+    shadowColor: 'rgba(26, 39, 68, 0.08)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  bubbleCompact: {
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.xl,
+    marginHorizontal: 0,
+  },
+  compactText: {
+    fontSize: 18,
+    fontWeight: '700',
   },
   tail: {
     position: 'absolute',
     bottom: -8,
-    end: 24,
-    width: 16,
-    height: 16,
+    end: 30,
+    width: 14,
+    height: 14,
     backgroundColor: colors.starlightWhite,
     borderEndWidth: 1,
     borderBottomWidth: 1,

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, TextInputProps, View } from 'react-native';
+import { StyleSheet, TextInput, TextInputProps, View, Pressable } from 'react-native';
+import type { FocusEvent, BlurEvent } from 'react-native/Libraries/Types/CoreEventTypes';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
-  interpolate,
   interpolateColor,
 } from 'react-native-reanimated';
 import { colors, typography, radius, spacing } from '../../theme';
@@ -13,69 +13,92 @@ import { AppText } from './app-text';
 interface InputFieldProps extends Omit<TextInputProps, 'style'> {
   label: string;
   error?: string;
+  valid?: boolean;
+  icon?: React.ReactNode;
+  onIconPress?: () => void;
 }
 
-export function InputField({ label, error, value, onFocus, onBlur, ...rest }: InputFieldProps) {
+export function InputField({
+  label,
+  error,
+  valid,
+  value,
+  icon,
+  onIconPress,
+  onFocus,
+  onBlur,
+  ...rest
+}: InputFieldProps) {
   const [isFocused, setIsFocused] = useState(false);
-  const labelAnim = useSharedValue(value ? 1 : 0);
   const focusAnim = useSharedValue(0);
 
-  const hasValue = Boolean(value);
-
-  const handleFocus = (e: any) => {
+  const handleFocus = (e: FocusEvent) => {
     setIsFocused(true);
-    labelAnim.value = withTiming(1, { duration: 150 });
     focusAnim.value = withTiming(1, { duration: 150 });
     onFocus?.(e);
   };
 
-  const handleBlur = (e: any) => {
+  const handleBlur = (e: BlurEvent) => {
     setIsFocused(false);
-    if (!hasValue) {
-      labelAnim.value = withTiming(0, { duration: 150 });
-    }
     focusAnim.value = withTiming(0, { duration: 150 });
     onBlur?.(e);
   };
 
-  const labelStyle = useAnimatedStyle(() => ({
-    transform: [
-      { translateY: interpolate(labelAnim.value, [0, 1], [0, -26]) },
-      { scale: interpolate(labelAnim.value, [0, 1], [1, 0.8]) },
-    ],
-  }));
-
   const borderStyle = useAnimatedStyle(() => {
-    const borderColor = error
-      ? colors.errorRed
-      : interpolateColor(focusAnim.value, [0, 1], ['#E0D5C5', colors.desertGold]);
+    if (error) {
+      return {
+        borderColor: colors.errorRed,
+      };
+    }
+    if (valid) {
+      return {
+        borderColor: colors.successGreen,
+      };
+    }
+    const borderColor = interpolateColor(focusAnim.value, [0, 1], ['#E0D5C5', colors.desertGold]);
     return { borderColor };
   });
 
+  const getLabelColor = () => {
+    if (error) return colors.errorRed;
+    if (isFocused) return colors.desertGold;
+    return colors.mutedGray;
+  };
+
   return (
     <View style={styles.wrapper}>
-      <Animated.View style={[styles.container, borderStyle]}>
-        <Animated.Text
-          style={[
-            styles.label,
-            labelStyle,
-            error && { color: colors.errorRed },
-            isFocused && !error && { color: colors.desertGold },
-          ]}
-        >
-          {label}
-        </Animated.Text>
+      {/* Label above input */}
+      <AppText variant="caption" color={getLabelColor()} style={styles.label}>
+        {label}
+      </AppText>
+
+      {/* Input container */}
+      <Animated.View
+        style={[
+          styles.container,
+          borderStyle,
+          error && styles.containerError,
+          isFocused && !error && styles.containerFocused,
+        ]}
+      >
         <TextInput
           value={value}
           onFocus={handleFocus}
           onBlur={handleBlur}
           style={styles.input}
-          placeholderTextColor={colors.mutedGray}
+          placeholderTextColor={`${colors.mutedGray}80`}
           textAlign="right"
           {...rest}
         />
+        {icon && (
+          <Pressable onPress={onIconPress} style={styles.iconButton}>
+            {icon}
+          </Pressable>
+        )}
       </Animated.View>
-      {error ? (
+
+      {/* Error text */}
+      {error && error.trim() !== '' ? (
         <AppText variant="caption" color={colors.errorRed} style={styles.error}>
           {error}
         </AppText>
@@ -89,26 +112,41 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: spacing.lg,
   },
+  label: {
+    marginBottom: 6,
+    fontWeight: '600',
+  },
   container: {
     height: 52,
     backgroundColor: '#FFFFFF',
     borderWidth: 1.5,
     borderRadius: radius.sm,
-    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: spacing.lg,
   },
-  label: {
-    position: 'absolute',
-    end: spacing.lg,
-    top: 14,
-    ...typography.body,
-    color: colors.mutedGray,
+  containerFocused: {
+    shadowColor: colors.desertGold,
+    shadowOpacity: 0.15,
+    shadowRadius: 3,
+    shadowOffset: { width: 0, height: 0 },
+    elevation: 2,
+  },
+  containerError: {
+    shadowColor: colors.errorRed,
+    shadowOpacity: 0.15,
+    shadowRadius: 3,
+    shadowOffset: { width: 0, height: 0 },
+    elevation: 2,
   },
   input: {
     flex: 1,
+    height: '100%',
     ...typography.bodyLarge,
     color: colors.deepNightBlue,
-    paddingTop: spacing.sm,
+  },
+  iconButton: {
+    marginStart: spacing.sm,
   },
   error: {
     marginTop: spacing.xs,
