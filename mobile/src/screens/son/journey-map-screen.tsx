@@ -6,27 +6,132 @@ import { colors, spacing } from '../../theme';
 import { JourneyStatusBar } from '../../components/journey/status-bar';
 import { DailyBanner } from '../../components/journey/daily-banner';
 import { StageNode, StageStatus } from '../../components/journey/stage-node';
+import { StageDetailSheet, StageDetailData } from '../../components/journey/stage-detail-sheet';
 
 // ─── Mock Data (will come from API later) ────────────────────────
 interface StageData {
   id: string;
   icon: string;
   label: string;
+  description: string;
   status: StageStatus;
   starsEarned: number;
+  bestScore: number;
+  maxScore: number;
+  attempts: number;
 }
 
 const MOCK_STAGES: StageData[] = [
-  { id: '1', icon: '🐘', label: 'عام الفيل', status: 'completed', starsEarned: 3 },
-  { id: '2', icon: '✨', label: 'المولد والطفولة', status: 'completed', starsEarned: 2 },
-  { id: '3', icon: '⛰️', label: 'الشباب والأخلاق', status: 'completed', starsEarned: 3 },
-  { id: '4', icon: '💍', label: 'الزواج من خديجة', status: 'completed', starsEarned: 2 },
-  { id: '5', icon: '📖', label: 'الوحي الأول', status: 'current', starsEarned: 0 },
-  { id: '6', icon: '🤫', label: 'الدعوة السرية', status: 'locked', starsEarned: 0 },
-  { id: '7', icon: '📢', label: 'الجهر بالدعوة', status: 'locked', starsEarned: 0 },
-  { id: '8', icon: '🚢', label: 'الهجرة إلى الحبشة', status: 'locked', starsEarned: 0 },
-  { id: '9', icon: '🌙', label: 'الإسراء والمعراج', status: 'locked', starsEarned: 0 },
-  { id: '10', icon: '🕌', label: 'الهجرة إلى المدينة', status: 'locked', starsEarned: 0 },
+  {
+    id: '1',
+    icon: '🐘',
+    label: 'عام الفيل',
+    description: 'اكتشف قصة عام الفيل وما حدث قبل ميلاد النبي ﷺ',
+    status: 'completed',
+    starsEarned: 3,
+    bestScore: 95,
+    maxScore: 100,
+    attempts: 2,
+  },
+  {
+    id: '2',
+    icon: '✨',
+    label: 'المولد والطفولة',
+    description: 'تعرّف على ميلاد النبي ﷺ وطفولته المباركة',
+    status: 'completed',
+    starsEarned: 2,
+    bestScore: 78,
+    maxScore: 100,
+    attempts: 1,
+  },
+  {
+    id: '3',
+    icon: '⛰️',
+    label: 'الشباب والأخلاق',
+    description: 'كيف نشأ النبي ﷺ وعُرف بالصادق الأمين',
+    status: 'completed',
+    starsEarned: 3,
+    bestScore: 90,
+    maxScore: 100,
+    attempts: 3,
+  },
+  {
+    id: '4',
+    icon: '💍',
+    label: 'الزواج من خديجة',
+    description: 'قصة زواج النبي ﷺ من أم المؤمنين خديجة رضي الله عنها',
+    status: 'completed',
+    starsEarned: 2,
+    bestScore: 72,
+    maxScore: 100,
+    attempts: 1,
+  },
+  {
+    id: '5',
+    icon: '📖',
+    label: 'الوحي الأول',
+    description: 'نزول الوحي في غار حراء وبداية الرسالة',
+    status: 'current',
+    starsEarned: 0,
+    bestScore: 0,
+    maxScore: 100,
+    attempts: 0,
+  },
+  {
+    id: '6',
+    icon: '🤫',
+    label: 'الدعوة السرية',
+    description: 'بداية الدعوة سرًّا وأوائل المسلمين',
+    status: 'locked',
+    starsEarned: 0,
+    bestScore: 0,
+    maxScore: 100,
+    attempts: 0,
+  },
+  {
+    id: '7',
+    icon: '📢',
+    label: 'الجهر بالدعوة',
+    description: 'الجهر بالدعوة ومواجهة قريش',
+    status: 'locked',
+    starsEarned: 0,
+    bestScore: 0,
+    maxScore: 100,
+    attempts: 0,
+  },
+  {
+    id: '8',
+    icon: '🚢',
+    label: 'الهجرة إلى الحبشة',
+    description: 'هجرة المسلمين الأولى إلى الحبشة',
+    status: 'locked',
+    starsEarned: 0,
+    bestScore: 0,
+    maxScore: 100,
+    attempts: 0,
+  },
+  {
+    id: '9',
+    icon: '🌙',
+    label: 'الإسراء والمعراج',
+    description: 'رحلة الإسراء والمعراج المباركة',
+    status: 'locked',
+    starsEarned: 0,
+    bestScore: 0,
+    maxScore: 100,
+    attempts: 0,
+  },
+  {
+    id: '10',
+    icon: '🕌',
+    label: 'الهجرة إلى المدينة',
+    description: 'الهجرة النبوية إلى المدينة المنورة',
+    status: 'locked',
+    starsEarned: 0,
+    bestScore: 0,
+    maxScore: 100,
+    attempts: 0,
+  },
 ];
 
 const MOCK_USER = {
@@ -78,6 +183,7 @@ export function JourneyMapScreen() {
   const scrollRef = useRef<ScrollView>(null);
   const [refreshing, setRefreshing] = React.useState(false);
   const [showDailyBanner, setShowDailyBanner] = React.useState(true);
+  const [selectedStage, setSelectedStage] = React.useState<StageDetailData | null>(null);
 
   // Reverse stages for bottom-to-top display (earliest at bottom)
   const stagesBottomUp = [...MOCK_STAGES].reverse();
@@ -101,8 +207,31 @@ export function JourneyMapScreen() {
     setTimeout(() => setRefreshing(false), 1500);
   }, []);
 
-  const handleStagePress = useCallback((_stage: StageData) => {
-    // Will navigate to Stage Detail (task 05)
+  const handleStagePress = useCallback((stage: StageData) => {
+    if (stage.status === 'locked') {
+      // Locked stages don't open the sheet
+      return;
+    }
+    setSelectedStage({
+      id: stage.id,
+      icon: stage.icon,
+      label: stage.label,
+      description: stage.description,
+      status: stage.status,
+      starsEarned: stage.starsEarned,
+      maxStars: 3,
+      bestScore: stage.bestScore,
+      maxScore: stage.maxScore,
+      attempts: stage.attempts,
+    });
+  }, []);
+
+  const handleDismissSheet = useCallback(() => {
+    setSelectedStage(null);
+  }, []);
+
+  const handleStartStage = useCallback((_stageId: string) => {
+    // Will navigate to Narrator Welcome (task 06)
   }, []);
 
   const handleDailyPress = useCallback(() => {
@@ -200,6 +329,14 @@ export function JourneyMapScreen() {
           );
         })}
       </ScrollView>
+
+      {/* Stage Detail Bottom Sheet */}
+      <StageDetailSheet
+        stage={selectedStage}
+        hearts={MOCK_USER.hearts}
+        onDismiss={handleDismissSheet}
+        onStartStage={handleStartStage}
+      />
     </View>
   );
 }

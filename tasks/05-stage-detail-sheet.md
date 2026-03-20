@@ -32,13 +32,13 @@ A bottom sheet that previews a stage before playing — shows info, score histor
 
 ## Acceptance Criteria
 
-- [ ] Bottom sheet renders over dimmed map
-- [ ] Stage info displays correctly
-- [ ] Stats show for completed stages
-- [ ] Action button navigates to Narrator Welcome
-- [ ] Hearts check prevents play when depleted
-- [ ] Drag-to-dismiss works
-- [ ] First-time vs replay states handled
+- [x] Bottom sheet renders over dimmed map
+- [x] Stage info displays correctly
+- [x] Stats show for completed stages
+- [x] Action button navigates to Narrator Welcome
+- [x] Hearts check prevents play when depleted
+- [x] Drag-to-dismiss works
+- [x] First-time vs replay states handled
 
 ## References
 
