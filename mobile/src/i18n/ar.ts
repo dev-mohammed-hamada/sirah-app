@@ -35,12 +35,14 @@ export const ar = {
   // Onboarding
   onboarding: {
     slide1Title: 'رحلة عبر الزمن',
-    slide1Desc: 'اكتشف سيرة النبي محمد ﷺ في رحلة تعليمية ممتعة',
-    slide2Title: 'تعلم وتحدى',
-    slide2Desc: 'أجب على الأسئلة واجمع النجوم والنقاط',
-    slide3Title: 'شارك مع أبيك',
-    slide3Desc: 'يتابع أبوك تقدمك ويضع لك أهدافاً',
-    getStarted: 'ابدأ الرحلة',
+    slide1Desc: 'انطلق في رحلة مشوقة عبر سيرة النبي ﷺ مرحلة بمرحلة',
+    slide2Title: 'تعلّم وأنت تلعب',
+    slide2Desc: 'أسئلة ممتعة ونجوم ومكافآت في كل مرحلة',
+    slide3Title: 'أبوك يتابع تقدمك',
+    slide3Desc: 'والدك يشاهد إنجازاتك ويضع لك أهدافاً ومكافآت',
+    getStarted: 'ابدأ الآن',
+    fatherLabel: 'الأب',
+    sonLabel: 'الابن',
   },
 
   // Home / Journey

@@ -37,13 +37,13 @@ Build 3 onboarding pages shown to first-time users before the landing screen. In
 
 ## Acceptance Criteria
 
-- [ ] 3 pages with swipe navigation
-- [ ] Page indicator dots update correctly
-- [ ] Skip button works on pages 1-2, hidden on page 3
-- [ ] "Start Now" on page 3 navigates to Landing
-- [ ] Onboarding only shows on first launch
-- [ ] RTL swipe direction (swipe left to advance)
-- [ ] Animations play smoothly
+- [x] 3 pages with swipe navigation
+- [x] Page indicator dots update correctly
+- [x] Skip button works on pages 1-2, hidden on page 3
+- [x] "Start Now" on page 3 navigates to Landing
+- [x] Onboarding only shows on first launch
+- [x] RTL swipe direction (swipe left to advance)
+- [x] Animations play smoothly
 
 ## References
 
