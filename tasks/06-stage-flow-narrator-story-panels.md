@@ -50,13 +50,13 @@ Narrator Welcome → Panel 1 → Inline Q1 → Panel 2 → Inline Q2 → Panel 3
 
 ## Acceptance Criteria
 
-- [ ] Narrator welcome plays with typewriter effect
-- [ ] 3 story panels render with illustrations
-- [ ] Progress bar updates correctly
-- [ ] Hearts display in top bar
-- [ ] Forward-only navigation enforced
-- [ ] Smooth transitions between panels
-- [ ] RTL progress bar (fills right to left)
+- [x] Narrator welcome plays with typewriter effect
+- [x] 3 story panels render with illustrations
+- [x] Progress bar updates correctly
+- [x] Hearts display in top bar
+- [x] Forward-only navigation enforced
+- [x] Smooth transitions between panels
+- [x] RTL progress bar (fills right to left)
 
 ## References
 

@@ -166,6 +166,13 @@ export const ar = {
     createGoalFor: 'إنشاء هدف لـ',
   },
 
+  // Stage Flow
+  stageFlow: {
+    stageLabel: 'المرحلة',
+    letsGo: 'هيا بنا',
+    narratorTag: 'الراوي:',
+  },
+
   // Narrator
   narrator: {
     welcome: 'أهلاً بك يا بطل! هيا نبدأ رحلتنا',
