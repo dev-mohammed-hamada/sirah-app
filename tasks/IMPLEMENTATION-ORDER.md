@@ -9,7 +9,7 @@ Ordered by dependency chain — each task builds on what came before.
 | 01  | Auth Screens                   | HIGH     | done    | 23         |
 | 02  | Onboarding Screens             | HIGH     | done    | 23, 01     |
 | 03  | Splash Screen                  | MEDIUM   | done    | 23, 01     |
-| 04  | Home / Journey Map             | HIGH     | pending | 23, 01, 00 |
+| 04  | Home / Journey Map             | HIGH     | done    | 23, 01, 00 |
 | 05  | Stage Detail Sheet             | HIGH     | pending | 04         |
 | 06  | Stage Flow — Narrator + Panels | HIGH     | pending | 05, 00     |
 | 07  | Inline Questions               | HIGH     | pending | 06         |

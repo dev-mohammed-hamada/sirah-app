@@ -59,15 +59,15 @@ The heart of the app — a vertically scrollable desert landscape with a winding
 
 ## Acceptance Criteria
 
-- [ ] Scrollable desert landscape renders
-- [ ] 10 stage nodes with correct states
-- [ ] Status bar shows live user data
-- [ ] Bottom navigation works
-- [ ] Auto-scroll to current stage
-- [ ] Tap interactions work correctly
-- [ ] Daily challenge banner shows conditionally
-- [ ] Pull-to-refresh updates data
-- [ ] RTL layout verified
+- [x] Scrollable desert landscape renders
+- [x] 10 stage nodes with correct states
+- [x] Status bar shows live user data
+- [x] Bottom navigation works
+- [x] Auto-scroll to current stage
+- [x] Tap interactions work correctly
+- [x] Daily challenge banner shows conditionally
+- [x] Pull-to-refresh updates data
+- [x] RTL layout verified
 
 ## References
 
