@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   track: {
     width: '100%',
     height: 4,
-    backgroundColor: '#E0D5C5',
+    backgroundColor: colors.sandTrack,
     borderRadius: 2,
     overflow: 'hidden',
   },

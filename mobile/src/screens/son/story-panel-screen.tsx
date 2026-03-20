@@ -150,7 +150,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: colors.deepNightBlue,
     lineHeight: 30,
-    textAlign: 'right',
   },
   buttonArea: {
     paddingHorizontal: spacing.xl,

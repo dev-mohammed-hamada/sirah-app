@@ -117,7 +117,7 @@ const campfireStyles = StyleSheet.create({
   flame: {
     width: 24,
     height: 36,
-    backgroundColor: '#FF9900',
+    backgroundColor: colors.flameOrange,
     borderTopStartRadius: 12,
     borderTopEndRadius: 12,
     borderBottomStartRadius: 8,
@@ -130,7 +130,7 @@ const campfireStyles = StyleSheet.create({
     bottom: 8,
     width: 12,
     height: 20,
-    backgroundColor: '#FFCC00',
+    backgroundColor: colors.flameYellow,
     borderTopStartRadius: 6,
     borderTopEndRadius: 6,
     borderBottomStartRadius: 4,
@@ -182,7 +182,7 @@ export function NarratorWelcomeScreen({
   const insets = useSafeAreaInsets();
   const welcomeText = STAGE_WELCOME_TEXTS[stageId] ?? ar.narrator.welcome;
   const stageLabel = STAGE_LABELS[stageId] ?? '';
-  const displayedText = useTypewriter(welcomeText, 80);
+  const displayedText = useTypewriter(welcomeText, 40);
 
   return (
     <View style={styles.root}>
@@ -239,7 +239,7 @@ export function NarratorWelcomeScreen({
 
       {/* Continue button */}
       <View style={[styles.buttonArea, { paddingBottom: insets.bottom + 20 }]}>
-        <PrimaryButton title={`${ar.stageFlow.letsGo} ←`} onPress={onContinue} />
+        <PrimaryButton title={`${ar.stageFlow.letsGo} →`} onPress={onContinue} />
       </View>
     </View>
   );
