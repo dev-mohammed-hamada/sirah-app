@@ -10,7 +10,7 @@ import {
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { colors, spacing, radius, shadows } from '../../theme';
+import { colors, spacing, radius } from '../../theme';
 import { AppText, InputField, PrimaryButton, LoadingSpinner, Toast } from '../../components';
 import { useRegister, useCheckUsername } from '../../hooks/use-auth';
 import { useDebounce } from '../../hooks/use-debounce';
@@ -30,16 +30,28 @@ interface FormErrors {
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
+/** Decorative mini bars inside role card */
+function RoleMini({ variant }: { variant: 'son' | 'father' }) {
+  const barColor = variant === 'son' ? 'rgba(212, 168, 67, 0.3)' : 'rgba(26, 39, 68, 0.15)';
+  const bg = variant === 'son' ? 'rgba(212, 168, 67, 0.1)' : 'rgba(26, 39, 68, 0.05)';
+
+  return (
+    <View style={[styles.roleMini, { backgroundColor: bg }]}>
+      <View style={[styles.miniBar, { backgroundColor: barColor, width: 20 }]} />
+      <View style={[styles.miniBar, { backgroundColor: barColor, width: 14 }]} />
+      <View style={[styles.miniBar, { backgroundColor: barColor, width: 18 }]} />
+    </View>
+  );
+}
+
 function RoleCard({
   role,
   label,
-  description,
   selected,
   onPress,
 }: {
   role: Role;
   label: string;
-  description: string;
   selected: boolean;
   onPress: () => void;
 }) {
@@ -55,38 +67,49 @@ function RoleCard({
   };
 
   const handlePressIn = () => {
-    scale.value = withSpring(1.03, { damping: 15 });
+    scale.value = withSpring(0.97, { damping: 15 });
   };
 
   return (
     <AnimatedPressable
       onPress={handlePress}
       onPressIn={handlePressIn}
+      onPressOut={() => {
+        scale.value = withSpring(1, { damping: 15 });
+      }}
       style={[styles.roleCard, selected && styles.roleCardSelected, animatedStyle]}
     >
+      {/* Checkmark badge (top-right in RTL = top-start) */}
       {selected && (
-        <View style={styles.checkmark}>
-          <AppText variant="caption" color={colors.starlightWhite}>
+        <Animated.View style={styles.checkmark}>
+          <AppText variant="caption" color="#FFFFFF" style={{ fontSize: 12, fontWeight: '700' }}>
             ✓
           </AppText>
-        </View>
+        </Animated.View>
       )}
-      <AppText
-        variant="h3"
-        color={selected ? colors.desertGold : colors.deepNightBlue}
-        style={styles.centered}
-      >
-        {role === 'SON' ? '🌙' : '⭐'}
-      </AppText>
-      <AppText
-        variant="bodyLarge"
-        color={selected ? colors.desertGold : colors.deepNightBlue}
-        style={[styles.centered, styles.roleLabel]}
-      >
+
+      {/* Icon area — faceless silhouette placeholder */}
+      <View style={styles.roleIconArea}>
+        <View
+          style={[
+            styles.roleIconCircle,
+            {
+              backgroundColor:
+                role === 'FATHER' ? 'rgba(26, 39, 68, 0.08)' : 'rgba(212, 168, 67, 0.12)',
+            },
+          ]}
+        >
+          <View style={styles.roleIconHead} />
+          <View style={styles.roleIconBody} />
+        </View>
+      </View>
+
+      {/* Decorative mini bars */}
+      <RoleMini variant={role === 'SON' ? 'son' : 'father'} />
+
+      {/* Label */}
+      <AppText variant="bodyLarge" color={colors.deepNightBlue} style={styles.roleLabelText}>
         {label}
-      </AppText>
-      <AppText variant="caption" color={colors.mutedGray} style={styles.centered}>
-        {description}
       </AppText>
     </AnimatedPressable>
   );
@@ -162,6 +185,9 @@ export function SignUpScreen({ navigation }: Props) {
     );
   };
 
+  const usernameValid =
+    debouncedUsername.length >= 3 && !errors.username && usernameAvailable === true;
+
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <Toast
@@ -198,14 +224,12 @@ export function SignUpScreen({ navigation }: Props) {
             <RoleCard
               role="SON"
               label="ابن"
-              description="أتعلم السيرة النبوية بطريقة ممتعة"
               selected={role === 'SON'}
               onPress={() => setRole('SON')}
             />
             <RoleCard
               role="FATHER"
               label="أب"
-              description="أتابع تقدم أبنائي في التعلم"
               selected={role === 'FATHER'}
               onPress={() => setRole('FATHER')}
             />
@@ -237,22 +261,23 @@ export function SignUpScreen({ navigation }: Props) {
                 onChangeText={setUsername}
                 autoCapitalize="none"
                 error={errors.username}
+                valid={usernameValid}
+                icon={
+                  debouncedUsername.length >= 3 ? (
+                    checkingUsername ? (
+                      <LoadingSpinner size={16} />
+                    ) : usernameAvailable ? (
+                      <AppText variant="body" color={colors.successGreen}>
+                        ✓
+                      </AppText>
+                    ) : usernameAvailable === false ? (
+                      <AppText variant="body" color={colors.errorRed}>
+                        ✗
+                      </AppText>
+                    ) : null
+                  ) : undefined
+                }
               />
-              {debouncedUsername.length >= 3 && !errors.username && (
-                <View style={styles.usernameStatus}>
-                  {checkingUsername ? (
-                    <LoadingSpinner size={16} />
-                  ) : usernameAvailable ? (
-                    <AppText variant="caption" color={colors.successGreen}>
-                      ✓ متاح
-                    </AppText>
-                  ) : usernameAvailable === false ? (
-                    <AppText variant="caption" color={colors.errorRed}>
-                      ✗ مستخدم
-                    </AppText>
-                  ) : null}
-                </View>
-              )}
             </View>
 
             <InputField
@@ -261,6 +286,12 @@ export function SignUpScreen({ navigation }: Props) {
               onChangeText={setPassword}
               secureTextEntry={!showPassword}
               error={errors.password}
+              icon={
+                <AppText variant="body" color={colors.mutedGray}>
+                  👁️
+                </AppText>
+              }
+              onIconPress={() => setShowPassword(!showPassword)}
             />
 
             <InputField
@@ -269,13 +300,13 @@ export function SignUpScreen({ navigation }: Props) {
               onChangeText={setConfirmPassword}
               secureTextEntry={!showPassword}
               error={errors.confirmPassword}
+              icon={
+                <AppText variant="body" color={colors.mutedGray}>
+                  👁️
+                </AppText>
+              }
+              onIconPress={() => setShowPassword(!showPassword)}
             />
-
-            <Pressable onPress={() => setShowPassword(!showPassword)}>
-              <AppText variant="caption" color={colors.desertGold}>
-                {showPassword ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'}
-              </AppText>
-            </Pressable>
           </View>
 
           {/* Submit */}
@@ -286,14 +317,16 @@ export function SignUpScreen({ navigation }: Props) {
               <PrimaryButton title="إنشاء الحساب" onPress={handleSignUp} />
             )}
 
-            <Pressable onPress={() => navigation.navigate('Login')} style={styles.footerLink}>
+            <View style={styles.footerLink}>
               <AppText variant="body" color={colors.mutedGray}>
                 لديك حساب بالفعل؟{' '}
               </AppText>
-              <AppText variant="body" color={colors.desertGold}>
-                سجّل دخولك
-              </AppText>
-            </Pressable>
+              <Pressable onPress={() => navigation.navigate('Login')}>
+                <AppText variant="body" color={colors.desertGold} style={{ fontWeight: '600' }}>
+                  سجّل دخولك
+                </AppText>
+              </Pressable>
+            </View>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -314,7 +347,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: spacing.xl,
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.sm,
   },
   backButton: {
     width: 40,
@@ -335,12 +368,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
     borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: '#E0D5C5',
-    padding: spacing.lg,
+    borderWidth: 1.5,
+    borderColor: '#E0E0E0',
+    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.md,
     alignItems: 'center',
-    gap: spacing.sm,
-    ...shadows.soft,
+    position: 'relative',
   },
   roleCardSelected: {
     borderWidth: 3,
@@ -348,31 +381,69 @@ const styles = StyleSheet.create({
     shadowColor: colors.desertGold,
     shadowOpacity: 0.3,
     shadowRadius: 12,
+    shadowOffset: { width: 0, height: 0 },
+    elevation: 4,
   },
   checkmark: {
     position: 'absolute',
-    top: spacing.sm,
-    start: spacing.sm,
-    width: 24,
-    height: 24,
-    borderRadius: 12,
+    top: 8,
+    end: 8,
+    width: 22,
+    height: 22,
+    borderRadius: 11,
     backgroundColor: colors.desertGold,
     justifyContent: 'center',
     alignItems: 'center',
+    zIndex: 2,
   },
-  roleLabel: {
+  roleIconArea: {
+    marginBottom: spacing.sm,
+  },
+  roleIconCircle: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  roleIconHead: {
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    backgroundColor: colors.deepNightBlue,
+    opacity: 0.3,
+    marginBottom: -4,
+    zIndex: 1,
+  },
+  roleIconBody: {
+    width: 24,
+    height: 20,
+    borderTopStartRadius: 12,
+    borderTopEndRadius: 12,
+    borderBottomStartRadius: 6,
+    borderBottomEndRadius: 6,
+    backgroundColor: colors.deepNightBlue,
+    opacity: 0.3,
+  },
+  roleMini: {
+    width: 60,
+    height: 30,
+    borderRadius: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 3,
+    marginVertical: spacing.sm,
+  },
+  miniBar: {
+    height: 3,
+    borderRadius: 1.5,
+  },
+  roleLabelText: {
     fontWeight: '700',
-  },
-  centered: {
-    textAlign: 'center',
+    marginTop: spacing.xs,
   },
   form: {
-    gap: spacing.xs,
-  },
-  usernameStatus: {
-    position: 'absolute',
-    start: spacing.sm,
-    top: spacing.lg,
+    gap: 0,
   },
   submitSection: {
     marginTop: spacing.xxl,
@@ -382,5 +453,6 @@ const styles = StyleSheet.create({
   footerLink: {
     flexDirection: 'row',
     justifyContent: 'center',
+    paddingVertical: spacing.lg,
   },
 });

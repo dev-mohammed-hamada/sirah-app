@@ -18,8 +18,9 @@ import Animated, {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { colors, spacing, radius } from '../../theme';
-import { AppText, InputField, PrimaryButton, LoadingSpinner, Toast } from '../../components';
+import { AppText, InputField, PrimaryButton, LoadingSpinner } from '../../components';
 import { NarratorBubble } from '../../components/narrator/narrator-bubble';
+import { NarratorSilhouette } from '../../components/narrator/narrator-silhouette';
 import { useLogin } from '../../hooks/use-auth';
 import type { AuthStackParamList } from '../../app/navigation/types';
 
@@ -33,14 +34,27 @@ interface FormErrors {
 const LOCKOUT_DURATION = 5 * 60 * 1000; // 5 minutes
 const MAX_ATTEMPTS = 5;
 
+/** Error / lockout alert box matching mockup design */
+function ErrorAlert({ icon, message }: { icon: string; message: string }) {
+  return (
+    <View style={styles.alertBox}>
+      <AppText variant="body" style={{ fontSize: 18 }}>
+        {icon}
+      </AppText>
+      <AppText variant="body" color={colors.errorRed} style={styles.alertText}>
+        {message}
+      </AppText>
+    </View>
+  );
+}
+
 export function LoginScreen({ navigation }: Props) {
   const insets = useSafeAreaInsets();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [toastVisible, setToastVisible] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [attempts, setAttempts] = useState(0);
   const [lockedUntil, setLockedUntil] = useState<number | null>(null);
   const [countdown, setCountdown] = useState(0);
@@ -75,6 +89,7 @@ export function LoginScreen({ navigation }: Props) {
         setLockedUntil(null);
         setAttempts(0);
         setCountdown(0);
+        setErrorMessage('');
       } else {
         setCountdown(Math.ceil(remaining / 1000));
       }
@@ -131,6 +146,7 @@ export function LoginScreen({ navigation }: Props) {
     if (isLocked) return;
     if (!validate()) return;
 
+    setErrorMessage('');
     loginMutation.mutate(
       { username: username.trim(), password },
       {
@@ -140,14 +156,12 @@ export function LoginScreen({ navigation }: Props) {
 
           if (newAttempts >= MAX_ATTEMPTS) {
             setLockedUntil(Date.now() + LOCKOUT_DURATION);
-            setToastMessage('محاولات كثيرة، حاول بعد ٥ دقائق');
+            setErrorMessage('محاولات كثيرة، حاول بعد ٥ دقائق');
           } else {
-            setToastMessage('اسم المستخدم أو كلمة المرور غير صحيحة');
+            setErrorMessage('اسم المستخدم أو كلمة المرور غير صحيحة');
             setErrors({ username: ' ', password: ' ' });
             shakeForm();
           }
-
-          setToastVisible(true);
         },
       },
     );
@@ -161,13 +175,6 @@ export function LoginScreen({ navigation }: Props) {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      <Toast
-        message={toastMessage}
-        type="error"
-        visible={toastVisible}
-        onDismiss={() => setToastVisible(false)}
-      />
-
       {/* Header */}
       <View style={styles.header}>
         <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
@@ -190,13 +197,11 @@ export function LoginScreen({ navigation }: Props) {
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
-          {/* Narrator */}
+          {/* Narrator mini section */}
           <Animated.View style={[styles.narratorSection, narratorStyle]}>
-            <NarratorBubble text="أهلاً بعودتك!" typewriterSpeed={40} />
-            <View style={styles.narratorSilhouette}>
-              <AppText variant="h1" style={styles.centered}>
-                🕌
-              </AppText>
+            <NarratorBubble text="أهلاً بعودتك!" typewriterSpeed={40} compact />
+            <View style={styles.narratorFigure}>
+              <NarratorSilhouette waving color={colors.deepNightBlue} />
             </View>
           </Animated.View>
 
@@ -207,6 +212,7 @@ export function LoginScreen({ navigation }: Props) {
               value={username}
               onChangeText={setUsername}
               autoCapitalize="none"
+              placeholder="أدخل اسم المستخدم"
               error={errors.username}
             />
 
@@ -215,14 +221,15 @@ export function LoginScreen({ navigation }: Props) {
               value={password}
               onChangeText={setPassword}
               secureTextEntry={!showPassword}
+              placeholder="أدخل كلمة المرور"
               error={errors.password}
+              icon={
+                <AppText variant="body" color={colors.mutedGray}>
+                  👁️
+                </AppText>
+              }
+              onIconPress={() => setShowPassword(!showPassword)}
             />
-
-            <Pressable onPress={() => setShowPassword(!showPassword)}>
-              <AppText variant="caption" color={colors.desertGold}>
-                {showPassword ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'}
-              </AppText>
-            </Pressable>
           </Animated.View>
 
           {/* Actions */}
@@ -237,21 +244,38 @@ export function LoginScreen({ navigation }: Props) {
               />
             )}
 
+            {/* Forgot password */}
             <Pressable onPress={() => {}} style={styles.forgotPassword}>
-              <AppText variant="caption" color={colors.mutedGray}>
+              <AppText variant="body" color={colors.mutedGray}>
                 نسيت كلمة المرور؟
               </AppText>
             </Pressable>
 
-            <Pressable onPress={() => navigation.navigate('SignUp')} style={styles.footerLink}>
+            {/* Sign up link */}
+            <View style={styles.footerLink}>
               <AppText variant="body" color={colors.mutedGray}>
                 ليس لديك حساب؟{' '}
               </AppText>
-              <AppText variant="body" color={colors.desertGold}>
-                أنشئ حساباً جديداً
-              </AppText>
-            </Pressable>
+              <Pressable onPress={() => navigation.navigate('SignUp')}>
+                <AppText variant="body" color={colors.desertGold} style={{ fontWeight: '600' }}>
+                  أنشئ حساباً جديداً
+                </AppText>
+              </Pressable>
+            </View>
           </Animated.View>
+
+          {/* Error alert boxes */}
+          {errorMessage !== '' && !isLocked && (
+            <View style={styles.errorSection}>
+              <ErrorAlert icon="⚠️" message={errorMessage} />
+            </View>
+          )}
+
+          {isLocked && (
+            <View style={styles.errorSection}>
+              <ErrorAlert icon="🔒" message="محاولات كثيرة، حاول بعد ٥ دقائق" />
+            </View>
+          )}
         </ScrollView>
       </KeyboardAvoidingView>
     </View>
@@ -271,7 +295,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: spacing.xl,
-    paddingVertical: spacing.md,
+    paddingVertical: spacing.sm,
   },
   backButton: {
     width: 40,
@@ -285,21 +309,13 @@ const styles = StyleSheet.create({
   },
   narratorSection: {
     alignItems: 'center',
-    marginBottom: spacing.xxl,
+    marginVertical: spacing.lg,
   },
-  narratorSilhouette: {
-    marginTop: spacing.md,
-    width: 120,
-    height: 120,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  centered: {
-    textAlign: 'center',
+  narratorFigure: {
+    marginTop: spacing.sm,
   },
   form: {
-    gap: spacing.xs,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.xxl,
   },
   actionsSection: {
     gap: spacing.lg,
@@ -307,10 +323,31 @@ const styles = StyleSheet.create({
   },
   forgotPassword: {
     alignSelf: 'center',
+    paddingVertical: spacing.lg,
   },
   footerLink: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: spacing.md,
+    paddingVertical: spacing.lg,
+    marginTop: spacing.lg,
+  },
+  errorSection: {
+    marginTop: spacing.lg,
+    paddingTop: spacing.xxxl,
+  },
+  alertBox: {
+    backgroundColor: 'rgba(224, 85, 85, 0.08)',
+    borderWidth: 1,
+    borderColor: 'rgba(224, 85, 85, 0.2)',
+    borderRadius: radius.sm,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  alertText: {
+    fontWeight: '600',
+    flex: 1,
   },
 });
