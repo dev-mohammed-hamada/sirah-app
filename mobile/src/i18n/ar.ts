@@ -55,6 +55,8 @@ export const ar = {
     stageLocked: 'مقفل',
     startStage: 'ابدأ المرحلة',
     retryStage: 'أعد المحاولة',
+    dailyChallengeReady: 'تحدي اليوم جاهز!',
+    start: 'ابدأ',
   },
 
   // Quiz
