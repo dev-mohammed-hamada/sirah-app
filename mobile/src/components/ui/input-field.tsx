@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, TextInputProps, View, Pressable } from 'react-native';
+import type { FocusEvent, BlurEvent } from 'react-native/Libraries/Types/CoreEventTypes';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -31,13 +32,13 @@ export function InputField({
   const [isFocused, setIsFocused] = useState(false);
   const focusAnim = useSharedValue(0);
 
-  const handleFocus = (e: any) => {
+  const handleFocus = (e: FocusEvent) => {
     setIsFocused(true);
     focusAnim.value = withTiming(1, { duration: 150 });
     onFocus?.(e);
   };
 
-  const handleBlur = (e: any) => {
+  const handleBlur = (e: BlurEvent) => {
     setIsFocused(false);
     focusAnim.value = withTiming(0, { duration: 150 });
     onBlur?.(e);
