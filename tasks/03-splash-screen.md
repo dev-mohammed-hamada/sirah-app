@@ -42,10 +42,10 @@ Build the animated splash screen — a magical desert night with a campfire and 
 
 ## Acceptance Criteria
 
-- [ ] Full animation sequence plays
-- [ ] Correct routing based on auth state
-- [ ] Smooth transition to next screen
-- [ ] Assets load without flash
+- [x] Full animation sequence plays
+- [x] Correct routing based on auth state
+- [x] Smooth transition to next screen
+- [x] Assets load without flash
 
 ## References
 

@@ -1,6 +1,7 @@
 export const ar = {
   // Common
   appName: 'سيرة النبي ﷺ',
+  appTagline: 'تعلّم السيرة وأنت تلعب',
   loading: 'جاري التحميل...',
   retry: 'إعادة المحاولة',
   cancel: 'إلغاء',
