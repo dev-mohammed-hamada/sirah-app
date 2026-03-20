@@ -13,7 +13,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { colors } from '../../theme';
+import { colors, gradients } from '../../theme';
 import { AppText } from '../../components';
 import { NarratorSilhouette } from '../../components/narrator/narrator-silhouette';
 import type { AuthStackParamList } from '../../app/navigation/types';
@@ -64,7 +64,7 @@ function StarDot({
             width: size,
             height: size,
             borderRadius: size / 2,
-            backgroundColor: '#FFFFFF',
+            backgroundColor: colors.starlightWhite,
           },
           animStyle,
         ]}
@@ -203,7 +203,7 @@ export function SplashScreen({ navigation }: Props) {
   return (
     <Animated.View style={[styles.container, screenStyle]}>
       <LinearGradient
-        colors={['#1A2744', '#2A3A5C', '#4A2D6B']}
+        colors={[colors.deepNightBlue, '#2A3A5C', colors.royalPurple]}
         locations={[0, 0.4, 1]}
         style={StyleSheet.absoluteFill}
       />

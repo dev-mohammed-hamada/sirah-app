@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import type { AuthStackParamList } from './types';
-import { SplashScreen } from '../../screens/auth/SplashScreen';
-import { OnboardingScreen } from '../../screens/auth/OnboardingScreen';
+import { SplashScreen } from '../../screens/auth/splash-screen';
+import { OnboardingScreen } from '../../screens/auth/onboarding-screen';
 import { LandingScreen } from '../../screens/auth/landing-screen';
 import { SignUpScreen } from '../../screens/auth/sign-up-screen';
 import { LoginScreen } from '../../screens/auth/login-screen';
