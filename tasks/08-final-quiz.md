@@ -50,13 +50,13 @@
 
 ## Acceptance Criteria
 
-- [ ] 3-5 questions render with dark theme
-- [ ] Speed bonus timer works
-- [ ] Progress dots update per question
-- [ ] Scoring calculates correctly
-- [ ] Hearts depletion modal shows at 0 hearts
-- [ ] Auto-transitions to Celebration screen
-- [ ] All 5 question types work in dark theme
+- [x] 3-5 questions render with dark theme
+- [x] Speed bonus timer works
+- [x] Progress dots update per question
+- [x] Scoring calculates correctly
+- [x] Hearts depletion modal shows at 0 hearts
+- [x] Auto-transitions to Celebration screen
+- [x] All 5 question types work in dark theme
 
 ## References
 
