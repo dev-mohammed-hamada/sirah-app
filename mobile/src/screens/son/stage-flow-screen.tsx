@@ -1,12 +1,8 @@
 import React, { useState, useCallback } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { colors } from '../../theme';
-import { AppText } from '../../components/ui/app-text';
-import { PrimaryButton } from '../../components/ui/primary-button';
-import { ar } from '../../i18n/ar';
 import { NarratorWelcomeScreen } from './narrator-welcome-screen';
 import { StoryPanelScreen } from './story-panel-screen';
 import { InlineQuestionScreen } from './inline-question-screen';
+import { FinalQuizScreen } from './final-quiz-screen';
 import type { Question } from '../../components/question/question-types';
 
 // ─── Mock Stage Content (will come from API) ─────────────────────
@@ -17,6 +13,7 @@ interface StageContent {
   label: string;
   panels: string[];
   inlineQuestions: Question[];
+  quizQuestions: Question[];
 }
 
 const MOCK_STAGES: Record<string, StageContent> = {
@@ -45,6 +42,33 @@ const MOCK_STAGES: Record<string, StageContent> = {
         text: 'قال عبدالمطلب: أنا رب الإبل وللبيت رب يحميه',
         correctAnswer: true,
         explanation: 'نعم، هذه المقولة الشهيرة لعبدالمطلب جد النبي ﷺ عندما طالب بإبله من أبرهة.',
+      },
+    ],
+    quizQuestions: [
+      {
+        id: 'fq1-1',
+        type: 'mcq',
+        text: 'ماذا أرسل الله لتدمير جيش أبرهة؟',
+        options: ['رياحًا شديدة', 'طيورًا أبابيل', 'زلزالًا', 'فيضانًا'],
+        correctIndex: 1,
+        explanation: 'أرسل الله طيورًا أبابيل ترمي الجيش بحجارة من سجيل.',
+      },
+      {
+        id: 'fq1-2',
+        type: 'arrange',
+        text: 'رتّب أحداث قصة عام الفيل:',
+        items: ['جاء أبرهة بجيشه', 'طالب عبدالمطلب بإبله', 'أرسل الله الطير الأبابيل'],
+        correctOrder: [0, 1, 2],
+        explanation: 'جاء أبرهة أولاً، ثم طالب عبدالمطلب بإبله، ثم أرسل الله الطير.',
+      },
+      {
+        id: 'fq1-3',
+        type: 'fill_blank',
+        text: 'أكمل:',
+        sentence: 'في عام الفيل وُلد النبي ___ ﷺ',
+        options: ['إبراهيم', 'محمد', 'عيسى'],
+        correctIndex: 1,
+        explanation: 'وُلد النبي محمد ﷺ في عام الفيل.',
       },
     ],
   },
@@ -78,6 +102,32 @@ const MOCK_STAGES: Record<string, StageContent> = {
         explanation: 'جده عبدالمطلب هو الذي سماه محمدًا ﷺ.',
       },
     ],
+    quizQuestions: [
+      {
+        id: 'fq2-1',
+        type: 'mcq',
+        text: 'في أي يوم وُلد النبي ﷺ؟',
+        options: ['يوم الجمعة', 'يوم الاثنين', 'يوم الخميس', 'يوم الأحد'],
+        correctIndex: 1,
+        explanation: 'وُلد النبي ﷺ يوم الاثنين من ربيع الأول.',
+      },
+      {
+        id: 'fq2-2',
+        type: 'true_false',
+        text: 'توفيت أم النبي ﷺ وهو في العاشرة من عمره',
+        correctAnswer: false,
+        explanation: 'توفيت أمه آمنة وهو في السادسة من عمره.',
+      },
+      {
+        id: 'fq2-3',
+        type: 'who_said',
+        text: 'من تولى كفالة النبي ﷺ بعد وفاة جده؟',
+        quote: 'سأرعاك يا محمد كما أرعى أبنائي',
+        characters: ['حمزة', 'أبو طالب', 'العباس', 'أبو لهب'],
+        correctIndex: 1,
+        explanation: 'تولى عمه أبو طالب رعايته بعد وفاة جده عبدالمطلب.',
+      },
+    ],
   },
   '3': {
     id: '3',
@@ -105,6 +155,32 @@ const MOCK_STAGES: Record<string, StageContent> = {
         items: ['رعي الغنم', 'الشهرة بالصدق والأمانة', 'المشاركة في حلف الفضول'],
         correctOrder: [0, 1, 2],
         explanation: 'عمل في رعي الغنم أولاً، ثم اشتهر بالصدق والأمانة، ثم شارك في حلف الفضول.',
+      },
+    ],
+    quizQuestions: [
+      {
+        id: 'fq3-1',
+        type: 'mcq',
+        text: 'ما هو حلف الفضول؟',
+        options: ['حلف تجاري', 'تعاهد على نصرة المظلوم', 'اتفاق حربي', 'معاهدة سلام'],
+        correctIndex: 1,
+        explanation: 'حلف الفضول تعاهد فيه شباب قريش على نصرة المظلوم.',
+      },
+      {
+        id: 'fq3-2',
+        type: 'fill_blank',
+        text: 'أكمل:',
+        sentence: 'عمل النبي ﷺ في ___ ليتعلم الصبر والمسؤولية',
+        options: ['التجارة', 'رعي الغنم', 'الزراعة'],
+        correctIndex: 1,
+        explanation: 'عمل النبي ﷺ في رعي الغنم منذ صغره.',
+      },
+      {
+        id: 'fq3-3',
+        type: 'true_false',
+        text: 'نشأ النبي ﷺ في رعاية عمه أبي طالب',
+        correctAnswer: true,
+        explanation: 'نعم، نشأ النبي ﷺ في رعاية عمه أبي طالب.',
       },
     ],
   },
@@ -136,6 +212,33 @@ const MOCK_STAGES: Record<string, StageContent> = {
         explanation: 'سافر النبي ﷺ بتجارة خديجة إلى الشام ورجع بأرباح عظيمة.',
       },
     ],
+    quizQuestions: [
+      {
+        id: 'fq4-1',
+        type: 'mcq',
+        text: 'لماذا عرضت خديجة على النبي ﷺ التجارة بمالها؟',
+        options: ['لأنه غني', 'لأمانته وصدقه', 'لأنه من قريش', 'لأنه قوي'],
+        correctIndex: 1,
+        explanation: 'سمعت خديجة بأمانة محمد ﷺ فعرضت عليه التجارة بمالها.',
+      },
+      {
+        id: 'fq4-2',
+        type: 'arrange',
+        text: 'رتّب أحداث قصة زواج النبي ﷺ من خديجة:',
+        items: ['التجارة بمال خديجة', 'السفر إلى الشام', 'الزواج من خديجة'],
+        correctOrder: [0, 1, 2],
+        explanation: 'عمل بتجارتها أولاً، ثم سافر للشام، ثم تزوجها.',
+      },
+      {
+        id: 'fq4-3',
+        type: 'who_said',
+        text: 'من كانت أول من آمن بالنبي ﷺ؟',
+        quote: 'أشهد أنك رسول الله',
+        characters: ['عائشة', 'خديجة', 'فاطمة', 'أم سلمة'],
+        correctIndex: 1,
+        explanation: 'كانت خديجة رضي الله عنها أول من آمن بالنبي ﷺ.',
+      },
+    ],
   },
   '5': {
     id: '5',
@@ -164,6 +267,40 @@ const MOCK_STAGES: Record<string, StageContent> = {
         characters: ['أبو بكر', 'خديجة', 'ورقة بن نوفل', 'أبو طالب'],
         correctIndex: 1,
         explanation: 'قالتها السيدة خديجة رضي الله عنها لتطمئن النبي ﷺ بعد نزول الوحي.',
+      },
+    ],
+    quizQuestions: [
+      {
+        id: 'fq5-1',
+        type: 'mcq',
+        text: 'ما أول كلمة نزلت من القرآن الكريم؟',
+        options: ['قل', 'اقرأ', 'بسم', 'الحمد'],
+        correctIndex: 1,
+        explanation: 'أول ما نزل من القرآن: اقرأ باسم ربك الذي خلق.',
+      },
+      {
+        id: 'fq5-2',
+        type: 'fill_blank',
+        text: 'أكمل:',
+        sentence: 'نزل الوحي على النبي ﷺ في غار ___ بجبل النور',
+        options: ['ثور', 'حراء', 'أحد'],
+        correctIndex: 1,
+        explanation: 'نزل الوحي في غار حراء بجبل النور.',
+      },
+      {
+        id: 'fq5-3',
+        type: 'true_false',
+        text: 'ورقة بن نوفل بشّر النبي ﷺ بأنه نبي هذه الأمة',
+        correctAnswer: true,
+        explanation: 'نعم، ورقة بن نوفل أخبره بأن ما نزل عليه هو الناموس الذي نزل على موسى.',
+      },
+      {
+        id: 'fq5-4',
+        type: 'arrange',
+        text: 'رتّب أحداث نزول الوحي:',
+        items: ['التعبد في غار حراء', 'نزول جبريل', 'العودة إلى خديجة', 'زيارة ورقة بن نوفل'],
+        correctOrder: [0, 1, 2, 3],
+        explanation: 'كان يتعبد في الغار، ثم نزل جبريل، ثم عاد لخديجة، ثم زارا ورقة.',
       },
     ],
   },
@@ -269,47 +406,26 @@ export function StageFlowScreen({ stageId, onComplete }: StageFlowScreenProps) {
   }
 
   if (currentStep.type === 'finalQuiz') {
-    // Placeholder for final quiz (Task 08)
     return (
-      <View style={placeholderStyles.root}>
-        <View style={placeholderStyles.center}>
-          <AppText style={placeholderStyles.text}>الاختبار النهائي</AppText>
-          <AppText style={placeholderStyles.subtext}>(سيتم بناؤه في المهمة ٨)</AppText>
-          <View style={placeholderStyles.button}>
-            <PrimaryButton title={ar.done} onPress={onComplete} />
-          </View>
-        </View>
-      </View>
+      <FinalQuizScreen
+        questions={stage.quizQuestions}
+        hearts={hearts}
+        maxHearts={5}
+        isFirstAttempt={true}
+        onAnswer={(correct) => {
+          if (!correct) {
+            setHearts((prev) => Math.max(0, prev - 1));
+          }
+        }}
+        onComplete={(_result) => {
+          // Task 09 will use result for celebration screen
+          onComplete();
+        }}
+        onHeartsEmpty={onComplete}
+        onBackToMap={onComplete}
+      />
     );
   }
 
   return null;
 }
-
-const placeholderStyles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.softCream,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  center: {
-    alignItems: 'center',
-    gap: 12,
-  },
-  text: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: colors.deepNightBlue,
-    textAlign: 'center',
-  },
-  subtext: {
-    fontSize: 14,
-    color: colors.mutedGray,
-    textAlign: 'center',
-  },
-  button: {
-    width: 200,
-    marginTop: 20,
-  },
-});

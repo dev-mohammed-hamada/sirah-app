@@ -5,4 +5,7 @@ export { FillBlankOptions } from './fill-blank-options';
 export { WhoSaidOptions } from './who-said-options';
 export { ArrangeOptions } from './arrange-options';
 export { AnswerFeedback } from './answer-feedback';
+export { ProgressDots } from './progress-dots';
+export { SpeedTimer } from './speed-timer';
+export { HeartsDepletionModal } from './hearts-depletion-modal';
 export type { Question, QuestionType } from './question-types';

@@ -81,6 +81,16 @@ export const ar = {
     xpGained: '+١٠ نقطة خبرة',
     narratorPraise: ['ممتاز!', 'أحسنت!', 'رائع!', 'بارك الله فيك!'],
     optionPrefixes: ['أ', 'ب', 'ج', 'د'],
+    questionOf: 'السؤال {current} من {total}',
+    speedBonus: 'مكافأة السرعة!',
+    speedBonusXp: '+٥ نقطة خبرة',
+    perfectBonus: 'بدون أخطاء! +٢٠ نقطة خبرة',
+    firstTryBonus: 'أول محاولة! +١٠ نقطة خبرة',
+    heartsGone: 'انتهت القلوب!',
+    heartsGoneDesc: 'لا تقلق! يمكنك المحاولة مرة أخرى',
+    heartsRefillIn: 'القلوب ستمتلئ بعد:',
+    retryLater: 'أعد المحاولة لاحقاً',
+    backToMap: 'العودة للخريطة',
   },
 
   // Results

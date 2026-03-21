@@ -16,6 +16,11 @@ export const colors = {
   successGreenBg: 'rgba(76, 175, 110, 0.12)',
   errorRedLight: 'rgba(224, 85, 85, 0.1)',
   errorRedBg: 'rgba(224, 85, 85, 0.08)',
+  starlightWhiteDim: 'rgba(255, 248, 240, 0.4)',
+  desertGoldGlow: 'rgba(212, 168, 67, 0.3)',
+  deepNightBlueMid: '#2A3A5C',
+  deepNightBlueOverlay: 'rgba(26, 39, 68, 0.6)',
+  overlayDark: 'rgba(0, 0, 0, 0.7)',
 } as const;
 
 export type ColorName = keyof typeof colors;
