@@ -54,14 +54,14 @@
 
 ## Acceptance Criteria
 
-- [ ] All 5 question types render correctly
-- [ ] Correct/wrong feedback with animations
-- [ ] XP floats on correct, heart breaks on wrong
-- [ ] Narrator reaction text displays
-- [ ] Drag-and-drop works for Arrange type
-- [ ] "Next" advances to next story panel
-- [ ] Hearts update in top bar
-- [ ] RTL layout for all question types
+- [x] All 5 question types render correctly
+- [x] Correct/wrong feedback with animations
+- [x] XP floats on correct, heart breaks on wrong
+- [x] Narrator reaction text displays
+- [x] Drag-and-drop works for Arrange type
+- [x] "Next" advances to next story panel
+- [x] Hearts update in top bar
+- [x] RTL layout for all question types
 
 ## References
 

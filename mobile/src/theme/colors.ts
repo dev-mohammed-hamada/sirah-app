@@ -12,6 +12,10 @@ export const colors = {
   flameOrange: '#FF9900',
   flameYellow: '#FFCC00',
   sandTrack: '#E0D5C5',
+  successGreenLight: 'rgba(76, 175, 110, 0.1)',
+  successGreenBg: 'rgba(76, 175, 110, 0.12)',
+  errorRedLight: 'rgba(224, 85, 85, 0.1)',
+  errorRedBg: 'rgba(224, 85, 85, 0.08)',
 } as const;
 
 export type ColorName = keyof typeof colors;

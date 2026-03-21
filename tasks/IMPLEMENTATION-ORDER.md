@@ -12,7 +12,7 @@ Ordered by dependency chain — each task builds on what came before.
 | 04  | Home / Journey Map             | HIGH     | done    | 23, 01, 00 |
 | 05  | Stage Detail Sheet             | HIGH     | done    | 04         |
 | 06  | Stage Flow — Narrator + Panels | HIGH     | done    | 05, 00     |
-| 07  | Inline Questions               | HIGH     | pending | 06         |
+| 07  | Inline Questions               | HIGH     | done    | 06         |
 | 08  | Final Quiz                     | HIGH     | pending | 07         |
 | 09  | Celebration / Results          | HIGH     | pending | 08         |
 | 22  | Hearts System                  | HIGH     | pending | 07, 08     |
