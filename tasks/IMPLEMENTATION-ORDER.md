@@ -14,7 +14,7 @@ Ordered by dependency chain — each task builds on what came before.
 | 06  | Stage Flow — Narrator + Panels | HIGH     | done    | 05, 00     |
 | 07  | Inline Questions               | HIGH     | done    | 06         |
 | 08  | Final Quiz                     | HIGH     | done    | 07         |
-| 09  | Celebration / Results          | HIGH     | pending | 08         |
+| 09  | Celebration / Results          | HIGH     | done    | 08         |
 | 22  | Hearts System                  | HIGH     | pending | 07, 08     |
 | 12  | Daily Challenge                | MEDIUM   | pending | 08, 00     |
 | 10  | Progress Screen                | MEDIUM   | pending | 04         |

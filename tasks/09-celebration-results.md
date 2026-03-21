@@ -57,15 +57,15 @@ THE dopamine moment — spectacular celebration after completing a stage. Must f
 
 ## Acceptance Criteria
 
-- [ ] Stars display based on score thresholds
-- [ ] Score ticks up animation
-- [ ] XP breakdown shows bonuses
-- [ ] Narrator reacts based on performance
-- [ ] Confetti for 3 stars
-- [ ] "So Close" effect near thresholds
-- [ ] Next stage teaser displays
-- [ ] All 3 action buttons work
-- [ ] Streak updates correctly
+- [x] Stars display based on score thresholds
+- [x] Score ticks up animation
+- [x] XP breakdown shows bonuses
+- [x] Narrator reacts based on performance
+- [x] Confetti for 3 stars
+- [x] "So Close" effect near thresholds
+- [x] Next stage teaser displays
+- [x] All 3 action buttons work
+- [x] Streak updates correctly
 
 ## References
 
