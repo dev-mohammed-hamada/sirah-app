@@ -74,6 +74,13 @@ export const ar = {
     noHearts: 'نفدت القلوب! حاول لاحقاً',
     finalQuiz: 'الاختبار النهائي',
     timeBonus: 'مكافأة السرعة!',
+    trueLabel: 'صحيح',
+    falseLabel: 'خطأ',
+    submitOrder: 'تأكيد الترتيب',
+    correctAnswer: 'الجواب الصحيح هو:',
+    xpGained: '+١٠ نقطة خبرة',
+    narratorPraise: ['ممتاز!', 'أحسنت!', 'رائع!', 'بارك الله فيك!'],
+    optionPrefixes: ['أ', 'ب', 'ج', 'د'],
   },
 
   // Results
