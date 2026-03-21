@@ -29,13 +29,13 @@ export function TrueFalseOptions({
     {
       value: true,
       label: `${ar.quiz.trueLabel} ✓`,
-      tint: 'rgba(76, 175, 110, 0.1)',
+      tint: colors.successGreenLight,
       border: colors.successGreen,
     },
     {
       value: false,
       label: `${ar.quiz.falseLabel} ✗`,
-      tint: 'rgba(224, 85, 85, 0.1)',
+      tint: colors.errorRedLight,
       border: colors.errorRed,
     },
   ];

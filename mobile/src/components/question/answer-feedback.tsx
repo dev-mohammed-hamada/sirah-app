@@ -222,10 +222,10 @@ const styles = StyleSheet.create({
     paddingBottom: spacing.xxxl,
   },
   reactionCorrect: {
-    backgroundColor: 'rgba(76, 175, 110, 0.12)',
+    backgroundColor: colors.successGreenBg,
   },
   reactionWrong: {
-    backgroundColor: 'rgba(224, 85, 85, 0.08)',
+    backgroundColor: colors.errorRedBg,
   },
   feedbackContent: {
     alignItems: 'center',
