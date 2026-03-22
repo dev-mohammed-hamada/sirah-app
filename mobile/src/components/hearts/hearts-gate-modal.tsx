@@ -4,17 +4,17 @@ import Animated, { FadeIn, SlideInDown } from 'react-native-reanimated';
 import { colors, spacing, radius, shadows } from '../../theme';
 import { AppText } from '../ui/app-text';
 import { PrimaryButton } from '../ui/primary-button';
-import { HeartsDisplay } from '../hearts/hearts-display';
-import { RefillCountdown } from '../hearts/refill-countdown';
+import { RefillCountdown } from './refill-countdown';
+import { HeartsDisplay } from './hearts-display';
 import { ar } from '../../i18n/ar';
 
-interface HeartsDepletionModalProps {
+interface HeartsGateModalProps {
   visible: boolean;
-  onRetry: () => void;
+  onRetryLater: () => void;
   onBackToMap: () => void;
 }
 
-export function HeartsDepletionModal({ visible, onRetry, onBackToMap }: HeartsDepletionModalProps) {
+export function HeartsGateModal({ visible, onRetryLater, onBackToMap }: HeartsGateModalProps) {
   if (!visible) return null;
 
   return (
@@ -23,23 +23,23 @@ export function HeartsDepletionModal({ visible, onRetry, onBackToMap }: HeartsDe
         entering={SlideInDown.springify().damping(18).stiffness(200)}
         style={styles.modal}
       >
-        {/* Hearts cracked display */}
+        {/* Broken hearts display */}
         <HeartsDisplay hearts={0} maxHearts={5} size={28} animate={false} />
 
         {/* Title */}
         <AppText style={styles.title}>{ar.quiz.heartsGone}</AppText>
         <AppText style={styles.subtitle}>{ar.quiz.heartsGoneDesc}</AppText>
 
-        {/* Countdown from hearts store */}
-        <View style={styles.countdownContainer}>
-          <RefillCountdown />
-        </View>
+        {/* Countdown */}
+        <RefillCountdown />
 
         {/* Actions */}
-        <PrimaryButton title={ar.quiz.retryLater} onPress={onRetry} />
-        <Pressable onPress={onBackToMap} style={styles.linkButton}>
-          <AppText style={styles.linkText}>{ar.quiz.backToMap}</AppText>
-        </Pressable>
+        <View style={styles.actions}>
+          <PrimaryButton title={ar.quiz.retryLater} onPress={onRetryLater} />
+          <Pressable onPress={onBackToMap} style={styles.linkButton}>
+            <AppText style={styles.linkText}>{ar.quiz.backToMap}</AppText>
+          </Pressable>
+        </View>
       </Animated.View>
     </Animated.View>
   );
@@ -74,9 +74,11 @@ const styles = StyleSheet.create({
     color: colors.mutedGray,
     textAlign: 'center',
   },
-  countdownContainer: {
+  actions: {
+    width: '100%',
     alignItems: 'center',
-    marginVertical: spacing.md,
+    gap: spacing.sm,
+    marginTop: spacing.sm,
   },
   linkButton: {
     paddingVertical: spacing.sm,

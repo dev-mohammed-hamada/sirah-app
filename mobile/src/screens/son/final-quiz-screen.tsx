@@ -27,6 +27,7 @@ import { AnswerFeedback } from '../../components/question/answer-feedback';
 import { ProgressDots } from '../../components/question/progress-dots';
 import { SpeedTimer } from '../../components/question/speed-timer';
 import { HeartsDepletionModal } from '../../components/question/hearts-depletion-modal';
+import { HeartsDisplay } from '../../components/hearts/hearts-display';
 import { ar } from '../../i18n/ar';
 import type { Question } from '../../components/question/question-types';
 
@@ -338,13 +339,13 @@ export function FinalQuizScreen({
         {/* Top area */}
         <View style={[styles.topArea, { paddingTop: insets.top + spacing.sm }]}>
           {/* Hearts */}
-          <View style={styles.heartsRow}>
-            {Array.from({ length: maxHearts }).map((_, i) => (
-              <AppText key={i} style={styles.heart}>
-                {i < hearts ? '❤️' : '🤍'}
-              </AppText>
-            ))}
-          </View>
+          <HeartsDisplay
+            hearts={hearts}
+            maxHearts={maxHearts}
+            size={16}
+            animate={true}
+            style={styles.heartsRow}
+          />
 
           {/* Question counter */}
           <AppText style={styles.counter}>{counterText}</AppText>
@@ -497,13 +498,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   heartsRow: {
-    flexDirection: 'row',
     justifyContent: 'flex-end',
-    gap: 2,
-  },
-  heart: {
-    fontSize: 16,
-    textAlign: 'center',
   },
   counter: {
     fontSize: 14,
