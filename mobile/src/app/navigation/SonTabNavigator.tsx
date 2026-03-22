@@ -6,6 +6,7 @@ import { AppText } from '../../components/ui/app-text';
 import { JourneyMapScreen } from '../../screens/son/journey-map-screen';
 import { ProgressScreen } from '../../screens/son/progress-screen';
 import { GoalsScreen } from '../../screens/son/goals-screen';
+import { SettingsScreen } from '../../screens/son/settings-screen';
 import type { SonTabParamList } from './types';
 import { ar } from '../../i18n/ar';
 
@@ -18,8 +19,8 @@ const Placeholder = ({ name }: { name: string }) => (
 
 // ProgressScreen imported from ../../screens/son/progress-screen
 // GoalsScreen imported from ../../screens/son/goals-screen
+// SettingsScreen imported from ../../screens/son/settings-screen
 const AwardsScreen = () => <Placeholder name={ar.tabs.awards} />;
-const SettingsScreen = () => <Placeholder name={ar.tabs.settings} />;
 
 const TAB_ICONS: Record<keyof SonTabParamList, string> = {
   HomeTab: '🏠',
