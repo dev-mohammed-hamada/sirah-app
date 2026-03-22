@@ -29,4 +29,9 @@ export const gradients = {
     start: { x: 0, y: 0 },
     end: { x: 1, y: 1 },
   },
+  dailyChallenge: {
+    colors: ['#4A2D6B', '#1A2744'],
+    start: { x: 0, y: 0 },
+    end: { x: 0, y: 1 },
+  },
 } as const;

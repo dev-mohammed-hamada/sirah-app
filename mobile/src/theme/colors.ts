@@ -31,6 +31,9 @@ export const colors = {
   royalPurpleLight: '#6B4A8B',
   mutedGrayLight: 'rgba(138, 138, 138, 0.2)',
   confettiBlue: '#5B8DEF',
+  desertGoldGlowLight: 'rgba(212, 168, 67, 0.12)',
+  desertGoldGlowSubtle: 'rgba(212, 168, 67, 0.15)',
+  errorRedBgMedium: 'rgba(224, 85, 85, 0.15)',
 } as const;
 
 export type ColorName = keyof typeof colors;
