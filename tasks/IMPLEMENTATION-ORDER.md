@@ -15,9 +15,9 @@ Ordered by dependency chain — each task builds on what came before.
 | 07  | Inline Questions               | HIGH     | done    | 06         |
 | 08  | Final Quiz                     | HIGH     | done    | 07         |
 | 09  | Celebration / Results          | HIGH     | done    | 08         |
-| 22  | Hearts System                  | HIGH     | pending | 07, 08     |
+| 22  | Hearts System                  | HIGH     | done    | 07, 08     |
 | 12  | Daily Challenge                | MEDIUM   | pending | 08, 00     |
-| 10  | Progress Screen                | MEDIUM   | pending | 04         |
+| 10  | Progress Screen                | MEDIUM   | done    | 04         |
 | 11  | Goals Screen (Son)             | MEDIUM   | pending | 04         |
 | 13  | Awards / Badges Screens        | LOW      | pending | 10         |
 | 14  | Settings (Son)                 | MEDIUM   | pending | 23         |
