@@ -22,12 +22,8 @@ import { SonCard, LinkSonSheet } from '../../components/father';
 import { colors, radius, shadows, spacing } from '../../theme';
 import { fontFamily } from '../../theme/typography';
 import { ar } from '../../i18n/ar';
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 import { SonProgressScreen } from './son-progress-screen';
-
-// ─── Arabic numeral helper ────────────────────────────────────────
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
-}
 
 // ─── Mock Data ────────────────────────────────────────────────────
 const MOCK_FATHER = {

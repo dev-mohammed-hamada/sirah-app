@@ -57,7 +57,7 @@ function StarDot({
           width: size,
           height: size,
           borderRadius: size / 2,
-          backgroundColor: '#FFFFFF',
+          backgroundColor: colors.white,
         },
         style,
       ]}
@@ -171,7 +171,7 @@ export function LandingScreen({ navigation }: Props) {
     <View style={styles.container}>
       {/* Top: Night sky section (40%) */}
       <LinearGradient
-        colors={['#1A2744', '#4A2D6B']}
+        colors={[colors.deepNightBlue, colors.royalPurple]}
         style={[styles.topSection, { paddingTop: insets.top + spacing.lg }]}
       >
         {/* Stars */}
@@ -191,7 +191,7 @@ export function LandingScreen({ navigation }: Props) {
 
         {/* Narrator silhouette */}
         <View style={styles.narratorContainer}>
-          <NarratorSilhouette scale={0.6} color="rgba(255, 255, 255, 0.08)" />
+          <NarratorSilhouette scale={0.6} color={colors.whiteGhost} />
         </View>
 
         {/* Dunes */}
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
   flame: {
     width: 30,
     height: 50,
-    backgroundColor: '#FF9900',
+    backgroundColor: colors.flameOrange,
     borderRadius: 15,
     position: 'absolute',
     bottom: 20,
@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
   flameInner: {
     width: 16,
     height: 30,
-    backgroundColor: '#FFCC00',
+    backgroundColor: colors.flameYellow,
     borderRadius: 8,
     position: 'absolute',
     bottom: 22,
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
     bottom: -10,
     width: 120,
     height: 60,
-    backgroundColor: 'rgba(255, 153, 0, 0.2)',
+    backgroundColor: colors.flameOrangeGlow,
     borderRadius: 60,
   },
   logs: {
@@ -301,7 +301,7 @@ const styles = StyleSheet.create({
   log: {
     width: 28,
     height: 8,
-    backgroundColor: '#654321',
+    backgroundColor: colors.logBrown,
     borderRadius: 4,
   },
   narratorContainer: {
@@ -320,13 +320,13 @@ const styles = StyleSheet.create({
   card: {
     flex: 0.6,
     backgroundColor: colors.softCream,
-    borderTopStartRadius: radius.lg,
-    borderTopEndRadius: radius.lg,
+    borderTopStartRadius: radius.xxl,
+    borderTopEndRadius: radius.xxl,
     marginTop: -24,
     paddingHorizontal: spacing.xxxl,
     paddingTop: spacing.xxxl,
     zIndex: 3,
-    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowColor: colors.overlaySoft,
     shadowOffset: { width: 0, height: -4 },
     shadowOpacity: 1,
     shadowRadius: 20,

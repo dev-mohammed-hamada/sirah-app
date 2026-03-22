@@ -21,11 +21,7 @@ import { AppText } from '../ui/app-text';
 import { colors, radius, shadows, spacing } from '../../theme';
 import { fontFamily } from '../../theme/typography';
 import { ar } from '../../i18n/ar';
-
-// ─── Arabic numeral helper ────────────────────────────────────────
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
-}
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 
 // ─── Mock data ────────────────────────────────────────────────────
 const MOCK_RESULTS = [
@@ -133,7 +129,7 @@ const rowStyles = StyleSheet.create({
     backgroundColor: colors.desertGold,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.xs,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     minWidth: 90,
     alignItems: 'center',
   },
@@ -288,8 +284,8 @@ const styles = StyleSheet.create({
     end: 0,
     height: SHEET_HEIGHT,
     backgroundColor: colors.starlightWhite,
-    borderTopStartRadius: radius.lg,
-    borderTopEndRadius: radius.lg,
+    borderTopStartRadius: radius.xxl,
+    borderTopEndRadius: radius.xxl,
     paddingHorizontal: spacing.lg,
     paddingBottom: spacing.xxxl,
     ...shadows.strong,
@@ -312,7 +308,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 48,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     borderWidth: 1.5,
     borderColor: colors.mutedGrayLight,
     paddingHorizontal: spacing.md,

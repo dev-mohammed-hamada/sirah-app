@@ -336,10 +336,10 @@ const styles = StyleSheet.create({
     paddingTop: spacing.xxxl,
   },
   alertBox: {
-    backgroundColor: 'rgba(224, 85, 85, 0.08)',
+    backgroundColor: colors.errorRedBg,
     borderWidth: 1,
-    borderColor: 'rgba(224, 85, 85, 0.2)',
-    borderRadius: radius.sm,
+    borderColor: colors.errorRedGlow,
+    borderRadius: radius.md,
     paddingVertical: spacing.md,
     paddingHorizontal: spacing.lg,
     flexDirection: 'row',

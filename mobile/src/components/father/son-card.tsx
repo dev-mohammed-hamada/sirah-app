@@ -12,11 +12,7 @@ import { AppText } from '../ui/app-text';
 import { colors, radius, shadows, spacing } from '../../theme';
 import { fontFamily } from '../../theme/typography';
 import { ar } from '../../i18n/ar';
-
-// ─── Arabic numeral helper ────────────────────────────────────────
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
-}
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 
 // ─── Types ────────────────────────────────────────────────────────
 export interface SonCardProps {
@@ -148,7 +144,7 @@ export function SonCard({
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.warmSand,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     ...shadows.soft,
     padding: spacing.lg,
     gap: spacing.sm,

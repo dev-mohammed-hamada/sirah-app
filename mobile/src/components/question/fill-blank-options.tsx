@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   },
   sentenceContainer: {
     backgroundColor: colors.starlightWhite,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     padding: spacing.lg,
     borderWidth: 1,
     borderColor: colors.sandTrack,
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   },
   option: {
     height: 52,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     borderWidth: 1.5,
     borderColor: colors.sandTrack,
     justifyContent: 'center',

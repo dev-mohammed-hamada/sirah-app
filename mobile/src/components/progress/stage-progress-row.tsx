@@ -11,6 +11,7 @@ import Animated, {
 import { AppText } from '../ui/app-text';
 import { colors, spacing, radius, fontFamily } from '../../theme';
 import { ar } from '../../i18n/ar';
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 
 export type StageProgressStatus = 'completed' | 'current' | 'locked';
 
@@ -22,10 +23,6 @@ interface StageProgressRowProps {
   bestScore?: number;
   index: number;
   onPress?: () => void;
-}
-
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
 }
 
 export function StageProgressRow({
@@ -169,7 +166,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.mutedGrayLight,
     justifyContent: 'center',
     paddingHorizontal: spacing.lg,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
   },
   content: {
     flexDirection: 'row',

@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.warmSand,
     borderWidth: 1.5,
     borderColor: colors.desertGold,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     ...shadows.medium,
   },
   inner: {

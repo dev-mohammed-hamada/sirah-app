@@ -261,10 +261,10 @@ export function JourneyMapScreen() {
       <LinearGradient
         colors={[
           colors.deepNightBlue,
-          '#2A3A5C',
+          colors.deepNightBlueMid,
           colors.royalPurple,
-          '#3D2A50',
-          '#6B4A30',
+          colors.deepPurple,
+          colors.warmBrown,
           colors.desertGold,
           colors.warmSand,
         ]}
@@ -409,10 +409,10 @@ const styles = StyleSheet.create({
   pathSegment: {
     width: 3,
     height: 30,
-    backgroundColor: 'rgba(212, 168, 67, 0.3)',
+    backgroundColor: colors.desertGoldGlow,
     borderRadius: 1.5,
   },
   pathSegmentCompleted: {
-    backgroundColor: 'rgba(212, 168, 67, 0.7)',
+    backgroundColor: colors.desertGoldGlow70,
   },
 });

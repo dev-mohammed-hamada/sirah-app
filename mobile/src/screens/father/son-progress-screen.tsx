@@ -16,11 +16,7 @@ import { PrimaryButton } from '../../components/ui/primary-button';
 import { colors, gradients, radius, shadows, spacing } from '../../theme';
 import { fontFamily } from '../../theme/typography';
 import { ar } from '../../i18n/ar';
-
-// ─── Arabic numeral helper ────────────────────────────────────────
-function toAr(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[+d]);
-}
+import { toAr } from '../../utils/arabic-numerals';
 
 // ─── Mock data ────────────────────────────────────────────────────
 const MOCK_SON = {

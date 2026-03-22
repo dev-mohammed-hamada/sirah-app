@@ -110,8 +110,8 @@ const styles = StyleSheet.create({
   sheet: {
     height: SHEET_HEIGHT,
     backgroundColor: colors.starlightWhite,
-    borderTopStartRadius: radius.lg,
-    borderTopEndRadius: radius.lg,
+    borderTopStartRadius: radius.xxl,
+    borderTopEndRadius: radius.xxl,
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.lg,
     paddingBottom: spacing.xxxl,
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
   logoutButton: {
     height: 48,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     backgroundColor: colors.errorRed,
     alignItems: 'center',
     justifyContent: 'center',
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     height: 48,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     backgroundColor: 'transparent',
     borderWidth: 1,
     borderColor: colors.mutedGray,

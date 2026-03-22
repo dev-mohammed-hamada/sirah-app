@@ -11,6 +11,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { AppText } from '../ui/app-text';
 import { colors, spacing, radius, fontFamily } from '../../theme';
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 
 interface DayData {
   label: string;
@@ -24,10 +25,6 @@ interface WeeklyChartProps {
 
 const CHART_HEIGHT = 120;
 const BAR_WIDTH = 24;
-
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
-}
 
 function ChartBar({
   xp,

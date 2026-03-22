@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   },
   profileCard: {
     backgroundColor: colors.warmSand,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     ...shadows.soft,
     marginHorizontal: spacing.lg,
     padding: spacing.lg,
@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     backgroundColor: colors.starlightWhite,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     ...shadows.soft,
     overflow: 'hidden',
     marginHorizontal: spacing.lg,
@@ -270,7 +270,7 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing.lg,
     marginTop: spacing.xxl,
     height: 48,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',

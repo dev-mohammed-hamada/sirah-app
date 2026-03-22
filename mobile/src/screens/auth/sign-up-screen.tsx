@@ -32,8 +32,8 @@ const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 /** Decorative mini bars inside role card */
 function RoleMini({ variant }: { variant: 'son' | 'father' }) {
-  const barColor = variant === 'son' ? 'rgba(212, 168, 67, 0.3)' : 'rgba(26, 39, 68, 0.15)';
-  const bg = variant === 'son' ? 'rgba(212, 168, 67, 0.1)' : 'rgba(26, 39, 68, 0.05)';
+  const barColor = variant === 'son' ? colors.desertGoldGlow : colors.deepNightBlueBg;
+  const bg = variant === 'son' ? colors.desertGoldGlowFaint : colors.deepNightBlueFaint;
 
   return (
     <View style={[styles.roleMini, { backgroundColor: bg }]}>
@@ -82,7 +82,11 @@ function RoleCard({
       {/* Checkmark badge (top-right in RTL = top-start) */}
       {selected && (
         <Animated.View style={styles.checkmark}>
-          <AppText variant="caption" color="#FFFFFF" style={{ fontSize: 12, fontWeight: '700' }}>
+          <AppText
+            variant="caption"
+            color={colors.white}
+            style={{ fontSize: 12, fontWeight: '700' }}
+          >
             ✓
           </AppText>
         </Animated.View>
@@ -95,7 +99,7 @@ function RoleCard({
             styles.roleIconCircle,
             {
               backgroundColor:
-                role === 'FATHER' ? 'rgba(26, 39, 68, 0.08)' : 'rgba(212, 168, 67, 0.12)',
+                role === 'FATHER' ? colors.deepNightBlueSubtle : colors.desertGoldGlowLight,
             },
           ]}
         >
@@ -366,10 +370,10 @@ const styles = StyleSheet.create({
   },
   roleCard: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
-    borderRadius: radius.md,
+    backgroundColor: colors.white,
+    borderRadius: radius.lg,
     borderWidth: 1.5,
-    borderColor: '#E0E0E0',
+    borderColor: colors.borderGray,
     paddingVertical: spacing.xl,
     paddingHorizontal: spacing.md,
     alignItems: 'center',

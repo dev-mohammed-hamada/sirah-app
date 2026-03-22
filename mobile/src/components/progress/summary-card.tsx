@@ -10,6 +10,7 @@ import Animated, {
 import { LinearGradient } from 'expo-linear-gradient';
 import { AppText } from '../ui/app-text';
 import { colors, spacing, radius, shadows, fontFamily } from '../../theme';
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 
 interface SummaryCardProps {
   icon: string;
@@ -20,10 +21,6 @@ interface SummaryCardProps {
   numericValue?: number;
   /** Extra content rendered below the label */
   children?: React.ReactNode;
-}
-
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
 }
 
 export function SummaryCard({
@@ -121,7 +118,7 @@ const styles = StyleSheet.create({
   },
   card: {
     flex: 1,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     padding: spacing.md,
     justifyContent: 'flex-end',
     overflow: 'hidden',

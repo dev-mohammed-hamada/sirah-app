@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: 'rgba(212, 168, 67, 0.3)',
+    borderBottomColor: colors.desertGoldGlow,
   },
   inner: {
     flexDirection: 'row',

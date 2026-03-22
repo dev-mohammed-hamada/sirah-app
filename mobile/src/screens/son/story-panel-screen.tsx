@@ -55,7 +55,7 @@ export function StoryPanelScreen({
       {/* Illustration */}
       <Animated.View entering={FadeInRight.duration(400)} style={styles.illustration}>
         <LinearGradient
-          colors={['#2A3A5C', colors.royalPurple, '#3D2A50']}
+          colors={[colors.deepNightBlueMid, colors.royalPurple, colors.deepPurple]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
           style={StyleSheet.absoluteFill}
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.desertGold,
     paddingVertical: 2,
     paddingHorizontal: 10,
-    borderRadius: 8,
+    borderRadius: radius.md,
     marginBottom: 10,
   },
   narratorTagText: {

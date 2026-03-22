@@ -56,10 +56,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'rgba(26, 39, 68, 0.85)',
+    backgroundColor: colors.deepNightBlueHeavy,
     paddingVertical: spacing.sm,
     paddingHorizontal: 14,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     marginHorizontal: spacing.md,
   },
   profile: {

@@ -7,11 +7,7 @@ import { SummaryCard } from '../../components/progress/summary-card';
 import { StageProgressRow } from '../../components/progress/stage-progress-row';
 import { WeeklyChart } from '../../components/progress/weekly-chart';
 import { ar } from '../../i18n/ar';
-
-// ─── Arabic number helper ────────────────────────────────────────
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
-}
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 
 // ─── Mock Data ───────────────────────────────────────────────────
 const MOCK_TOTAL_XP = 340;

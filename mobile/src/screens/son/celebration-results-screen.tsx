@@ -21,6 +21,7 @@ import { SecondaryButton } from '../../components/ui/secondary-button';
 import { NarratorSilhouette } from '../../components/narrator/narrator-silhouette';
 import { NarratorBubble } from '../../components/narrator/narrator-bubble';
 import { ar } from '../../i18n/ar';
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 import type { QuizResult } from './final-quiz-screen';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
@@ -40,11 +41,6 @@ const TIMING = {
   narrator: { start: 2800, duration: 600 },
   buttons: { start: 3400, duration: 200, stagger: 100 },
 } as const;
-
-// ─── Arabic number helper ────────────────────────────────────────
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
-}
 
 // ─── Floating Particles ─────────────────────────────────────────
 const PARTICLES = Array.from({ length: 12 }, (_, i) => ({
@@ -608,7 +604,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.desertGold,
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.xxl,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     marginBottom: spacing.lg,
     shadowColor: colors.desertGold,
     shadowOffset: { width: 0, height: 4 },
@@ -658,7 +654,7 @@ const styles = StyleSheet.create({
   // XP
   xpPill: {
     backgroundColor: colors.desertGold,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.xxl,
     marginBottom: spacing.xs,
@@ -703,7 +699,7 @@ const styles = StyleSheet.create({
   // Teaser
   teaserContainer: {
     backgroundColor: colors.deepNightBlueSubtle,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.lg,
     marginBottom: spacing.lg,

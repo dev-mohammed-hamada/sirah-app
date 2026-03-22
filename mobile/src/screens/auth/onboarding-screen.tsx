@@ -326,7 +326,7 @@ function LinkIllustration() {
           <View style={[styles.avatarBody, { width: 28, height: 30, borderRadius: 14 }]} />
         </View>
         <AppText style={styles.personLabel}>{ar.onboarding.sonLabel}</AppText>
-        <View style={[styles.personDevice, { borderColor: 'rgba(76, 175, 110, 0.3)' }]}>
+        <View style={[styles.personDevice, { borderColor: colors.successGreenGlowMedium }]}>
           <AppText style={styles.deviceTitle}>Playing</AppText>
           <AppText style={styles.deviceStar}>⭐</AppText>
           <AppText style={styles.deviceXp}>+10 XP</AppText>
@@ -498,7 +498,7 @@ const styles = StyleSheet.create({
     zIndex: 5,
   },
   skipText: {
-    color: 'rgba(255, 255, 255, 0.6)',
+    color: colors.whiteStrong,
     fontSize: 14,
     fontWeight: '500',
   },
@@ -550,7 +550,7 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: colors.whiteSoft,
   },
   dotActive: {
     width: 10,
@@ -587,7 +587,7 @@ const styles = StyleSheet.create({
   cityGlowEffect: {
     width: 100,
     height: 40,
-    backgroundColor: 'rgba(212, 168, 67, 0.3)',
+    backgroundColor: colors.desertGoldGlow,
     borderRadius: 50,
     marginTop: -15,
   },
@@ -625,7 +625,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 200,
     height: 200,
-    backgroundColor: 'rgba(212, 168, 67, 0.15)',
+    backgroundColor: colors.desertGoldGlowSubtle,
     borderRadius: 100,
   },
   childFigure: {
@@ -635,14 +635,14 @@ const styles = StyleSheet.create({
   childHead: {
     width: 24,
     height: 24,
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    backgroundColor: colors.whiteSubtle,
     borderRadius: 12,
     marginBottom: -8,
   },
   childBody: {
     width: 40,
     height: 45,
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    backgroundColor: colors.whiteSubtle,
     borderTopStartRadius: 20,
     borderTopEndRadius: 20,
     borderBottomStartRadius: 10,
@@ -656,15 +656,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   quizCardMini: {
-    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    backgroundColor: colors.whiteMist,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderColor: colors.whiteLight,
     borderRadius: 8,
     paddingVertical: 6,
     paddingHorizontal: 12,
   },
   xpCard: {
-    backgroundColor: 'rgba(212, 168, 67, 0.2)',
+    backgroundColor: colors.desertGoldGlow20,
     borderColor: colors.desertGold,
   },
   quizCardText: {
@@ -695,12 +695,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   fatherAvatar: {
-    backgroundColor: 'rgba(212, 168, 67, 0.2)',
+    backgroundColor: colors.desertGoldGlow20,
     borderWidth: 2,
     borderColor: colors.desertGold,
   },
   sonAvatar: {
-    backgroundColor: 'rgba(76, 175, 110, 0.2)',
+    backgroundColor: colors.successGreenGlow,
     borderWidth: 2,
     borderColor: colors.successGreen,
   },
@@ -708,14 +708,14 @@ const styles = StyleSheet.create({
     width: 22,
     height: 22,
     borderRadius: 11,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: colors.whiteSoft,
     marginBottom: -6,
   },
   avatarBody: {
     width: 32,
     height: 35,
     borderRadius: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: colors.whiteSoft,
   },
   personLabel: {
     fontSize: 13,
@@ -726,9 +726,9 @@ const styles = StyleSheet.create({
   personDevice: {
     width: 56,
     height: 90,
-    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    backgroundColor: colors.whiteGhost,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.15)',
+    borderColor: colors.whiteSubtle,
     borderRadius: 10,
     paddingVertical: 8,
     paddingHorizontal: 4,
@@ -737,13 +737,13 @@ const styles = StyleSheet.create({
   },
   deviceTitle: {
     fontSize: 8,
-    color: 'rgba(255, 255, 255, 0.5)',
+    color: colors.whiteMedium,
     marginBottom: 4,
   },
   miniBar: {
     width: '80%',
     height: 4,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: colors.whiteFaint,
     borderRadius: 2,
     overflow: 'hidden',
   },

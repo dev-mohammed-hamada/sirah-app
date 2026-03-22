@@ -143,7 +143,7 @@ const campfireStyles = StyleSheet.create({
     width: 140,
     height: 60,
     borderRadius: 70,
-    backgroundColor: 'rgba(255, 153, 0, 0.2)',
+    backgroundColor: colors.flameOrangeGlow,
     zIndex: 0,
   },
   log: {
@@ -151,7 +151,7 @@ const campfireStyles = StyleSheet.create({
     bottom: 0,
     width: 28,
     height: 6,
-    backgroundColor: '#5C3A1E',
+    backgroundColor: colors.narratorDarkBrown,
     borderRadius: 3,
     zIndex: 1,
   },
@@ -229,7 +229,7 @@ export function NarratorWelcomeScreen({
       {/* Scene: narrator + campfire */}
       <View style={styles.scene}>
         <Animated.View entering={FadeIn.delay(600)} style={styles.narratorWrapper}>
-          <NarratorSilhouette scale={0.8} color="rgba(0, 0, 0, 0.8)" />
+          <NarratorSilhouette scale={0.8} color={colors.overlayDarker} />
         </Animated.View>
         <Campfire />
       </View>
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.starlightWhite,
     borderWidth: 1,
     borderColor: colors.desertGold,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     paddingVertical: spacing.xl,
     paddingHorizontal: spacing.xxl,
     marginHorizontal: spacing.xxl,
@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
     start: 0,
     end: 0,
     height: 40,
-    backgroundColor: 'rgba(245, 230, 200, 0.08)',
+    backgroundColor: colors.warmSandFaint,
     borderTopStartRadius: 200,
     borderTopEndRadius: 200,
   },
