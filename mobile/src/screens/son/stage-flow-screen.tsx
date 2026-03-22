@@ -3,6 +3,8 @@ import { NarratorWelcomeScreen } from './narrator-welcome-screen';
 import { StoryPanelScreen } from './story-panel-screen';
 import { InlineQuestionScreen } from './inline-question-screen';
 import { FinalQuizScreen } from './final-quiz-screen';
+import { CelebrationResultsScreen } from './celebration-results-screen';
+import type { QuizResult } from './final-quiz-screen';
 import type { Question } from '../../components/question/question-types';
 
 // ─── Mock Stage Content (will come from API) ─────────────────────
@@ -14,6 +16,7 @@ interface StageContent {
   panels: string[];
   inlineQuestions: Question[];
   quizQuestions: Question[];
+  nextStageTeaser?: string;
 }
 
 const MOCK_STAGES: Record<string, StageContent> = {
@@ -71,6 +74,7 @@ const MOCK_STAGES: Record<string, StageContent> = {
         explanation: 'وُلد النبي محمد ﷺ في عام الفيل.',
       },
     ],
+    nextStageTeaser: 'في المرحلة القادمة ستعرف كيف نشأ النبي ﷺ ومن أرضعه في البادية...',
   },
   '2': {
     id: '2',
@@ -128,6 +132,7 @@ const MOCK_STAGES: Record<string, StageContent> = {
         explanation: 'تولى عمه أبو طالب رعايته بعد وفاة جده عبدالمطلب.',
       },
     ],
+    nextStageTeaser: 'في المرحلة القادمة ستعرف لماذا لقّبه الناس بالصادق الأمين...',
   },
   '3': {
     id: '3',
@@ -183,6 +188,7 @@ const MOCK_STAGES: Record<string, StageContent> = {
         explanation: 'نعم، نشأ النبي ﷺ في رعاية عمه أبي طالب.',
       },
     ],
+    nextStageTeaser: 'في المرحلة القادمة ستعرف كيف التقى النبي ﷺ بالسيدة خديجة...',
   },
   '4': {
     id: '4',
@@ -239,6 +245,7 @@ const MOCK_STAGES: Record<string, StageContent> = {
         explanation: 'كانت خديجة رضي الله عنها أول من آمن بالنبي ﷺ.',
       },
     ],
+    nextStageTeaser: 'في المرحلة القادمة ستعرف كيف نزل الوحي لأول مرة...',
   },
   '5': {
     id: '5',
@@ -303,6 +310,7 @@ const MOCK_STAGES: Record<string, StageContent> = {
         explanation: 'كان يتعبد في الغار، ثم نزل جبريل، ثم عاد لخديجة، ثم زارا ورقة.',
       },
     ],
+    nextStageTeaser: 'في المرحلة القادمة ستعرف كيف بدأ النبي ﷺ بالدعوة سراً...',
   },
 };
 
@@ -311,7 +319,8 @@ type FlowStep =
   | { type: 'narrator' }
   | { type: 'panel'; panelIndex: number }
   | { type: 'question'; questionIndex: number }
-  | { type: 'finalQuiz' };
+  | { type: 'finalQuiz' }
+  | { type: 'celebration' };
 
 function buildFlowSteps(panelCount: number, inlineQuestionCount: number): FlowStep[] {
   const steps: FlowStep[] = [{ type: 'narrator' }];
@@ -325,6 +334,7 @@ function buildFlowSteps(panelCount: number, inlineQuestionCount: number): FlowSt
   }
 
   steps.push({ type: 'finalQuiz' });
+  steps.push({ type: 'celebration' });
   return steps;
 }
 
@@ -338,6 +348,7 @@ export function StageFlowScreen({ stageId, onComplete }: StageFlowScreenProps) {
   const stage = MOCK_STAGES[stageId];
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [hearts, setHearts] = useState(5);
+  const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
 
   if (!stage) return null;
 
@@ -417,11 +428,33 @@ export function StageFlowScreen({ stageId, onComplete }: StageFlowScreenProps) {
             setHearts((prev) => Math.max(0, prev - 1));
           }
         }}
-        onComplete={(_result) => {
-          // Task 09 will use result for celebration screen
-          onComplete();
+        onComplete={(result) => {
+          setQuizResult(result);
+          handleNext();
         }}
         onHeartsEmpty={onComplete}
+        onBackToMap={onComplete}
+      />
+    );
+  }
+
+  if (currentStep.type === 'celebration' && quizResult) {
+    return (
+      <CelebrationResultsScreen
+        result={quizResult}
+        stageId={stage.id}
+        streakDays={3}
+        nextStageTeaser={stage.nextStageTeaser}
+        onNextStage={() => {
+          // Navigate to next stage (for now, just complete)
+          onComplete();
+        }}
+        onRetry={() => {
+          // Reset flow to narrator welcome
+          setCurrentStepIndex(0);
+          setHearts(5);
+          setQuizResult(null);
+        }}
         onBackToMap={onComplete}
       />
     );
