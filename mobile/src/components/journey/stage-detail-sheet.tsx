@@ -15,6 +15,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors, spacing, radius, shadows } from '../../theme';
 import { AppText } from '../ui/app-text';
 import { PrimaryButton } from '../ui/primary-button';
+import { HeartsDisplay } from '../hearts/hearts-display';
+import { RefillCountdown } from '../hearts/refill-countdown';
 import { ar } from '../../i18n/ar';
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
@@ -196,12 +198,11 @@ export function StageDetailSheet({
 
             {/* Hearts indicator */}
             <View style={styles.heartsRow}>
+              <HeartsDisplay hearts={hearts} maxHearts={5} size={16} />
               {heartsEmpty ? (
-                <AppText style={styles.heartsTextEmpty}>❤️ {ar.home.heartsRefill}</AppText>
+                <RefillCountdown compact />
               ) : (
-                <AppText style={styles.heartsText}>
-                  ❤️ ×{hearts} {ar.home.heartsReady}
-                </AppText>
+                <AppText style={styles.heartsText}>{ar.home.heartsReady}</AppText>
               )}
             </View>
           </View>
@@ -325,16 +326,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   heartsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.sm,
     marginTop: spacing.xs,
   },
   heartsText: {
     fontSize: 14,
     color: colors.successGreen,
-    textAlign: 'center',
-  },
-  heartsTextEmpty: {
-    fontSize: 14,
-    color: colors.errorRed,
     textAlign: 'center',
   },
 });

@@ -60,6 +60,7 @@ export const ar = {
     bestScore: 'أفضل نتيجتك',
     heartsReady: 'جاهز',
     heartsRefill: 'تجديد خلال',
+    heartsEmpty: 'القلوب فارغة — انتظر حتى تمتلئ',
     perfectBadge: 'أداء مثالي!',
     attempts: 'محاولات',
     stageStars: 'النجوم',

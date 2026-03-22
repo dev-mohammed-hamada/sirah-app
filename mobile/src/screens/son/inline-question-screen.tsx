@@ -13,6 +13,7 @@ import { FillBlankOptions } from '../../components/question/fill-blank-options';
 import { WhoSaidOptions } from '../../components/question/who-said-options';
 import { ArrangeOptions } from '../../components/question/arrange-options';
 import { AnswerFeedback } from '../../components/question/answer-feedback';
+import { HeartsDisplay } from '../../components/hearts/hearts-display';
 import { ar } from '../../i18n/ar';
 import type { Question } from '../../components/question/question-types';
 
@@ -164,13 +165,13 @@ export function InlineQuestionScreen({
       <View style={[styles.topArea, { paddingTop: insets.top + spacing.sm }]}>
         <ProgressBar progress={progress} />
         <View style={styles.topBar}>
-          <View style={styles.heartsRow}>
-            {Array.from({ length: maxHearts }).map((_, i) => (
-              <AppText key={i} style={styles.heart}>
-                {i < hearts ? '❤️' : '🤍'}
-              </AppText>
-            ))}
-          </View>
+          <HeartsDisplay
+            hearts={hearts}
+            maxHearts={maxHearts}
+            size={14}
+            animate={true}
+            style={styles.heartsRow}
+          />
           <AppText style={styles.stageLabel}>{stageLabel}</AppText>
         </View>
       </View>
@@ -281,14 +282,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  heartsRow: {
-    flexDirection: 'row',
-    gap: 2,
-  },
-  heart: {
-    fontSize: 14,
-    textAlign: 'center',
-  },
+  heartsRow: {},
   stageLabel: {
     fontSize: 12,
     fontWeight: '500',

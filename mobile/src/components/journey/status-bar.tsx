@@ -2,15 +2,26 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { colors, spacing, radius } from '../../theme';
 import { AppText } from '../ui/app-text';
+import { HeartsDisplay } from '../hearts/hearts-display';
+import { RefillCountdown } from '../hearts/refill-countdown';
 
 interface StatusBarProps {
   displayName: string;
   hearts: number;
+  maxHearts?: number;
+  heartsFull?: boolean;
   streak: number;
   xp: number;
 }
 
-export function JourneyStatusBar({ displayName, hearts, streak, xp }: StatusBarProps) {
+export function JourneyStatusBar({
+  displayName,
+  hearts,
+  maxHearts = 5,
+  heartsFull = true,
+  streak,
+  xp,
+}: StatusBarProps) {
   return (
     <View style={styles.container}>
       {/* Profile section */}
@@ -24,15 +35,15 @@ export function JourneyStatusBar({ displayName, hearts, streak, xp }: StatusBarP
       {/* Stats section */}
       <View style={styles.stats}>
         <View style={styles.stat}>
-          <AppText style={styles.statIcon}>🔥</AppText>
+          <AppText style={styles.statIcon}>{'\uD83D\uDD25'}</AppText>
           <AppText style={[styles.statValue, { color: colors.sunsetOrange }]}>{streak}</AppText>
         </View>
-        <View style={styles.stat}>
-          <AppText style={styles.statIconSmall}>❤️</AppText>
-          <AppText style={[styles.statValue, { color: colors.errorRed }]}>{hearts}</AppText>
+        <View style={styles.heartsStat}>
+          <HeartsDisplay hearts={hearts} maxHearts={maxHearts} size={13} animate={true} />
+          {!heartsFull && <RefillCountdown compact />}
         </View>
         <View style={styles.stat}>
-          <AppText style={styles.statIcon}>🛡️</AppText>
+          <AppText style={styles.statIcon}>{'\uD83D\uDEE1\uFE0F'}</AppText>
           <AppText style={[styles.statValue, { color: colors.desertGold }]}>{xp}</AppText>
         </View>
       </View>
@@ -88,12 +99,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 3,
   },
+  heartsStat: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
   statIcon: {
     fontSize: 13,
-    textAlign: 'center',
-  },
-  statIconSmall: {
-    fontSize: 12,
     textAlign: 'center',
   },
   statValue: {
