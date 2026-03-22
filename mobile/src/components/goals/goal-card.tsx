@@ -249,7 +249,7 @@ const cardStyles = StyleSheet.create({
     opacity: 0.9,
   },
   badge: {
-    alignSelf: 'flex-start',
+    alignSelf: 'flex-end',
     backgroundColor: colors.successGreen,
     borderRadius: radius.full,
     paddingHorizontal: spacing.sm,

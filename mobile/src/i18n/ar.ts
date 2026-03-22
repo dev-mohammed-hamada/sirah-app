@@ -156,8 +156,8 @@ export const ar = {
   goals: {
     title: 'الأهداف',
     myGoals: 'أهدافي',
-    activeGoals: 'أهداف نشطة',
-    completedGoals: 'أهداف مكتملة',
+    activeGoals: 'أهداف نشطة 🎯',
+    completedGoals: 'أهداف مكتملة ✓',
     active: 'نشط',
     completed: 'مكتمل',
     completedBadge: 'مكتمل ✓',

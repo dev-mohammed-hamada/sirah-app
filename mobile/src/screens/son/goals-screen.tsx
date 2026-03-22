@@ -134,7 +134,7 @@ export function GoalsScreen() {
           {activeGoals.length > 0 && (
             <View style={styles.section}>
               <AppText variant="h4" color={colors.deepNightBlue} style={styles.sectionLabel}>
-                {ar.goals.activeGoals} 🎯
+                {ar.goals.activeGoals}
               </AppText>
               <View style={styles.cardList}>
                 {activeGoals.map((goal, index) => (
@@ -148,7 +148,7 @@ export function GoalsScreen() {
           {completedGoals.length > 0 && (
             <View style={styles.section}>
               <AppText variant="h4" color={colors.deepNightBlue} style={styles.sectionLabel}>
-                {ar.goals.completedGoals} ✓
+                {ar.goals.completedGoals}
               </AppText>
               <View style={styles.cardList}>
                 {completedGoals.map((goal, index) => (
