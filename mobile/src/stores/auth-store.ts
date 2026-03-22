@@ -22,6 +22,20 @@ interface AuthState {
   loadStoredAuth: () => Promise<void>;
 }
 
+// TODO: Remove before release — bypasses auth for testing
+const DEV_BYPASS_AUTH = __DEV__ && true;
+
+const DEV_USER: UserProfile = {
+  id: 'dev-son-1',
+  displayName: 'محمد',
+  username: 'dev_son',
+  accountType: 'SON',
+  age: 10,
+  xp: 150,
+  streak: 3,
+  heartsRemaining: 5,
+};
+
 export const useAuthStore = create<AuthState>((set) => ({
   token: null,
   user: null,
@@ -41,6 +55,11 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   loadStoredAuth: async () => {
+    if (DEV_BYPASS_AUTH) {
+      set({ token: 'dev-token', user: DEV_USER, isAuthenticated: true, isLoading: false });
+      return;
+    }
+
     const token = await getItem('accessToken');
     const userJson = await getItem('user');
 
