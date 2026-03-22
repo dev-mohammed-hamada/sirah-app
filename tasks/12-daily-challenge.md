@@ -36,12 +36,12 @@ Quick 30-second single question from learned content. Counts toward daily streak
 
 ## Acceptance Criteria
 
-- [ ] 30s timer works with color transitions
-- [ ] Question renders (any of 5 types)
-- [ ] Correct/wrong feedback with appropriate animations
-- [ ] Streak maintained even on wrong answer
-- [ ] Already-completed state with next-challenge countdown
-- [ ] Timer expiry auto-submits
+- [x] 30s timer works with color transitions
+- [x] Question renders (any of 5 types)
+- [x] Correct/wrong feedback with appropriate animations
+- [x] Streak maintained even on wrong answer
+- [x] Already-completed state with next-challenge countdown
+- [x] Timer expiry auto-submits
 
 ## References
 
