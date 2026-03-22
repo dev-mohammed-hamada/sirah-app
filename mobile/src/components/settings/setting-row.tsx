@@ -45,7 +45,7 @@ export function SettingRow({
 
   const bgColor = bgAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['rgba(212,168,67,0)', 'rgba(212,168,67,0.05)'],
+    outputRange: ['transparent', colors.desertGoldGlowSubtle],
   });
 
   const rowContent = (
@@ -62,7 +62,7 @@ export function SettingRow({
       {/* Action on start side (RTL: visually right) */}
       {type === 'navigate' && (
         <AppText style={styles.chevron} color={colors.mutedGray}>
-          {'◂'}
+          {'‹'}
         </AppText>
       )}
       {type === 'toggle' && (
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   },
   rowBorder: {
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(138,138,138,0.2)',
+    borderBottomColor: colors.mutedGrayLight,
   },
   rowInner: {
     flex: 1,
