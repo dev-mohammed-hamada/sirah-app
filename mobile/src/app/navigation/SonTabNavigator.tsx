@@ -5,6 +5,7 @@ import { colors } from '../../theme';
 import { AppText } from '../../components/ui/app-text';
 import { JourneyMapScreen } from '../../screens/son/journey-map-screen';
 import { ProgressScreen } from '../../screens/son/progress-screen';
+import { GoalsScreen } from '../../screens/son/goals-screen';
 import type { SonTabParamList } from './types';
 import { ar } from '../../i18n/ar';
 
@@ -16,7 +17,7 @@ const Placeholder = ({ name }: { name: string }) => (
 );
 
 // ProgressScreen imported from ../../screens/son/progress-screen
-const GoalsScreen = () => <Placeholder name={ar.tabs.goals} />;
+// GoalsScreen imported from ../../screens/son/goals-screen
 const AwardsScreen = () => <Placeholder name={ar.tabs.awards} />;
 const SettingsScreen = () => <Placeholder name={ar.tabs.settings} />;
 

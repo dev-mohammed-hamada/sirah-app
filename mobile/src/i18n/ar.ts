@@ -155,15 +155,27 @@ export const ar = {
   // Goals
   goals: {
     title: 'الأهداف',
+    myGoals: 'أهدافي',
+    activeGoals: 'أهداف نشطة 🎯',
+    completedGoals: 'أهداف مكتملة ✓',
     active: 'نشط',
     completed: 'مكتمل',
+    completedBadge: 'مكتمل ✓',
     expired: 'منتهي',
     noGoals: 'لا توجد أهداف بعد',
+    noGoalsSon: 'لا توجد أهداف حالياً',
+    noGoalsSonDesc: 'عندما يضع والدك هدفاً ستراه هنا',
     createGoal: 'إنشاء هدف',
     selectSon: 'اختر الابن',
     description: 'وصف الهدف',
     deadline: 'الموعد النهائي',
+    deadlinePrefix: '⏰ باقي',
+    deadlineSuffix: 'أيام',
     reward: 'المكافأة',
+    rewardIcon: '🏆',
+    from: 'من:',
+    of: 'من',
+    stages: 'مراحل',
   },
 
   // Awards
