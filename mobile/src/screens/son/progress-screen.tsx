@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors, spacing } from '../../theme';
+import { colors, spacing, gradients } from '../../theme';
 import { AppText } from '../../components/ui/app-text';
 import { SummaryCard } from '../../components/progress/summary-card';
 import { StageProgressRow } from '../../components/progress/stage-progress-row';
@@ -46,10 +46,10 @@ const MOCK_WEEKLY_DATA = [
   { label: ARABIC_DAY_LABELS[6], xp: 0, isToday: false },
 ];
 
-// ─── Gradient Colors ─────────────────────────────────────────────
-const XP_GRADIENT: [string, string] = ['#D4A843', '#E8C36A'];
-const STREAK_GRADIENT: [string, string] = ['#E8734A', '#F09060'];
-const STARS_GRADIENT: [string, string] = ['#4A2D6B', '#6B4A8B'];
+// ─── Gradient Colors (from theme) ────────────────────────────────
+const XP_GRADIENT: [string, string] = [...gradients.xpCard.colors] as [string, string];
+const STREAK_GRADIENT: [string, string] = [...gradients.streakCard.colors] as [string, string];
+const STARS_GRADIENT: [string, string] = [...gradients.starsCard.colors] as [string, string];
 
 export function ProgressScreen() {
   const handleStagePress = (stageId: string) => {
@@ -188,6 +188,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.starlightWhite,
   },
   dotInactive: {
-    backgroundColor: 'rgba(255, 248, 240, 0.3)',
+    backgroundColor: colors.starlightWhiteFaint,
   },
 });

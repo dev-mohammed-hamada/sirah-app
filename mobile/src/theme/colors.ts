@@ -20,7 +20,17 @@ export const colors = {
   desertGoldGlow: 'rgba(212, 168, 67, 0.3)',
   deepNightBlueMid: '#2A3A5C',
   deepNightBlueOverlay: 'rgba(26, 39, 68, 0.6)',
+  deepNightBlueSubtle: 'rgba(26, 39, 68, 0.08)',
   overlayDark: 'rgba(0, 0, 0, 0.7)',
+  shadowBlack: '#000',
+  starlightWhiteDimmer: 'rgba(255, 248, 240, 0.8)',
+  starlightWhiteFaint: 'rgba(255, 248, 240, 0.3)',
+  desertGoldGlowMedium: 'rgba(212, 168, 67, 0.5)',
+  desertGoldLight: '#E8C36A',
+  sunsetOrangeLight: '#F09060',
+  royalPurpleLight: '#6B4A8B',
+  mutedGrayLight: 'rgba(138, 138, 138, 0.2)',
+  confettiBlue: '#5B8DEF',
 } as const;
 
 export type ColorName = keyof typeof colors;

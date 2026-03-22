@@ -14,7 +14,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { colors, spacing, radius, fontFamily } from '../../theme';
+import { colors, spacing, radius, fontFamily, typography } from '../../theme';
 import { AppText } from '../../components/ui/app-text';
 import { PrimaryButton } from '../../components/ui/primary-button';
 import { SecondaryButton } from '../../components/ui/secondary-button';
@@ -56,7 +56,12 @@ const PARTICLES = Array.from({ length: 12 }, (_, i) => ({
 }));
 
 // ─── Confetti Particles ─────────────────────────────────────────
-const CONFETTI_COLORS = [colors.desertGold, colors.starlightWhite, '#5B8DEF', colors.sunsetOrange];
+const CONFETTI_COLORS = [
+  colors.desertGold,
+  colors.starlightWhite,
+  colors.confettiBlue,
+  colors.sunsetOrange,
+];
 const CONFETTI_PARTICLES = Array.from({ length: 30 }, (_, i) => ({
   id: i,
   x: (Math.random() - 0.5) * SCREEN_WIDTH * 0.8,
@@ -226,27 +231,32 @@ export function CelebrationResultsScreen({
       bannerOpacity.value = withDelay(TIMING.perfectBanner.start, withTiming(1, { duration: 200 }));
     }
 
+    // Track timeouts for cleanup
+    const timeoutIds: ReturnType<typeof setTimeout>[] = [];
+
     // 6. Confetti (3 stars only)
     if (starsEarned === 3) {
-      setTimeout(() => setShowConfetti(true), TIMING.confetti.start);
+      timeoutIds.push(setTimeout(() => setShowConfetti(true), TIMING.confetti.start));
     }
 
     // 7. Score tick-up
-    setTimeout(() => {
-      scoreOpacity.value = withTiming(1, { duration: 200 });
-      const startTime = Date.now();
-      const duration = TIMING.scoreTick.duration;
-      scoreTickRef.current = setInterval(() => {
-        const elapsed = Date.now() - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-        const currentScore = Math.round(eased * score);
-        setDisplayedScore(currentScore);
-        if (progress >= 1 && scoreTickRef.current) {
-          clearInterval(scoreTickRef.current);
-        }
-      }, 16);
-    }, TIMING.scoreTick.start);
+    timeoutIds.push(
+      setTimeout(() => {
+        scoreOpacity.value = withTiming(1, { duration: 200 });
+        const startTime = Date.now();
+        const duration = TIMING.scoreTick.duration;
+        scoreTickRef.current = setInterval(() => {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+          const currentScore = Math.round(eased * score);
+          setDisplayedScore(currentScore);
+          if (progress >= 1 && scoreTickRef.current) {
+            clearInterval(scoreTickRef.current);
+          }
+        }, 16);
+      }, TIMING.scoreTick.start),
+    );
 
     // 8. XP pill
     xpTranslateY.value = withDelay(
@@ -277,7 +287,7 @@ export function CelebrationResultsScreen({
     }
 
     // 11. Narrator
-    setTimeout(() => setShowNarrator(true), TIMING.narrator.start);
+    timeoutIds.push(setTimeout(() => setShowNarrator(true), TIMING.narrator.start));
     narratorTranslateY.value = withDelay(
       TIMING.narrator.start,
       withSpring(0, { damping: 14, stiffness: 100 }),
@@ -306,6 +316,7 @@ export function CelebrationResultsScreen({
     }
 
     // 14. Start ambient particles
+    const particleIntervalIds: ReturnType<typeof setInterval>[] = [];
     particleValues.forEach((pv, i) => {
       const particle = PARTICLES[i];
       const startParticle = () => {
@@ -321,14 +332,14 @@ export function CelebrationResultsScreen({
           withTiming(0, { duration: particle.duration * 0.2 }),
         );
       };
-      setTimeout(startParticle, particle.delay);
-      // Loop particles
+      timeoutIds.push(setTimeout(startParticle, particle.delay));
       const interval = setInterval(startParticle, particle.duration + particle.delay);
-      // Clean up in return
-      return () => clearInterval(interval);
+      particleIntervalIds.push(interval);
     });
 
     return () => {
+      timeoutIds.forEach(clearTimeout);
+      particleIntervalIds.forEach(clearInterval);
       if (scoreTickRef.current) clearInterval(scoreTickRef.current);
     };
   }, []);
@@ -627,7 +638,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   starEarned: {
-    textShadowColor: 'rgba(212, 168, 67, 0.5)',
+    textShadowColor: colors.desertGoldGlowMedium,
     textShadowOffset: { width: 0, height: 4 },
     textShadowRadius: 12,
   },
@@ -651,7 +662,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.xxl,
     marginBottom: spacing.xs,
-    shadowColor: '#000',
+    shadowColor: colors.shadowBlack,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.08,
     shadowRadius: 8,
@@ -691,7 +702,7 @@ const styles = StyleSheet.create({
 
   // Teaser
   teaserContainer: {
-    backgroundColor: 'rgba(26, 39, 68, 0.08)',
+    backgroundColor: colors.deepNightBlueSubtle,
     borderRadius: radius.sm,
     paddingVertical: spacing.sm,
     paddingHorizontal: spacing.lg,
