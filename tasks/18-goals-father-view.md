@@ -40,14 +40,14 @@ Father manages goals across all sons — view, filter, and create goals with dea
 
 ## Acceptance Criteria
 
-- [ ] Goals tab with filter tabs
-- [ ] Goals grouped by son
-- [ ] Status-colored borders
-- [ ] Create Goal form with all fields
-- [ ] Live preview card updates
-- [ ] Date picker with minimum date
-- [ ] Discard confirmation on unsaved changes
-- [ ] Push notification sent to son
+- [x] Goals tab with filter tabs
+- [x] Goals grouped by son
+- [x] Status-colored borders
+- [x] Create Goal form with all fields
+- [x] Live preview card updates
+- [x] Date picker with minimum date
+- [x] Discard confirmation on unsaved changes
+- [ ] Push notification sent to son (requires task 20 — Push Notifications)
 
 ## References
 

@@ -34,6 +34,11 @@ export const colors = {
   desertGoldGlowLight: 'rgba(212, 168, 67, 0.12)',
   desertGoldGlowSubtle: 'rgba(212, 168, 67, 0.15)',
   errorRedBgMedium: 'rgba(224, 85, 85, 0.15)',
+  successGreenBgMedium: 'rgba(76, 175, 110, 0.15)',
+  deepNightBlueBg: 'rgba(26, 39, 68, 0.15)',
+  overlayLight: 'rgba(0, 0, 0, 0.06)',
+  overlayMedium: 'rgba(0, 0, 0, 0.5)',
+  mutedGraySubtle: 'rgba(138, 138, 138, 0.1)',
 } as const;
 
 export type ColorName = keyof typeof colors;

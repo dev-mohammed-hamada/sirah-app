@@ -24,7 +24,7 @@ Ordered by dependency chain — each task builds on what came before.
 | 15  | Link Request Screen            | MEDIUM   | done    | 01         |
 | 16  | Father Home / Sons Tab         | MEDIUM   | done    | 01, 15     |
 | 17  | Son Progress (Father View)     | MEDIUM   | done    | 16         |
-| 18  | Goals (Father View)            | MEDIUM   | pending | 16         |
+| 18  | Goals (Father View)            | MEDIUM   | done    | 16         |
 | 19  | Settings (Father)              | LOW      | pending | 23         |
 | 20  | Push Notifications             | LOW      | pending | 01         |
 | 21  | WebSocket Live Updates         | LOW      | pending | 16         |
