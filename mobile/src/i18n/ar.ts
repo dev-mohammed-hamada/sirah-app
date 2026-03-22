@@ -221,6 +221,12 @@ export const ar = {
     searchSon: 'ابحث عن الابن باسم المستخدم',
     sendRequest: 'إرسال طلب ربط',
     unlink: 'إلغاء الربط',
+    linkRequestTitle: 'طلب ربط حساب',
+    infoNote: 'سيتمكن من رؤية تقدمك وإرسال أهداف لك',
+    successTitle: 'تم الربط بنجاح!',
+    successSubtitle: 'يمكن لوالدك الآن متابعة تقدمك',
+    fatherLabel: 'أب',
+    sonLabel: 'ابن',
   },
 
   // Father
