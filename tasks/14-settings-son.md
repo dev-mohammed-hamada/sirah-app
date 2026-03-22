@@ -23,13 +23,13 @@ Account management and app preferences for the son — profile editing, linked a
 
 ## Acceptance Criteria
 
-- [ ] Profile section displays user data
-- [ ] Linked accounts sub-screen shows fathers
-- [ ] Unlink functionality works
-- [ ] Notification toggle works
-- [ ] Time picker for daily reminder
-- [ ] Logout clears auth and navigates to Landing
-- [ ] Confirmation modal on logout
+- [x] Profile section displays user data
+- [ ] Linked accounts sub-screen shows fathers (placeholder — needs backend)
+- [ ] Unlink functionality works (placeholder — needs backend)
+- [x] Notification toggle works
+- [x] Time picker for daily reminder
+- [ ] Logout clears auth and navigates to Landing (placeholder — needs backend)
+- [x] Confirmation modal on logout
 
 ## References
 
