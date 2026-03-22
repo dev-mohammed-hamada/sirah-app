@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, {
@@ -446,7 +446,7 @@ export function SonProgressScreen({ sonId: _sonId, onBack, onCreateGoal }: SonPr
         <TouchableOpacity
           onPress={onBack}
           style={styles.backBtn}
-          hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+          hitSlop={{ top: 8, bottom: 8, left: 16, right: 16 }}
         >
           <AppText style={styles.backArrow} color={colors.mutedGray}>
             {'→'}
