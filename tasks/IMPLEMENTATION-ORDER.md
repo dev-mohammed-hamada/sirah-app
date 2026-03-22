@@ -21,7 +21,7 @@ Ordered by dependency chain — each task builds on what came before.
 | 11  | Goals Screen (Son)             | MEDIUM   | done    | 04         |
 | 13  | Awards / Badges Screens        | LOW      | pending | 10         |
 | 14  | Settings (Son)                 | MEDIUM   | done    | 23         |
-| 15  | Link Request Screen            | MEDIUM   | pending | 01         |
+| 15  | Link Request Screen            | MEDIUM   | done    | 01         |
 | 16  | Father Home / Sons Tab         | MEDIUM   | pending | 01, 15     |
 | 17  | Son Progress (Father View)     | MEDIUM   | pending | 16         |
 | 18  | Goals (Father View)            | MEDIUM   | pending | 16         |

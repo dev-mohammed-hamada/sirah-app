@@ -32,11 +32,11 @@ Full-screen modal for the son to accept or decline a father's link request. Trig
 
 ## Acceptance Criteria
 
-- [ ] Modal renders with father info
-- [ ] Accept links accounts with animation
-- [ ] Decline dismisses with animation
-- [ ] Cannot dismiss without choosing
-- [ ] Pending requests checked on app load
+- [x] Modal renders with father info
+- [x] Accept links accounts with animation
+- [x] Decline dismisses with animation
+- [x] Cannot dismiss without choosing
+- [ ] Pending requests checked on app load (TODO — needs backend API)
 
 ## References
 
