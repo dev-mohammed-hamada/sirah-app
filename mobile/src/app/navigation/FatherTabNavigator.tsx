@@ -1,18 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, View } from 'react-native';
 import { colors } from '../../theme';
 import { AppText } from '../../components/ui/app-text';
 import { FatherHomeScreen } from '../../screens/father/father-home-screen';
+import { FatherGoalsStackNavigator } from './FatherGoalsStackNavigator';
 import type { FatherTabParamList } from './types';
 import { ar } from '../../i18n/ar';
-
-// Placeholder for Goals tab — not yet built
-const GoalsScreen = () => (
-  <View style={placeholderStyles.container}>
-    <AppText style={placeholderStyles.text}>{ar.tabs.goals}</AppText>
-  </View>
-);
 
 const TAB_ICONS: Record<keyof FatherTabParamList, string> = {
   SonsTab: '👨‍👦',
@@ -54,23 +47,9 @@ export function FatherTabNavigator() {
       />
       <Tab.Screen
         name="GoalsTab"
-        component={GoalsScreen}
+        component={FatherGoalsStackNavigator}
         options={{ tabBarLabel: ar.tabs.goals }}
       />
     </Tab.Navigator>
   );
 }
-
-const placeholderStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.deepNightBlue,
-  },
-  text: {
-    fontSize: 18,
-    color: colors.starlightWhite,
-    textAlign: 'center',
-  },
-});
