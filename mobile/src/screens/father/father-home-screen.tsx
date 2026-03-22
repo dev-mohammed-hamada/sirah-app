@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { RefreshControl, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import {
+  Alert,
+  RefreshControl,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Animated, {
   FadeIn,
@@ -15,6 +22,7 @@ import { SonCard, LinkSonSheet } from '../../components/father';
 import { colors, radius, shadows, spacing } from '../../theme';
 import { fontFamily } from '../../theme/typography';
 import { ar } from '../../i18n/ar';
+import { SonProgressScreen } from './son-progress-screen';
 
 // ─── Arabic numeral helper ────────────────────────────────────────
 function toArabicNumeral(n: number): string {
@@ -207,6 +215,7 @@ export function FatherHomeScreen() {
   const insets = useSafeAreaInsets();
   const [refreshing, setRefreshing] = useState(false);
   const [linkSheetVisible, setLinkSheetVisible] = useState(false);
+  const [selectedSonId, setSelectedSonId] = useState<string | null>(null);
 
   const hasSons = MOCK_SONS.length > 0;
 
@@ -215,8 +224,8 @@ export function FatherHomeScreen() {
     setTimeout(() => setRefreshing(false), 1200);
   };
 
-  const handleSonPress = (_sonId: string) => {
-    // TODO: Navigate to SonProgressDetail when navigation is wired
+  const handleSonPress = (sonId: string) => {
+    setSelectedSonId(sonId);
   };
 
   const handleRequestSent = () => {
@@ -284,6 +293,19 @@ export function FatherHomeScreen() {
         onClose={() => setLinkSheetVisible(false)}
         onRequestSent={handleRequestSent}
       />
+
+      {/* Son Progress Detail — shown when a son card is tapped */}
+      {selectedSonId !== null && (
+        <View style={StyleSheet.absoluteFillObject}>
+          <SonProgressScreen
+            sonId={selectedSonId}
+            onBack={() => setSelectedSonId(null)}
+            onCreateGoal={() => {
+              Alert.alert(ar.father.createNewGoal, 'قريباً');
+            }}
+          />
+        </View>
+      )}
     </SafeAreaView>
   );
 }
