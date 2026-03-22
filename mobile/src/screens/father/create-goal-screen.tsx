@@ -733,7 +733,7 @@ const styles = StyleSheet.create({
   headerSubmitBtn: {
     width: 48,
     height: 40,
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   submitText: {
@@ -747,7 +747,7 @@ const styles = StyleSheet.create({
   backBtn: {
     width: 48,
     height: 40,
-    alignItems: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   backArrow: {
@@ -794,7 +794,7 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.regular,
     fontSize: 11,
     lineHeight: 16,
-    textAlign: 'left',
+    textAlign: 'right',
   },
   stageGroupCard: {
     marginHorizontal: spacing.lg,
