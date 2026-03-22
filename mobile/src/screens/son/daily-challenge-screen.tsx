@@ -44,7 +44,7 @@ interface DailyChallengeScreenProps {
   hoursUntilNext?: number;
 }
 
-// ─── Mock question from previously learned Seerah content ─────────
+// ─── Mock question (TODO: replace with POST /daily-challenge/submit server-side validation) ──
 const MOCK_QUESTION: McqQuestion = {
   id: 'daily-mock-1',
   type: 'mcq',
@@ -592,7 +592,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xxl,
     paddingVertical: spacing.lg,
     borderRadius: radius.md,
-    backgroundColor: 'rgba(212, 168, 67, 0.12)',
+    backgroundColor: colors.desertGoldGlowLight,
     borderWidth: 2,
     borderColor: colors.desertGold,
     ...shadows.medium,
@@ -619,7 +619,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xxl,
     paddingVertical: spacing.lg,
     borderRadius: radius.md,
-    backgroundColor: 'rgba(224, 85, 85, 0.1)',
+    backgroundColor: colors.errorRedLight,
     borderWidth: 1,
     borderColor: colors.errorRed,
     gap: spacing.sm,
@@ -661,7 +661,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xl,
     paddingVertical: spacing.sm,
     borderRadius: radius.sm,
-    backgroundColor: 'rgba(224, 85, 85, 0.15)',
+    backgroundColor: colors.errorRedBgMedium,
     borderWidth: 1,
     borderColor: colors.errorRed,
   },
@@ -677,7 +677,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xxl,
     paddingVertical: spacing.xxxl,
     borderRadius: radius.lg,
-    backgroundColor: 'rgba(76, 175, 110, 0.1)',
+    backgroundColor: colors.successGreenLight,
     borderWidth: 1,
     borderColor: colors.successGreen,
     marginHorizontal: spacing.lg,
@@ -721,7 +721,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.xxl,
     paddingVertical: spacing.lg,
     borderRadius: radius.md,
-    backgroundColor: 'rgba(212, 168, 67, 0.15)',
+    backgroundColor: colors.desertGoldGlowSubtle,
     borderWidth: 1.5,
     borderColor: colors.desertGold,
     alignItems: 'center',
