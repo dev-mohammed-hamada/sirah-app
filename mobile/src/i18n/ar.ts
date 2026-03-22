@@ -222,6 +222,20 @@ export const ar = {
     createGoalFor: 'إنشاء هدف لـ',
   },
 
+  // Daily Challenge
+  dailyChallenge: {
+    title: 'تحدي اليوم',
+    xpReward: '+١٥ نقطة خبرة — تحدي يومي',
+    streakConfirmed: 'سلسلتك مستمرة!',
+    tryTomorrow: 'حاول غداً!',
+    timeExpired: 'انتهى الوقت!',
+    completedToday: 'أكملت تحدي اليوم',
+    comeBackTomorrow: 'عد غداً لتحدٍ جديد',
+    nextChallengeIn: 'التحدي القادم بعد',
+    hours: 'ساعات',
+    back: 'عودة',
+  },
+
   // Stage Flow
   stageFlow: {
     stageLabel: 'المرحلة',
