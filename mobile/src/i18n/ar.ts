@@ -119,10 +119,21 @@ export const ar = {
   progress: {
     title: 'تقدمي',
     totalXp: 'نقاط الخبرة',
-    currentStreak: 'أيام متتالية',
-    totalStars: 'مجموع النجوم',
+    currentStreak: 'أيام متواصلة',
+    totalStars: 'النجوم',
     stagesCompleted: 'مراحل مكتملة',
-    weeklyActivity: 'النشاط الأسبوعي',
+    weeklyActivity: 'نشاطك هذا الأسبوع',
+    stages: 'المراحل',
+    now: 'الآن',
+    dayLabels: {
+      sat: 'سبت',
+      sun: 'أحد',
+      mon: 'اثنين',
+      tue: 'ثلاثاء',
+      wed: 'أربعاء',
+      thu: 'خميس',
+      fri: 'جمعة',
+    },
   },
 
   // Goals
