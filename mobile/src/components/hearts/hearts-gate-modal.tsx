@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn, SlideInDown } from 'react-native-reanimated';
-import { colors, spacing, radius, shadows } from '../../theme';
+import { colors, spacing, radius, shadows, typography, fontFamily } from '../../theme';
 import { AppText } from '../ui/app-text';
 import { PrimaryButton } from '../ui/primary-button';
 import { RefillCountdown } from './refill-countdown';
@@ -64,13 +64,12 @@ const styles = StyleSheet.create({
     width: '85%',
   },
   title: {
-    fontSize: 24,
-    fontWeight: '700',
+    ...typography.h2,
     color: colors.errorRed,
     textAlign: 'center',
   },
   subtitle: {
-    fontSize: 14,
+    ...typography.body,
     color: colors.mutedGray,
     textAlign: 'center',
   },
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.sm,
   },
   linkText: {
-    fontSize: 14,
+    ...typography.body,
     color: colors.mutedGray,
     textDecorationLine: 'underline',
     textAlign: 'center',

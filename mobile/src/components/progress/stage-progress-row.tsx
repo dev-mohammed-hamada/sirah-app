@@ -9,7 +9,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import { AppText } from '../ui/app-text';
-import { colors, spacing, radius } from '../../theme';
+import { colors, spacing, radius, fontFamily } from '../../theme';
 import { ar } from '../../i18n/ar';
 
 export type StageProgressStatus = 'completed' | 'current' | 'locked';
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   row: {
     height: 64,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(138, 138, 138, 0.2)',
+    borderBottomColor: colors.mutedGrayLight,
     justifyContent: 'center',
     paddingHorizontal: spacing.lg,
     borderRadius: radius.sm,
@@ -190,10 +190,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.desertGold,
   },
   numberCircleLocked: {
-    backgroundColor: 'rgba(138, 138, 138, 0.2)',
+    backgroundColor: colors.mutedGrayLight,
   },
   numberText: {
-    fontFamily: 'Cairo_700Bold',
+    fontFamily: fontFamily.bold,
     fontSize: 16,
     textAlign: 'center',
   },
@@ -209,21 +209,21 @@ const styles = StyleSheet.create({
   nowBadge: {
     backgroundColor: colors.desertGold,
     paddingHorizontal: spacing.sm,
-    paddingVertical: 2,
+    paddingVertical: spacing.xs,
     borderRadius: radius.full,
   },
   nowBadgeText: {
-    fontFamily: 'Cairo_600SemiBold',
+    fontFamily: fontFamily.semiBold,
     fontSize: 10,
     textAlign: 'center',
   },
   endArea: {
     alignItems: 'flex-end',
-    gap: 2,
+    gap: spacing.xs,
   },
   starsRow: {
     flexDirection: 'row',
-    gap: 2,
+    gap: spacing.xs,
   },
   star: {
     fontSize: 12,

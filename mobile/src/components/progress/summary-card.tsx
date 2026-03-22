@@ -9,13 +9,13 @@ import Animated, {
 } from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AppText } from '../ui/app-text';
-import { colors, spacing, radius, shadows } from '../../theme';
+import { colors, spacing, radius, shadows, fontFamily } from '../../theme';
 
 interface SummaryCardProps {
   icon: string;
   value: string;
   label: string;
-  gradientColors: readonly [string, string, ...string[]];
+  gradientColors: [string, string, ...string[]];
   index: number;
   numericValue?: number;
   /** Extra content rendered below the label */
@@ -93,7 +93,7 @@ export function SummaryCard({
   return (
     <Animated.View style={[styles.cardWrapper, slideStyle]}>
       <LinearGradient
-        colors={gradientColors as unknown as [string, string, ...string[]]}
+        colors={gradientColors}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.card}
@@ -104,7 +104,7 @@ export function SummaryCard({
         <AppText style={styles.value} color={colors.starlightWhite}>
           {displayText}
         </AppText>
-        <AppText style={styles.label} color="rgba(255, 248, 240, 0.8)">
+        <AppText style={styles.label} color={colors.starlightWhiteDimmer}>
           {label}
         </AppText>
         {children}
@@ -136,13 +136,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   value: {
-    fontFamily: 'Cairo_900Black',
+    fontFamily: fontFamily.black,
     fontSize: 32,
     lineHeight: 38,
     textAlign: 'right',
   },
   label: {
-    fontFamily: 'Cairo_400Regular',
+    fontFamily: fontFamily.regular,
     fontSize: 12,
     lineHeight: 18,
     textAlign: 'right',

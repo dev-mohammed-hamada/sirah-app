@@ -10,7 +10,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import { AppText } from '../ui/app-text';
-import { colors, spacing, radius } from '../../theme';
+import { colors, spacing, radius, fontFamily } from '../../theme';
 
 interface DayData {
   label: string;
@@ -138,22 +138,22 @@ const styles = StyleSheet.create({
     minHeight: 4,
   },
   barEmpty: {
-    backgroundColor: 'rgba(138, 138, 138, 0.2)',
+    backgroundColor: colors.mutedGrayLight,
   },
   barToday: {
-    backgroundColor: '#E8C36A',
+    backgroundColor: colors.desertGoldLight,
     shadowColor: colors.desertGold,
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 0 },
     elevation: 4,
   },
   dayLabel: {
-    fontFamily: 'Cairo_400Regular',
+    fontFamily: fontFamily.regular,
     fontSize: 11,
     lineHeight: 15,
     textAlign: 'center',
   },
   dayLabelToday: {
-    fontFamily: 'Cairo_700Bold',
+    fontFamily: fontFamily.bold,
   },
 });

@@ -14,4 +14,19 @@ export const gradients = {
     start: { x: 0, y: 0 },
     end: { x: 1, y: 1 },
   },
+  xpCard: {
+    colors: ['#D4A843', '#E8C36A'],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+  },
+  streakCard: {
+    colors: ['#E8734A', '#F09060'],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+  },
+  starsCard: {
+    colors: ['#4A2D6B', '#6B4A8B'],
+    start: { x: 0, y: 0 },
+    end: { x: 1, y: 1 },
+  },
 } as const;
