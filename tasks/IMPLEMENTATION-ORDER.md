@@ -18,7 +18,7 @@ Ordered by dependency chain — each task builds on what came before.
 | 22  | Hearts System                  | HIGH     | done    | 07, 08     |
 | 12  | Daily Challenge                | MEDIUM   | pending | 08, 00     |
 | 10  | Progress Screen                | MEDIUM   | done    | 04         |
-| 11  | Goals Screen (Son)             | MEDIUM   | pending | 04         |
+| 11  | Goals Screen (Son)             | MEDIUM   | done    | 04         |
 | 13  | Awards / Badges Screens        | LOW      | pending | 10         |
 | 14  | Settings (Son)                 | MEDIUM   | pending | 23         |
 | 15  | Link Request Screen            | MEDIUM   | pending | 01         |
