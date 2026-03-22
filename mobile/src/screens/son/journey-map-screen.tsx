@@ -9,6 +9,7 @@ import { StageNode, StageStatus } from '../../components/journey/stage-node';
 import { StageDetailSheet, StageDetailData } from '../../components/journey/stage-detail-sheet';
 import { StageFlowScreen } from './stage-flow-screen';
 import { DailyChallengeScreen } from './daily-challenge-screen';
+import { LinkRequestModal } from '../../components/link-request';
 
 // ─── Mock Data (will come from API later) ────────────────────────
 interface StageData {
@@ -143,6 +144,8 @@ const MOCK_USER = {
   xp: 340,
 };
 
+const MOCK_FATHER_NAME = 'أحمد محمد';
+
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 // ─── Stars (twinkling background dots) ───────────────────────────
@@ -188,6 +191,8 @@ export function JourneyMapScreen() {
   const [selectedStage, setSelectedStage] = React.useState<StageDetailData | null>(null);
   const [activeStageId, setActiveStageId] = React.useState<string | null>(null);
   const [showDailyChallenge, setShowDailyChallenge] = React.useState(false);
+  // TODO: check pending requests via GET /users/link-requests on mount
+  const [showLinkRequest, setShowLinkRequest] = React.useState(true);
 
   // Reverse stages for bottom-to-top display (earliest at bottom)
   const stagesBottomUp = [...MOCK_STAGES].reverse();
@@ -349,6 +354,13 @@ export function JourneyMapScreen() {
         hearts={MOCK_USER.hearts}
         onDismiss={handleDismissSheet}
         onStartStage={handleStartStage}
+      />
+
+      <LinkRequestModal
+        visible={showLinkRequest}
+        fatherName={MOCK_FATHER_NAME}
+        onAccept={() => setShowLinkRequest(false)}
+        onDecline={() => setShowLinkRequest(false)}
       />
     </View>
   );
