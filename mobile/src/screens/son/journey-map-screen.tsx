@@ -7,6 +7,7 @@ import { JourneyStatusBar } from '../../components/journey/status-bar';
 import { DailyBanner } from '../../components/journey/daily-banner';
 import { StageNode, StageStatus } from '../../components/journey/stage-node';
 import { StageDetailSheet, StageDetailData } from '../../components/journey/stage-detail-sheet';
+import { StageFlowScreen } from './stage-flow-screen';
 
 // ─── Mock Data (will come from API later) ────────────────────────
 interface StageData {
@@ -184,6 +185,7 @@ export function JourneyMapScreen() {
   const [refreshing, setRefreshing] = React.useState(false);
   const [showDailyBanner, setShowDailyBanner] = React.useState(true);
   const [selectedStage, setSelectedStage] = React.useState<StageDetailData | null>(null);
+  const [activeStageId, setActiveStageId] = React.useState<string | null>(null);
 
   // Reverse stages for bottom-to-top display (earliest at bottom)
   const stagesBottomUp = [...MOCK_STAGES].reverse();
@@ -230,13 +232,18 @@ export function JourneyMapScreen() {
     setSelectedStage(null);
   }, []);
 
-  const handleStartStage = useCallback((_stageId: string) => {
-    // Will navigate to Narrator Welcome (task 06)
+  const handleStartStage = useCallback((stageId: string) => {
+    setSelectedStage(null);
+    setActiveStageId(stageId);
   }, []);
 
   const handleDailyPress = useCallback(() => {
     // Will navigate to Daily Challenge (task 12)
   }, []);
+
+  if (activeStageId) {
+    return <StageFlowScreen stageId={activeStageId} onComplete={() => setActiveStageId(null)} />;
+  }
 
   return (
     <View style={styles.root}>
