@@ -461,7 +461,7 @@ const styles = StyleSheet.create({
   particlesAnchor: {
     position: 'absolute',
     top: 50,
-    start: '50%',
+    alignSelf: 'center',
     width: 0,
     height: 0,
   },
@@ -480,10 +480,10 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
   },
   labelEnd: {
-    textAlign: 'right',
+    textAlign: 'center',
   },
   labelStart: {
-    textAlign: 'right',
+    textAlign: 'center',
   },
   title: {
     textAlign: 'center',
