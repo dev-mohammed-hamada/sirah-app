@@ -29,7 +29,11 @@ export function ToggleSwitch({ value, onValueChange, disabled = false }: ToggleS
   }, [value]);
 
   const trackStyle = useAnimatedStyle(() => ({
-    backgroundColor: interpolateColor(progress.value, [0, 1], ['#D1D1D6', colors.desertGold]),
+    backgroundColor: interpolateColor(
+      progress.value,
+      [0, 1],
+      [colors.toggleGray, colors.desertGold],
+    ),
   }));
 
   const thumbStyle = useAnimatedStyle(() => ({
@@ -67,8 +71,8 @@ const styles = StyleSheet.create({
     width: THUMB_SIZE,
     height: THUMB_SIZE,
     borderRadius: THUMB_SIZE / 2,
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000',
+    backgroundColor: colors.white,
+    shadowColor: colors.shadowBlack,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.15,
     shadowRadius: 2,

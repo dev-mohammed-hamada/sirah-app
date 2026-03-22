@@ -14,14 +14,10 @@ import Animated, {
 import { colors, spacing, radius, shadows, fontFamily } from '../../theme';
 import { AppText } from '../ui/app-text';
 import { ar } from '../../i18n/ar';
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 
 if (Platform.OS === 'android' && UIManager.setLayoutAnimationEnabledExperimental) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
-}
-
-// ─── Arabic number helper ────────────────────────────────────────
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
 }
 
 // ─── Types ───────────────────────────────────────────────────────
@@ -241,7 +237,7 @@ export function GoalCard({ goal, index }: GoalCardProps) {
 const cardStyles = StyleSheet.create({
   card: {
     backgroundColor: colors.warmSand,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     padding: spacing.lg,
     ...shadows.soft,
   },

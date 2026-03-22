@@ -82,7 +82,7 @@ export function StageNode({
           {/* Mini narrator next to current */}
           {status === 'current' && (
             <View style={styles.miniNarrator}>
-              <NarratorSilhouette scale={0.35} color="rgba(255,255,255,0.6)" />
+              <NarratorSilhouette scale={0.35} color={colors.whiteStrong} />
             </View>
           )}
 
@@ -131,9 +131,9 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   nodeLocked: {
-    backgroundColor: 'rgba(138, 138, 138, 0.3)',
+    backgroundColor: colors.mutedGrayMedium,
     borderWidth: 2,
-    borderColor: 'rgba(138, 138, 138, 0.4)',
+    borderColor: colors.mutedGrayStrong,
   },
   nodeIcon: {
     fontSize: 22,
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     color: colors.starlightWhite,
     textAlign: 'center',
     marginTop: 6,
-    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowColor: colors.overlayMedium,
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 4,
   },

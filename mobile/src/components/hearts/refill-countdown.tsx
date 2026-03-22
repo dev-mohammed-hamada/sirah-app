@@ -4,18 +4,12 @@ import { colors, spacing } from '../../theme';
 import { AppText } from '../ui/app-text';
 import { ar } from '../../i18n/ar';
 import { useHeartsStore } from '../../stores/hearts-store';
-
-function toArabicNumeral(n: number): string {
-  return String(n).replace(
-    /[0-9]/g,
-    (d) => '\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669'[parseInt(d)],
-  );
-}
+import { toAr } from '../../utils/arabic-numerals';
 
 function formatCountdown(totalSeconds: number): string {
   const mins = Math.floor(totalSeconds / 60);
   const secs = totalSeconds % 60;
-  return `${toArabicNumeral(mins)}:${toArabicNumeral(secs).padStart(2, '\u0660')}`;
+  return `${toAr(mins)}:${toAr(secs).padStart(2, '\u0660')}`;
 }
 
 interface RefillCountdownProps {

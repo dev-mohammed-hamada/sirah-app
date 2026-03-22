@@ -55,7 +55,11 @@ export function InputField({
         borderColor: colors.successGreen,
       };
     }
-    const borderColor = interpolateColor(focusAnim.value, [0, 1], ['#E0D5C5', colors.desertGold]);
+    const borderColor = interpolateColor(
+      focusAnim.value,
+      [0, 1],
+      [colors.sandTrack, colors.desertGold],
+    );
     return { borderColor };
   });
 
@@ -118,9 +122,9 @@ const styles = StyleSheet.create({
   },
   container: {
     height: 52,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.white,
     borderWidth: 1.5,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: spacing.lg,

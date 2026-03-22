@@ -62,7 +62,7 @@ export function SettingRow(props: SettingRowProps) {
 const styles = StyleSheet.create({
   wrapper: {
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(0, 0, 0, 0.06)',
+    borderBottomColor: colors.overlayLight,
   },
   container: {
     height: 56,
@@ -87,6 +87,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   pressed: {
-    backgroundColor: 'rgba(0, 0, 0, 0.03)',
+    backgroundColor: colors.overlayFaint,
   },
 });

@@ -139,7 +139,7 @@ export function StageDetailSheet({
           {/* Hero */}
           <Animated.View style={[styles.hero, heroParallaxStyle]}>
             <LinearGradient
-              colors={['rgba(212, 168, 67, 0.2)', 'rgba(74, 45, 107, 0.2)']}
+              colors={[colors.desertGoldGlow20, colors.royalPurpleGlow]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
               style={StyleSheet.absoluteFill}
@@ -215,7 +215,7 @@ export function StageDetailSheet({
 const styles = StyleSheet.create({
   backdrop: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: colors.overlayHeavy,
   },
   sheet: {
     position: 'absolute',
@@ -223,15 +223,15 @@ const styles = StyleSheet.create({
     start: 0,
     end: 0,
     backgroundColor: colors.warmSand,
-    borderTopStartRadius: radius.lg,
-    borderTopEndRadius: radius.lg,
+    borderTopStartRadius: radius.xxl,
+    borderTopEndRadius: radius.xxl,
     ...shadows.strong,
     overflow: 'hidden',
   },
   handle: {
     width: 36,
     height: 4,
-    backgroundColor: 'rgba(138, 138, 138, 0.4)',
+    backgroundColor: colors.mutedGrayStrong,
     borderRadius: 2,
     alignSelf: 'center',
     marginTop: 10,
@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
     marginVertical: spacing.xs,
   },
   perfectBadge: {
-    backgroundColor: 'rgba(212, 168, 67, 0.15)',
+    backgroundColor: colors.desertGoldGlowSubtle,
     paddingVertical: spacing.xs,
     paddingHorizontal: spacing.lg,
     borderRadius: radius.full,

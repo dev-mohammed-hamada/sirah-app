@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
   modal: {
     backgroundColor: colors.starlightWhite,
-    borderRadius: radius.lg,
+    borderRadius: radius.xxl,
     padding: spacing.xxl,
     marginHorizontal: spacing.xxl,
     alignItems: 'center',

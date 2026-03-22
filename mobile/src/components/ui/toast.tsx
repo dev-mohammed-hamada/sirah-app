@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     end: spacing.xl,
     paddingVertical: spacing.md,
     paddingHorizontal: spacing.lg,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     alignItems: 'center',
     zIndex: 1000,
     ...shadows.medium,

@@ -9,8 +9,12 @@ export const spacing = {
 } as const;
 
 export const radius = {
-  sm: 12,
-  md: 16,
-  lg: 24,
-  full: 9999,
+  xs: 4, // small badges, mini elements
+  sm: 8, // input fields, small cards
+  md: 12, // standard cards
+  lg: 16, // large cards, modals
+  xl: 20, // hero cards
+  xxl: 24, // bottom sheets
+  pill: 32, // pill buttons, filter tabs
+  full: 9999, // circles
 } as const;

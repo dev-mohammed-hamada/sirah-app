@@ -32,7 +32,7 @@ export function QuestionCard({ questionText }: QuestionCardProps) {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.warmSand,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     paddingVertical: spacing.lg,
     paddingHorizontal: spacing.lg,
     marginHorizontal: spacing.lg,

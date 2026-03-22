@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   },
   quoteBubble: {
     backgroundColor: colors.starlightWhite,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     borderWidth: 2,
     borderColor: colors.desertGold,
     padding: spacing.xl,
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     height: 52,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     borderWidth: 1.5,
     borderColor: colors.sandTrack,
     paddingHorizontal: spacing.lg,
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   silhouetteLight: {
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: colors.whiteSoft,
   },
   silHead: {
     width: 10,

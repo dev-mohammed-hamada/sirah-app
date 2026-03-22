@@ -13,6 +13,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { colors } from '../../theme';
 import { AppText } from '../ui/app-text';
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
@@ -20,10 +21,6 @@ const RING_SIZE = 80;
 const STROKE_WIDTH = 4;
 const RADIUS = (RING_SIZE - STROKE_WIDTH) / 2;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
-}
 
 interface CountdownRingProps {
   duration: number;

@@ -29,6 +29,7 @@ import { SpeedTimer } from '../../components/question/speed-timer';
 import { HeartsDepletionModal } from '../../components/question/hearts-depletion-modal';
 import { HeartsDisplay } from '../../components/hearts/hearts-display';
 import { ar } from '../../i18n/ar';
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 import type { Question } from '../../components/question/question-types';
 
 const SPEED_BONUS_THRESHOLD_MS = 8000; // 8 seconds for speed bonus
@@ -56,11 +57,6 @@ interface FinalQuizScreenProps {
   onComplete: (result: QuizResult) => void;
   onHeartsEmpty: () => void;
   onBackToMap: () => void;
-}
-
-// ─── Arabic number helper ────────────────────────────────────────
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
 }
 
 export function FinalQuizScreen({
@@ -518,7 +514,7 @@ const styles = StyleSheet.create({
   },
   cardBorder: {
     marginHorizontal: spacing.lg,
-    borderRadius: radius.md + 2,
+    borderRadius: radius.lg + 2,
     padding: 2,
     backgroundColor: colors.royalPurple,
     ...shadows.medium,

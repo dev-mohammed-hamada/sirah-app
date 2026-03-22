@@ -61,7 +61,7 @@ export function SecondaryButton({
 const styles = StyleSheet.create({
   button: {
     height: 48,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     borderWidth: 2,
     borderColor: colors.desertGold,
     justifyContent: 'center',

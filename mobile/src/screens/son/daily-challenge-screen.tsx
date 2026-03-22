@@ -25,12 +25,8 @@ import { ArrangeOptions } from '../../components/question/arrange-options';
 import { AnswerFeedback } from '../../components/question/answer-feedback';
 import { CountdownRing } from '../../components/daily-challenge/countdown-ring';
 import { ar } from '../../i18n/ar';
+import { toAr as toArabicNumeral } from '../../utils/arabic-numerals';
 import type { McqQuestion } from '../../components/question/question-types';
-
-// ─── Arabic numeral helper ────────────────────────────────────────
-function toArabicNumeral(n: number): string {
-  return String(n).replace(/[0-9]/g, (d) => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
-}
 
 // ─── Challenge states ─────────────────────────────────────────────
 type ChallengeState = 'active' | 'correct' | 'wrong' | 'expired' | 'already_done';
@@ -551,7 +547,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xxl,
   },
   goldenBorder: {
-    borderRadius: radius.md + 2,
+    borderRadius: radius.lg + 2,
     borderWidth: 2,
     borderColor: colors.desertGold,
     ...shadows.medium,
@@ -591,7 +587,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: spacing.xxl,
     paddingVertical: spacing.lg,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     backgroundColor: colors.desertGoldGlowLight,
     borderWidth: 2,
     borderColor: colors.desertGold,
@@ -618,7 +614,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: spacing.xxl,
     paddingVertical: spacing.lg,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     backgroundColor: colors.errorRedLight,
     borderWidth: 1,
     borderColor: colors.errorRed,
@@ -660,7 +656,7 @@ const styles = StyleSheet.create({
   expiredBadge: {
     paddingHorizontal: spacing.xl,
     paddingVertical: spacing.sm,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     backgroundColor: colors.errorRedBgMedium,
     borderWidth: 1,
     borderColor: colors.errorRed,
@@ -676,7 +672,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: spacing.xxl,
     paddingVertical: spacing.xxxl,
-    borderRadius: radius.lg,
+    borderRadius: radius.xxl,
     backgroundColor: colors.successGreenLight,
     borderWidth: 1,
     borderColor: colors.successGreen,
@@ -720,7 +716,7 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing.lg,
     marginTop: spacing.xxl,
     paddingVertical: spacing.lg,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     backgroundColor: colors.desertGoldGlowSubtle,
     borderWidth: 1.5,
     borderColor: colors.desertGold,

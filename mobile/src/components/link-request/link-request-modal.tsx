@@ -424,7 +424,7 @@ function DeclineButton({ title, onPress }: DeclineButtonProps) {
 const styles = StyleSheet.create({
   backdrop: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: colors.overlayMedium,
   },
   centeredContainer: {
     flex: 1,
@@ -434,7 +434,7 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: colors.starlightWhite,
-    borderRadius: radius.lg,
+    borderRadius: radius.xxl,
     ...shadows.strong,
     width: '100%',
     maxWidth: 320,
@@ -512,7 +512,7 @@ const styles = StyleSheet.create({
   },
   declineBtn: {
     height: 48,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     borderWidth: 1.5,
     borderColor: colors.mutedGray,
     justifyContent: 'center',

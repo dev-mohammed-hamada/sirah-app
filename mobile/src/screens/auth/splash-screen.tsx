@@ -203,7 +203,7 @@ export function SplashScreen({ navigation }: Props) {
   return (
     <Animated.View style={[styles.container, screenStyle]}>
       <LinearGradient
-        colors={[colors.deepNightBlue, '#2A3A5C', colors.royalPurple]}
+        colors={[colors.deepNightBlue, colors.deepNightBlueMid, colors.royalPurple]}
         locations={[0, 0.4, 1]}
         style={StyleSheet.absoluteFill}
       />
@@ -230,7 +230,7 @@ export function SplashScreen({ navigation }: Props) {
 
       {/* Narrator silhouette */}
       <Animated.View style={[styles.narratorContainer, narratorStyle]}>
-        <NarratorSilhouette scale={1} color="#1A1A2E" />
+        <NarratorSilhouette scale={1} color={colors.nightBlack} />
       </Animated.View>
 
       {/* Dunes */}
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     color: colors.starlightWhite,
     textAlign: 'center',
-    textShadowColor: 'rgba(212, 168, 67, 0.4)',
+    textShadowColor: colors.desertGoldGlow40,
     textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 20,
   },
@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
   flame: {
     width: 30,
     height: 50,
-    backgroundColor: '#FF9900',
+    backgroundColor: colors.flameOrange,
     borderRadius: 15,
     position: 'absolute',
     bottom: 20,
@@ -294,7 +294,7 @@ const styles = StyleSheet.create({
   flameInner: {
     width: 20,
     height: 35,
-    backgroundColor: '#FFCC00',
+    backgroundColor: colors.flameYellow,
     borderRadius: 10,
     position: 'absolute',
     bottom: 22,
@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
     bottom: -20,
     width: 200,
     height: 100,
-    backgroundColor: 'rgba(255, 153, 0, 0.3)',
+    backgroundColor: colors.flameOrangeGlowMedium,
     borderRadius: 100,
   },
   logs: {
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
   log: {
     width: 28,
     height: 8,
-    backgroundColor: '#654321',
+    backgroundColor: colors.logBrown,
     borderRadius: 4,
   },
   narratorContainer: {

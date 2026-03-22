@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
   button: {
     flex: 1,
     height: 64,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,
     borderWidth: 1.5,
     justifyContent: 'center',
     alignItems: 'center',
