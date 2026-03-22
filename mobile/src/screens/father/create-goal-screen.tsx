@@ -492,7 +492,7 @@ export function CreateGoalScreen({ navigation, route }: CreateGoalScreenProps) {
   };
 
   const handleSubmit = () => {
-    // TODO: wire to API
+    // TODO: wire to POST /goals when API is ready
     navigation.goBack();
   };
 
@@ -587,13 +587,13 @@ export function CreateGoalScreen({ navigation, route }: CreateGoalScreenProps) {
           <FieldWrapper label={ar.father.stageGroupLabel}>
             <View style={styles.stageGroupCard}>
               <AppText style={styles.stageGroupName} color={colors.deepNightBlue}>
-                {'المجموعة الأولى'}
+                {ar.father.stageGroupNameV1}
               </AppText>
               <AppText style={styles.stageGroupMeta} color={colors.mutedGray}>
-                {`${toAr(10)} مراحل`}
+                {ar.father.stageGroupStagesCount}
               </AppText>
               <AppText style={styles.stageGroupPreview} color={colors.mutedGray}>
-                {'عام الفيل، المولد... و٧ أخرى'}
+                {ar.father.stageGroupPreviewV1}
               </AppText>
             </View>
           </FieldWrapper>

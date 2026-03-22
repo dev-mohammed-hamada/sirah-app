@@ -300,6 +300,9 @@ export const ar = {
     discardSubtitle: 'ستفقد البيانات التي أدخلتها',
     discardConfirm: 'تجاهل',
     continueEditing: 'متابعة التعديل',
+    stageGroupNameV1: 'المجموعة الأولى',
+    stageGroupStagesCount: '١٠ مراحل',
+    stageGroupPreviewV1: 'عام الفيل، المولد... و٧ أخرى',
   },
 
   // Daily Challenge

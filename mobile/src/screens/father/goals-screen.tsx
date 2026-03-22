@@ -50,6 +50,7 @@ const MOCK_SONS: Son[] = [
   { id: '2', displayName: 'عبدالله أحمد', initials: 'ع' },
 ];
 
+// TODO: replace with useQuery(() => fetch GET /goals/father) when API is ready
 const MOCK_GOALS: Goal[] = [
   {
     id: 'g1',
